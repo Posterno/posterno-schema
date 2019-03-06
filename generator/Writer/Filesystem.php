@@ -21,7 +21,9 @@ class Filesystem {
 		$adapter         = new Local( $root );
 		$this->flysystem = new Flysystem( $adapter );
 
-		$this->typesListTemplate = new Template( 'types-list.php.twig' );
+		$this->typesListTemplate    = new Template( 'types-list.php.twig' );
+		$this->typeTemplate         = new Template( 'Type.php.twig' );
+		$this->builderClassTemplate = new Template( 'Schema.php.twig' );
 	}
 
 	public function clear() {
@@ -35,4 +37,34 @@ class Filesystem {
 			$this->typesListTemplate->render( [ 'types' => $types->toArray() ] )
 		);
 	}
+
+	public function cloneStaticFiles() {
+		$files = $this->flysystem->listContents( 'generator/templates/static', true );
+
+		foreach ( $files as $file ) {
+			if ( $file['type'] !== 'file' ) {
+				continue;
+			}
+
+			$this->flysystem->put(
+				str_replace( 'generator/templates/static', 'includes/generated', $file['path'] ),
+				$this->flysystem->read( $file['path'] )
+			);
+		}
+	}
+
+	public function createType( Type $type ) {
+		$this->flysystem->put(
+			"includes/generated/{$type->name}.php",
+			$this->typeTemplate->render( [ 'type' => $type ] )
+		);
+	}
+
+	public function createBuilderClass( TypeCollection $types ) {
+		$this->flysystem->put(
+			'includes/generated/Schema.php',
+			$this->builderClassTemplate->render( [ 'types' => $types->toArray() ] )
+		);
+	}
+
 }

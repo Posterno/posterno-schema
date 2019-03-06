@@ -1,5 +1,5 @@
 {
-	"name": "pressmodo/posterno-schema",
+	"name": "posterno/schema",
 	"description": "Pressmodo Scaffold",
 	"type": "wordpress-plugin",
 	"keywords": [
@@ -16,12 +16,12 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"PNO\\": "includes/"
+			"PNO\\SchemaOrg\\": "src"
 		}
 	},
 	"autoload-dev": {
         "psr-4": {
-            "Posterno\\SchemaOrg\\Generator\\": "generator"
+            "PNO\\SchemaOrg\\Generator\\": "generator"
         }
     },
 	"require-dev": {

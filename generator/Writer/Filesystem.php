@@ -1,18 +1,18 @@
 <?php
 
-namespace Posterno\SchemaOrg\Generator\Writer;
+namespace PNO\SchemaOrg\Generator\Writer;
 
 use League\Flysystem\Adapter\Local;
-use Posterno\SchemaOrg\Generator\Type;
+use PNO\SchemaOrg\Generator\Type;
 use League\Flysystem\Filesystem as Flysystem;
-use Posterno\SchemaOrg\Generator\TypeCollection;
+use PNO\SchemaOrg\Generator\TypeCollection;
 
 class Filesystem {
 
 	/** @var \League\Flysystem\Filesystem */
 	protected $flysystem;
 
-	/** @var \Posterno\SchemaOrg\Generator\Writer\Template */
+	/** @var \PNO\SchemaOrg\Generator\Writer\Template */
 	protected $typeTemplate;
 
 	protected $typesListTemplate;
@@ -27,13 +27,13 @@ class Filesystem {
 	}
 
 	public function clear() {
-		$this->flysystem->deleteDir( 'includes/classes' );
-		$this->flysystem->createDir( 'includes/classes' );
+		$this->flysystem->deleteDir( 'includes/generated' );
+		$this->flysystem->createDir( 'includes/generated' );
 	}
 
 	public function createTypesList( TypeCollection $types ) {
 		$this->flysystem->put(
-			'includes/classes/types-list.php',
+			'includes/generated/types-list.php',
 			$this->typesListTemplate->render( [ 'types' => $types->toArray() ] )
 		);
 	}
@@ -47,7 +47,7 @@ class Filesystem {
 			}
 
 			$this->flysystem->put(
-				str_replace( 'generator/templates/static', 'includes/classes', $file['path'] ),
+				str_replace( 'generator/templates/static', 'includes/generated', $file['path'] ),
 				$this->flysystem->read( $file['path'] )
 			);
 		}
@@ -55,14 +55,14 @@ class Filesystem {
 
 	public function createType( Type $type ) {
 		$this->flysystem->put(
-			"includes/classes/{$type->name}.php",
+			"includes/generated/{$type->name}.php",
 			$this->typeTemplate->render( [ 'type' => $type ] )
 		);
 	}
 
 	public function createBuilderClass( TypeCollection $types ) {
 		$this->flysystem->put(
-			'includes/classes/Schema.php',
+			'includes/generated/Schema.php',
 			$this->builderClassTemplate->render( [ 'types' => $types->toArray() ] )
 		);
 	}

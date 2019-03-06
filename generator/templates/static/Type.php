@@ -1,6 +1,6 @@
 <?php
 
-namespace Posterno\SchemaOrg;
+namespace PNO\SchemaOrg;
 
 interface Type
 {

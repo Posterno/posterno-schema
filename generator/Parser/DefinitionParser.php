@@ -1,13 +1,13 @@
 <?php
 
-namespace Posterno\SchemaOrg\Generator\Parser;
+namespace PNO\SchemaOrg\Generator\Parser;
 
 use Symfony\Component\DomCrawler\Crawler;
-use Posterno\SchemaOrg\Generator\Definitions;
-use Posterno\SchemaOrg\Generator\TypeCollection;
-use Posterno\SchemaOrg\Generator\Parser\Tasks\ParseType;
-use Posterno\SchemaOrg\Generator\Parser\Tasks\ParseConstant;
-use Posterno\SchemaOrg\Generator\Parser\Tasks\ParseProperty;
+use PNO\SchemaOrg\Generator\Definitions;
+use PNO\SchemaOrg\Generator\TypeCollection;
+use PNO\SchemaOrg\Generator\Parser\Tasks\ParseType;
+use PNO\SchemaOrg\Generator\Parser\Tasks\ParseConstant;
+use PNO\SchemaOrg\Generator\Parser\Tasks\ParseProperty;
 
 class DefinitionParser {
 

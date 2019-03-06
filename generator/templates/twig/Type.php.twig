@@ -1,6 +1,6 @@
 <?php
 
-namespace Posterno\SchemaOrg;
+namespace PNO\SchemaOrg;
 
 /**
  * {{ type.description | doc(0) }}
@@ -9,7 +9,7 @@ namespace Posterno\SchemaOrg;
 {% if type.parents %}
  *
 {% for parent in type.parents %}
- * @mixin \Posterno\SchemaOrg\{{ parent }}
+ * @mixin \PNO\SchemaOrg\{{ parent }}
 {% endfor %}
 {% endif %}
  */

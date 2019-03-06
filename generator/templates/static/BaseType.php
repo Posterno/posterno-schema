@@ -1,11 +1,11 @@
 <?php
 
-namespace Posterno\SchemaOrg;
+namespace PNO\SchemaOrg;
 
 use DateTime;
 use ReflectionClass;
 use DateTimeInterface;
-use Posterno\SchemaOrg\Exceptions\InvalidProperty;
+use PNO\SchemaOrg\Exceptions\InvalidProperty;
 
 abstract class BaseType implements Type, \ArrayAccess, \JsonSerializable
 {

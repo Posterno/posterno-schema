@@ -1,6 +1,6 @@
 <?php
 
-namespace Posterno\SchemaOrg\Exceptions;
+namespace PNO\SchemaOrg\Exceptions;
 
 use Exception;
 

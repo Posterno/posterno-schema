@@ -1,9 +1,9 @@
 <?php
 
-namespace Posterno\SchemaOrg\Generator;
+namespace PNO\SchemaOrg\Generator;
 
-use Posterno\SchemaOrg\Generator\Writer\Filesystem;
-use Posterno\SchemaOrg\Generator\Parser\DefinitionParser;
+use PNO\SchemaOrg\Generator\Writer\Filesystem;
+use PNO\SchemaOrg\Generator\Parser\DefinitionParser;
 
 class PackageGenerator {
 

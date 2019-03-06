@@ -1,6 +1,6 @@
 <?php
 
-namespace Posterno\SchemaOrg\Generator;
+namespace PNO\SchemaOrg\Generator;
 
 class Property {
 

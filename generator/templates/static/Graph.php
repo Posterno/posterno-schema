@@ -1,15 +1,15 @@
 <?php
 
-namespace Posterno\SchemaOrg;
+namespace PNO\SchemaOrg;
 
 use ReflectionClass;
 use BadMethodCallException;
-use Posterno\SchemaOrg\Exceptions\InvalidType;
-use Posterno\SchemaOrg\Exceptions\TypeNotInGraph;
-use Posterno\SchemaOrg\Exceptions\TypeAlreadyInGraph;
+use PNO\SchemaOrg\Exceptions\InvalidType;
+use PNO\SchemaOrg\Exceptions\TypeNotInGraph;
+use PNO\SchemaOrg\Exceptions\TypeAlreadyInGraph;
 
 /**
- * @mixin \Posterno\SchemaOrg\Schema
+ * @mixin \PNO\SchemaOrg\Schema
  */
 class Graph extends BaseType
 {

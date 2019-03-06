@@ -1,6 +1,6 @@
 <?php
 
-namespace Posterno\SchemaOrg\Generator\Writer;
+namespace PNO\SchemaOrg\Generator\Writer;
 
 class Filters {
 

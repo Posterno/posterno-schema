@@ -1,10 +1,10 @@
 <?php
 
-namespace Posterno\SchemaOrg\Generator\Console;
+namespace PNO\SchemaOrg\Generator\Console;
 
-use Posterno\SchemaOrg\Generator\Definitions;
+use PNO\SchemaOrg\Generator\Definitions;
 use Symfony\Component\Console\Command\Command;
-use Posterno\SchemaOrg\Generator\PackageGenerator;
+use PNO\SchemaOrg\Generator\PackageGenerator;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

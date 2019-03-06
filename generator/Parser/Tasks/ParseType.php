@@ -1,8 +1,8 @@
 <?php
 
-namespace Posterno\SchemaOrg\Generator\Parser\Tasks;
+namespace PNO\SchemaOrg\Generator\Parser\Tasks;
 
-use Posterno\SchemaOrg\Generator\Type;
+use PNO\SchemaOrg\Generator\Type;
 use Symfony\Component\DomCrawler\Crawler;
 
 class ParseType extends Task {

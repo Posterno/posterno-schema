@@ -1,8 +1,8 @@
 <?php
 
-namespace Posterno\SchemaOrg\Generator\Parser\Tasks;
+namespace PNO\SchemaOrg\Generator\Parser\Tasks;
 
-use Posterno\SchemaOrg\Generator\Constant;
+use PNO\SchemaOrg\Generator\Constant;
 use Symfony\Component\DomCrawler\Crawler;
 
 class ParseConstant extends Task {

@@ -10,7 +10,7 @@
 
 namespace PNO\Schema\Admin;
 
-use Posterno\SchemaOrg\Schema;
+use PNO\SchemaOrg\Schema;
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
@@ -51,4 +51,4 @@ function t() {
 	print_r( $localBusiness );
 
 }
-add_action( 'admin_init', __NAMESPACE__ . '\\t' );
+//add_action( 'admin_init', __NAMESPACE__ . '\\t' );

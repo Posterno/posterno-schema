@@ -1,6 +1,6 @@
 <?php
 
-namespace Posterno\SchemaOrg\Generator;
+namespace PNO\SchemaOrg\Generator;
 
 use RuntimeError;
 use Symfony\Component\DomCrawler\Crawler;

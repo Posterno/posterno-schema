@@ -1,6 +1,6 @@
 <?php
 
-namespace Posterno\SchemaOrg\Generator\Writer;
+namespace PNO\SchemaOrg\Generator\Writer;
 
 use Twig_Environment;
 use Twig_SimpleFilter;

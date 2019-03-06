@@ -26,9 +26,17 @@ class Filesystem {
 		$this->builderClassTemplate = new Template( 'Schema.php.twig' );
 	}
 
-	public function clear() {
-		$this->flysystem->deleteDir( 'src' );
-		$this->flysystem->createDir( 'src' );
+	public function clearAutomatedFiles() {
+
+		$contents = $this->flysystem->listContents( 'src', true );
+
+		foreach ( $contents as $object ) {
+			if ( strpos( $object['path'], 'src/Component' ) === 0 ) {
+				continue;
+			} else {
+				$this->flysystem->delete( $object['path'] );
+			}
+		}
 	}
 
 	public function createTypesList( TypeCollection $types ) {

@@ -12,7 +12,7 @@ class PackageGenerator {
 
 		$filesystem = new Filesystem( __DIR__ . '/..' );
 
-		$filesystem->clear();
+		$filesystem->clearAutomatedFiles();
 
 		$filesystem->createTypesList( $types );
 

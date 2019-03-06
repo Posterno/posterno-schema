@@ -1,0 +1,57 @@
+{
+	"name": "posterno-schema",
+	"version": "1.0.0",
+	"description": "Plugin description",
+	"author": "Pressmodo",
+	"license": "GPL-3.0+",
+	"homepage": "https://pressmodo.com",
+	"main": "resources/js/app.js",
+	"scripts": {
+		"build": "npm run prod && npm run i18n && npm run export",
+		"dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"watch:sync": "cross-env sync=1 NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"hot": "cross-env sync=1 NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"prod": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"export": "cross-env export=1 NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"lint": "npm run lint:styles && npm run lint:scripts && npm run lint:php",
+		"lint:styles": "cross-env stylelint './resources/scss/**/*.scss' --syntax scss",
+		"lint:scripts": "cross-env eslint './resources/js/**/*.js'",
+		"lint:php": "cross-env ./vendor/bin/phpcs . --runtime-set testVersion 5.6- -s",
+		"i18n": "npm run i18n:textdomain && npm run i18n:pot",
+		"i18n:textdomain": "npx wpi18n addtextdomain --exclude=vendor,node_modules",
+		"i18n:pot": "npx wpi18n makepot"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Pressmodo/posterno-schema"
+	},
+	"bugs": {
+		"url": "https://github.com/Pressmodo/posterno-schema/issues"
+	},
+	"devDependencies": {
+		"@pressmodo/eslint-config": "^0.2.0",
+		"@pressmodo/stylelint-config": "^0.2.0",
+		"browser-sync": "^2.26.3",
+		"browser-sync-webpack-plugin": "2.2.2",
+		"copy-webpack-plugin": "^4.6.0",
+		"cross-env": "^5.2.0",
+		"eslint": "^5.12.0",
+		"eslint-loader": "^2.0.0",
+		"eslint-config-wordpress": "^2.0.0",
+		"imagemin-mozjpeg": "^6.0.0",
+		"imagemin-webpack-plugin": "^2.4.0",
+		"laravel-mix": "^4.0.14",
+		"lint-staged": "^7.1.2",
+		"node-wp-i18n": "^1.2.2",
+		"postcss-preset-env": "^6.5.0",
+		"rimraf": "^2.6.3",
+		"sass": "^1.16.0",
+		"sass-loader": "^7.1.0",
+		"stylelint": "^9.9.0",
+		"stylelint-config-wordpress": "^13.1.0",
+		"stylelint-declaration-use-variable": "^1.7.0",
+		"stylelint-order": "^1.0.0",
+		"vue-template-compiler": "^2.5.22"
+	}
+}

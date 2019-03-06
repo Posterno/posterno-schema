@@ -1,0 +1,3 @@
+{
+	"extends": "@pressmodo/stylelint-config"
+}

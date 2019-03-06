@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A bus station.
  *
  * @see http://schema.org/BusStation
  *
- * @mixin \Spatie\SchemaOrg\CivicStructure
+ * @mixin \Posterno\SchemaOrg\CivicStructure
  */
 class BusStation extends BaseType
 {

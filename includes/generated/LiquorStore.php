@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A shop that sells alcoholic drinks such as wine, beer, whisky and other
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/LiquorStore
  *
- * @mixin \Spatie\SchemaOrg\Store
+ * @mixin \Posterno\SchemaOrg\Store
  */
 class LiquorStore extends BaseType
 {

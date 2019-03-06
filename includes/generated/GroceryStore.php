@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A grocery store.
  *
  * @see http://schema.org/GroceryStore
  *
- * @mixin \Spatie\SchemaOrg\Store
+ * @mixin \Posterno\SchemaOrg\Store
  */
 class GroceryStore extends BaseType
 {

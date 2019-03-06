@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A reservation to dine at a food-related business.
@@ -11,7 +11,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/FoodEstablishmentReservation
  *
- * @mixin \Spatie\SchemaOrg\Reservation
+ * @mixin \Posterno\SchemaOrg\Reservation
  */
 class FoodEstablishmentReservation extends BaseType
 {

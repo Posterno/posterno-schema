@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The frequency in MHz and the modulation used for a particular
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/BroadcastFrequencySpecification
  *
- * @mixin \Spatie\SchemaOrg\Intangible
+ * @mixin \Posterno\SchemaOrg\Intangible
  */
 class BroadcastFrequencySpecification extends BaseType
 {

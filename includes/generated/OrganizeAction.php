@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of manipulating/administering/supervising/controlling one or more
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/OrganizeAction
  *
- * @mixin \Spatie\SchemaOrg\Action
+ * @mixin \Posterno\SchemaOrg\Action
  */
 class OrganizeAction extends BaseType
 {

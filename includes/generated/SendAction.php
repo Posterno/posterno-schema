@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of physically/electronically dispatching an object for transfer from
@@ -13,7 +13,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/SendAction
  *
- * @mixin \Spatie\SchemaOrg\TransferAction
+ * @mixin \Posterno\SchemaOrg\TransferAction
  */
 class SendAction extends BaseType
 {

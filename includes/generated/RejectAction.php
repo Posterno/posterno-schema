@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of rejecting to/adopting an object.
@@ -11,7 +11,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/RejectAction
  *
- * @mixin \Spatie\SchemaOrg\AllocateAction
+ * @mixin \Posterno\SchemaOrg\AllocateAction
  */
 class RejectAction extends BaseType
 {

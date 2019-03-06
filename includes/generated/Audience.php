@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Intended audience for an item, i.e. the group for whom the item was created.
  *
  * @see http://schema.org/Audience
  *
- * @mixin \Spatie\SchemaOrg\Intangible
+ * @mixin \Posterno\SchemaOrg\Intangible
  */
 class Audience extends BaseType
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A work of art that is primarily visual in character.
  *
  * @see http://schema.org/VisualArtwork
  *
- * @mixin \Spatie\SchemaOrg\CreativeWork
+ * @mixin \Posterno\SchemaOrg\CreativeWork
  */
 class VisualArtwork extends BaseType
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A single, identifiable product instance (e.g. a laptop with a particular
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/IndividualProduct
  *
- * @mixin \Spatie\SchemaOrg\Product
+ * @mixin \Posterno\SchemaOrg\Product
  */
 class IndividualProduct extends BaseType
 {

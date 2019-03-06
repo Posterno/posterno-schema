@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * An electrician.
  *
  * @see http://schema.org/Electrician
  *
- * @mixin \Spatie\SchemaOrg\HomeAndConstructionBusiness
+ * @mixin \Posterno\SchemaOrg\HomeAndConstructionBusiness
  */
 class Electrician extends BaseType
 {

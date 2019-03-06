@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Any branch of a field in which people typically develop specific expertise,
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/Specialty
  *
- * @mixin \Spatie\SchemaOrg\Enumeration
+ * @mixin \Posterno\SchemaOrg\Enumeration
  */
 class Specialty extends BaseType
 {

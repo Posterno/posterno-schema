@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Enumerated for values for itemListOrder for indicating how an ordered
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/ItemListOrderType
  *
- * @mixin \Spatie\SchemaOrg\Enumeration
+ * @mixin \Posterno\SchemaOrg\Enumeration
  */
 class ItemListOrderType extends BaseType
 {

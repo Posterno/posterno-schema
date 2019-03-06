@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A library.
  *
  * @see http://schema.org/Library
  *
- * @mixin \Spatie\SchemaOrg\LocalBusiness
+ * @mixin \Posterno\SchemaOrg\LocalBusiness
  */
 class Library extends BaseType
 {

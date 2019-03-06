@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A trip or journey. An itinerary of visits to one or more places.
  *
  * @see http://schema.org/Trip
  *
- * @mixin \Spatie\SchemaOrg\Intangible
+ * @mixin \Posterno\SchemaOrg\Intangible
  */
 class Trip extends BaseType
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A web page. Every web page is implicitly assumed to be declared to be of type
@@ -11,7 +11,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/WebPage
  *
- * @mixin \Spatie\SchemaOrg\CreativeWork
+ * @mixin \Posterno\SchemaOrg\CreativeWork
  */
 class WebPage extends BaseType
 {

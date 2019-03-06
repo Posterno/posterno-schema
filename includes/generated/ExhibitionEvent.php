@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Event type: Exhibition event, e.g. at a museum, library, archive, tradeshow,
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/ExhibitionEvent
  *
- * @mixin \Spatie\SchemaOrg\Event
+ * @mixin \Posterno\SchemaOrg\Event
  */
 class ExhibitionEvent extends BaseType
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A listing that describes a job opening in a certain organization.
  *
  * @see http://schema.org/JobPosting
  *
- * @mixin \Spatie\SchemaOrg\Intangible
+ * @mixin \Posterno\SchemaOrg\Intangible
  */
 class JobPosting extends BaseType
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The costs of settling the payment using a particular payment method.
  *
  * @see http://schema.org/PaymentChargeSpecification
  *
- * @mixin \Spatie\SchemaOrg\PriceSpecification
+ * @mixin \Posterno\SchemaOrg\PriceSpecification
  */
 class PaymentChargeSpecification extends BaseType
 {

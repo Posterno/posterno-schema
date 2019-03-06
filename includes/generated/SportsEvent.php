@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Event type: Sports event.
  *
  * @see http://schema.org/SportsEvent
  *
- * @mixin \Spatie\SchemaOrg\Event
+ * @mixin \Posterno\SchemaOrg\Event
  */
 class SportsEvent extends BaseType
 {

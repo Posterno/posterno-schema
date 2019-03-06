@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A technical article - Example: How-to (task) topics, step-by-step, procedural
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/TechArticle
  *
- * @mixin \Spatie\SchemaOrg\Article
+ * @mixin \Posterno\SchemaOrg\Article
  */
 class TechArticle extends BaseType
 {

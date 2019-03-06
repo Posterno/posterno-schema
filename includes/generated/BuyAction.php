@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of giving money to a seller in exchange for goods or services
@@ -9,7 +9,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/BuyAction
  *
- * @mixin \Spatie\SchemaOrg\TradeAction
+ * @mixin \Posterno\SchemaOrg\TradeAction
  */
 class BuyAction extends BaseType
 {

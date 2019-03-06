@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A supply consumed when performing the instructions for how to achieve a
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/HowToSupply
  *
- * @mixin \Spatie\SchemaOrg\HowToItem
+ * @mixin \Posterno\SchemaOrg\HowToItem
  */
 class HowToSupply extends BaseType
 {

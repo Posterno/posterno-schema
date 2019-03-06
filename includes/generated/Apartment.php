@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * An apartment (in American English) or flat (in British English) is a
@@ -10,7 +10,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/Apartment
  *
- * @mixin \Spatie\SchemaOrg\Accommodation
+ * @mixin \Posterno\SchemaOrg\Accommodation
  */
 class Apartment extends BaseType
 {

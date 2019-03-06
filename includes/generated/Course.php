@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A description of an educational course which may be offered as distinct
@@ -12,7 +12,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/Course
  *
- * @mixin \Spatie\SchemaOrg\CreativeWork
+ * @mixin \Posterno\SchemaOrg\CreativeWork
  */
 class Course extends BaseType
 {

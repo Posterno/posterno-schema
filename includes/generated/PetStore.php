@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A pet store.
  *
  * @see http://schema.org/PetStore
  *
- * @mixin \Spatie\SchemaOrg\Store
+ * @mixin \Posterno\SchemaOrg\Store
  */
 class PetStore extends BaseType
 {

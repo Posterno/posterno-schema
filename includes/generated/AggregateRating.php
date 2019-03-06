@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The average rating based on multiple ratings or reviews.
  *
  * @see http://schema.org/AggregateRating
  *
- * @mixin \Spatie\SchemaOrg\Rating
+ * @mixin \Posterno\SchemaOrg\Rating
  */
 class AggregateRating extends BaseType
 {

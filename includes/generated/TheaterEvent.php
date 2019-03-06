@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Event type: Theater performance.
  *
  * @see http://schema.org/TheaterEvent
  *
- * @mixin \Spatie\SchemaOrg\Event
+ * @mixin \Posterno\SchemaOrg\Event
  */
 class TheaterEvent extends BaseType
 {

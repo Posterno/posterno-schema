@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A park.
  *
  * @see http://schema.org/Park
  *
- * @mixin \Spatie\SchemaOrg\CivicStructure
+ * @mixin \Posterno\SchemaOrg\CivicStructure
  */
 class Park extends BaseType
 {

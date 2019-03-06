@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A sub-grouping of steps in the instructions for how to achieve a result (e.g.
@@ -8,9 +8,9 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/HowToSection
  *
- * @mixin \Spatie\SchemaOrg\ItemList
- * @mixin \Spatie\SchemaOrg\ListItem
- * @mixin \Spatie\SchemaOrg\CreativeWork
+ * @mixin \Posterno\SchemaOrg\ItemList
+ * @mixin \Posterno\SchemaOrg\ListItem
+ * @mixin \Posterno\SchemaOrg\CreativeWork
  */
 class HowToSection extends BaseType
 {

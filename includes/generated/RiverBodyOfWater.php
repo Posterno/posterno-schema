@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A river (for example, the broad majestic Shannon).
  *
  * @see http://schema.org/RiverBodyOfWater
  *
- * @mixin \Spatie\SchemaOrg\BodyOfWater
+ * @mixin \Posterno\SchemaOrg\BodyOfWater
  */
 class RiverBodyOfWater extends BaseType
 {

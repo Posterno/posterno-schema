@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Event type: Festival.
  *
  * @see http://schema.org/Festival
  *
- * @mixin \Spatie\SchemaOrg\Event
+ * @mixin \Posterno\SchemaOrg\Event
  */
 class Festival extends BaseType
 {

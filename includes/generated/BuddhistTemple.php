@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A Buddhist temple.
  *
  * @see http://schema.org/BuddhistTemple
  *
- * @mixin \Spatie\SchemaOrg\PlaceOfWorship
+ * @mixin \Posterno\SchemaOrg\PlaceOfWorship
  */
 class BuddhistTemple extends BaseType
 {

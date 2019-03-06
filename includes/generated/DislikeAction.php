@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of expressing a negative sentiment about the object. An agent
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/DislikeAction
  *
- * @mixin \Spatie\SchemaOrg\ReactAction
+ * @mixin \Posterno\SchemaOrg\ReactAction
  */
 class DislikeAction extends BaseType
 {

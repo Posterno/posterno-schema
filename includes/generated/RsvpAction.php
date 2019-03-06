@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of notifying an event organizer as to whether you expect to attend
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/RsvpAction
  *
- * @mixin \Spatie\SchemaOrg\InformAction
+ * @mixin \Posterno\SchemaOrg\InformAction
  */
 class RsvpAction extends BaseType
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A value indicating a steering position.
  *
  * @see http://schema.org/SteeringPositionValue
  *
- * @mixin \Spatie\SchemaOrg\QualitativeValue
+ * @mixin \Posterno\SchemaOrg\QualitativeValue
  */
 class SteeringPositionValue extends BaseType
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A musical group, such as a band, an orchestra, or a choir. Can also be a solo
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/MusicGroup
  *
- * @mixin \Spatie\SchemaOrg\PerformingGroup
+ * @mixin \Posterno\SchemaOrg\PerformingGroup
  */
 class MusicGroup extends BaseType
 {

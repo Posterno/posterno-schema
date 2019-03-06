@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A service for a vehicle for hire with a driver for local travel. Fares are
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/TaxiService
  *
- * @mixin \Spatie\SchemaOrg\Service
+ * @mixin \Posterno\SchemaOrg\Service
  */
 class TaxiService extends BaseType
 {

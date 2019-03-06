@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A shop that will buy, or lend money against the security of, personal
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/PawnShop
  *
- * @mixin \Spatie\SchemaOrg\Store
+ * @mixin \Posterno\SchemaOrg\Store
  */
 class PawnShop extends BaseType
 {

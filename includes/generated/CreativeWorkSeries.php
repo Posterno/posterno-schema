@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A CreativeWorkSeries in schema.org is a group of related items, typically but
@@ -23,8 +23,8 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/CreativeWorkSeries
  *
- * @mixin \Spatie\SchemaOrg\CreativeWork
- * @mixin \Spatie\SchemaOrg\Series
+ * @mixin \Posterno\SchemaOrg\CreativeWork
+ * @mixin \Posterno\SchemaOrg\Series
  */
 class CreativeWorkSeries extends BaseType
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A dry-cleaning business.
  *
  * @see http://schema.org/DryCleaningOrLaundry
  *
- * @mixin \Spatie\SchemaOrg\LocalBusiness
+ * @mixin \Posterno\SchemaOrg\LocalBusiness
  */
 class DryCleaningOrLaundry extends BaseType
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A general contractor.
  *
  * @see http://schema.org/GeneralContractor
  *
- * @mixin \Spatie\SchemaOrg\HomeAndConstructionBusiness
+ * @mixin \Posterno\SchemaOrg\HomeAndConstructionBusiness
  */
 class GeneralContractor extends BaseType
 {

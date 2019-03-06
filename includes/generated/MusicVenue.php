@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A music venue.
  *
  * @see http://schema.org/MusicVenue
  *
- * @mixin \Spatie\SchemaOrg\CivicStructure
+ * @mixin \Posterno\SchemaOrg\CivicStructure
  */
 class MusicVenue extends BaseType
 {

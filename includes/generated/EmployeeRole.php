@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A subclass of OrganizationRole used to describe employee relationships.
  *
  * @see http://schema.org/EmployeeRole
  *
- * @mixin \Spatie\SchemaOrg\OrganizationRole
+ * @mixin \Posterno\SchemaOrg\OrganizationRole
  */
 class EmployeeRole extends BaseType
 {

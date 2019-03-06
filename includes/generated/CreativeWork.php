@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The most generic kind of creative work, including books, movies, photographs,
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/CreativeWork
  *
- * @mixin \Spatie\SchemaOrg\Thing
+ * @mixin \Posterno\SchemaOrg\Thing
  */
 class CreativeWork extends BaseType
 {

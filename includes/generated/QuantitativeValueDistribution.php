@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A statistical distribution of values.
  *
  * @see http://schema.org/QuantitativeValueDistribution
  *
- * @mixin \Spatie\SchemaOrg\StructuredValue
+ * @mixin \Posterno\SchemaOrg\StructuredValue
  */
 class QuantitativeValueDistribution extends BaseType
 {

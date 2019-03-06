@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A police station.
  *
  * @see http://schema.org/PoliceStation
  *
- * @mixin \Spatie\SchemaOrg\CivicStructure
- * @mixin \Spatie\SchemaOrg\EmergencyService
+ * @mixin \Posterno\SchemaOrg\CivicStructure
+ * @mixin \Posterno\SchemaOrg\EmergencyService
  */
 class PoliceStation extends BaseType
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of ingesting information/resources/food.
  *
  * @see http://schema.org/ConsumeAction
  *
- * @mixin \Spatie\SchemaOrg\Action
+ * @mixin \Posterno\SchemaOrg\Action
  */
 class ConsumeAction extends BaseType
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Specifies a location feature by providing a structured value representing a
@@ -9,7 +9,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/LocationFeatureSpecification
  *
- * @mixin \Spatie\SchemaOrg\PropertyValue
+ * @mixin \Posterno\SchemaOrg\PropertyValue
  */
 class LocationFeatureSpecification extends BaseType
 {

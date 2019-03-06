@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Enumerated status values for Order.
  *
  * @see http://schema.org/OrderStatus
  *
- * @mixin \Spatie\SchemaOrg\Enumeration
+ * @mixin \Posterno\SchemaOrg\Enumeration
  */
 class OrderStatus extends BaseType
 {

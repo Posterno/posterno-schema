@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A web page element, like a table or an image.
  *
  * @see http://schema.org/WebPageElement
  *
- * @mixin \Spatie\SchemaOrg\CreativeWork
+ * @mixin \Posterno\SchemaOrg\CreativeWork
  */
 class WebPageElement extends BaseType
 {

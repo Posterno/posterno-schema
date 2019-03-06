@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A courthouse.
  *
  * @see http://schema.org/Courthouse
  *
- * @mixin \Spatie\SchemaOrg\GovernmentBuilding
+ * @mixin \Posterno\SchemaOrg\GovernmentBuilding
  */
 class Courthouse extends BaseType
 {

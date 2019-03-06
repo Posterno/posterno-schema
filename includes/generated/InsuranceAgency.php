@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * An Insurance agency.
  *
  * @see http://schema.org/InsuranceAgency
  *
- * @mixin \Spatie\SchemaOrg\FinancialService
+ * @mixin \Posterno\SchemaOrg\FinancialService
  */
 class InsuranceAgency extends BaseType
 {

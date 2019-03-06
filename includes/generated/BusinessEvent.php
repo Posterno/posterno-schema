@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Event type: Business event.
  *
  * @see http://schema.org/BusinessEvent
  *
- * @mixin \Spatie\SchemaOrg\Event
+ * @mixin \Posterno\SchemaOrg\Event
  */
 class BusinessEvent extends BaseType
 {

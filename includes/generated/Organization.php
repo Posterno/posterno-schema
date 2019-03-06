@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * An organization such as a school, NGO, corporation, club, etc.
  *
  * @see http://schema.org/Organization
  *
- * @mixin \Spatie\SchemaOrg\Thing
+ * @mixin \Posterno\SchemaOrg\Thing
  */
 class Organization extends BaseType
 {

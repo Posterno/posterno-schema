@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A lodging business, such as a motel, hotel, or inn.
  *
  * @see http://schema.org/LodgingBusiness
  *
- * @mixin \Spatie\SchemaOrg\LocalBusiness
+ * @mixin \Posterno\SchemaOrg\LocalBusiness
  */
 class LodgingBusiness extends BaseType
 {

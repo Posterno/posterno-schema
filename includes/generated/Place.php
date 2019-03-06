@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Entities that have a somewhat fixed, physical extension.
  *
  * @see http://schema.org/Place
  *
- * @mixin \Spatie\SchemaOrg\Thing
+ * @mixin \Posterno\SchemaOrg\Thing
  */
 class Place extends BaseType
 {

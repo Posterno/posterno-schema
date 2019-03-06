@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A medical organization (physical or not), such as hospital, institution or
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/MedicalOrganization
  *
- * @mixin \Spatie\SchemaOrg\Organization
+ * @mixin \Posterno\SchemaOrg\Organization
  */
 class MedicalOrganization extends BaseType
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * An offer to transfer some rights to an item or to provide a service — for
@@ -17,7 +17,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/Offer
  *
- * @mixin \Spatie\SchemaOrg\Intangible
+ * @mixin \Posterno\SchemaOrg\Intangible
  */
 class Offer extends BaseType
 {

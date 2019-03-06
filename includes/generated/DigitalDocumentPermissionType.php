@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A type of permission which can be granted for accessing a digital document.
  *
  * @see http://schema.org/DigitalDocumentPermissionType
  *
- * @mixin \Spatie\SchemaOrg\Enumeration
+ * @mixin \Posterno\SchemaOrg\Enumeration
  */
 class DigitalDocumentPermissionType extends BaseType
 {

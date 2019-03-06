@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A store that sells mobile phones and related accessories.
  *
  * @see http://schema.org/MobilePhoneStore
  *
- * @mixin \Spatie\SchemaOrg\Store
+ * @mixin \Posterno\SchemaOrg\Store
  */
 class MobilePhoneStore extends BaseType
 {

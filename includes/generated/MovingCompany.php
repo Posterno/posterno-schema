@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A moving company.
  *
  * @see http://schema.org/MovingCompany
  *
- * @mixin \Spatie\SchemaOrg\HomeAndConstructionBusiness
+ * @mixin \Posterno\SchemaOrg\HomeAndConstructionBusiness
  */
 class MovingCompany extends BaseType
 {

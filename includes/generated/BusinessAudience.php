@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A set of characteristics belonging to businesses, e.g. who compose an item's
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/BusinessAudience
  *
- * @mixin \Spatie\SchemaOrg\Audience
+ * @mixin \Posterno\SchemaOrg\Audience
  */
 class BusinessAudience extends BaseType
 {

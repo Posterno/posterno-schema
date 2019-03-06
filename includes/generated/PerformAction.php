@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of participating in performance arts.
  *
  * @see http://schema.org/PerformAction
  *
- * @mixin \Spatie\SchemaOrg\PlayAction
+ * @mixin \Posterno\SchemaOrg\PlayAction
  */
 class PerformAction extends BaseType
 {

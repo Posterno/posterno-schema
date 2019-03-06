@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A [[FAQPage]] is a [[WebPage]] presenting one or more "[Frequently asked
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/FAQPage
  *
- * @mixin \Spatie\SchemaOrg\WebPage
+ * @mixin \Posterno\SchemaOrg\WebPage
  */
 class FAQPage extends BaseType
 {

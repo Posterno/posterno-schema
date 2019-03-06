@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A dataset in downloadable form.
  *
  * @see http://schema.org/DataDownload
  *
- * @mixin \Spatie\SchemaOrg\MediaObject
+ * @mixin \Posterno\SchemaOrg\MediaObject
  */
 class DataDownload extends BaseType
 {

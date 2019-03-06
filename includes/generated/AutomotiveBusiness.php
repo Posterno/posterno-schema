@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Car repair, sales, or parts.
  *
  * @see http://schema.org/AutomotiveBusiness
  *
- * @mixin \Spatie\SchemaOrg\LocalBusiness
+ * @mixin \Posterno\SchemaOrg\LocalBusiness
  */
 class AutomotiveBusiness extends BaseType
 {

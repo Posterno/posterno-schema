@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of generating a comment about a subject.
  *
  * @see http://schema.org/CommentAction
  *
- * @mixin \Spatie\SchemaOrg\CommunicateAction
+ * @mixin \Posterno\SchemaOrg\CommunicateAction
  */
 class CommentAction extends BaseType
 {

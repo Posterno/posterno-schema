@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A file containing slides or used for a presentation.
  *
  * @see http://schema.org/PresentationDigitalDocument
  *
- * @mixin \Spatie\SchemaOrg\DigitalDocument
+ * @mixin \Posterno\SchemaOrg\DigitalDocument
  */
 class PresentationDigitalDocument extends BaseType
 {

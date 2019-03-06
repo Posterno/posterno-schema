@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of participating in an exchange of goods and services for monetary
@@ -9,7 +9,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/TradeAction
  *
- * @mixin \Spatie\SchemaOrg\Action
+ * @mixin \Posterno\SchemaOrg\Action
  */
 class TradeAction extends BaseType
 {

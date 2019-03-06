@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A Workers Union (also known as a Labor Union, Labour Union, or Trade Union)
@@ -9,7 +9,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/WorkersUnion
  *
- * @mixin \Spatie\SchemaOrg\Organization
+ * @mixin \Posterno\SchemaOrg\Organization
  */
 class WorkersUnion extends BaseType
 {

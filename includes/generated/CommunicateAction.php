@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of conveying information to another person via a communication medium
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/CommunicateAction
  *
- * @mixin \Spatie\SchemaOrg\InteractAction
+ * @mixin \Posterno\SchemaOrg\InteractAction
  */
 class CommunicateAction extends BaseType
 {

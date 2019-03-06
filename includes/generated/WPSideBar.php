@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A sidebar section of the page.
  *
  * @see http://schema.org/WPSideBar
  *
- * @mixin \Spatie\SchemaOrg\WebPageElement
+ * @mixin \Posterno\SchemaOrg\WebPageElement
  */
 class WPSideBar extends BaseType
 {

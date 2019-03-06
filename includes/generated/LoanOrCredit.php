@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A financial product for the loaning of an amount of money under agreed terms
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/LoanOrCredit
  *
- * @mixin \Spatie\SchemaOrg\FinancialProduct
+ * @mixin \Posterno\SchemaOrg\FinancialProduct
  */
 class LoanOrCredit extends BaseType
 {

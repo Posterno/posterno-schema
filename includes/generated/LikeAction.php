@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of expressing a positive sentiment about the object. An agent likes
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/LikeAction
  *
- * @mixin \Spatie\SchemaOrg\ReactAction
+ * @mixin \Posterno\SchemaOrg\ReactAction
  */
 class LikeAction extends BaseType
 {

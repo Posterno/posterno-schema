@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Original definition: "provider of professional services."
@@ -17,7 +17,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/ProfessionalService
  *
- * @mixin \Spatie\SchemaOrg\LocalBusiness
+ * @mixin \Posterno\SchemaOrg\LocalBusiness
  */
 class ProfessionalService extends BaseType
 {

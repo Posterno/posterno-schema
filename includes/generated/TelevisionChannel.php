@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A unique instance of a television BroadcastService on a
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/TelevisionChannel
  *
- * @mixin \Spatie\SchemaOrg\BroadcastChannel
+ * @mixin \Posterno\SchemaOrg\BroadcastChannel
  */
 class TelevisionChannel extends BaseType
 {

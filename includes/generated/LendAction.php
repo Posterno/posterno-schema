@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of providing an object under an agreement that it will be returned at
@@ -12,7 +12,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/LendAction
  *
- * @mixin \Spatie\SchemaOrg\TransferAction
+ * @mixin \Posterno\SchemaOrg\TransferAction
  */
 class LendAction extends BaseType
 {

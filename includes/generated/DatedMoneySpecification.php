@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A DatedMoneySpecification represents monetary values with optional start and
@@ -10,7 +10,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/DatedMoneySpecification
  *
- * @mixin \Spatie\SchemaOrg\StructuredValue
+ * @mixin \Posterno\SchemaOrg\StructuredValue
  */
 class DatedMoneySpecification extends BaseType
 {

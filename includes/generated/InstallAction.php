@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of installing an application.
  *
  * @see http://schema.org/InstallAction
  *
- * @mixin \Spatie\SchemaOrg\ConsumeAction
+ * @mixin \Posterno\SchemaOrg\ConsumeAction
  */
 class InstallAction extends BaseType
 {

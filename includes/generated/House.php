@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A house is a building or structure that has the ability to be occupied for
@@ -10,7 +10,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/House
  *
- * @mixin \Spatie\SchemaOrg\Accommodation
+ * @mixin \Posterno\SchemaOrg\Accommodation
  */
 class House extends BaseType
 {

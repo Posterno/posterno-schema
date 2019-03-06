@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of un-registering from a service.
@@ -14,7 +14,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/UnRegisterAction
  *
- * @mixin \Spatie\SchemaOrg\InteractAction
+ * @mixin \Posterno\SchemaOrg\InteractAction
  */
 class UnRegisterAction extends BaseType
 {

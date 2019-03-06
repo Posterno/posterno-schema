@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A NewsArticle is an article whose content reports news, or provides
@@ -11,7 +11,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/NewsArticle
  *
- * @mixin \Spatie\SchemaOrg\Article
+ * @mixin \Posterno\SchemaOrg\Article
  */
 class NewsArticle extends BaseType
 {

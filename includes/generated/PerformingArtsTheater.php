@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A theater or other performing art center.
  *
  * @see http://schema.org/PerformingArtsTheater
  *
- * @mixin \Spatie\SchemaOrg\CivicStructure
+ * @mixin \Posterno\SchemaOrg\CivicStructure
  */
 class PerformingArtsTheater extends BaseType
 {

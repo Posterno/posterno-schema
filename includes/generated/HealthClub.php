@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A health club.
  *
  * @see http://schema.org/HealthClub
  *
- * @mixin \Spatie\SchemaOrg\HealthAndBeautyBusiness
- * @mixin \Spatie\SchemaOrg\SportsActivityLocation
+ * @mixin \Posterno\SchemaOrg\HealthAndBeautyBusiness
+ * @mixin \Posterno\SchemaOrg\SportsActivityLocation
  */
 class HealthClub extends BaseType
 {

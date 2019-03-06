@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * An agent inspects, determines, investigates, inquires, or examines an
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/CheckAction
  *
- * @mixin \Spatie\SchemaOrg\FindAction
+ * @mixin \Posterno\SchemaOrg\FindAction
  */
 class CheckAction extends BaseType
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A type of bed. This is used for indicating the bed or beds available in an
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/BedType
  *
- * @mixin \Spatie\SchemaOrg\QualitativeValue
+ * @mixin \Posterno\SchemaOrg\QualitativeValue
  */
 class BedType extends BaseType
 {

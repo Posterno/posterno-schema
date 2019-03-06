@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A gym.
  *
  * @see http://schema.org/ExerciseGym
  *
- * @mixin \Spatie\SchemaOrg\SportsActivityLocation
+ * @mixin \Posterno\SchemaOrg\SportsActivityLocation
  */
 class ExerciseGym extends BaseType
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Indicates whether this game is multi-player, co-op or single-player.
  *
  * @see http://schema.org/GamePlayMode
  *
- * @mixin \Spatie\SchemaOrg\Enumeration
+ * @mixin \Posterno\SchemaOrg\Enumeration
  */
 class GamePlayMode extends BaseType
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Reserving a concrete object.
@@ -13,7 +13,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/ReserveAction
  *
- * @mixin \Spatie\SchemaOrg\PlanAction
+ * @mixin \Posterno\SchemaOrg\PlanAction
  */
 class ReserveAction extends BaseType
 {

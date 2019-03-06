@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of asserting that a future event/action is no longer going to happen.
@@ -11,7 +11,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/CancelAction
  *
- * @mixin \Spatie\SchemaOrg\PlanAction
+ * @mixin \Posterno\SchemaOrg\PlanAction
  */
 class CancelAction extends BaseType
 {

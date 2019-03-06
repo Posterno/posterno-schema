@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of producing a visual/graphical representation of an object,
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/DrawAction
  *
- * @mixin \Spatie\SchemaOrg\CreateAction
+ * @mixin \Posterno\SchemaOrg\CreateAction
  */
 class DrawAction extends BaseType
 {

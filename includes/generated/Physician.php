@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A doctor's office.
  *
  * @see http://schema.org/Physician
  *
- * @mixin \Spatie\SchemaOrg\MedicalOrganization
+ * @mixin \Posterno\SchemaOrg\MedicalOrganization
  */
 class Physician extends BaseType
 {

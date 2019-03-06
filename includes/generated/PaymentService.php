@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A Service to transfer funds from a person or organization to a beneficiary
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/PaymentService
  *
- * @mixin \Spatie\SchemaOrg\FinancialProduct
+ * @mixin \Posterno\SchemaOrg\FinancialProduct
  */
 class PaymentService extends BaseType
 {

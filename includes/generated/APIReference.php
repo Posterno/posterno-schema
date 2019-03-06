@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Reference documentation for application programming interfaces (APIs).
  *
  * @see http://schema.org/APIReference
  *
- * @mixin \Spatie\SchemaOrg\TechArticle
+ * @mixin \Posterno\SchemaOrg\TechArticle
  */
 class APIReference extends BaseType
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A specific payment status. For example, PaymentDue, PaymentComplete, etc.
  *
  * @see http://schema.org/PaymentStatusType
  *
- * @mixin \Spatie\SchemaOrg\Enumeration
+ * @mixin \Posterno\SchemaOrg\Enumeration
  */
 class PaymentStatusType extends BaseType
 {

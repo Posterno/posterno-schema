@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The price asked for a given offer by the respective organization or person.
  *
  * @see http://schema.org/UnitPriceSpecification
  *
- * @mixin \Spatie\SchemaOrg\PriceSpecification
+ * @mixin \Posterno\SchemaOrg\PriceSpecification
  */
 class UnitPriceSpecification extends BaseType
 {

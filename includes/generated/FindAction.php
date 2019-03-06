@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of finding an object.
@@ -12,7 +12,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/FindAction
  *
- * @mixin \Spatie\SchemaOrg\Action
+ * @mixin \Posterno\SchemaOrg\Action
  */
 class FindAction extends BaseType
 {

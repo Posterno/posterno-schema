@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A public structure, such as a town hall or concert hall.
  *
  * @see http://schema.org/CivicStructure
  *
- * @mixin \Spatie\SchemaOrg\Place
+ * @mixin \Posterno\SchemaOrg\Place
  */
 class CivicStructure extends BaseType
 {

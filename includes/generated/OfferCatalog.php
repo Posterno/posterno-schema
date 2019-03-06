@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * An OfferCatalog is an ItemList that contains related Offers and/or further
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/OfferCatalog
  *
- * @mixin \Spatie\SchemaOrg\ItemList
+ * @mixin \Posterno\SchemaOrg\ItemList
  */
 class OfferCatalog extends BaseType
 {

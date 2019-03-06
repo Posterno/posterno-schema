@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A trip on a commercial train line.
  *
  * @see http://schema.org/TrainTrip
  *
- * @mixin \Spatie\SchemaOrg\Trip
+ * @mixin \Posterno\SchemaOrg\Trip
  */
 class TrainTrip extends BaseType
 {

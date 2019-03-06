@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A permit issued by a government agency.
  *
  * @see http://schema.org/GovernmentPermit
  *
- * @mixin \Spatie\SchemaOrg\Permit
+ * @mixin \Posterno\SchemaOrg\Permit
  */
 class GovernmentPermit extends BaseType
 {

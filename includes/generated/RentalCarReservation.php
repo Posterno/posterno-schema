@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A reservation for a rental car.
@@ -11,7 +11,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/RentalCarReservation
  *
- * @mixin \Spatie\SchemaOrg\Reservation
+ * @mixin \Posterno\SchemaOrg\Reservation
  */
 class RentalCarReservation extends BaseType
 {

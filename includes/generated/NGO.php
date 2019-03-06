@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Organization: Non-governmental Organization.
  *
  * @see http://schema.org/NGO
  *
- * @mixin \Spatie\SchemaOrg\Organization
+ * @mixin \Posterno\SchemaOrg\Organization
  */
 class NGO extends BaseType
 {

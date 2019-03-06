@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Organization: A business corporation.
  *
  * @see http://schema.org/Corporation
  *
- * @mixin \Spatie\SchemaOrg\Organization
+ * @mixin \Posterno\SchemaOrg\Organization
  */
 class Corporation extends BaseType
 {

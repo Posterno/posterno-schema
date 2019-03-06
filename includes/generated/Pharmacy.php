@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A pharmacy or drugstore.
  *
  * @see http://schema.org/Pharmacy
  *
- * @mixin \Spatie\SchemaOrg\MedicalOrganization
+ * @mixin \Posterno\SchemaOrg\MedicalOrganization
  */
 class Pharmacy extends BaseType
 {

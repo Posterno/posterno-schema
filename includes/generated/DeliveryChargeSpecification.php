@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The price for the delivery of an offer using a particular delivery method.
  *
  * @see http://schema.org/DeliveryChargeSpecification
  *
- * @mixin \Spatie\SchemaOrg\PriceSpecification
+ * @mixin \Posterno\SchemaOrg\PriceSpecification
  */
 class DeliveryChargeSpecification extends BaseType
 {

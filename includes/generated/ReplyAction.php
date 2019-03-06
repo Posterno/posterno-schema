@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of responding to a question/message asked/sent by the object. Related
@@ -12,7 +12,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/ReplyAction
  *
- * @mixin \Spatie\SchemaOrg\CommunicateAction
+ * @mixin \Posterno\SchemaOrg\CommunicateAction
  */
 class ReplyAction extends BaseType
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A series of movies. Included movies can be indicated with the hasPart
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/MovieSeries
  *
- * @mixin \Spatie\SchemaOrg\CreativeWorkSeries
+ * @mixin \Posterno\SchemaOrg\CreativeWorkSeries
  */
 class MovieSeries extends BaseType
 {

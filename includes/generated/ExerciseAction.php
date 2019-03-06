@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of participating in exertive activity for the purposes of improving
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/ExerciseAction
  *
- * @mixin \Spatie\SchemaOrg\PlayAction
+ * @mixin \Posterno\SchemaOrg\PlayAction
  */
 class ExerciseAction extends BaseType
 {

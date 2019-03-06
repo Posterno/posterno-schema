@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A tourist attraction.  In principle any Thing can be a [[TouristAttraction]],
@@ -11,7 +11,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/TouristAttraction
  *
- * @mixin \Spatie\SchemaOrg\Place
+ * @mixin \Posterno\SchemaOrg\Place
  */
 class TouristAttraction extends BaseType
 {

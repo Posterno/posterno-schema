@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The mailing address.
  *
  * @see http://schema.org/PostalAddress
  *
- * @mixin \Spatie\SchemaOrg\ContactPoint
+ * @mixin \Posterno\SchemaOrg\ContactPoint
  */
 class PostalAddress extends BaseType
 {

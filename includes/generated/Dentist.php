@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A dentist.
  *
  * @see http://schema.org/Dentist
  *
- * @mixin \Spatie\SchemaOrg\MedicalOrganization
- * @mixin \Spatie\SchemaOrg\LocalBusiness
+ * @mixin \Posterno\SchemaOrg\MedicalOrganization
+ * @mixin \Posterno\SchemaOrg\LocalBusiness
  */
 class Dentist extends BaseType
 {

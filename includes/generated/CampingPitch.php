@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A camping pitch is an individual place for overnight stay in the outdoors,
@@ -11,7 +11,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/CampingPitch
  *
- * @mixin \Spatie\SchemaOrg\Accommodation
+ * @mixin \Posterno\SchemaOrg\Accommodation
  */
 class CampingPitch extends BaseType
 {

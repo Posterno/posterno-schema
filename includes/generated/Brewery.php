@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Brewery.
  *
  * @see http://schema.org/Brewery
  *
- * @mixin \Spatie\SchemaOrg\FoodEstablishment
+ * @mixin \Posterno\SchemaOrg\FoodEstablishment
  */
 class Brewery extends BaseType
 {

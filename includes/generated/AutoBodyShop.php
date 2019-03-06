@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Auto body shop.
  *
  * @see http://schema.org/AutoBodyShop
  *
- * @mixin \Spatie\SchemaOrg\AutomotiveBusiness
+ * @mixin \Posterno\SchemaOrg\AutomotiveBusiness
  */
 class AutoBodyShop extends BaseType
 {

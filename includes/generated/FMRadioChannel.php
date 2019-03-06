@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A radio channel that uses FM.
  *
  * @see http://schema.org/FMRadioChannel
  *
- * @mixin \Spatie\SchemaOrg\RadioChannel
+ * @mixin \Posterno\SchemaOrg\RadioChannel
  */
 class FMRadioChannel extends BaseType
 {

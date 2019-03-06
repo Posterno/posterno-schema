@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of consuming audio content.
  *
  * @see http://schema.org/ListenAction
  *
- * @mixin \Spatie\SchemaOrg\ConsumeAction
+ * @mixin \Posterno\SchemaOrg\ConsumeAction
  */
 class ListenAction extends BaseType
 {

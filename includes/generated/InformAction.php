@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of notifying someone of information pertinent to them, with no
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/InformAction
  *
- * @mixin \Spatie\SchemaOrg\CommunicateAction
+ * @mixin \Posterno\SchemaOrg\CommunicateAction
  */
 class InformAction extends BaseType
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * An EducationalAudience.
  *
  * @see http://schema.org/EducationalAudience
  *
- * @mixin \Spatie\SchemaOrg\Audience
+ * @mixin \Posterno\SchemaOrg\Audience
  */
 class EducationalAudience extends BaseType
 {

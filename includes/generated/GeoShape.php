@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The geographic shape of a place. A GeoShape can be described using several
@@ -10,7 +10,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/GeoShape
  *
- * @mixin \Spatie\SchemaOrg\StructuredValue
+ * @mixin \Posterno\SchemaOrg\StructuredValue
  */
 class GeoShape extends BaseType
 {

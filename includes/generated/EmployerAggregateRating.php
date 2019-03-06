@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * An aggregate rating of an Organization related to its role as an employer.
  *
  * @see http://schema.org/EmployerAggregateRating
  *
- * @mixin \Spatie\SchemaOrg\AggregateRating
+ * @mixin \Posterno\SchemaOrg\AggregateRating
  */
 class EmployerAggregateRating extends BaseType
 {

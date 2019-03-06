@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A delivery method is a standardized procedure for transferring the product or
@@ -22,7 +22,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/DeliveryMethod
  *
- * @mixin \Spatie\SchemaOrg\Enumeration
+ * @mixin \Posterno\SchemaOrg\Enumeration
  */
 class DeliveryMethod extends BaseType
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * An email message.
  *
  * @see http://schema.org/EmailMessage
  *
- * @mixin \Spatie\SchemaOrg\Message
+ * @mixin \Posterno\SchemaOrg\Message
  */
 class EmailMessage extends BaseType
 {

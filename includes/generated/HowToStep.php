@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A step in the instructions for how to achieve a result. It is an ordered list
@@ -8,9 +8,9 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/HowToStep
  *
- * @mixin \Spatie\SchemaOrg\ListItem
- * @mixin \Spatie\SchemaOrg\ItemList
- * @mixin \Spatie\SchemaOrg\CreativeWork
+ * @mixin \Posterno\SchemaOrg\ListItem
+ * @mixin \Posterno\SchemaOrg\ItemList
+ * @mixin \Posterno\SchemaOrg\CreativeWork
  */
 class HowToStep extends BaseType
 {

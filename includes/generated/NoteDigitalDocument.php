@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A file containing a note, primarily for the author.
  *
  * @see http://schema.org/NoteDigitalDocument
  *
- * @mixin \Spatie\SchemaOrg\DigitalDocument
+ * @mixin \Posterno\SchemaOrg\DigitalDocument
  */
 class NoteDigitalDocument extends BaseType
 {

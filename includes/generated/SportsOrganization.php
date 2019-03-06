@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Represents the collection of all sports organizations, including sports
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/SportsOrganization
  *
- * @mixin \Spatie\SchemaOrg\Organization
+ * @mixin \Posterno\SchemaOrg\Organization
  */
 class SportsOrganization extends BaseType
 {

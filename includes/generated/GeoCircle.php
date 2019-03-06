@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A GeoCircle is a GeoShape representing a circular geographic area. As it is a
@@ -12,7 +12,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/GeoCircle
  *
- * @mixin \Spatie\SchemaOrg\GeoShape
+ * @mixin \Posterno\SchemaOrg\GeoShape
  */
 class GeoCircle extends BaseType
 {

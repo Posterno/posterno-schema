@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of producing a painting, typically with paint and canvas as
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/PaintAction
  *
- * @mixin \Spatie\SchemaOrg\CreateAction
+ * @mixin \Posterno\SchemaOrg\CreateAction
  */
 class PaintAction extends BaseType
 {

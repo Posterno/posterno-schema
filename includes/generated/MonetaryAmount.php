@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A monetary value or range. This type can be used to describe an amount of
@@ -11,7 +11,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/MonetaryAmount
  *
- * @mixin \Spatie\SchemaOrg\StructuredValue
+ * @mixin \Posterno\SchemaOrg\StructuredValue
  */
 class MonetaryAmount extends BaseType
 {

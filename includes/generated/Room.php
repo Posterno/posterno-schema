@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A room is a distinguishable space within a structure, usually separated from
@@ -13,7 +13,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/Room
  *
- * @mixin \Spatie\SchemaOrg\Accommodation
+ * @mixin \Posterno\SchemaOrg\Accommodation
  */
 class Room extends BaseType
 {

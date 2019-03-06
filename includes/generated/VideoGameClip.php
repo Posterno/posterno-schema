@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A short segment/part of a video game.
  *
  * @see http://schema.org/VideoGameClip
  *
- * @mixin \Spatie\SchemaOrg\Clip
+ * @mixin \Posterno\SchemaOrg\Clip
  */
 class VideoGameClip extends BaseType
 {

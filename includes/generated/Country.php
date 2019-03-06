@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A country.
  *
  * @see http://schema.org/Country
  *
- * @mixin \Spatie\SchemaOrg\AdministrativeArea
+ * @mixin \Posterno\SchemaOrg\AdministrativeArea
  */
 class Country extends BaseType
 {

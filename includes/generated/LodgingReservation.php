@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A reservation for lodging at a hotel, motel, inn, etc.
@@ -11,7 +11,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/LodgingReservation
  *
- * @mixin \Spatie\SchemaOrg\Reservation
+ * @mixin \Posterno\SchemaOrg\Reservation
  */
 class LodgingReservation extends BaseType
 {

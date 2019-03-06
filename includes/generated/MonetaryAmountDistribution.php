@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A statistical distribution of monetary amounts.
  *
  * @see http://schema.org/MonetaryAmountDistribution
  *
- * @mixin \Spatie\SchemaOrg\QuantitativeValueDistribution
+ * @mixin \Posterno\SchemaOrg\QuantitativeValueDistribution
  */
 class MonetaryAmountDistribution extends BaseType
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of traveling from an fromLocation to a destination by a specified
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/TravelAction
  *
- * @mixin \Spatie\SchemaOrg\MoveAction
+ * @mixin \Posterno\SchemaOrg\MoveAction
  */
 class TravelAction extends BaseType
 {

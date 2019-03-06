@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A utility class that serves as the umbrella for a number of 'intangible'
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/Intangible
  *
- * @mixin \Spatie\SchemaOrg\Thing
+ * @mixin \Posterno\SchemaOrg\Thing
  */
 class Intangible extends BaseType
 {

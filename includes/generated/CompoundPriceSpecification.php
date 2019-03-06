@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A compound price specification is one that bundles multiple prices that all
@@ -10,7 +10,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/CompoundPriceSpecification
  *
- * @mixin \Spatie\SchemaOrg\PriceSpecification
+ * @mixin \Posterno\SchemaOrg\PriceSpecification
  */
 class CompoundPriceSpecification extends BaseType
 {

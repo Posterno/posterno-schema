@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A MusicRelease is a specific release of a music album.
  *
  * @see http://schema.org/MusicRelease
  *
- * @mixin \Spatie\SchemaOrg\MusicPlaylist
+ * @mixin \Posterno\SchemaOrg\MusicPlaylist
  */
 class MusicRelease extends BaseType
 {

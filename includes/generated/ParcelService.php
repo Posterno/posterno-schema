@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A private parcel service as the delivery mode available for a certain offer.
@@ -13,7 +13,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/ParcelService
  *
- * @mixin \Spatie\SchemaOrg\DeliveryMethod
+ * @mixin \Posterno\SchemaOrg\DeliveryMethod
  */
 class ParcelService extends BaseType
 {

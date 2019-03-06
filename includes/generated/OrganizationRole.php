@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A subclass of Role used to describe roles within organizations.
  *
  * @see http://schema.org/OrganizationRole
  *
- * @mixin \Spatie\SchemaOrg\Role
+ * @mixin \Posterno\SchemaOrg\Role
  */
 class OrganizationRole extends BaseType
 {

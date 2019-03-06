@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of returning to the origin that which was previously received
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/ReturnAction
  *
- * @mixin \Spatie\SchemaOrg\TransferAction
+ * @mixin \Posterno\SchemaOrg\TransferAction
  */
 class ReturnAction extends BaseType
 {

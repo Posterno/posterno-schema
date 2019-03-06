@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A nightclub or discotheque.
  *
  * @see http://schema.org/NightClub
  *
- * @mixin \Spatie\SchemaOrg\EntertainmentBusiness
+ * @mixin \Posterno\SchemaOrg\EntertainmentBusiness
  */
 class NightClub extends BaseType
 {

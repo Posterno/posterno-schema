@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A tennis complex.
  *
  * @see http://schema.org/TennisComplex
  *
- * @mixin \Spatie\SchemaOrg\SportsActivityLocation
+ * @mixin \Posterno\SchemaOrg\SportsActivityLocation
  */
 class TennisComplex extends BaseType
 {

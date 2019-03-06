@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of dressing oneself in clothing.
  *
  * @see http://schema.org/WearAction
  *
- * @mixin \Spatie\SchemaOrg\UseAction
+ * @mixin \Posterno\SchemaOrg\UseAction
  */
 class WearAction extends BaseType
 {

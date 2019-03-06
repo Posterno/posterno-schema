@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A media season e.g. tv, radio, video game etc.
  *
  * @see http://schema.org/CreativeWorkSeason
  *
- * @mixin \Spatie\SchemaOrg\CreativeWork
+ * @mixin \Posterno\SchemaOrg\CreativeWork
  */
 class CreativeWorkSeason extends BaseType
 {

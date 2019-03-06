@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A blog post intended to provide a rolling textual coverage of an ongoing
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/LiveBlogPosting
  *
- * @mixin \Spatie\SchemaOrg\BlogPosting
+ * @mixin \Posterno\SchemaOrg\BlogPosting
  */
 class LiveBlogPosting extends BaseType
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of giving money in return for temporary use, but not ownership, of an
@@ -9,7 +9,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/RentAction
  *
- * @mixin \Spatie\SchemaOrg\TradeAction
+ * @mixin \Posterno\SchemaOrg\TradeAction
  */
 class RentAction extends BaseType
 {

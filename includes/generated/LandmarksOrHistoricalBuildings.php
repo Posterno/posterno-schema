@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * An historical landmark or building.
  *
  * @see http://schema.org/LandmarksOrHistoricalBuildings
  *
- * @mixin \Spatie\SchemaOrg\Place
+ * @mixin \Posterno\SchemaOrg\Place
  */
 class LandmarksOrHistoricalBuildings extends BaseType
 {

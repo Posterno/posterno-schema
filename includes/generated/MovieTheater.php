@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A movie theater.
  *
  * @see http://schema.org/MovieTheater
  *
- * @mixin \Spatie\SchemaOrg\CivicStructure
- * @mixin \Spatie\SchemaOrg\EntertainmentBusiness
+ * @mixin \Posterno\SchemaOrg\CivicStructure
+ * @mixin \Posterno\SchemaOrg\EntertainmentBusiness
  */
 class MovieTheater extends BaseType
 {

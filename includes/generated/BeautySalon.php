@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Beauty salon.
  *
  * @see http://schema.org/BeautySalon
  *
- * @mixin \Spatie\SchemaOrg\HealthAndBeautyBusiness
+ * @mixin \Posterno\SchemaOrg\HealthAndBeautyBusiness
  */
 class BeautySalon extends BaseType
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A cafe or coffee shop.
  *
  * @see http://schema.org/CafeOrCoffeeShop
  *
- * @mixin \Spatie\SchemaOrg\FoodEstablishment
+ * @mixin \Posterno\SchemaOrg\FoodEstablishment
  */
 class CafeOrCoffeeShop extends BaseType
 {

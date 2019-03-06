@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of an agent communicating (service provider, social media, etc) their
@@ -17,7 +17,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/CheckOutAction
  *
- * @mixin \Spatie\SchemaOrg\CommunicateAction
+ * @mixin \Posterno\SchemaOrg\CommunicateAction
  */
 class CheckOutAction extends BaseType
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of registering to an organization/service without the guarantee to
@@ -13,7 +13,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/ApplyAction
  *
- * @mixin \Spatie\SchemaOrg\OrganizeAction
+ * @mixin \Posterno\SchemaOrg\OrganizeAction
  */
 class ApplyAction extends BaseType
 {

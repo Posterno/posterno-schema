@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A service provided by a government organization, e.g. food stamps, veterans
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/GovernmentService
  *
- * @mixin \Spatie\SchemaOrg\Service
+ * @mixin \Posterno\SchemaOrg\Service
  */
 class GovernmentService extends BaseType
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A recipe. For dietary restrictions covered by the recipe, a few common
@@ -9,7 +9,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/Recipe
  *
- * @mixin \Spatie\SchemaOrg\HowTo
+ * @mixin \Posterno\SchemaOrg\HowTo
  */
 class Recipe extends BaseType
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of producing a balanced opinion about the object for an audience. An
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/ReviewAction
  *
- * @mixin \Spatie\SchemaOrg\AssessAction
+ * @mixin \Posterno\SchemaOrg\AssessAction
  */
 class ReviewAction extends BaseType
 {

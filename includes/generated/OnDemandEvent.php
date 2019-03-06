@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A publication event e.g. catch-up TV or radio podcast, during which a program
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/OnDemandEvent
  *
- * @mixin \Spatie\SchemaOrg\PublicationEvent
+ * @mixin \Posterno\SchemaOrg\PublicationEvent
  */
 class OnDemandEvent extends BaseType
 {

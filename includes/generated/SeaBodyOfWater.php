@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A sea (for example, the Caspian sea).
  *
  * @see http://schema.org/SeaBodyOfWater
  *
- * @mixin \Spatie\SchemaOrg\BodyOfWater
+ * @mixin \Posterno\SchemaOrg\BodyOfWater
  */
 class SeaBodyOfWater extends BaseType
 {

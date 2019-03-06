@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of notifying someone that a future event/action is going to happen as
@@ -12,7 +12,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/ConfirmAction
  *
- * @mixin \Spatie\SchemaOrg\InformAction
+ * @mixin \Posterno\SchemaOrg\InformAction
  */
 class ConfirmAction extends BaseType
 {

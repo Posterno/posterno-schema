@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Used to describe a ticket to an event, a flight, a bus ride, etc.
  *
  * @see http://schema.org/Ticket
  *
- * @mixin \Spatie\SchemaOrg\Intangible
+ * @mixin \Posterno\SchemaOrg\Intangible
  */
 class Ticket extends BaseType
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * An EndorsementRating is a rating that expresses some level of endorsement,
@@ -20,7 +20,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/EndorsementRating
  *
- * @mixin \Spatie\SchemaOrg\Rating
+ * @mixin \Posterno\SchemaOrg\Rating
  */
 class EndorsementRating extends BaseType
 {

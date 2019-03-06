@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A group of multiple reservations with common values for all sub-reservations.
  *
  * @see http://schema.org/ReservationPackage
  *
- * @mixin \Spatie\SchemaOrg\Reservation
+ * @mixin \Posterno\SchemaOrg\Reservation
  */
 class ReservationPackage extends BaseType
 {

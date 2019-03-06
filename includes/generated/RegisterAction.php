@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of registering to be a user of a service, product or web page.
@@ -16,7 +16,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/RegisterAction
  *
- * @mixin \Spatie\SchemaOrg\InteractAction
+ * @mixin \Posterno\SchemaOrg\InteractAction
  */
 class RegisterAction extends BaseType
 {

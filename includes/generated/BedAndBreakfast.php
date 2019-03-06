@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Bed and breakfast.
@@ -10,7 +10,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/BedAndBreakfast
  *
- * @mixin \Spatie\SchemaOrg\LodgingBusiness
+ * @mixin \Posterno\SchemaOrg\LodgingBusiness
  */
 class BedAndBreakfast extends BaseType
 {

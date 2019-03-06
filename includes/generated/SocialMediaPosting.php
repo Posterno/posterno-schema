@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A post to a social media platform, including blog posts, tweets, Facebook
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/SocialMediaPosting
  *
- * @mixin \Spatie\SchemaOrg\Article
+ * @mixin \Posterno\SchemaOrg\Article
  */
 class SocialMediaPosting extends BaseType
 {

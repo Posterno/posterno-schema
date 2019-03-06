@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of resuming a device or application which was formerly paused (e.g.
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/ResumeAction
  *
- * @mixin \Spatie\SchemaOrg\ControlAction
+ * @mixin \Posterno\SchemaOrg\ControlAction
  */
 class ResumeAction extends BaseType
 {

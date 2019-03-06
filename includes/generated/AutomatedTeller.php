@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * ATM/cash machine.
  *
  * @see http://schema.org/AutomatedTeller
  *
- * @mixin \Spatie\SchemaOrg\FinancialService
+ * @mixin \Posterno\SchemaOrg\FinancialService
  */
 class AutomatedTeller extends BaseType
 {

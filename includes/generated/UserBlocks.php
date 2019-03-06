@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * UserInteraction and its subtypes is an old way of talking about users
@@ -9,7 +9,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/UserBlocks
  *
- * @mixin \Spatie\SchemaOrg\UserInteraction
+ * @mixin \Posterno\SchemaOrg\UserInteraction
  */
 class UserBlocks extends BaseType
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of allocating an action/event/task to some destination (someone or
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/AssignAction
  *
- * @mixin \Spatie\SchemaOrg\AllocateAction
+ * @mixin \Posterno\SchemaOrg\AllocateAction
  */
 class AssignAction extends BaseType
 {

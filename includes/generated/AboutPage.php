@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Web page type: About page.
  *
  * @see http://schema.org/AboutPage
  *
- * @mixin \Spatie\SchemaOrg\WebPage
+ * @mixin \Posterno\SchemaOrg\WebPage
  */
 class AboutPage extends BaseType
 {

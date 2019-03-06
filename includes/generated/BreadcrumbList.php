@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A BreadcrumbList is an ItemList consisting of a chain of linked Web pages,
@@ -17,7 +17,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/BreadcrumbList
  *
- * @mixin \Spatie\SchemaOrg\ItemList
+ * @mixin \Posterno\SchemaOrg\ItemList
  */
 class BreadcrumbList extends BaseType
 {

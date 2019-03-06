@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A placeholder for multiple similar products of the same kind.
  *
  * @see http://schema.org/SomeProducts
  *
- * @mixin \Spatie\SchemaOrg\Product
+ * @mixin \Posterno\SchemaOrg\Product
  */
 class SomeProducts extends BaseType
 {

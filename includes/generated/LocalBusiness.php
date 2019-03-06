@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A particular physical business or branch of an organization. Examples of
@@ -9,8 +9,8 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/LocalBusiness
  *
- * @mixin \Spatie\SchemaOrg\Organization
- * @mixin \Spatie\SchemaOrg\Place
+ * @mixin \Posterno\SchemaOrg\Organization
+ * @mixin \Posterno\SchemaOrg\Place
  */
 class LocalBusiness extends BaseType
 {

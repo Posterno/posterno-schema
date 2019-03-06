@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A vehicle is a device that is designed or used to transport people or cargo
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/Vehicle
  *
- * @mixin \Spatie\SchemaOrg\Product
+ * @mixin \Posterno\SchemaOrg\Product
  */
 class Vehicle extends BaseType
 {

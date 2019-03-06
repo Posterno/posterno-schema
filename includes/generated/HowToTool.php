@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A tool used (but not consumed) when performing instructions for how to
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/HowToTool
  *
- * @mixin \Spatie\SchemaOrg\HowToItem
+ * @mixin \Posterno\SchemaOrg\HowToItem
  */
 class HowToTool extends BaseType
 {

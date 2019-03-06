@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A day spa.
  *
  * @see http://schema.org/DaySpa
  *
- * @mixin \Spatie\SchemaOrg\HealthAndBeautyBusiness
+ * @mixin \Posterno\SchemaOrg\HealthAndBeautyBusiness
  */
 class DaySpa extends BaseType
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of momentarily pausing a device or application (e.g. pause music
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/SuspendAction
  *
- * @mixin \Spatie\SchemaOrg\ControlAction
+ * @mixin \Posterno\SchemaOrg\ControlAction
  */
 class SuspendAction extends BaseType
 {

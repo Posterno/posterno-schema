@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Web page type: Checkout page.
  *
  * @see http://schema.org/CheckoutPage
  *
- * @mixin \Spatie\SchemaOrg\WebPage
+ * @mixin \Posterno\SchemaOrg\WebPage
  */
 class CheckoutPage extends BaseType
 {

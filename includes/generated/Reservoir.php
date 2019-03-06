@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A reservoir of water, typically an artificially created lake, like the Lake
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/Reservoir
  *
- * @mixin \Spatie\SchemaOrg\BodyOfWater
+ * @mixin \Posterno\SchemaOrg\BodyOfWater
  */
 class Reservoir extends BaseType
 {

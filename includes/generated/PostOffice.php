@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A post office.
  *
  * @see http://schema.org/PostOffice
  *
- * @mixin \Spatie\SchemaOrg\GovernmentOffice
+ * @mixin \Posterno\SchemaOrg\GovernmentOffice
  */
 class PostOffice extends BaseType
 {

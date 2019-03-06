@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * An accommodation is a place that can accommodate human beings, e.g. a hotel
@@ -14,7 +14,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/Accommodation
  *
- * @mixin \Spatie\SchemaOrg\Place
+ * @mixin \Posterno\SchemaOrg\Place
  */
 class Accommodation extends BaseType
 {

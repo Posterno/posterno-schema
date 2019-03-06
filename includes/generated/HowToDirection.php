@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A direction indicating a single action to do in the instructions for how to
@@ -8,8 +8,8 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/HowToDirection
  *
- * @mixin \Spatie\SchemaOrg\ListItem
- * @mixin \Spatie\SchemaOrg\CreativeWork
+ * @mixin \Posterno\SchemaOrg\ListItem
+ * @mixin \Posterno\SchemaOrg\CreativeWork
  */
 class HowToDirection extends BaseType
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A posting to a discussion forum.
  *
  * @see http://schema.org/DiscussionForumPosting
  *
- * @mixin \Spatie\SchemaOrg\SocialMediaPosting
+ * @mixin \Posterno\SchemaOrg\SocialMediaPosting
  */
 class DiscussionForumPosting extends BaseType
 {

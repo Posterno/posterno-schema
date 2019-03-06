@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The business function specifies the type of activity or access (i.e., the
@@ -22,7 +22,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/BusinessFunction
  *
- * @mixin \Spatie\SchemaOrg\Enumeration
+ * @mixin \Posterno\SchemaOrg\Enumeration
  */
 class BusinessFunction extends BaseType
 {

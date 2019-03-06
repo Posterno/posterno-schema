@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A taxi.
  *
  * @see http://schema.org/Taxi
  *
- * @mixin \Spatie\SchemaOrg\Service
+ * @mixin \Posterno\SchemaOrg\Service
  */
 class Taxi extends BaseType
 {

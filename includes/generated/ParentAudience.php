@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A set of characteristics describing parents, who can be interested in viewing
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/ParentAudience
  *
- * @mixin \Spatie\SchemaOrg\PeopleAudience
+ * @mixin \Posterno\SchemaOrg\PeopleAudience
  */
 class ParentAudience extends BaseType
 {

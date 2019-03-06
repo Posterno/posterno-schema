@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A product provided to consumers and businesses by financial institutions such
@@ -9,7 +9,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/FinancialProduct
  *
- * @mixin \Spatie\SchemaOrg\Service
+ * @mixin \Posterno\SchemaOrg\Service
  */
 class FinancialProduct extends BaseType
 {

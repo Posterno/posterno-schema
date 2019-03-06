@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A mountain, like Mount Whitney or Mount Everest.
  *
  * @see http://schema.org/Mountain
  *
- * @mixin \Spatie\SchemaOrg\Landform
+ * @mixin \Posterno\SchemaOrg\Landform
  */
 class Mountain extends BaseType
 {

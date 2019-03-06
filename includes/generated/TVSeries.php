@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * CreativeWorkSeries dedicated to TV broadcast and associated online delivery.
  *
  * @see http://schema.org/TVSeries
  *
- * @mixin \Spatie\SchemaOrg\CreativeWork
- * @mixin \Spatie\SchemaOrg\CreativeWorkSeries
+ * @mixin \Posterno\SchemaOrg\CreativeWork
+ * @mixin \Posterno\SchemaOrg\CreativeWorkSeries
  */
 class TVSeries extends BaseType
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A short TV program or a segment/part of a TV program.
  *
  * @see http://schema.org/TVClip
  *
- * @mixin \Spatie\SchemaOrg\Clip
+ * @mixin \Posterno\SchemaOrg\Clip
  */
 class TVClip extends BaseType
 {

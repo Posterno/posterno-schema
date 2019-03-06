@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A city or town.
  *
  * @see http://schema.org/City
  *
- * @mixin \Spatie\SchemaOrg\AdministrativeArea
+ * @mixin \Posterno\SchemaOrg\AdministrativeArea
  */
 class City extends BaseType
 {

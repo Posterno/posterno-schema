@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A single feed providing structured information about one or more entities or
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/DataFeed
  *
- * @mixin \Spatie\SchemaOrg\Dataset
+ * @mixin \Posterno\SchemaOrg\Dataset
  */
 class DataFeed extends BaseType
 {

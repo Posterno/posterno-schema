@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of expressing a preference from a fixed/finite/structured set of
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/VoteAction
  *
- * @mixin \Spatie\SchemaOrg\ChooseAction
+ * @mixin \Posterno\SchemaOrg\ChooseAction
  */
 class VoteAction extends BaseType
 {

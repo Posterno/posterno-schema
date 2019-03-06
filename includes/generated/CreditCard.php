@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A card payment method of a particular brand or name.  Used to mark up a
@@ -18,8 +18,8 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/CreditCard
  *
- * @mixin \Spatie\SchemaOrg\PaymentCard
- * @mixin \Spatie\SchemaOrg\LoanOrCredit
+ * @mixin \Posterno\SchemaOrg\PaymentCard
+ * @mixin \Posterno\SchemaOrg\LoanOrCredit
  */
 class CreditCard extends BaseType
 {

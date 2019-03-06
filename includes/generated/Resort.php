@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A resort is a place used for relaxation or recreation, attracting visitors
@@ -14,7 +14,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/Resort
  *
- * @mixin \Spatie\SchemaOrg\LodgingBusiness
+ * @mixin \Posterno\SchemaOrg\LodgingBusiness
  */
 class Resort extends BaseType
 {

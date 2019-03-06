@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Web page type: Contact page.
  *
  * @see http://schema.org/ContactPage
  *
- * @mixin \Spatie\SchemaOrg\WebPage
+ * @mixin \Posterno\SchemaOrg\WebPage
  */
 class ContactPage extends BaseType
 {

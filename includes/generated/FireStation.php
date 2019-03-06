@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A fire station. With firemen.
  *
  * @see http://schema.org/FireStation
  *
- * @mixin \Spatie\SchemaOrg\CivicStructure
- * @mixin \Spatie\SchemaOrg\EmergencyService
+ * @mixin \Posterno\SchemaOrg\CivicStructure
+ * @mixin \Posterno\SchemaOrg\EmergencyService
  */
 class FireStation extends BaseType
 {

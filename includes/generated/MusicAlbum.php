@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A collection of music tracks.
  *
  * @see http://schema.org/MusicAlbum
  *
- * @mixin \Spatie\SchemaOrg\MusicPlaylist
+ * @mixin \Posterno\SchemaOrg\MusicPlaylist
  */
 class MusicAlbum extends BaseType
 {

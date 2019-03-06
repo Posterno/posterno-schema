@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * An ocean (for example, the Pacific).
  *
  * @see http://schema.org/OceanBodyOfWater
  *
- * @mixin \Spatie\SchemaOrg\BodyOfWater
+ * @mixin \Posterno\SchemaOrg\BodyOfWater
  */
 class OceanBodyOfWater extends BaseType
 {

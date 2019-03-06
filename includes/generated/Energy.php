@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Properties that take Energy as values are of the form '&lt;Number&gt;
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/Energy
  *
- * @mixin \Spatie\SchemaOrg\Quantity
+ * @mixin \Posterno\SchemaOrg\Quantity
  */
 class Energy extends BaseType
 {

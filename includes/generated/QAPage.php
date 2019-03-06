@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A QAPage is a WebPage focussed on a specific Question and its Answer(s), e.g.
@@ -9,7 +9,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/QAPage
  *
- * @mixin \Spatie\SchemaOrg\WebPage
+ * @mixin \Posterno\SchemaOrg\WebPage
  */
 class QAPage extends BaseType
 {

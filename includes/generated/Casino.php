@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A casino.
  *
  * @see http://schema.org/Casino
  *
- * @mixin \Spatie\SchemaOrg\EntertainmentBusiness
+ * @mixin \Posterno\SchemaOrg\EntertainmentBusiness
  */
 class Casino extends BaseType
 {

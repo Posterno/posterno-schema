@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Residence type: Single-family home.
  *
  * @see http://schema.org/SingleFamilyResidence
  *
- * @mixin \Spatie\SchemaOrg\House
+ * @mixin \Posterno\SchemaOrg\House
  */
 class SingleFamilyResidence extends BaseType
 {

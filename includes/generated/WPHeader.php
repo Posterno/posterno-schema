@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The header section of the page.
  *
  * @see http://schema.org/WPHeader
  *
- * @mixin \Spatie\SchemaOrg\WebPageElement
+ * @mixin \Posterno\SchemaOrg\WebPageElement
  */
 class WPHeader extends BaseType
 {

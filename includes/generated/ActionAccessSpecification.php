@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A set of requirements that a must be fulfilled in order to perform an Action.
  *
  * @see http://schema.org/ActionAccessSpecification
  *
- * @mixin \Spatie\SchemaOrg\Intangible
+ * @mixin \Posterno\SchemaOrg\Intangible
  */
 class ActionAccessSpecification extends BaseType
 {

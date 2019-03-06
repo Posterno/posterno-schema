@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of forming a personal connection with someone/something (object)
@@ -18,7 +18,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/SubscribeAction
  *
- * @mixin \Spatie\SchemaOrg\InteractAction
+ * @mixin \Posterno\SchemaOrg\InteractAction
  */
 class SubscribeAction extends BaseType
 {

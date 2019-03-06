@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A video file.
  *
  * @see http://schema.org/VideoObject
  *
- * @mixin \Spatie\SchemaOrg\MediaObject
+ * @mixin \Posterno\SchemaOrg\MediaObject
  */
 class VideoObject extends BaseType
 {

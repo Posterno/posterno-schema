@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A canal, like the Panama Canal.
  *
  * @see http://schema.org/Canal
  *
- * @mixin \Spatie\SchemaOrg\BodyOfWater
+ * @mixin \Posterno\SchemaOrg\BodyOfWater
  */
 class Canal extends BaseType
 {

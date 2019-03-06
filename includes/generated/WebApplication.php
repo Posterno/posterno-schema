@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Web applications.
  *
  * @see http://schema.org/WebApplication
  *
- * @mixin \Spatie\SchemaOrg\SoftwareApplication
+ * @mixin \Posterno\SchemaOrg\SoftwareApplication
  */
 class WebApplication extends BaseType
 {

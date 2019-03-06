@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A service which provides access to media programming like TV or radio. Access
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/CableOrSatelliteService
  *
- * @mixin \Spatie\SchemaOrg\Service
+ * @mixin \Posterno\SchemaOrg\Service
  */
 class CableOrSatelliteService extends BaseType
 {

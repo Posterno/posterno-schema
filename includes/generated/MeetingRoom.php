@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A meeting room, conference room, or conference hall is a room provided for
@@ -13,7 +13,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/MeetingRoom
  *
- * @mixin \Spatie\SchemaOrg\Room
+ * @mixin \Posterno\SchemaOrg\Room
  */
 class MeetingRoom extends BaseType
 {

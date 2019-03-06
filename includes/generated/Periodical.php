@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A publication in any medium issued in successive parts bearing numerical or
@@ -12,7 +12,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/Periodical
  *
- * @mixin \Spatie\SchemaOrg\CreativeWorkSeries
+ * @mixin \Posterno\SchemaOrg\CreativeWorkSeries
  */
 class Periodical extends BaseType
 {

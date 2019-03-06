@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of transferring ownership of an object to a destination. Reciprocal
@@ -15,7 +15,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/GiveAction
  *
- * @mixin \Spatie\SchemaOrg\TransferAction
+ * @mixin \Posterno\SchemaOrg\TransferAction
  */
 class GiveAction extends BaseType
 {

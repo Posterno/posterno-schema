@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of producing/preparing food.
  *
  * @see http://schema.org/CookAction
  *
- * @mixin \Spatie\SchemaOrg\CreateAction
+ * @mixin \Posterno\SchemaOrg\CreateAction
  */
 class CookAction extends BaseType
 {

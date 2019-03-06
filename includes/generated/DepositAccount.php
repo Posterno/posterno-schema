@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A type of Bank Account with a main purpose of depositing funds to gain
@@ -8,8 +8,8 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/DepositAccount
  *
- * @mixin \Spatie\SchemaOrg\BankAccount
- * @mixin \Spatie\SchemaOrg\InvestmentOrDeposit
+ * @mixin \Posterno\SchemaOrg\BankAccount
+ * @mixin \Posterno\SchemaOrg\InvestmentOrDeposit
  */
 class DepositAccount extends BaseType
 {

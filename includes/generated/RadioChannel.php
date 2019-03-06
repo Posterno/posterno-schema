@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A unique instance of a radio BroadcastService on a CableOrSatelliteService
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/RadioChannel
  *
- * @mixin \Spatie\SchemaOrg\BroadcastChannel
+ * @mixin \Posterno\SchemaOrg\BroadcastChannel
  */
 class RadioChannel extends BaseType
 {

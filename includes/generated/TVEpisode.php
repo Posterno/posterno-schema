@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A TV episode which can be part of a series or season.
  *
  * @see http://schema.org/TVEpisode
  *
- * @mixin \Spatie\SchemaOrg\Episode
+ * @mixin \Posterno\SchemaOrg\Episode
  */
 class TVEpisode extends BaseType
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A roofing contractor.
  *
  * @see http://schema.org/RoofingContractor
  *
- * @mixin \Spatie\SchemaOrg\HomeAndConstructionBusiness
+ * @mixin \Posterno\SchemaOrg\HomeAndConstructionBusiness
  */
 class RoofingContractor extends BaseType
 {

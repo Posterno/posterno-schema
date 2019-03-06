@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Quantity: Duration (use [ISO 8601 duration
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/Duration
  *
- * @mixin \Spatie\SchemaOrg\Quantity
+ * @mixin \Posterno\SchemaOrg\Quantity
  */
 class Duration extends BaseType
 {

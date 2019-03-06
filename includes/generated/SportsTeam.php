@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Organization: Sports team.
  *
  * @see http://schema.org/SportsTeam
  *
- * @mixin \Spatie\SchemaOrg\SportsOrganization
+ * @mixin \Posterno\SchemaOrg\SportsOrganization
  */
 class SportsTeam extends BaseType
 {

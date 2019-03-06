@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of starting or activating a device or application (e.g. starting a
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/ActivateAction
  *
- * @mixin \Spatie\SchemaOrg\ControlAction
+ * @mixin \Posterno\SchemaOrg\ControlAction
  */
 class ActivateAction extends BaseType
 {

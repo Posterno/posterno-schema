@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A Catholic church.
  *
  * @see http://schema.org/CatholicChurch
  *
- * @mixin \Spatie\SchemaOrg\PlaceOfWorship
+ * @mixin \Posterno\SchemaOrg\PlaceOfWorship
  */
 class CatholicChurch extends BaseType
 {

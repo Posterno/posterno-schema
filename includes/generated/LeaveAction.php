@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * An agent leaves an event / group with participants/friends at a location.
@@ -13,7 +13,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/LeaveAction
  *
- * @mixin \Spatie\SchemaOrg\InteractAction
+ * @mixin \Posterno\SchemaOrg\InteractAction
  */
 class LeaveAction extends BaseType
 {

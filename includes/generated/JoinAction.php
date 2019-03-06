@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * An agent joins an event/group with participants/friends at a location.
@@ -16,7 +16,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/JoinAction
  *
- * @mixin \Spatie\SchemaOrg\InteractAction
+ * @mixin \Posterno\SchemaOrg\InteractAction
  */
 class JoinAction extends BaseType
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * An agent orders an object/product/service to be delivered/sent.
  *
  * @see http://schema.org/OrderAction
  *
- * @mixin \Spatie\SchemaOrg\TradeAction
+ * @mixin \Posterno\SchemaOrg\TradeAction
  */
 class OrderAction extends BaseType
 {

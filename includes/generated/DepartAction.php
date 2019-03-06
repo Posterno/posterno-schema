@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of  departing from a place. An agent departs from an fromLocation for
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/DepartAction
  *
- * @mixin \Spatie\SchemaOrg\MoveAction
+ * @mixin \Posterno\SchemaOrg\MoveAction
  */
 class DepartAction extends BaseType
 {

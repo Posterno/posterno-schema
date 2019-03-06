@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A payment method using a credit, debit, store or other card to associate the
@@ -8,8 +8,8 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/PaymentCard
  *
- * @mixin \Spatie\SchemaOrg\FinancialProduct
- * @mixin \Spatie\SchemaOrg\PaymentMethod
+ * @mixin \Posterno\SchemaOrg\FinancialProduct
+ * @mixin \Posterno\SchemaOrg\PaymentMethod
  */
 class PaymentCard extends BaseType
 {

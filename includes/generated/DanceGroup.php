@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A dance group&#x2014;for example, the Alvin Ailey Dance Theater or
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/DanceGroup
  *
- * @mixin \Spatie\SchemaOrg\PerformingGroup
+ * @mixin \Posterno\SchemaOrg\PerformingGroup
  */
 class DanceGroup extends BaseType
 {

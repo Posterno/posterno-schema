@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * The act of planning the execution of an event/task/action/reservation/plan to
@@ -8,7 +8,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/PlanAction
  *
- * @mixin \Spatie\SchemaOrg\OrganizeAction
+ * @mixin \Posterno\SchemaOrg\OrganizeAction
  */
 class PlanAction extends BaseType
 {

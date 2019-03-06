@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A type of financial product that typically requires the client to transfer
@@ -9,7 +9,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/InvestmentOrDeposit
  *
- * @mixin \Spatie\SchemaOrg\FinancialProduct
+ * @mixin \Posterno\SchemaOrg\FinancialProduct
  */
 class InvestmentOrDeposit extends BaseType
 {

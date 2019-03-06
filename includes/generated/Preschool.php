@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * A preschool.
  *
  * @see http://schema.org/Preschool
  *
- * @mixin \Spatie\SchemaOrg\EducationalOrganization
+ * @mixin \Posterno\SchemaOrg\EducationalOrganization
  */
 class Preschool extends BaseType
 {

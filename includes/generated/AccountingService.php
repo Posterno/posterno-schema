@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SchemaOrg;
+namespace Posterno\SchemaOrg;
 
 /**
  * Accountancy business.
@@ -10,7 +10,7 @@ namespace Spatie\SchemaOrg;
  *
  * @see http://schema.org/AccountingService
  *
- * @mixin \Spatie\SchemaOrg\FinancialService
+ * @mixin \Posterno\SchemaOrg\FinancialService
  */
 class AccountingService extends BaseType
 {

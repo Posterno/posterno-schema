@@ -19,6 +19,11 @@
 			"PNO\\": "includes/classes/"
 		}
 	},
+	"autoload-dev": {
+        "psr-4": {
+            "Posterno\\SchemaOrg\\Generator\\": "generator"
+        }
+    },
 	"require-dev": {
 		"dealerdirect/phpcodesniffer-composer-installer": "0.4.4",
 		"pressmodo/phpcs-config": "dev-master",

@@ -8,6 +8,9 @@
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 $available_types = [
 	'AMRadioChannel',
 	'APIReference',

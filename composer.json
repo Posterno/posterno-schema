@@ -16,7 +16,8 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"PNO\\": "includes/classes/"
+			"PNO\\": "includes/classes/",
+			"Posterno\\SchemaOrg\\": "src"
 		}
 	},
 	"autoload-dev": {

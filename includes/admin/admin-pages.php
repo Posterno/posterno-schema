@@ -8,7 +8,7 @@
  * @since       0.1.0
  */
 
-namespace PNO\Schema;
+namespace PNO\Schema\Admin;
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;

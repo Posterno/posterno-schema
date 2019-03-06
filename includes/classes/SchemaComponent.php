@@ -55,8 +55,6 @@ class SchemaComponent {
 	 */
 	public function setup_files() {
 
-		require_once PNO_SCHEMA_DIR . '/bootstrap-actions.php';
-
 		// Admin.
 		if ( is_admin() || ( defined( 'WP_CLI' ) && WP_CLI ) ) {
 			$this->setup_admin();

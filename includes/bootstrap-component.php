@@ -10,6 +10,8 @@
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  */
 
+namespace PNO;
+
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 

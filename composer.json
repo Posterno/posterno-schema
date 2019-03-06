@@ -16,7 +16,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"PressmodoPluginScaffold\\": "includes/classes/"
+			"PNO\\": "includes/classes/"
 		}
 	},
 	"require-dev": {
@@ -39,5 +39,5 @@
 	},
 	"config": {
         "sort-packages": true
-    }
+	}
 }

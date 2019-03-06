@@ -10,6 +10,8 @@
 
 namespace PNO\Schema\Admin;
 
+use Posterno\SchemaOrg\Schema;
+
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
@@ -36,3 +38,17 @@ function admin_listings_schema_page() {
 	echo '<div id="pno-listings-schema"></div>';
 
 }
+
+function t() {
+
+	$localBusiness = Schema::localBusiness()
+		->name('Spatie')
+		->email('info@spatie.be')
+		->contactPoint(Schema::contactPoint()->areaServed('Worldwide'));
+
+	$localBusiness->toArray();
+
+	print_r( $localBusiness );
+
+}
+add_action( 'admin_init', __NAMESPACE__ . '\\t' );

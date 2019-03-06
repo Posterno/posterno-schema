@@ -27,13 +27,13 @@ class Filesystem {
 	}
 
 	public function clear() {
-		$this->flysystem->deleteDir( 'includes/generated' );
-		$this->flysystem->createDir( 'includes/generated' );
+		$this->flysystem->deleteDir( 'includes/classes' );
+		$this->flysystem->createDir( 'includes/classes' );
 	}
 
 	public function createTypesList( TypeCollection $types ) {
 		$this->flysystem->put(
-			'includes/generated/types-list.php',
+			'includes/classes/types-list.php',
 			$this->typesListTemplate->render( [ 'types' => $types->toArray() ] )
 		);
 	}
@@ -47,7 +47,7 @@ class Filesystem {
 			}
 
 			$this->flysystem->put(
-				str_replace( 'generator/templates/static', 'includes/generated', $file['path'] ),
+				str_replace( 'generator/templates/static', 'includes/classes', $file['path'] ),
 				$this->flysystem->read( $file['path'] )
 			);
 		}
@@ -55,14 +55,14 @@ class Filesystem {
 
 	public function createType( Type $type ) {
 		$this->flysystem->put(
-			"includes/generated/{$type->name}.php",
+			"includes/classes/{$type->name}.php",
 			$this->typeTemplate->render( [ 'type' => $type ] )
 		);
 	}
 
 	public function createBuilderClass( TypeCollection $types ) {
 		$this->flysystem->put(
-			'includes/generated/Schema.php',
+			'includes/classes/Schema.php',
 			$this->builderClassTemplate->render( [ 'types' => $types->toArray() ] )
 		);
 	}

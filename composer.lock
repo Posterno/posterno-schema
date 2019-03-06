@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a0eaab90a93bd470173fd5e0cca0d17a",
+    "content-hash": "7a8a7aa32ea945bb48892d329b4c7f11",
     "packages": [
         {
             "name": "composer/installers",
@@ -360,12 +360,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pressmodo/phpcs-config.git",
-                "reference": "3fa4e9f0110b7b448f624afd677b1a8a4e100a7b"
+                "reference": "8e500446387aac5375800f9e9536c7690b35f80d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pressmodo/phpcs-config/zipball/3fa4e9f0110b7b448f624afd677b1a8a4e100a7b",
-                "reference": "3fa4e9f0110b7b448f624afd677b1a8a4e100a7b",
+                "url": "https://api.github.com/repos/Pressmodo/phpcs-config/zipball/8e500446387aac5375800f9e9536c7690b35f80d",
+                "reference": "8e500446387aac5375800f9e9536c7690b35f80d",
                 "shasum": ""
             },
             "require": {
@@ -379,7 +379,7 @@
             "license": [
                 "MIT"
             ],
-            "time": "2019-02-27T15:30:47+00:00"
+            "time": "2019-02-27T17:48:17+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",

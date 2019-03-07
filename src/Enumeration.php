@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Intangible
  */
-class Enumeration extends BaseType
-{
+class Enumeration extends BaseType {
+
 }

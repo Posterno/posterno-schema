@@ -11,100 +11,91 @@ use PNO\SchemaOrg\Exceptions\TypeAlreadyInGraph;
 /**
  * @mixin \PNO\SchemaOrg\Schema
  */
-class Graph extends BaseType
-{
-    /** @var array */
-    protected $hidden = [];
+class Graph extends BaseType {
 
-    public function __call(string $method, array $arguments)
-    {
-        if (is_callable([Schema::class, $method])) {
-            $type = (new ReflectionClass(Schema::class))->getMethod($method)->getReturnType();
+	/** @var array */
+	protected $hidden = [];
 
-            $schema = $this->getOrCreate($type);
+	public function __call( string $method, array $arguments ) {
+		if ( is_callable( [ Schema::class, $method ] ) ) {
+			$type = ( new ReflectionClass( Schema::class ) )->getMethod( $method )->getReturnType();
 
-            if (isset($arguments[0]) && is_callable($arguments[0])) {
-                call_user_func($arguments[0], $schema, $this);
+			$schema = $this->getOrCreate( $type );
 
-                return $this;
-            }
+			if ( isset( $arguments[0] ) && is_callable( $arguments[0] ) ) {
+				call_user_func( $arguments[0], $schema, $this );
 
-            return $schema;
-        }
+				return $this;
+			}
 
-        throw new BadMethodCallException(sprintf('The method "%" does not exist on class "%s".', $method, get_class($this)));
-    }
+			return $schema;
+		}
 
-    public function add(Type $schema): self
-    {
-        $type = get_class($schema);
+		throw new BadMethodCallException( sprintf( 'The method "%" does not exist on class "%s".', $method, get_class( $this ) ) );
+	}
 
-        if ($this->has($type)) {
-            throw new TypeAlreadyInGraph(sprintf('The graph already has an item of type "%s".', $type));
-        }
+	public function add( Type $schema ): self {
+		$type = get_class( $schema );
 
-        return $this->set($schema);
-    }
+		if ( $this->has( $type ) ) {
+			throw new TypeAlreadyInGraph( sprintf( 'The graph already has an item of type "%s".', $type ) );
+		}
 
-    public function has(string $type): bool
-    {
-        return $this->offsetExists($type);
-    }
+		return $this->set( $schema );
+	}
 
-    public function set(Type $schema)
-    {
-        return $this->setProperty(get_class($schema), $schema);
-    }
+	public function has( string $type ): bool {
+		return $this->offsetExists( $type );
+	}
 
-    public function get(string $type): Type
-    {
-        if (! $this->has($type)) {
-            throw new TypeNotInGraph(sprintf('The graph does not have an item of type "%s".', $type));
-        }
+	public function set( Type $schema ) {
+		return $this->setProperty( get_class( $schema ), $schema );
+	}
 
-        return $this->getProperty($type);
-    }
+	public function get( string $type ): Type {
+		if ( ! $this->has( $type ) ) {
+			throw new TypeNotInGraph( sprintf( 'The graph does not have an item of type "%s".', $type ) );
+		}
 
-    public function getOrCreate(string $type): Type
-    {
-        if (! is_subclass_of($type, Type::class)) {
-            throw new InvalidType(sprintf('The given type "%s" is not an instance of "%s".', $type, Type::class));
-        }
+		return $this->getProperty( $type );
+	}
 
-        if (! $this->has($type)) {
-            $this->set(new $type());
-        }
+	public function getOrCreate( string $type ): Type {
+		if ( ! is_subclass_of( $type, Type::class ) ) {
+			throw new InvalidType( sprintf( 'The given type "%s" is not an instance of "%s".', $type, Type::class ) );
+		}
 
-        return $this->get($type);
-    }
+		if ( ! $this->has( $type ) ) {
+			$this->set( new $type() );
+		}
 
-    public function hide(string $type): self
-    {
-        $this->hidden[$type] = true;
+		return $this->get( $type );
+	}
 
-        return $this;
-    }
+	public function hide( string $type ): self {
+		$this->hidden[ $type ] = true;
 
-    public function show(string $type): self
-    {
-        $this->hidden[$type] = false;
+		return $this;
+	}
 
-        return $this;
-    }
+	public function show( string $type ): self {
+		$this->hidden[ $type ] = false;
 
-    public function toArray(): array
-    {
-        $properties = $this->getProperties();
+		return $this;
+	}
 
-        foreach ($this->hidden as $type => $hide) {
-            if ($hide) {
-                unset($properties[$type]);
-            }
-        }
+	public function toArray(): array {
+		$properties = $this->getProperties();
 
-        return [
-            '@context' => $this->getContext(),
-            '@graph' => $this->serializeProperty(array_values($properties)),
-        ];
-    }
+		foreach ( $this->hidden as $type => $hide ) {
+			if ( $hide ) {
+				unset( $properties[ $type ] );
+			}
+		}
+
+		return [
+			'@context' => $this->getContext(),
+			'@graph'   => $this->serializeProperty( array_values( $properties ) ),
+		];
+	}
 }

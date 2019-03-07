@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\MedicalOrganization
  */
-class Pharmacy extends BaseType
-{
+class Pharmacy extends BaseType {
+
 }

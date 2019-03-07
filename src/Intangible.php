@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Thing
  */
-class Intangible extends BaseType
-{
+class Intangible extends BaseType {
+
 }

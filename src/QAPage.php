@@ -11,6 +11,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\WebPage
  */
-class QAPage extends BaseType
-{
+class QAPage extends BaseType {
+
 }

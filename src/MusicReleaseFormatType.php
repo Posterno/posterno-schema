@@ -10,55 +10,55 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Enumeration
  */
-class MusicReleaseFormatType extends BaseType
-{
-    /**
-     * CDFormat.
-     *
-     * @see http://schema.org/CDFormat
-     */
-     const CDFormat = 'http://schema.org/CDFormat';
+class MusicReleaseFormatType extends BaseType {
 
-    /**
-     * CassetteFormat.
-     *
-     * @see http://schema.org/CassetteFormat
-     */
-     const CassetteFormat = 'http://schema.org/CassetteFormat';
+	/**
+	 * CDFormat.
+	 *
+	 * @see http://schema.org/CDFormat
+	 */
+	 const CDFormat = 'http://schema.org/CDFormat';
 
-    /**
-     * DVDFormat.
-     *
-     * @see http://schema.org/DVDFormat
-     */
-     const DVDFormat = 'http://schema.org/DVDFormat';
+	/**
+	 * CassetteFormat.
+	 *
+	 * @see http://schema.org/CassetteFormat
+	 */
+	 const CassetteFormat = 'http://schema.org/CassetteFormat';
 
-    /**
-     * DigitalAudioTapeFormat.
-     *
-     * @see http://schema.org/DigitalAudioTapeFormat
-     */
-     const DigitalAudioTapeFormat = 'http://schema.org/DigitalAudioTapeFormat';
+	/**
+	 * DVDFormat.
+	 *
+	 * @see http://schema.org/DVDFormat
+	 */
+	 const DVDFormat = 'http://schema.org/DVDFormat';
 
-    /**
-     * DigitalFormat.
-     *
-     * @see http://schema.org/DigitalFormat
-     */
-     const DigitalFormat = 'http://schema.org/DigitalFormat';
+	/**
+	 * DigitalAudioTapeFormat.
+	 *
+	 * @see http://schema.org/DigitalAudioTapeFormat
+	 */
+	 const DigitalAudioTapeFormat = 'http://schema.org/DigitalAudioTapeFormat';
 
-    /**
-     * LaserDiscFormat.
-     *
-     * @see http://schema.org/LaserDiscFormat
-     */
-     const LaserDiscFormat = 'http://schema.org/LaserDiscFormat';
+	/**
+	 * DigitalFormat.
+	 *
+	 * @see http://schema.org/DigitalFormat
+	 */
+	 const DigitalFormat = 'http://schema.org/DigitalFormat';
 
-    /**
-     * VinylFormat.
-     *
-     * @see http://schema.org/VinylFormat
-     */
-     const VinylFormat = 'http://schema.org/VinylFormat';
+	/**
+	 * LaserDiscFormat.
+	 *
+	 * @see http://schema.org/LaserDiscFormat
+	 */
+	 const LaserDiscFormat = 'http://schema.org/LaserDiscFormat';
+
+	/**
+	 * VinylFormat.
+	 *
+	 * @see http://schema.org/VinylFormat
+	 */
+	 const VinylFormat = 'http://schema.org/VinylFormat';
 
 }

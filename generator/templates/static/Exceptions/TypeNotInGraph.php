@@ -4,6 +4,6 @@ namespace PNO\SchemaOrg\Exceptions;
 
 use InvalidArgumentException;
 
-class TypeNotInGraph extends InvalidArgumentException
-{
+class TypeNotInGraph extends InvalidArgumentException {
+
 }

@@ -3,8 +3,8 @@
 namespace PNO\SchemaOrg;
 
 /**
- * Professional service: Attorney. 
- * 
+ * Professional service: Attorney.
+ *
  * This type is deprecated - [[LegalService]] is more inclusive and less
  * ambiguous.
  *
@@ -12,6 +12,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\LegalService
  */
-class Attorney extends BaseType
-{
+class Attorney extends BaseType {
+
 }

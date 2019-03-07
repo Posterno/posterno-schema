@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\InteractAction
  */
-class MarryAction extends BaseType
-{
+class MarryAction extends BaseType {
+
 }

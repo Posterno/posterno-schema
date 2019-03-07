@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\InsertAction
  */
-class AppendAction extends BaseType
-{
+class AppendAction extends BaseType {
+
 }

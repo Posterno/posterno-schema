@@ -10,22 +10,21 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\StructuredValue
  */
-class InteractionCounter extends BaseType
-{
-    /**
-     * The Action representing the type of interaction. For up votes, +1s, etc.
-     * use [[LikeAction]]. For down votes use [[DislikeAction]]. Otherwise, use
-     * the most specific Action.
-     *
-     * @param Action|Action[] $interactionType
-     *
-     * @return static
-     *
-     * @see http://schema.org/interactionType
-     */
-    public function interactionType($interactionType)
-    {
-        return $this->setProperty('interactionType', $interactionType);
-    }
+class InteractionCounter extends BaseType {
+
+	/**
+	 * The Action representing the type of interaction. For up votes, +1s, etc.
+	 * use [[LikeAction]]. For down votes use [[DislikeAction]]. Otherwise, use
+	 * the most specific Action.
+	 *
+	 * @param Action|Action[] $interactionType
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/interactionType
+	 */
+	public function interactionType( $interactionType ) {
+		return $this->setProperty( 'interactionType', $interactionType );
+	}
 
 }

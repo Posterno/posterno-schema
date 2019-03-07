@@ -9,21 +9,20 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\AllocateAction
  */
-class AuthorizeAction extends BaseType
-{
-    /**
-     * A sub property of participant. The participant who is at the receiving
-     * end of the action.
-     *
-     * @param Audience|Audience[]|ContactPoint|ContactPoint[]|Organization|Organization[]|Person|Person[] $recipient
-     *
-     * @return static
-     *
-     * @see http://schema.org/recipient
-     */
-    public function recipient($recipient)
-    {
-        return $this->setProperty('recipient', $recipient);
-    }
+class AuthorizeAction extends BaseType {
+
+	/**
+	 * A sub property of participant. The participant who is at the receiving
+	 * end of the action.
+	 *
+	 * @param Audience|Audience[]|ContactPoint|ContactPoint[]|Organization|Organization[]|Person|Person[] $recipient
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/recipient
+	 */
+	public function recipient( $recipient ) {
+		return $this->setProperty( 'recipient', $recipient );
+	}
 
 }

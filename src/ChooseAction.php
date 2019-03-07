@@ -10,34 +10,32 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\AssessAction
  */
-class ChooseAction extends BaseType
-{
-    /**
-     * A sub property of object. The options subject to this action.
-     *
-     * @param Thing|Thing[]|string|string[] $actionOption
-     *
-     * @return static
-     *
-     * @see http://schema.org/actionOption
-     */
-    public function actionOption($actionOption)
-    {
-        return $this->setProperty('actionOption', $actionOption);
-    }
+class ChooseAction extends BaseType {
 
-    /**
-     * A sub property of object. The options subject to this action.
-     *
-     * @param Thing|Thing[]|string|string[] $option
-     *
-     * @return static
-     *
-     * @see http://schema.org/option
-     */
-    public function option($option)
-    {
-        return $this->setProperty('option', $option);
-    }
+	/**
+	 * A sub property of object. The options subject to this action.
+	 *
+	 * @param Thing|Thing[]|string|string[] $actionOption
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/actionOption
+	 */
+	public function actionOption( $actionOption ) {
+		return $this->setProperty( 'actionOption', $actionOption );
+	}
+
+	/**
+	 * A sub property of object. The options subject to this action.
+	 *
+	 * @param Thing|Thing[]|string|string[] $option
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/option
+	 */
+	public function option( $option ) {
+		return $this->setProperty( 'option', $option );
+	}
 
 }

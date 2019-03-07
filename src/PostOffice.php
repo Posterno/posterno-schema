@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\GovernmentOffice
  */
-class PostOffice extends BaseType
-{
+class PostOffice extends BaseType {
+
 }

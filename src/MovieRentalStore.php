@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Store
  */
-class MovieRentalStore extends BaseType
-{
+class MovieRentalStore extends BaseType {
+
 }

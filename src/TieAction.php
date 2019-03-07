@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\AchieveAction
  */
-class TieAction extends BaseType
-{
+class TieAction extends BaseType {
+
 }

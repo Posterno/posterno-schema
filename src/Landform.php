@@ -12,6 +12,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Place
  */
-class Landform extends BaseType
-{
+class Landform extends BaseType {
+
 }

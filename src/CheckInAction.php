@@ -7,9 +7,9 @@ namespace PNO\SchemaOrg;
  * arrival by registering/confirming for a previously reserved service (e.g.
  * flight check in) or at a place (e.g. hotel), possibly resulting in a result
  * (boarding pass, etc).
- * 
+ *
  * Related actions:
- * 
+ *
  * * [[CheckOutAction]]: The antonym of CheckInAction.
  * * [[ArriveAction]]: Unlike ArriveAction, CheckInAction implies that the agent
  * is informing/confirming the start of a previously reserved service.
@@ -21,6 +21,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CommunicateAction
  */
-class CheckInAction extends BaseType
-{
+class CheckInAction extends BaseType {
+
 }

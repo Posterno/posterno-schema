@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\EducationalOrganization
  */
-class CollegeOrUniversity extends BaseType
-{
+class CollegeOrUniversity extends BaseType {
+
 }

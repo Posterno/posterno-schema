@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CivicStructure
  */
-class Bridge extends BaseType
-{
+class Bridge extends BaseType {
+
 }

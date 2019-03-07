@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CivicStructure
  */
-class Zoo extends BaseType
-{
+class Zoo extends BaseType {
+
 }

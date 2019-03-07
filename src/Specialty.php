@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Enumeration
  */
-class Specialty extends BaseType
-{
+class Specialty extends BaseType {
+
 }

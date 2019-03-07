@@ -7,131 +7,114 @@ use ReflectionClass;
 use DateTimeInterface;
 use PNO\SchemaOrg\Exceptions\InvalidProperty;
 
-abstract class BaseType implements Type, \ArrayAccess, \JsonSerializable
-{
-    /** @var array */
-    protected $properties = [];
+abstract class BaseType implements Type, \ArrayAccess, \JsonSerializable {
 
-    public function getContext()
-    {
-        return 'https://schema.org';
-    }
+	/** @var array */
+	protected $properties = [];
 
-    public function getType()
-    {
-        return (new ReflectionClass($this))->getShortName();
-    }
+	public function getContext() {
+		return 'https://schema.org';
+	}
 
-    public function setProperty($property, $value)
-    {
-        $this->properties[$property] = $value;
+	public function getType() {
+		return ( new ReflectionClass( $this ) )->getShortName();
+	}
 
-        return $this;
-    }
+	public function setProperty( $property, $value ) {
+		$this->properties[ $property ] = $value;
 
-    public function addProperties($properties)
-    {
-        foreach ($properties as $property => $value) {
-            $this->setProperty($property, $value);
-        }
+		return $this;
+	}
 
-        return $this;
-    }
+	public function addProperties( $properties ) {
+		foreach ( $properties as $property => $value ) {
+			$this->setProperty( $property, $value );
+		}
 
-	public function doIf($condition, $callback)
-    {
-        if ($condition) {
-            $callback($this);
-        }
-        return $this;
-    }
+		return $this;
+	}
 
-    public function getProperty($property, $default = null)
-    {
-        return isset($this->properties[$property]) ? $this->properties[$property] : $default;
-    }
+	public function doIf( $condition, $callback ) {
+		if ( $condition ) {
+			$callback( $this );
+		}
+		return $this;
+	}
 
-    public function getProperties()
-    {
-        return $this->properties;
-    }
+	public function getProperty( $property, $default = null ) {
+		return isset( $this->properties[ $property ] ) ? $this->properties[ $property ] : $default;
+	}
 
-    public function offsetExists($offset)
-    {
-        return array_key_exists($offset, $this->properties);
-    }
+	public function getProperties() {
+		return $this->properties;
+	}
 
-    public function offsetGet($offset)
-    {
-        return $this->getProperty($offset);
-    }
+	public function offsetExists( $offset ) {
+		return array_key_exists( $offset, $this->properties );
+	}
 
-    public function offsetSet($offset, $value)
-    {
-        $this->setProperty($offset, $value);
-    }
+	public function offsetGet( $offset ) {
+		return $this->getProperty( $offset );
+	}
 
-    public function offsetUnset($offset)
-    {
-        unset($this->properties[$offset]);
-    }
+	public function offsetSet( $offset, $value ) {
+		$this->setProperty( $offset, $value );
+	}
 
-    public function toArray()
-    {
-        $properties = $this->serializeProperty($this->getProperties());
+	public function offsetUnset( $offset ) {
+		unset( $this->properties[ $offset ] );
+	}
 
-        return [
-            '@context' => $this->getContext(),
-            '@type' => $this->getType(),
-        ] + $properties;
-    }
+	public function toArray() {
+		$properties = $this->serializeProperty( $this->getProperties() );
 
-    protected function serializeProperty($property)
-    {
-        if (is_array($property)) {
-            return array_map([$this, 'serializeProperty'], $property);
-        }
+		return [
+			'@context' => $this->getContext(),
+			'@type'    => $this->getType(),
+		] + $properties;
+	}
 
-        if ($property instanceof Type) {
-            $property = $property->toArray();
-            unset($property['@context']);
-        }
+	protected function serializeProperty( $property ) {
+		if ( is_array( $property ) ) {
+			return array_map( [ $this, 'serializeProperty' ], $property );
+		}
 
-        if ($property instanceof DateTimeInterface) {
-            $property = $property->format(DateTime::ATOM);
-        }
+		if ( $property instanceof Type ) {
+			$property = $property->toArray();
+			unset( $property['@context'] );
+		}
 
-        if (method_exists($property, '__toString')) {
-            $property = (string) $property;
-        }
+		if ( $property instanceof DateTimeInterface ) {
+			$property = $property->format( DateTime::ATOM );
+		}
 
-        if (is_object($property)) {
-            throw new InvalidProperty();
-        }
+		if ( method_exists( $property, '__toString' ) ) {
+			$property = (string) $property;
+		}
 
-        return $property;
-    }
+		if ( is_object( $property ) ) {
+			throw new InvalidProperty();
+		}
 
-    public function toScript()
-    {
-        return '<script type="application/ld+json">'.json_encode($this->toArray(), JSON_UNESCAPED_UNICODE).'</script>';
-    }
+		return $property;
+	}
 
-    public function jsonSerialize()
-    {
-        return $this->toArray();
-    }
+	public function toScript() {
+		return '<script type="application/ld+json">' . json_encode( $this->toArray(), JSON_UNESCAPED_UNICODE ) . '</script>';
+	}
 
-	public function __call($method, array $arguments)
-    {
+	public function jsonSerialize() {
+		return $this->toArray();
+	}
+
+	public function __call( $method, array $arguments ) {
 
 		$args = isset( $arguments[0] ) ? $arguments[0] : '';
 
-        return $this->setProperty($method, $args);
-    }
+		return $this->setProperty( $method, $args );
+	}
 
-    public function __toString()
-    {
-        return $this->toScript();
-    }
+	public function __toString() {
+		return $this->toScript();
+	}
 }

@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\LocalBusiness
  */
-class EntertainmentBusiness extends BaseType
-{
+class EntertainmentBusiness extends BaseType {
+
 }

@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\WebPage
  */
-class AboutPage extends BaseType
-{
+class AboutPage extends BaseType {
+
 }

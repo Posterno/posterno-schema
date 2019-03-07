@@ -9,20 +9,19 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\AchieveAction
  */
-class LoseAction extends BaseType
-{
-    /**
-     * A sub property of participant. The winner of the action.
-     *
-     * @param Person|Person[] $winner
-     *
-     * @return static
-     *
-     * @see http://schema.org/winner
-     */
-    public function winner($winner)
-    {
-        return $this->setProperty('winner', $winner);
-    }
+class LoseAction extends BaseType {
+
+	/**
+	 * A sub property of participant. The winner of the action.
+	 *
+	 * @param Person|Person[] $winner
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/winner
+	 */
+	public function winner( $winner ) {
+		return $this->setProperty( 'winner', $winner );
+	}
 
 }

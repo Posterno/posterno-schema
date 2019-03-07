@@ -5,9 +5,9 @@ namespace PNO\SchemaOrg;
 /**
  * The act of forming a personal connection with someone (object)
  * mutually/bidirectionally/symmetrically.
- * 
+ *
  * Related actions:
- * 
+ *
  * * [[FollowAction]]: Unlike FollowAction, BefriendAction implies that the
  * connection is reciprocal.
  *
@@ -15,6 +15,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\InteractAction
  */
-class BefriendAction extends BaseType
-{
+class BefriendAction extends BaseType {
+
 }

@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\LocalBusiness
  */
-class AutomotiveBusiness extends BaseType
-{
+class AutomotiveBusiness extends BaseType {
+
 }

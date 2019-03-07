@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CreativeWorkSeries
  */
-class BookSeries extends BaseType
-{
+class BookSeries extends BaseType {
+
 }

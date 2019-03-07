@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Store
  */
-class LiquorStore extends BaseType
-{
+class LiquorStore extends BaseType {
+
 }

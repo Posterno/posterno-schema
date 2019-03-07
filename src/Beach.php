@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CivicStructure
  */
-class Beach extends BaseType
-{
+class Beach extends BaseType {
+
 }

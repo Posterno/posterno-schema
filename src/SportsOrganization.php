@@ -10,20 +10,19 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Organization
  */
-class SportsOrganization extends BaseType
-{
-    /**
-     * A type of sport (e.g. Baseball).
-     *
-     * @param string|string[] $sport
-     *
-     * @return static
-     *
-     * @see http://schema.org/sport
-     */
-    public function sport($sport)
-    {
-        return $this->setProperty('sport', $sport);
-    }
+class SportsOrganization extends BaseType {
+
+	/**
+	 * A type of sport (e.g. Baseball).
+	 *
+	 * @param string|string[] $sport
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/sport
+	 */
+	public function sport( $sport ) {
+		return $this->setProperty( 'sport', $sport );
+	}
 
 }

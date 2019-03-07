@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Action
  */
-class AssessAction extends BaseType
-{
+class AssessAction extends BaseType {
+
 }

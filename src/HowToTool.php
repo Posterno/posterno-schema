@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\HowToItem
  */
-class HowToTool extends BaseType
-{
+class HowToTool extends BaseType {
+
 }

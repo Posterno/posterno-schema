@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\ReactAction
  */
-class LikeAction extends BaseType
-{
+class LikeAction extends BaseType {
+
 }

@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\HomeAndConstructionBusiness
  */
-class HVACBusiness extends BaseType
-{
+class HVACBusiness extends BaseType {
+
 }

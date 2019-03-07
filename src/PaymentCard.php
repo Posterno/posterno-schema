@@ -11,6 +11,6 @@ namespace PNO\SchemaOrg;
  * @mixin \PNO\SchemaOrg\FinancialProduct
  * @mixin \PNO\SchemaOrg\PaymentMethod
  */
-class PaymentCard extends BaseType
-{
+class PaymentCard extends BaseType {
+
 }

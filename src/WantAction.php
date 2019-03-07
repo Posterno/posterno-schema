@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\ReactAction
  */
-class WantAction extends BaseType
-{
+class WantAction extends BaseType {
+
 }

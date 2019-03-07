@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  * @mixin \PNO\SchemaOrg\CivicStructure
  * @mixin \PNO\SchemaOrg\SportsActivityLocation
  */
-class StadiumOrArena extends BaseType
-{
+class StadiumOrArena extends BaseType {
+
 }

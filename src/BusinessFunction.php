@@ -8,9 +8,9 @@ namespace PNO\SchemaOrg;
  * offer. Typical are sell, rental or lease, maintenance or repair, manufacture
  * / produce, recycle / dispose, engineering / construction, or installation.
  * Proprietary specifications of access rights are also instances of this class.
- * 
+ *
  * Commonly used values:
- * 
+ *
  * * http://purl.org/goodrelations/v1#ConstructionInstallation
  * * http://purl.org/goodrelations/v1#Dispose
  * * http://purl.org/goodrelations/v1#LeaseOut
@@ -24,6 +24,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Enumeration
  */
-class BusinessFunction extends BaseType
-{
+class BusinessFunction extends BaseType {
+
 }

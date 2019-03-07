@@ -11,6 +11,6 @@ namespace PNO\SchemaOrg;
  * @mixin \PNO\SchemaOrg\BankAccount
  * @mixin \PNO\SchemaOrg\InvestmentOrDeposit
  */
-class DepositAccount extends BaseType
-{
+class DepositAccount extends BaseType {
+
 }

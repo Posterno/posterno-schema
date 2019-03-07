@@ -10,49 +10,46 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\InformAction
  */
-class RsvpAction extends BaseType
-{
-    /**
-     * If responding yes, the number of guests who will attend in addition to
-     * the invitee.
-     *
-     * @param float|float[]|int|int[] $additionalNumberOfGuests
-     *
-     * @return static
-     *
-     * @see http://schema.org/additionalNumberOfGuests
-     */
-    public function additionalNumberOfGuests($additionalNumberOfGuests)
-    {
-        return $this->setProperty('additionalNumberOfGuests', $additionalNumberOfGuests);
-    }
+class RsvpAction extends BaseType {
 
-    /**
-     * Comments, typically from users.
-     *
-     * @param Comment|Comment[] $comment
-     *
-     * @return static
-     *
-     * @see http://schema.org/comment
-     */
-    public function comment($comment)
-    {
-        return $this->setProperty('comment', $comment);
-    }
+	/**
+	 * If responding yes, the number of guests who will attend in addition to
+	 * the invitee.
+	 *
+	 * @param float|float[]|int|int[] $additionalNumberOfGuests
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/additionalNumberOfGuests
+	 */
+	public function additionalNumberOfGuests( $additionalNumberOfGuests ) {
+		return $this->setProperty( 'additionalNumberOfGuests', $additionalNumberOfGuests );
+	}
 
-    /**
-     * The response (yes, no, maybe) to the RSVP.
-     *
-     * @param RsvpResponseType|RsvpResponseType[] $rsvpResponse
-     *
-     * @return static
-     *
-     * @see http://schema.org/rsvpResponse
-     */
-    public function rsvpResponse($rsvpResponse)
-    {
-        return $this->setProperty('rsvpResponse', $rsvpResponse);
-    }
+	/**
+	 * Comments, typically from users.
+	 *
+	 * @param Comment|Comment[] $comment
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/comment
+	 */
+	public function comment( $comment ) {
+		return $this->setProperty( 'comment', $comment );
+	}
+
+	/**
+	 * The response (yes, no, maybe) to the RSVP.
+	 *
+	 * @param RsvpResponseType|RsvpResponseType[] $rsvpResponse
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/rsvpResponse
+	 */
+	public function rsvpResponse( $rsvpResponse ) {
+		return $this->setProperty( 'rsvpResponse', $rsvpResponse );
+	}
 
 }

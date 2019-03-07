@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\AutomotiveBusiness
  */
-class GasStation extends BaseType
-{
+class GasStation extends BaseType {
+
 }

@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Permit
  */
-class GovernmentPermit extends BaseType
-{
+class GovernmentPermit extends BaseType {
+
 }

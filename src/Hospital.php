@@ -11,6 +11,6 @@ namespace PNO\SchemaOrg;
  * @mixin \PNO\SchemaOrg\EmergencyService
  * @mixin \PNO\SchemaOrg\MedicalOrganization
  */
-class Hospital extends BaseType
-{
+class Hospital extends BaseType {
+
 }

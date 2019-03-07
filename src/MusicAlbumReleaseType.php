@@ -9,34 +9,34 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Enumeration
  */
-class MusicAlbumReleaseType extends BaseType
-{
-    /**
-     * AlbumRelease.
-     *
-     * @see http://schema.org/AlbumRelease
-     */
-     const AlbumRelease = 'http://schema.org/AlbumRelease';
+class MusicAlbumReleaseType extends BaseType {
 
-    /**
-     * BroadcastRelease.
-     *
-     * @see http://schema.org/BroadcastRelease
-     */
-     const BroadcastRelease = 'http://schema.org/BroadcastRelease';
+	/**
+	 * AlbumRelease.
+	 *
+	 * @see http://schema.org/AlbumRelease
+	 */
+	 const AlbumRelease = 'http://schema.org/AlbumRelease';
 
-    /**
-     * EPRelease.
-     *
-     * @see http://schema.org/EPRelease
-     */
-     const EPRelease = 'http://schema.org/EPRelease';
+	/**
+	 * BroadcastRelease.
+	 *
+	 * @see http://schema.org/BroadcastRelease
+	 */
+	 const BroadcastRelease = 'http://schema.org/BroadcastRelease';
 
-    /**
-     * SingleRelease.
-     *
-     * @see http://schema.org/SingleRelease
-     */
-     const SingleRelease = 'http://schema.org/SingleRelease';
+	/**
+	 * EPRelease.
+	 *
+	 * @see http://schema.org/EPRelease
+	 */
+	 const EPRelease = 'http://schema.org/EPRelease';
+
+	/**
+	 * SingleRelease.
+	 *
+	 * @see http://schema.org/SingleRelease
+	 */
+	 const SingleRelease = 'http://schema.org/SingleRelease';
 
 }

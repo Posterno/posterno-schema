@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\LocalBusiness
  */
-class GovernmentOffice extends BaseType
-{
+class GovernmentOffice extends BaseType {
+
 }

@@ -9,21 +9,20 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Article
  */
-class Report extends BaseType
-{
-    /**
-     * The number or other unique designator assigned to a Report by the
-     * publishing organization.
-     *
-     * @param string|string[] $reportNumber
-     *
-     * @return static
-     *
-     * @see http://schema.org/reportNumber
-     */
-    public function reportNumber($reportNumber)
-    {
-        return $this->setProperty('reportNumber', $reportNumber);
-    }
+class Report extends BaseType {
+
+	/**
+	 * The number or other unique designator assigned to a Report by the
+	 * publishing organization.
+	 *
+	 * @param string|string[] $reportNumber
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/reportNumber
+	 */
+	public function reportNumber( $reportNumber ) {
+		return $this->setProperty( 'reportNumber', $reportNumber );
+	}
 
 }

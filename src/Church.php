@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\PlaceOfWorship
  */
-class Church extends BaseType
-{
+class Church extends BaseType {
+
 }

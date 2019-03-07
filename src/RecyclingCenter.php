@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\LocalBusiness
  */
-class RecyclingCenter extends BaseType
-{
+class RecyclingCenter extends BaseType {
+
 }

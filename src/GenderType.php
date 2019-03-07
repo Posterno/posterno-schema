@@ -9,20 +9,20 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Enumeration
  */
-class GenderType extends BaseType
-{
-    /**
-     * The female gender.
-     *
-     * @see http://schema.org/Female
-     */
-     const Female = 'http://schema.org/Female';
+class GenderType extends BaseType {
 
-    /**
-     * The male gender.
-     *
-     * @see http://schema.org/Male
-     */
-     const Male = 'http://schema.org/Male';
+	/**
+	 * The female gender.
+	 *
+	 * @see http://schema.org/Female
+	 */
+	 const Female = 'http://schema.org/Female';
+
+	/**
+	 * The male gender.
+	 *
+	 * @see http://schema.org/Male
+	 */
+	 const Male = 'http://schema.org/Male';
 
 }

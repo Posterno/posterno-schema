@@ -10,22 +10,21 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\StructuredValue
  */
-class EngineSpecification extends BaseType
-{
-    /**
-     * The type of fuel suitable for the engine or engines of the vehicle. If
-     * the vehicle has only one engine, this property can be attached directly
-     * to the vehicle.
-     *
-     * @param QualitativeValue|QualitativeValue[]|string|string[] $fuelType
-     *
-     * @return static
-     *
-     * @see http://schema.org/fuelType
-     */
-    public function fuelType($fuelType)
-    {
-        return $this->setProperty('fuelType', $fuelType);
-    }
+class EngineSpecification extends BaseType {
+
+	/**
+	 * The type of fuel suitable for the engine or engines of the vehicle. If
+	 * the vehicle has only one engine, this property can be attached directly
+	 * to the vehicle.
+	 *
+	 * @param QualitativeValue|QualitativeValue[]|string|string[] $fuelType
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/fuelType
+	 */
+	public function fuelType( $fuelType ) {
+		return $this->setProperty( 'fuelType', $fuelType );
+	}
 
 }

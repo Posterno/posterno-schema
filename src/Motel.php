@@ -4,7 +4,7 @@ namespace PNO\SchemaOrg;
 
 /**
  * A motel.
- * 
+ *
  * See also the <a href="/docs/hotels.html">dedicated document on the use of
  * schema.org for marking up hotels and other forms of accommodations</a>.
  *
@@ -12,6 +12,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\LodgingBusiness
  */
-class Motel extends BaseType
-{
+class Motel extends BaseType {
+
 }

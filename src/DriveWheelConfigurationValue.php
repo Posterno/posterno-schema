@@ -9,38 +9,38 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\QualitativeValue
  */
-class DriveWheelConfigurationValue extends BaseType
-{
-    /**
-     * All-wheel Drive is a transmission layout where the engine drives all four
-     * wheels.
-     *
-     * @see http://schema.org/AllWheelDriveConfiguration
-     */
-     const AllWheelDriveConfiguration = 'http://schema.org/AllWheelDriveConfiguration';
+class DriveWheelConfigurationValue extends BaseType {
 
-    /**
-     * Four-wheel drive is a transmission layout where the engine primarily
-     * drives two wheels with a part-time four-wheel drive capability.
-     *
-     * @see http://schema.org/FourWheelDriveConfiguration
-     */
-     const FourWheelDriveConfiguration = 'http://schema.org/FourWheelDriveConfiguration';
+	/**
+	 * All-wheel Drive is a transmission layout where the engine drives all four
+	 * wheels.
+	 *
+	 * @see http://schema.org/AllWheelDriveConfiguration
+	 */
+	 const AllWheelDriveConfiguration = 'http://schema.org/AllWheelDriveConfiguration';
 
-    /**
-     * Front-wheel drive is a transmission layout where the engine drives the
-     * front wheels.
-     *
-     * @see http://schema.org/FrontWheelDriveConfiguration
-     */
-     const FrontWheelDriveConfiguration = 'http://schema.org/FrontWheelDriveConfiguration';
+	/**
+	 * Four-wheel drive is a transmission layout where the engine primarily
+	 * drives two wheels with a part-time four-wheel drive capability.
+	 *
+	 * @see http://schema.org/FourWheelDriveConfiguration
+	 */
+	 const FourWheelDriveConfiguration = 'http://schema.org/FourWheelDriveConfiguration';
 
-    /**
-     * Real-wheel drive is a transmission layout where the engine drives the
-     * rear wheels.
-     *
-     * @see http://schema.org/RearWheelDriveConfiguration
-     */
-     const RearWheelDriveConfiguration = 'http://schema.org/RearWheelDriveConfiguration';
+	/**
+	 * Front-wheel drive is a transmission layout where the engine drives the
+	 * front wheels.
+	 *
+	 * @see http://schema.org/FrontWheelDriveConfiguration
+	 */
+	 const FrontWheelDriveConfiguration = 'http://schema.org/FrontWheelDriveConfiguration';
+
+	/**
+	 * Real-wheel drive is a transmission layout where the engine drives the
+	 * rear wheels.
+	 *
+	 * @see http://schema.org/RearWheelDriveConfiguration
+	 */
+	 const RearWheelDriveConfiguration = 'http://schema.org/RearWheelDriveConfiguration';
 
 }

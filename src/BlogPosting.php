@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\SocialMediaPosting
  */
-class BlogPosting extends BaseType
-{
+class BlogPosting extends BaseType {
+
 }

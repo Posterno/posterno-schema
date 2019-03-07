@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\TradeAction
  */
-class PreOrderAction extends BaseType
-{
+class PreOrderAction extends BaseType {
+
 }

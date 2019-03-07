@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\AdministrativeArea
  */
-class Country extends BaseType
-{
+class Country extends BaseType {
+
 }

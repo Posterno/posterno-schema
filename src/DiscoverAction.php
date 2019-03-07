@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\FindAction
  */
-class DiscoverAction extends BaseType
-{
+class DiscoverAction extends BaseType {
+
 }

@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Message
  */
-class EmailMessage extends BaseType
-{
+class EmailMessage extends BaseType {
+
 }

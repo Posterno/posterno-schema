@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Intangible
  */
-class StructuredValue extends BaseType
-{
+class StructuredValue extends BaseType {
+
 }

@@ -10,27 +10,27 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Enumeration
  */
-class RsvpResponseType extends BaseType
-{
-    /**
-     * The invitee may or may not attend.
-     *
-     * @see http://schema.org/RsvpResponseMaybe
-     */
-     const RsvpResponseMaybe = 'http://schema.org/RsvpResponseMaybe';
+class RsvpResponseType extends BaseType {
 
-    /**
-     * The invitee will not attend.
-     *
-     * @see http://schema.org/RsvpResponseNo
-     */
-     const RsvpResponseNo = 'http://schema.org/RsvpResponseNo';
+	/**
+	 * The invitee may or may not attend.
+	 *
+	 * @see http://schema.org/RsvpResponseMaybe
+	 */
+	 const RsvpResponseMaybe = 'http://schema.org/RsvpResponseMaybe';
 
-    /**
-     * The invitee will attend.
-     *
-     * @see http://schema.org/RsvpResponseYes
-     */
-     const RsvpResponseYes = 'http://schema.org/RsvpResponseYes';
+	/**
+	 * The invitee will not attend.
+	 *
+	 * @see http://schema.org/RsvpResponseNo
+	 */
+	 const RsvpResponseNo = 'http://schema.org/RsvpResponseNo';
+
+	/**
+	 * The invitee will attend.
+	 *
+	 * @see http://schema.org/RsvpResponseYes
+	 */
+	 const RsvpResponseYes = 'http://schema.org/RsvpResponseYes';
 
 }

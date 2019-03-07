@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Event
  */
-class EducationEvent extends BaseType
-{
+class EducationEvent extends BaseType {
+
 }

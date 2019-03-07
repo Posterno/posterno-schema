@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CreateAction
  */
-class FilmAction extends BaseType
-{
+class FilmAction extends BaseType {
+
 }

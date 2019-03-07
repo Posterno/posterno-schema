@@ -10,7 +10,7 @@ interface Type
      *
      * @return array
      */
-    public function toArray(): array;
+    public function toArray();
 
     /**
      * Create a json-ld script tag for this type, built from the data that
@@ -18,7 +18,7 @@ interface Type
      *
      * @return string
      */
-    public function toScript(): string;
+    public function toScript();
 
     /**
      * Create a json-ld script tag for this type, built from the data that
@@ -26,5 +26,5 @@ interface Type
      *
      * @return string
      */
-    public function __toString(): string;
+    public function __toString();
 }

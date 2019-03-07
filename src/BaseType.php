@@ -12,24 +12,24 @@ abstract class BaseType implements Type, \ArrayAccess, \JsonSerializable
     /** @var array */
     protected $properties = [];
 
-    public function getContext(): string
+    public function getContext()
     {
         return 'https://schema.org';
     }
 
-    public function getType(): string
+    public function getType()
     {
         return (new ReflectionClass($this))->getShortName();
     }
 
-    public function setProperty(string $property, $value)
+    public function setProperty($property, $value)
     {
         $this->properties[$property] = $value;
 
         return $this;
     }
 
-    public function addProperties(array $properties)
+    public function addProperties($properties)
     {
         foreach ($properties as $property => $value) {
             $this->setProperty($property, $value);
@@ -38,21 +38,20 @@ abstract class BaseType implements Type, \ArrayAccess, \JsonSerializable
         return $this;
     }
 
-    public function if($condition, $callback)
+	public function doIf($condition, $callback)
     {
         if ($condition) {
             $callback($this);
         }
-
         return $this;
     }
 
-    public function getProperty(string $property, $default = null)
+    public function getProperty($property, $default = null)
     {
-        return $this->properties[$property] ?? $default;
+        return isset($this->properties[$property]) ? $this->properties[$property] : $default;
     }
 
-    public function getProperties(): array
+    public function getProperties()
     {
         return $this->properties;
     }
@@ -77,7 +76,7 @@ abstract class BaseType implements Type, \ArrayAccess, \JsonSerializable
         unset($this->properties[$offset]);
     }
 
-    public function toArray(): array
+    public function toArray()
     {
         $properties = $this->serializeProperty($this->getProperties());
 
@@ -113,7 +112,7 @@ abstract class BaseType implements Type, \ArrayAccess, \JsonSerializable
         return $property;
     }
 
-    public function toScript(): string
+    public function toScript()
     {
         return '<script type="application/ld+json">'.json_encode($this->toArray(), JSON_UNESCAPED_UNICODE).'</script>';
     }
@@ -123,12 +122,15 @@ abstract class BaseType implements Type, \ArrayAccess, \JsonSerializable
         return $this->toArray();
     }
 
-    public function __call(string $method, array $arguments)
+	public function __call($method, array $arguments)
     {
-        return $this->setProperty($method, $arguments[0] ?? '');
+
+		$args = isset( $arguments[0] ) ? $arguments[0] : '';
+
+        return $this->setProperty($method, $args);
     }
 
-    public function __toString(): string
+    public function __toString()
     {
         return $this->toScript();
     }

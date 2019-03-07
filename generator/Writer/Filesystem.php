@@ -28,10 +28,10 @@ class Filesystem {
 
 	public function clearAutomatedFiles() {
 
-		$contents = $this->flysystem->listContents( 'src', true );
+		$contents = $this->flysystem->listContents( 'includes', true );
 
 		foreach ( $contents as $object ) {
-			if ( strpos( $object['path'], 'src/Component' ) === 0 ) {
+			if ( strpos( $object['path'], 'includes/Component' ) === 0 ) {
 				continue;
 			} else {
 				$this->flysystem->delete( $object['path'] );
@@ -41,7 +41,7 @@ class Filesystem {
 
 	public function createTypesList( TypeCollection $types ) {
 		$this->flysystem->put(
-			'src/types-list.php',
+			'includes/types-list.php',
 			$this->typesListTemplate->render( [ 'types' => $types->toArray() ] )
 		);
 	}
@@ -55,7 +55,7 @@ class Filesystem {
 			}
 
 			$this->flysystem->put(
-				str_replace( 'generator/templates/static', 'src', $file['path'] ),
+				str_replace( 'generator/templates/static', 'includes', $file['path'] ),
 				$this->flysystem->read( $file['path'] )
 			);
 		}
@@ -63,14 +63,14 @@ class Filesystem {
 
 	public function createType( Type $type ) {
 		$this->flysystem->put(
-			"src/{$type->name}.php",
+			"includes/{$type->name}.php",
 			$this->typeTemplate->render( [ 'type' => $type ] )
 		);
 	}
 
 	public function createBuilderClass( TypeCollection $types ) {
 		$this->flysystem->put(
-			'src/Schema.php',
+			'includes/Schema.php',
 			$this->builderClassTemplate->render( [ 'types' => $types->toArray() ] )
 		);
 	}

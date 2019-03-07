@@ -25,8 +25,16 @@ function pno_schema_admin_assets() {
 
 	if ( defined( 'PNO_VUE_DEV' ) && PNO_VUE_DEV === true ) {
 
+		wp_register_script( 'pno-schema-js', 'http://localhost:8081/listings-schema-editor.js', [], $version, true );
+
 	} else {
 
+	}
+
+	if ( $screen->id === 'listings_page_posterno-listings-schema' ) {
+		wp_enqueue_style( 'pno-editors-styling' );
+		wp_enqueue_script( 'pno-schema-js' );
+		wp_localize_script( 'pno-schema-js', 'pno_schema_editor', pno_get_schema_editor_js_vars() );
 	}
 
 }

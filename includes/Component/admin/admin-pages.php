@@ -34,3 +34,24 @@ function pno_schema_admin_listings_schema_page() {
 	echo '<div id="pno-listings-schema"></div>';
 
 }
+
+/**
+ * Retrieve the list of labels for the schema editor.
+ *
+ * @return array
+ */
+function pno_get_schema_editor_js_vars() {
+
+	$labels = [
+		'plugin_url' => PNO_PLUGIN_URL,
+		'labels'     => [
+			'documentation' => esc_html__( 'Documentation', 'posterno' ),
+			'listing'       => [
+				'title' => esc_html__( 'Listings schema editor' ),
+			],
+		],
+	];
+
+	return $labels;
+
+}

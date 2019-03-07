@@ -5,37 +5,48 @@
 			{{labels.listing.title}}
 		</AdminHeader>
 
-		<div class="wrapper">
-			<section class="l_admin-area-wrapper">
-				<div class="l_admin-onboard-wrapper">
-					<div class="l_admin-onboard-controllers">
-						<router-link to="/" class="button btn-link l_admin-pull-right">{{labels.back}}</router-link>
-					</div>
-					<div class="l_admin-onboard-slider l_admin-row">
-						<div class="l_admin-onboard-slide l_admin-animate l_admin-onboard-slide-current">
-							<div class="l_admin-column l_admin-span-8 postbox">
-								<div class="l_admin-content-large">
-									<div class="l_admin-section-title l_admin-no-push-bottom">
-										<h3 class="l_admin-heading">
-										</h3>
-										<div class="l_admin-excerpt">
-										</div>
-									</div>
-								</div>
-								<div class="l_admin-button-well">
-									<a class="l_admin-button button-primary l_admin-pull-right onboard-next-step" href="">{{labels.setup}} →</a>
+		<div class="wrapper metabox-holder">
+
+			<wp-row :gutter="20" class="postbox-container">
+				<wp-col :span="9" :offset="4">
+					<div class="postbox generate-metabox start-customizing">
+						<div class="inside">
+							<div class="non-action">
+								<h1>{{labels.structured.step1_title}}</h1>
+
+								<div class="excerpt">
+
+									<p>{{labels.structured.step1_description}}</p>
+									<p>{{labels.structured.step1_description2}}</p>
+
 								</div>
 							</div>
-							<div class="l_admin-column l_admin-span-4 no-gutter">
-								<div class="l_admin-content">
-									<ul class="l_admin-help-list">
-									</ul>
+
+							<div id="major-publishing-actions">
+								<div id="publishing-action">
+									<wp-button type="primary">{{labels.add}} →</wp-button>
 								</div>
+								<div class="clear"></div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</section>
+				</wp-col>
+				<wp-col :span="5">
+
+					<div class="helper-list">
+
+						<router-link to="/" class="back-btn">{{labels.back}}</router-link>
+
+						<ul>
+							<li v-for="(item, index) in labels.structured.step1_lists" :key="index">
+								<span v-html="item.text"></span> <a :href="item.url" v-if="item.url">{{labels.readmore}} →</a>
+							</li>
+						</ul>
+					</div>
+
+				</wp-col>
+			</wp-row>
+
 		</div>
 	</div>
 </template>
@@ -68,5 +79,90 @@ export default {
 	.wrapper {
 		margin:30px 20px;
 	}
+
+	.postbox-container {
+		float: none;
+
+		.inside {
+			padding-bottom: 0;
+			margin-bottom: 0;
+		}
+
+		.postbox .non-action {
+			padding: 40px;
+		}
+
+		#major-publishing-actions {
+			margin: 0 -12px;
+		}
+
+		h1 {
+			margin: 0;
+			padding: 0;
+			font-size: 28px;
+			line-height: 38px;
+			color: #222;
+			font-weight: 400;
+		}
+
+		.excerpt {
+			font-size: 20px;
+			line-height: 30px;
+			margin: 10px 0 0;
+			color: #777777;
+
+			p {
+				font-size: 20px;
+				line-height: 30px;
+			}
+		}
+	}
+
+	.helper-list {
+
+		.back-btn {
+			display: block;
+			text-align: right;
+			margin-bottom: 30px;
+		}
+
+		ul {
+			margin: 0;
+			padding: 0;
+			color: #797979;
+			li {
+				padding: 0 0 8px;
+				margin: 0 0 20px;
+				border-bottom: 1px solid #ddd;
+				opacity: 0;
+				transform: translateX(10px);
+				transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+				animation: FadeIn 0.2s linear;
+  				animation-fill-mode: both;
+				@for $i from 1 through 10 {
+					&:nth-child(#{$i}n) {
+						animation-delay: #{$i * 0.3}s;
+					}
+				}
+
+				a {
+					display: block;
+					margin-top: 5px;
+				}
+			}
+		}
+	}
+
 }
+
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+	transform: translateX(0px);
+  }
+}
+
 </style>

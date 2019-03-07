@@ -44,6 +44,7 @@ function pno_get_schema_editor_js_vars() {
 
 	$labels = [
 		'plugin_url' => PNO_PLUGIN_URL,
+		'schema'     => pno_get_schema_list(),
 		'labels'     => [
 			'documentation' => esc_html__( 'Documentation', 'posterno' ),
 			'add'           => esc_html__( 'Add new schema' ),
@@ -54,9 +55,9 @@ function pno_get_schema_editor_js_vars() {
 				'title' => esc_html__( 'Posterno listings schema editor' ),
 			],
 			'structured'    => [
-				'step1_title'        => esc_html__( 'Create new schema' ),
-				'step1_description'  => esc_html__( 'Structured data is code in a specific format, written in such a way that search engines use it to display search results in a specific and much richer way.' ),
-				'step1_lists'        => [
+				'step1_title'       => esc_html__( 'Create new schema' ),
+				'step1_description' => esc_html__( 'Structured data is code in a specific format, written in such a way that search engines use it to display search results in a specific and much richer way.' ),
+				'step1_lists'       => [
 					[
 						'text' => esc_html__( 'If you’re just getting started, visit the article "Understand how structured data works." on Google.com' ),
 						'url'  => esc_url( 'https://developers.google.com/search/docs/guides/intro-structured-data' ),

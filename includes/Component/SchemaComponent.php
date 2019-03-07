@@ -85,6 +85,7 @@ class SchemaComponent {
 	 */
 	public function setup_admin() {
 
+		require_once PNO_SCHEMA_DIR . '/admin/types-list.php';
 		require_once PNO_SCHEMA_DIR . '/admin/admin-assets.php';
 		require_once PNO_SCHEMA_DIR . '/admin/admin-pages.php';
 

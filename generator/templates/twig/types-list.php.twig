@@ -11,8 +11,20 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$available_types = [
-{% for type in types %}
+/**
+ * Retrieve the list of available schema.
+ *
+ * @return array
+ */
+function pno_get_schema_list() {
+
+	$available_types = [
+	{% for type in types %}
 	'{{ type.name }}',
-{% endfor %}
-];
+	{% endfor %}
+	];
+
+	return $available_types;
+
+}
+

@@ -31,7 +31,7 @@ class Filesystem {
 		$contents = $this->flysystem->listContents( 'includes', true );
 
 		foreach ( $contents as $object ) {
-			if ( strpos( $object['path'], 'includes/Component' ) === 0 ) {
+			if ( strpos( $object['path'], 'includes/Component' ) === 0 && $object['basename'] !== 'types-list.php' ) {
 				continue;
 			} else {
 				$this->flysystem->delete( $object['path'] );
@@ -41,7 +41,7 @@ class Filesystem {
 
 	public function createTypesList( TypeCollection $types ) {
 		$this->flysystem->put(
-			'includes/types-list.php',
+			'includes/Component/admin/types-list.php',
 			$this->typesListTemplate->render( [ 'types' => $types->toArray() ] )
 		);
 	}

@@ -46,8 +46,11 @@ function pno_get_schema_editor_js_vars() {
 		'plugin_url' => PNO_PLUGIN_URL,
 		'labels'     => [
 			'documentation' => esc_html__( 'Documentation', 'posterno' ),
+			'add'           => esc_html__( 'Add new schema' ),
+			'back'          => esc_html__( 'Go back to the schema list' ),
+			'setup'         => esc_html__( 'Setup new schema' ),
 			'listing'       => [
-				'title' => esc_html__( 'Listings schema editor' ),
+				'title' => esc_html__( 'Posterno listings schema editor' ),
 			],
 		],
 	];

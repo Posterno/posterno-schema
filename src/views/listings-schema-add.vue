@@ -8,7 +8,7 @@
 		<div class="wrapper metabox-holder">
 
 			<wp-row :gutter="20" class="postbox-container">
-				<wp-col :span="9" :offset="4">
+				<wp-col :span="10">
 					<div class="postbox generate-metabox start-customizing">
 						<div class="inside">
 							<div class="non-action">
@@ -89,6 +89,11 @@ export default {
 	components: {
 		AdminHeader
 	},
+	mounted() {
+
+		this.availableSchemas = pno_schema_editor.schema
+
+	},
 	data() {
 		return {
 			logo_url: pno_schema_editor.plugin_url + '/assets/imgs/logo.svg',
@@ -123,6 +128,11 @@ export default {
 		},
 
 		canSubmit() {
+
+			if ( this.newSchemaMode === 'global' && this.newSchemaName ) {
+				return true;
+			}
+
 			return false;
 		},
 

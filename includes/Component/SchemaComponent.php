@@ -69,6 +69,8 @@ class SchemaComponent {
 	 */
 	public function setup_files() {
 
+		require_once PNO_SCHEMA_DIR . '/post-type.php';
+
 		// Admin.
 		if ( is_admin() || ( defined( 'WP_CLI' ) && WP_CLI ) ) {
 			$this->setup_admin();
@@ -83,6 +85,7 @@ class SchemaComponent {
 	 */
 	public function setup_admin() {
 
+		require_once PNO_SCHEMA_DIR . '/admin/admin-assets.php';
 		require_once PNO_SCHEMA_DIR . '/admin/admin-pages.php';
 
 	}

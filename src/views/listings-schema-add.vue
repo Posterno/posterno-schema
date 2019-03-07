@@ -15,16 +15,48 @@
 								<h1>{{labels.structured.step1_title}}</h1>
 
 								<div class="excerpt">
-
 									<p>{{labels.structured.step1_description}}</p>
-									<p>{{labels.structured.step1_description2}}</p>
-
 								</div>
+
+								<form action="#">
+									<table class="form-table">
+										<tbody>
+											<tr>
+												<th scope="row">{{labels.settings.where.label}}</th>
+												<td>
+													<fieldset>
+														<p>
+															<label><input name="schema_position" v-model="newSchemaMode" type="radio" value="global">{{labels.settings.where.global}}</label><br>
+															<label><input name="schema_position" v-model="newSchemaMode" type="radio" value="type">{{labels.settings.where.type}}</label>
+														</p>
+													</fieldset>
+												</td>
+											</tr>
+											<tr>
+												<th scope="row">{{labels.settings.schemas.label}}</th>
+												<td>
+													<fieldset>
+														<Select2 v-model="newSchemaName" :options="availableSchemas" :settings="{ width: '100%' }"/>
+													</fieldset>
+												</td>
+											</tr>
+											<tr v-if="isListingTypeRequired()">
+												<th scope="row">{{labels.settings.listing_types.label}}</th>
+												<td>
+													<fieldset>
+														<Select2 v-model="newSchemaListingType" :options="availableSchemas" :settings="{ width: '100%' }"/>
+													</fieldset>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</form>
+
 							</div>
 
 							<div id="major-publishing-actions">
 								<div id="publishing-action">
-									<wp-button type="primary">{{labels.add}} →</wp-button>
+									<wp-button type="primary" :disabled="! canSubmit()">{{labels.add}} →</wp-button>
 								</div>
 								<div class="clear"></div>
 							</div>
@@ -34,9 +66,7 @@
 				<wp-col :span="5">
 
 					<div class="helper-list">
-
 						<router-link to="/" class="back-btn">{{labels.back}}</router-link>
-
 						<ul>
 							<li v-for="(item, index) in labels.structured.step1_lists" :key="index">
 								<span v-html="item.text"></span> <a :href="item.url" v-if="item.url">{{labels.readmore}} →</a>
@@ -69,7 +99,33 @@ export default {
 					url: 'https://docs.posterno.com/'
 				}
 			],
+			newSchemaMode: 'global',
+			newSchemaName: '',
+			newSchemaListingType: '',
+			availableSchemas: [],
+			availableListingTypes: []
 		}
+	},
+	methods: {
+
+		isListingTypeRequired() {
+
+			let required = false;
+
+			if ( this.newSchemaMode === 'type' ) {
+				required = true
+			} else {
+				required = false
+			}
+
+			return required;
+
+		},
+
+		canSubmit() {
+			return false;
+		},
+
 	}
 }
 </script>
@@ -116,6 +172,11 @@ export default {
 				line-height: 30px;
 			}
 		}
+
+		select {
+			width: 100%;
+		}
+
 	}
 
 	.helper-list {

@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@alessandrotesoro/vuewp": "^1.0.2",
+    "v-select2-component": "^0.3.3",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1"
   },

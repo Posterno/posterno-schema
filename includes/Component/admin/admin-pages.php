@@ -49,14 +49,13 @@ function pno_get_schema_editor_js_vars() {
 			'add'           => esc_html__( 'Add new schema' ),
 			'back'          => esc_html__( 'Go back to the schema list' ),
 			'setup'         => esc_html__( 'Setup new schema' ),
-			'readmore' => esc_html__( 'Read more' ),
+			'readmore'      => esc_html__( 'Read more' ),
 			'listing'       => [
 				'title' => esc_html__( 'Posterno listings schema editor' ),
 			],
 			'structured'    => [
 				'step1_title'        => esc_html__( 'Create new schema' ),
 				'step1_description'  => esc_html__( 'Structured data is code in a specific format, written in such a way that search engines use it to display search results in a specific and much richer way.' ),
-				'step1_description2' => esc_html__( 'Posterno helps you automatically markup your listings with ease through a simple click and select interface. Start by selecting the schema you wish to create.' ),
 				'step1_lists'        => [
 					[
 						'text' => esc_html__( 'If you’re just getting started, visit the article "Understand how structured data works." on Google.com' ),
@@ -66,6 +65,20 @@ function pno_get_schema_editor_js_vars() {
 						'text' => esc_html__( 'Explore the search gallery on Google.com to see how Google uses structured data to display search results in a richer way.' ),
 						'url'  => esc_url( 'https://developers.google.com/search/docs/guides/search-gallery' ),
 					],
+				],
+			],
+			'settings'      => [
+				'where'         => [
+					'label'  => esc_html__( 'Where to apply the schema?' ),
+					'global' => esc_html__( 'Globally (all listings)' ),
+					'type'   => esc_html__( 'Specific listing type' ),
+				],
+				'schemas'       => [
+					'label' => esc_html__( 'Select a schema' ),
+				],
+				'listing_types' => [
+					'label'     => esc_html__( 'Select a listing type' ),
+					'not_found' => esc_html__( 'No listing types have been found. Add a listing type first and then create the schema.' ),
 				],
 			],
 		],

@@ -237,7 +237,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 #app {
 	.wrapper {
 		margin:30px 20px;
@@ -289,6 +289,16 @@ export default {
 			width: 100%;
 		}
 
+	}
+
+	.select2 {
+		li {
+			margin-bottom: 0;
+		}
+	}
+
+	.select2-container--default .select2-search--inline .select2-search__field {
+		width: 100% !important;
 	}
 
 	.helper-list {

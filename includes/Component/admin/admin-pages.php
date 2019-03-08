@@ -79,13 +79,13 @@ function pno_get_schema_editor_js_vars() {
 				'where'         => [
 					'label'  => esc_html__( 'Where to apply the schema?' ),
 					'global' => esc_html__( 'Globally (all listings)' ),
-					'type'   => esc_html__( 'Specific listing type' ),
+					'type'   => esc_html__( 'Specific listing type(s)' ),
 				],
 				'schemas'       => [
-					'label' => esc_html__( 'Select a schema' ),
+					'label' => esc_html__( 'Select schema' ),
 				],
 				'listing_types' => [
-					'label'     => esc_html__( 'Select a listing type' ),
+					'label'     => esc_html__( 'Select listing type(s)' ),
 					'not_found' => esc_html__( 'No listing types have been found. Add a listing type first and then create the schema.' ),
 				],
 			],

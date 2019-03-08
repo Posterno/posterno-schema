@@ -208,7 +208,9 @@ export default {
 				}
 			)
 			.then( response => {
-				this.showSuccess()
+
+				this.$router.push({ name: 'edit', params: { id: response.data.data } })
+
 			})
 			.catch( error => {
 

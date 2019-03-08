@@ -59,6 +59,7 @@
 
 							<div id="major-publishing-actions">
 								<div id="publishing-action">
+									<wp-spinner v-if="loading"></wp-spinner>
 									<wp-button type="primary" :disabled="! canSubmit()">{{labels.add}} →</wp-button>
 								</div>
 								<div class="clear"></div>
@@ -117,11 +118,15 @@ export default {
 			newSchemaName: '',
 			newSchemaListingType: '',
 			availableSchemas: [],
-			availableListingTypes: []
+			availableListingTypes: [],
+			loading: false
 		}
 	},
 	methods: {
 
+		/**
+		 * Verify if the listing type field is required.
+		*/
 		isListingTypeRequired() {
 
 			let required = false;
@@ -136,6 +141,9 @@ export default {
 
 		},
 
+		/**
+		 * Determine if the form can be submitted.
+		*/
 		canSubmit() {
 
 			if ( this.newSchemaMode === 'global' && this.newSchemaName ) {
@@ -147,6 +155,9 @@ export default {
 			return false
 		},
 
+		/**
+		 * Show warning message if no available listing types and user has selected the "type" mode.
+		*/
 		showNoTypesMessage() {
 
 			let show = false
@@ -183,6 +194,11 @@ export default {
 
 		#major-publishing-actions {
 			margin: 0 -12px;
+
+			.vue-wp-spinner {
+				float: none;
+				margin-right: 10px;
+			}
 		}
 
 		h1 {

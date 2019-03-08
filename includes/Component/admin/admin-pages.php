@@ -49,15 +49,16 @@ function pno_get_schema_editor_js_vars() {
 		'nonce'         => wp_create_nonce( 'pno_create_listing_schema' ),
 		'listing_types' => pno_get_listings_types_for_association(),
 		'labels'        => [
-			'documentation' => esc_html__( 'Documentation', 'posterno' ),
-			'add'           => esc_html__( 'Add new schema' ),
-			'back'          => esc_html__( 'Go back to the schema list' ),
-			'setup'         => esc_html__( 'Setup new schema' ),
-			'readmore'      => esc_html__( 'Read more' ),
-			'listing'       => [
+			'documentation'  => esc_html__( 'Documentation', 'posterno' ),
+			'add'            => esc_html__( 'Add new schema' ),
+			'back'           => esc_html__( 'Go back to the schema list' ),
+			'setup'          => esc_html__( 'Setup new schema' ),
+			'readmore'       => esc_html__( 'Read more' ),
+			'success_create' => esc_html__( 'New schema successfully created.' ),
+			'listing'        => [
 				'title' => esc_html__( 'Posterno listings schema editor' ),
 			],
-			'structured'    => [
+			'structured'     => [
 				'step1_title'       => esc_html__( 'Create new schema' ),
 				'step1_description' => esc_html__( 'Structured data is code in a specific format, written in such a way that search engines use it to display search results in a specific and much richer way.' ),
 				'step1_lists'       => [
@@ -75,7 +76,7 @@ function pno_get_schema_editor_js_vars() {
 					],
 				],
 			],
-			'settings'      => [
+			'settings'       => [
 				'where'         => [
 					'label'  => esc_html__( 'Where to apply the schema?' ),
 					'global' => esc_html__( 'Globally (all listings)' ),

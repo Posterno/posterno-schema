@@ -56,7 +56,6 @@
 								</form>
 
 								<wp-notice type="error" alternative v-if="isError">{{statusMessage}}</wp-notice>
-								<wp-notice type="success" alternative v-if="isSuccess">{{statusMessage}}</wp-notice>
 
 							</div>
 
@@ -126,7 +125,6 @@ export default {
 			availableListingTypes: [],
 			loading: false,
 			isError: false,
-			isSuccess: false,
 			statusMessage: '',
 		}
 	},
@@ -184,20 +182,10 @@ export default {
 
 		},
 
-		showSuccess() {
-
-			this.loading = false
-			this.isSuccess = true
-			this.isError = false
-			this.statusMessage = 'Test'
-
-		},
-
 		showError( message = false ) {
 
 			this.loading = false
 			this.isError = true
-			this.isSuccess = false
 			this.statusMessage = message
 
 		},

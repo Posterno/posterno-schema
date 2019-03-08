@@ -20,15 +20,42 @@ function pno_ajax_create_listing_schema() {
 
 	check_ajax_referer( 'pno_create_listing_schema', 'nonce' );
 
+	$schema_id       = false;
+	$general_message = esc_html__( 'Something went wrong: could not create new schema.' );
+
 	if ( ! current_user_can( 'manage_options' ) ) {
-		wp_die( esc_html__( 'Something went wrong: could not create new schema.' ), 403 );
+		wp_die( $general_message, 403 ); //phpcs:ignore
 	}
 
 	$mode   = isset( $_POST['mode'] ) && ! empty( $_POST['mode'] ) ? sanitize_text_field( $_POST['mode'] ) : false;
 	$schema = isset( $_POST['schema'] ) && ! empty( $_POST['schema'] ) ? sanitize_text_field( $_POST['schema'] ) : false;
 	$types  = isset( $_POST['types'] ) && is_array( $_POST['types'] ) ? array_map( 'absint', $_POST['types'] ) : [];
 
-	wp_send_json_success();
+	if ( in_array( $schema, pno_get_schema_list() ) && $mode ) {
+
+		$args = array(
+			'post_title'  => $schema,
+			'post_status' => 'publish',
+			'post_type'   => 'pno_schema',
+		);
+
+		$schema_id = wp_insert_post( $args );
+
+	} else {
+
+		wp_die( $general_message, 403 ); //phpcs:ignore
+
+	}
+
+	if ( $schema_id ) {
+
+		wp_send_json_success( $schema_id );
+
+	} else {
+
+		wp_die( $general_message, 403 ); //phpcs:ignore
+
+	}
 
 }
 add_action( 'wp_ajax_pno_create_listing_schema', 'pno_ajax_create_listing_schema' );

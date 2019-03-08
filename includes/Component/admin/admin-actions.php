@@ -90,9 +90,12 @@ function pno_ajax_get_listings_schemas_list() {
 
 			$schemas->the_post();
 
+			$id   = get_the_id();
+			$mode = get_post_meta( $id, 'schema_mode', true ) === 'type' ? esc_html__( 'Specific listing type(s)' ) : esc_html__( 'All listings' );
+
 			$found_schemas[] = [
 				'name'          => get_the_title(),
-				'mode'          => 'global',
+				'mode'          => $mode,
 				'listing_types' => '—',
 				'id'            => get_the_id(),
 			];

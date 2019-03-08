@@ -36,7 +36,7 @@
 												<th scope="row">{{labels.settings.schemas.label}}</th>
 												<td>
 													<fieldset>
-														<Select2 v-model="newSchemaName" :options="availableSchemas" :settings="{ width: '100%' }"/>
+														<Select2 v-model="newSchemaName" :options="availableSchemas" :settings="{ width: '100%', placeholder: labels.settings.schemas.label }"/>
 													</fieldset>
 												</td>
 											</tr>
@@ -44,7 +44,7 @@
 												<th scope="row">{{labels.settings.listing_types.label}}</th>
 												<td>
 													<fieldset>
-														<Select2 v-model="newSchemaListingType" :options="availableListingTypes" :settings="{ width: '100%' }"/>
+														<Select2 v-model="newSchemaListingType" :options="availableListingTypes" :settings="{ width: '100%', placeholder: labels.settings.listing_types.label }"/>
 													</fieldset>
 												</td>
 											</tr>

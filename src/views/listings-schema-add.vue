@@ -94,8 +94,13 @@ export default {
 	},
 	mounted() {
 
+		const vm = this
+
 		this.availableSchemas = pno_schema_editor.schema
-		this.availableListingTypes = pno_schema_editor.listing_types
+
+		Object.keys( pno_schema_editor.listing_types ).forEach( function( key ) {
+			vm.availableListingTypes.push( { id: key, text: pno_schema_editor.listing_types[ key ] } )
+		});
 
 	},
 	data() {

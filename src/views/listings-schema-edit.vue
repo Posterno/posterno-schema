@@ -29,6 +29,46 @@
 				<wp-col :span="5">
 
 					<wp-metabox :title="labels.schema_edit.title_edit">
+
+						<form action="#">
+
+
+							<fieldset class="container-holder carbon-grid carbon-fields-collection">
+								<div class="carbon-container carbon-container-post_meta">
+
+									<div class="carbon-field carbon-radio">
+										<label>{{labels.settings.where.label}}</label>
+										<div class="field-holder">
+											<div class="carbon-field-group-holder">
+												<label><input name="schema_position" v-model="schema.mode" type="radio" value="global" :disabled="! canPerformAction()" >{{labels.settings.where.global}}</label>
+												<label><input name="schema_position" v-model="schema.mode" type="radio" value="type" :disabled="! canPerformAction()" >{{labels.settings.where.type}}</label>
+											</div>
+										</div>
+									</div>
+
+									<div class="carbon-field carbon-select">
+										<label>{{labels.settings.schemas.label}}</label>
+										<div class="field-holder">
+											<div class="carbon-field-group-holder">
+												<Select2 v-model="schema.name" :options="availableSchemas" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.settings.schemas.label }"/>
+											</div>
+										</div>
+									</div>
+
+									<div class="carbon-field carbon-select" v-if="isListingTypeRequired()">
+										<label>{{labels.settings.listing_types.label}}</label>
+										<div class="field-holder">
+											<div class="carbon-field-group-holder">
+												<Select2 v-model="schema.listing_types" :options="availableListingTypes" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.settings.listing_types.label, multiple: true }"/>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</fieldset>
+
+						</form>
+
 						<template v-slot:metabox-footer>
 							<div id="major-publishing-actions">
 								<div id="delete-action">
@@ -65,6 +105,14 @@ export default {
 		this.schemaID = this.$route.params.id
 		this.loadSchemaDetails()
 
+		const vm = this
+
+		this.availableSchemas = pno_schema_editor.schema
+
+		Object.keys( pno_schema_editor.listing_types ).forEach( function( key ) {
+			vm.availableListingTypes.push( { id: key, text: pno_schema_editor.listing_types[ key ] } )
+		});
+
 	},
 	data() {
 		return {
@@ -86,6 +134,8 @@ export default {
 			isSuccess: false,
 			statusMessage: '',
 			propertiesLoading: false,
+			availableSchemas: [],
+			availableListingTypes: [],
 		}
 	},
 	methods: {
@@ -95,6 +145,23 @@ export default {
 			this.isError = true
 			this.isSuccess = false
 			this.statusMessage = message
+
+		},
+
+		/**
+		 * Verify if the listing type field is required.
+		*/
+		isListingTypeRequired() {
+
+			let required = false;
+
+			if ( this.schema.mode === 'type' ) {
+				required = true
+			} else {
+				required = false
+			}
+
+			return required;
 
 		},
 
@@ -170,6 +237,25 @@ export default {
 
 	.properties-spinner {
 		margin: 10px 0;
+	}
+
+	.carbon-fields-collection {
+		padding-bottom:0px;
+		margin: 0 -12px;
+	}
+
+	.carbon-field-group-holder {
+		display: block;
+		label {
+			font-weight: normal;
+		}
+	}
+
+	.carbon-field {
+		border-right:none;
+		&:first-child {
+			border-top: 0;
+		}
 	}
 
 }

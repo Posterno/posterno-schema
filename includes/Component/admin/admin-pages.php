@@ -43,9 +43,10 @@ function pno_schema_admin_listings_schema_page() {
 function pno_get_schema_editor_js_vars() {
 
 	$labels = [
-		'plugin_url' => PNO_PLUGIN_URL,
-		'schema'     => pno_get_schema_list(),
-		'labels'     => [
+		'plugin_url'    => PNO_PLUGIN_URL,
+		'schema'        => pno_get_schema_list(),
+		'listing_types' => pno_get_listings_types_for_association(),
+		'labels'        => [
 			'documentation' => esc_html__( 'Documentation', 'posterno' ),
 			'add'           => esc_html__( 'Add new schema' ),
 			'back'          => esc_html__( 'Go back to the schema list' ),

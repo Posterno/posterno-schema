@@ -44,12 +44,15 @@
 												<th scope="row">{{labels.settings.listing_types.label}}</th>
 												<td>
 													<fieldset>
-														<Select2 v-model="newSchemaListingType" :options="availableSchemas" :settings="{ width: '100%' }"/>
+														<Select2 v-model="newSchemaListingType" :options="availableListingTypes" :settings="{ width: '100%' }"/>
 													</fieldset>
 												</td>
 											</tr>
 										</tbody>
 									</table>
+
+									<wp-notice type="warning" alternative v-if="showNoTypesMessage()">{{labels.settings.listing_types.not_found}}</wp-notice>
+
 								</form>
 
 							</div>
@@ -92,6 +95,7 @@ export default {
 	mounted() {
 
 		this.availableSchemas = pno_schema_editor.schema
+		this.availableListingTypes = pno_schema_editor.listing_types
 
 	},
 	data() {
@@ -135,6 +139,18 @@ export default {
 
 			return false;
 		},
+
+		showNoTypesMessage() {
+
+			let show = false
+
+			if ( this.newSchemaMode === 'type' && ! this.availableListingTypes.length > 0 ) {
+				show = true
+			}
+
+			return show
+
+		}
 
 	}
 }

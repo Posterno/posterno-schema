@@ -26,8 +26,8 @@
 												<td>
 													<fieldset>
 														<p>
-															<label><input name="schema_position" v-model="newSchemaMode" type="radio" value="global">{{labels.settings.where.global}}</label><br>
-															<label><input name="schema_position" v-model="newSchemaMode" type="radio" value="type">{{labels.settings.where.type}}</label>
+															<label><input name="schema_position" v-model="newSchemaMode" type="radio" value="global" :disabled="loading" >{{labels.settings.where.global}}</label><br>
+															<label><input name="schema_position" v-model="newSchemaMode" type="radio" value="type" :disabled="loading" >{{labels.settings.where.type}}</label>
 														</p>
 													</fieldset>
 												</td>
@@ -36,7 +36,7 @@
 												<th scope="row">{{labels.settings.schemas.label}}</th>
 												<td>
 													<fieldset>
-														<Select2 v-model="newSchemaName" :options="availableSchemas" :settings="{ width: '100%', placeholder: labels.settings.schemas.label }"/>
+														<Select2 v-model="newSchemaName" :options="availableSchemas" :disabled="loading" :settings="{ width: '100%', placeholder: labels.settings.schemas.label }"/>
 													</fieldset>
 												</td>
 											</tr>
@@ -44,7 +44,7 @@
 												<th scope="row">{{labels.settings.listing_types.label}}</th>
 												<td>
 													<fieldset>
-														<Select2 v-model="newSchemaListingType" :options="availableListingTypes" :settings="{ width: '100%', placeholder: labels.settings.listing_types.label }"/>
+														<Select2 v-model="newSchemaListingType" :options="availableListingTypes" :disabled="loading" :settings="{ width: '100%', placeholder: labels.settings.listing_types.label }"/>
 													</fieldset>
 												</td>
 											</tr>
@@ -60,7 +60,7 @@
 							<div id="major-publishing-actions">
 								<div id="publishing-action">
 									<wp-spinner v-if="loading"></wp-spinner>
-									<wp-button type="primary" :disabled="! canSubmit()">{{labels.add}} →</wp-button>
+									<wp-button type="primary" :disabled="! canSubmit()" @click="submit()">{{labels.add}} →</wp-button>
 								</div>
 								<div class="clear"></div>
 							</div>
@@ -146,13 +146,19 @@ export default {
 		*/
 		canSubmit() {
 
+			let canSubmit = false
+
 			if ( this.newSchemaMode === 'global' && this.newSchemaName ) {
-				return true
+				canSubmit = true
 			} else if ( this.newSchemaMode === 'type' && this.availableListingTypes.length > 0 && this.newSchemaListingType ) {
-				return true
+				canSubmit = true
 			}
 
-			return false
+			if ( this.loading === true ) {
+				canSubmit = false
+			}
+
+			return canSubmit
 		},
 
 		/**
@@ -167,6 +173,12 @@ export default {
 			}
 
 			return show
+
+		},
+
+		submit() {
+
+			this.loading = true
 
 		}
 

@@ -12,7 +12,7 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Retrieve the list of available schema..
+ * Retrieve the list of available schema.
  *
  * @return array
  */

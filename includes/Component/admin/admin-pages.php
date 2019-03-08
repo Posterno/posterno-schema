@@ -67,6 +67,10 @@ function pno_get_schema_editor_js_vars() {
 						'text' => esc_html__( 'Explore the search gallery on Google.com to see how Google uses structured data to display search results in a richer way.' ),
 						'url'  => esc_url( 'https://developers.google.com/search/docs/guides/search-gallery' ),
 					],
+					[
+						'text' => esc_html__( 'For detailed information about each available schema type, please refer to the schema.org website.' ),
+						'url'  => esc_url( 'https://schema.org/docs/full.html' ),
+					],
 				],
 			],
 			'settings'      => [

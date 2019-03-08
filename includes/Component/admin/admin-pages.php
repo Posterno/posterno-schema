@@ -97,6 +97,8 @@ function pno_get_schema_editor_js_vars() {
 				'listing_types' => esc_html__( 'Listing types' ),
 				'actions'       => esc_html__( 'Actions' ),
 				'not_found'     => esc_html__( 'No schema yet, click the button above to add a schema.' ),
+				'edit'          => esc_html__( 'Edit' ),
+				'delete'        => esc_html__( 'Delete' ),
 			],
 		],
 	];

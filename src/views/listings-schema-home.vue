@@ -20,19 +20,20 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
+					<tr v-for="(schema, key) in schemas" :key="key">
 						<td class="column-primary" :data-colname="labels.table.name">
-							WordCamp Metropolis
+							<router-link :to="{ name: 'edit', params: {id: schema.id } }">{{schema.name}}</router-link>
 							<button type="button" class="toggle-row"></button>
 						</td>
 						<td :data-colname="labels.table.mode">
-							2020-01-01
+							{{schema.mode}}
 						</td>
 						<td :data-colname="labels.table.listing_types">
-							2020-01-04
+							{{schema.listing_types}}
 						</td>
 						<td :data-colname="labels.table.actions">
-							The Daily Planet
+							<router-link :to="{ name: 'edit', params: {id: schema.id } }" class="button">{{labels.table.edit}}</router-link>
+							<wp-button>{{labels.table.delete}}</wp-button>
 						</td>
 					</tr>
 					<tr class="no-items" v-if="schemas < 1 && ! loading">
@@ -146,6 +147,15 @@ export default {
 
 		.vue-wp-notice {
 			margin-bottom: 30px;
+		}
+
+		table {
+			.button {
+				margin-right: 5px;
+			}
+			td {
+				vertical-align: middle;
+			}
 		}
 	}
 }

@@ -93,7 +93,8 @@ function pno_ajax_get_listings_schemas_list() {
 			$found_schemas[] = [
 				'name'          => get_the_title(),
 				'mode'          => 'global',
-				'listing_types' => [],
+				'listing_types' => '—',
+				'id'            => get_the_id(),
 			];
 
 		}

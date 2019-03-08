@@ -139,10 +139,12 @@ export default {
 		canSubmit() {
 
 			if ( this.newSchemaMode === 'global' && this.newSchemaName ) {
-				return true;
+				return true
+			} else if ( this.newSchemaMode === 'type' && this.availableListingTypes.length > 0 && this.newSchemaListingType ) {
+				return true
 			}
 
-			return false;
+			return false
 		},
 
 		showNoTypesMessage() {

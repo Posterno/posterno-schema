@@ -55,6 +55,9 @@
 
 								</form>
 
+								<wp-notice type="error" alternative v-if="isError">{{statusMessage}}</wp-notice>
+								<wp-notice type="success" alternative v-if="isSuccess">{{statusMessage}}</wp-notice>
+
 							</div>
 
 							<div id="major-publishing-actions">
@@ -86,6 +89,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+import qs from 'qs'
 import AdminHeader from '../components/pno-admin-header'
 
 export default {
@@ -119,7 +124,10 @@ export default {
 			newSchemaListingType: '',
 			availableSchemas: [],
 			availableListingTypes: [],
-			loading: false
+			loading: false,
+			isError: false,
+			isSuccess: false,
+			statusMessage: '',
 		}
 	},
 	methods: {
@@ -176,9 +184,40 @@ export default {
 
 		},
 
+		showSuccess() {
+
+			this.loading = false
+			this.statusMessage = 'Test'
+
+		},
+
+		showError( message = false ) {
+
+			this.loading = false
+			this.statusMessage = message
+
+		},
+
 		submit() {
 
 			this.loading = true
+
+			axios.post( pno_schema_editor.ajax,
+				qs.stringify({
+					nonce: pno_schema_editor.nonce,
+				}),
+				{
+					params: {
+						action: 'pno_create_schema'
+					},
+				}
+			)
+			.then( response => {
+				this.showSuccess()
+			})
+			.catch( error => {
+				this.showError( error.response.data )
+			})
 
 		}
 

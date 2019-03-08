@@ -105,7 +105,7 @@ export default {
 
 			const configParams = {
 				nonce: pno_schema_editor.getSchemasNonce,
-				action: 'pno_get_listings_schema_list'
+				action: 'pno_get_listings_schemas_list'
 			}
 
 			axios.get( pno_schema_editor.ajax, {

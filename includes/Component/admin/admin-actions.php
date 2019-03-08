@@ -73,7 +73,7 @@ add_action( 'wp_ajax_pno_create_listing_schema', 'pno_ajax_create_listing_schema
  */
 function pno_ajax_get_listings_schemas_list() {
 
-	check_ajax_referer( 'pno_get_listings_schema', 'nonce' );
+	check_ajax_referer( 'pno_get_listings_schemas', 'nonce' );
 
 	$general_message = esc_html__( 'Something went wrong: could not get schema list.' );
 
@@ -141,4 +141,61 @@ function pno_ajax_get_listings_schemas_list() {
 	wp_send_json_success( [ 'schemas' => $found_schemas ] );
 
 }
-add_action( 'wp_ajax_pno_get_listings_schema_list', 'pno_ajax_get_listings_schemas_list' );
+add_action( 'wp_ajax_pno_get_listings_schemas_list', 'pno_ajax_get_listings_schemas_list' );
+
+/**
+ * Retrieve details about a single listing schema.
+ *
+ * @return void
+ */
+function pno_ajax_get_listing_schema() {
+
+	check_ajax_referer( 'pno_get_listing_schema', 'nonce' );
+
+	$general_message = esc_html__( 'Something went wrong: could not get schema details.' );
+
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( $general_message, 403 ); //phpcs:ignore
+	}
+
+	$details = [];
+
+	$schema_id = isset( $_GET['schema'] ) && ! empty( $_GET['schema'] ) ? absint( $_GET['schema'] ) : false;
+
+	if ( ! $schema_id ) {
+		wp_die( $general_message, 403 ); //phpcs:ignore
+	}
+
+	$args = [
+		'post_type'              => 'pno_schema',
+		'p'                      => $schema_id,
+		'nopaging'               => true,
+		'no_found_rows'          => true,
+		'update_post_term_cache' => false,
+		'suppress_filters'       => true,
+	];
+
+	$schema = new WP_Query( $args );
+
+	if ( $schema->have_posts() ) {
+
+		while ( $schema->have_posts() ) {
+
+			$schema->the_post();
+
+			$details = [
+				'name'          => get_post_meta( $schema_id, 'schema_name', true ),
+				'mode'          => get_post_meta( $schema_id, 'schema_mode', true ),
+				'id'            => $schema_id,
+				'listing_types' => get_post_meta( $schema_id, 'schema_listing_types', true ),
+			];
+
+		}
+	} else {
+		wp_die( $general_message, 403 ); //phpcs:ignore
+	}
+
+	wp_send_json_success( $details );
+
+}
+add_action( 'wp_ajax_pno_get_listing_schema', 'pno_ajax_get_listing_schema' );

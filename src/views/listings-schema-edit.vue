@@ -6,7 +6,7 @@
 
 		<div class="wrapper" id="poststuff">
 
-			<h1>{{labels.schema_edit.title_edit}}: </h1>
+			<h1>{{labels.schema_edit.title_edit}}: {{schema.name}}</h1>
 			<router-link to="/" class="back-btn">{{labels.back}}</router-link>
 
 			<wp-row :gutter="20" class="postbox-container">
@@ -51,6 +51,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+import qs from 'qs'
 import AdminHeader from '../components/pno-admin-header'
 
 export default {
@@ -75,19 +77,65 @@ export default {
 				}
 			],
 			schemaID: '',
+			schema: {
+				name: '',
+				mode: '',
+				listing_types: [],
+			},
 			isError: false,
 			isSuccess: false,
 			statusMessage: '',
-
 			propertiesLoading: false,
-
 		}
 	},
 	methods: {
 
+		showError( message = false ) {
+
+			this.isError = true
+			this.isSuccess = false
+			this.statusMessage = message
+
+		},
+
 		loadSchemaDetails() {
 
 			this.propertiesLoading = true
+
+			const configParams = {
+				nonce: pno_schema_editor.editSchemaNonce,
+				action: 'pno_get_listing_schema',
+				schema: this.schemaID,
+			}
+
+			axios.get( pno_schema_editor.ajax, {
+				params: configParams
+			})
+			.then( response => {
+
+				this.propertiesLoading = false
+
+				if ( response.data.success === true ) {
+
+					this.schema = {
+						name: response.data.data.name,
+						mode: response.data.data.mode,
+						listing_types: response.data.data.listing_types
+					}
+
+				}
+
+			})
+			.catch( error => {
+
+				this.propertiesLoading = false
+
+				if ( error.response.data ) {
+					this.showError( error.response.data )
+				} else {
+					this.showError( error.message )
+				}
+			})
 
 		},
 

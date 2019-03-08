@@ -59,3 +59,49 @@ function pno_ajax_create_listing_schema() {
 
 }
 add_action( 'wp_ajax_pno_create_listing_schema', 'pno_ajax_create_listing_schema' );
+
+function pno_ajax_get_listings_schemas_list() {
+
+	check_ajax_referer( 'pno_get_listings_schema', 'nonce' );
+
+	$general_message = esc_html__( 'Something went wrong: could not get schema list.' );
+
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( $general_message, 403 ); //phpcs:ignore
+	}
+
+	$args = [
+		'post_type'              => 'pno_schema',
+		'posts_per_page'         => 9999,
+		'nopaging'               => true,
+		'no_found_rows'          => true,
+		'update_post_term_cache' => false,
+		'post_status'            => 'publish',
+		'suppress_filters'       => true,
+	];
+
+	$schemas = new WP_Query( $args );
+
+	$found_schemas = [];
+
+	if ( $schemas->have_posts() ) {
+
+		while ( $schemas->have_posts() ) {
+
+			$schemas->the_post();
+
+			$found_schemas[] = [
+				'name'          => get_the_title(),
+				'mode'          => 'global',
+				'listing_types' => [],
+			];
+
+		}
+	}
+
+	wp_reset_postdata();
+
+	wp_send_json_success( [ 'schemas' => $found_schemas ] );
+
+}
+add_action( 'wp_ajax_pno_get_listings_schema_list', 'pno_ajax_get_listings_schemas_list' );

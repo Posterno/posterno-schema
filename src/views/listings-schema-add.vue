@@ -182,6 +182,9 @@ export default {
 
 		},
 
+		/**
+		 * Show an error message.
+		*/
 		showError( message = false ) {
 
 			this.loading = false
@@ -190,6 +193,9 @@ export default {
 
 		},
 
+		/**
+		 * Submit the form.
+		 */
 		submit() {
 
 			this.loading = true
@@ -213,7 +219,6 @@ export default {
 
 			})
 			.catch( error => {
-
 				if ( error.response.data ) {
 					this.showError( error.response.data )
 				} else {

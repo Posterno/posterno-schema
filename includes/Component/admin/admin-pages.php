@@ -43,12 +43,13 @@ function pno_schema_admin_listings_schema_page() {
 function pno_get_schema_editor_js_vars() {
 
 	$labels = [
-		'plugin_url'    => PNO_PLUGIN_URL,
-		'schema'        => pno_get_schema_list(),
-		'ajax'          => admin_url( 'admin-ajax.php' ),
-		'nonce'         => wp_create_nonce( 'pno_create_listing_schema' ),
-		'listing_types' => pno_get_listings_types_for_association(),
-		'labels'        => [
+		'plugin_url'      => PNO_PLUGIN_URL,
+		'schema'          => pno_get_schema_list(),
+		'ajax'            => admin_url( 'admin-ajax.php' ),
+		'nonce'           => wp_create_nonce( 'pno_create_listing_schema' ),
+		'getSchemasNonce' => wp_create_nonce( 'pno_get_listings_schema' ),
+		'listing_types'   => pno_get_listings_types_for_association(),
+		'labels'          => [
 			'documentation'  => esc_html__( 'Documentation', 'posterno' ),
 			'add'            => esc_html__( 'Add new schema' ),
 			'back'           => esc_html__( 'Go back to the schema list' ),
@@ -89,6 +90,13 @@ function pno_get_schema_editor_js_vars() {
 					'label'     => esc_html__( 'Select listing type(s)' ),
 					'not_found' => esc_html__( 'No listing types have been found. Add a listing type first and then create the schema.' ),
 				],
+			],
+			'table'          => [
+				'name'          => esc_html__( 'Schema name' ),
+				'mode'          => esc_html__( 'Type' ),
+				'listing_types' => esc_html__( 'Listing types' ),
+				'actions'       => esc_html__( 'Actions' ),
+				'not_found'     => esc_html__( 'No schema yet, click the button above to add a schema.' ),
 			],
 		],
 	];

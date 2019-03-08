@@ -5,18 +5,66 @@
 		</AdminHeader>
 
 		<div class="wrapper">
+
+			<wp-notice type="error" v-if="isError" dismissible>{{statusMessage}}</wp-notice>
+
 			<router-link to="/add" class="button-primary">{{labels.add}}</router-link>
+
+			<table class="wp-list-table widefat fixed striped">
+				<thead>
+					<tr>
+						<th scope="col" class="column-primary">{{labels.table.name}}</th>
+						<th scope="col">{{labels.table.mode}}</th>
+						<th scope="col">{{labels.table.listing_types}}</th>
+						<th scope="col">{{labels.table.actions}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="column-primary" :data-colname="labels.table.name">
+							WordCamp Metropolis
+							<button type="button" class="toggle-row"></button>
+						</td>
+						<td :data-colname="labels.table.mode">
+							2020-01-01
+						</td>
+						<td :data-colname="labels.table.listing_types">
+							2020-01-04
+						</td>
+						<td :data-colname="labels.table.actions">
+							The Daily Planet
+						</td>
+					</tr>
+					<tr class="no-items" v-if="schemas < 1 && ! loading">
+						<td class="colspanchange" colspan="4">
+							<strong>{{labels.table.not_found}}</strong>
+						</td>
+					</tr>
+					<tr class="no-items" v-if="loading">
+						<td class="colspanchange" colspan="4">
+							<wp-spinner></wp-spinner>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
 		</div>
 	</div>
 </template>
 
 <script>
+import axios from 'axios'
 import AdminHeader from '../components/pno-admin-header'
 
 export default {
 	name: 'listings-schema-editor',
 	components: {
 		AdminHeader
+	},
+	mounted() {
+
+		this.loadSchemas()
+
 	},
 	data() {
 		return {
@@ -28,7 +76,61 @@ export default {
 					url: 'https://docs.posterno.com/'
 				}
 			],
+			loading: false,
+			schemas: [],
+			isError: false,
+			statusMessage: '',
 		}
+	},
+	methods: {
+
+		/**
+		 * Show an error message.
+		*/
+		showError( message = false ) {
+
+			this.loading = false
+			this.isError = true
+			this.statusMessage = message
+
+		},
+
+		/**
+		 * Load schemas from the database.
+		*/
+		loadSchemas() {
+
+			this.loading = true
+
+			const configParams = {
+				nonce: pno_schema_editor.getSchemasNonce,
+				action: 'pno_get_listings_schema_list'
+			}
+
+			axios.get( pno_schema_editor.ajax, {
+				params: configParams
+			})
+			.then( response => {
+
+				this.loading = false
+
+				if ( response.data.data.schemas.length > 0 ) {
+					Object.keys( response.data.data.schemas ).forEach( key => {
+						this.schemas.push( response.data.data.schemas[key] )
+					});
+				}
+
+			})
+			.catch( error => {
+				if ( error.response.data ) {
+					this.showError( error.response.data )
+				} else {
+					this.showError( error.message )
+				}
+			})
+
+		}
+
 	}
 }
 </script>
@@ -37,6 +139,14 @@ export default {
 #app {
 	.wrapper {
 		margin:30px 20px;
+
+		.wp-list-table {
+			margin-top: 30px;
+		}
+
+		.vue-wp-notice {
+			margin-bottom: 30px;
+		}
 	}
 }
 </style>

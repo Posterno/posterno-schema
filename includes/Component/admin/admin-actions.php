@@ -101,13 +101,35 @@ function pno_ajax_get_listings_schemas_list() {
 
 			$schemas->the_post();
 
-			$id   = get_the_id();
-			$mode = get_post_meta( $id, 'schema_mode', true ) === 'type' ? esc_html__( 'Specific listing type(s)' ) : esc_html__( 'All listings' );
+			$id          = get_the_id();
+			$mode        = get_post_meta( $id, 'schema_mode', true );
+			$mode_label  = $mode === 'type' ? esc_html__( 'Specific listing type(s)' ) : esc_html__( 'All listings' );
+			$found_types = '—';
+
+			if ( $mode === 'type' ) {
+
+				$listing_types = get_post_meta( $id, 'schema_listing_types', true );
+				$found_types   = [];
+
+				if ( ! empty( $listing_types ) && is_array( $listing_types ) ) {
+
+					foreach ( $listing_types as $type ) {
+						$type_term = get_term_by( 'id', $type, 'listings-types' );
+						if ( $type_term instanceof WP_Term ) {
+							$found_types[] = $type_term->name;
+						}
+					}
+				}
+
+				if ( ! empty( $found_types ) ) {
+					$found_types = implode( ', ', $found_types );
+				}
+			}
 
 			$found_schemas[] = [
 				'name'          => get_the_title(),
-				'mode'          => $mode,
-				'listing_types' => '—',
+				'mode'          => $mode_label,
+				'listing_types' => $found_types,
 				'id'            => get_the_id(),
 			];
 

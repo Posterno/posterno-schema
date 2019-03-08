@@ -41,6 +41,12 @@ function pno_ajax_create_listing_schema() {
 
 		$schema_id = wp_insert_post( $args );
 
+		update_post_meta( $schema_id, 'schema_mode', $mode );
+		update_post_meta( $schema_id, 'schema_name', $schema );
+
+		if ( $mode === 'type' ) {
+			update_post_meta( $schema_id, 'schema_listing_types', $types );
+		}
 	} else {
 
 		wp_die( $general_message, 403 ); //phpcs:ignore
@@ -60,6 +66,11 @@ function pno_ajax_create_listing_schema() {
 }
 add_action( 'wp_ajax_pno_create_listing_schema', 'pno_ajax_create_listing_schema' );
 
+/**
+ * Retrieve schemas saved into the db.
+ *
+ * @return void
+ */
 function pno_ajax_get_listings_schemas_list() {
 
 	check_ajax_referer( 'pno_get_listings_schema', 'nonce' );

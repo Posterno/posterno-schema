@@ -98,7 +98,12 @@ function pno_get_schema_editor_js_vars() {
 				'actions'       => esc_html__( 'Actions' ),
 				'not_found'     => esc_html__( 'No schema yet, click the button above to add a schema.' ),
 				'edit'          => esc_html__( 'Edit' ),
-				'delete'        => esc_html__( 'Delete' ),
+				'delete'        => esc_html__( 'Delete schema' ),
+				'save'          => esc_html__( 'Save schema' ),
+			],
+			'schema_edit'    => [
+				'title'      => esc_html__( 'Schema properties settings' ),
+				'title_edit' => esc_html__( 'Edit schema' ),
 			],
 		],
 	];

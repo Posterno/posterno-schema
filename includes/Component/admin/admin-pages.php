@@ -45,6 +45,8 @@ function pno_get_schema_editor_js_vars() {
 	$labels = [
 		'plugin_url'    => PNO_PLUGIN_URL,
 		'schema'        => pno_get_schema_list(),
+		'ajax'          => admin_url( 'admin-ajax.php' ),
+		'nonce'         => wp_create_nonce( 'pno_create_listing_schema' ),
 		'listing_types' => pno_get_listings_types_for_association(),
 		'labels'        => [
 			'documentation' => esc_html__( 'Documentation', 'posterno' ),

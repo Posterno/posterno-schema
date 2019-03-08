@@ -44,7 +44,7 @@
 												<th scope="row">{{labels.settings.listing_types.label}}</th>
 												<td>
 													<fieldset>
-														<Select2 v-model="newSchemaListingType" :options="availableListingTypes" :disabled="loading" :settings="{ width: '100%', placeholder: labels.settings.listing_types.label }"/>
+														<Select2 v-model="newSchemaListingType" :options="availableListingTypes" :disabled="loading" :settings="{ width: '100%', placeholder: labels.settings.listing_types.label, multiple: true }"/>
 													</fieldset>
 												</td>
 											</tr>
@@ -187,6 +187,8 @@ export default {
 		showSuccess() {
 
 			this.loading = false
+			this.isSuccess = true
+			this.isError = false
 			this.statusMessage = 'Test'
 
 		},
@@ -194,6 +196,8 @@ export default {
 		showError( message = false ) {
 
 			this.loading = false
+			this.isError = true
+			this.isSuccess = false
 			this.statusMessage = message
 
 		},
@@ -205,10 +209,13 @@ export default {
 			axios.post( pno_schema_editor.ajax,
 				qs.stringify({
 					nonce: pno_schema_editor.nonce,
+					mode: this.newSchemaMode,
+					schema: this.newSchemaName,
+					types: this.newSchemaListingType,
 				}),
 				{
 					params: {
-						action: 'pno_create_schema'
+						action: 'pno_create_listing_schema',
 					},
 				}
 			)
@@ -216,7 +223,12 @@ export default {
 				this.showSuccess()
 			})
 			.catch( error => {
-				this.showError( error.response.data )
+
+				if ( error.response.data ) {
+					this.showError( error.response.data )
+				} else {
+					this.showError( error.message )
+				}
 			})
 
 		}

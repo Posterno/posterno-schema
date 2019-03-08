@@ -40,9 +40,23 @@ class Filesystem {
 	}
 
 	public function createTypesList( TypeCollection $types ) {
+
+		$types = $types->toArray();
+		$main_types = [];
+
+		foreach ( $types as $type ) {
+			if ( isset( $type->parents ) && is_array( $type->parents ) && ! empty( $type->parents ) ) {
+				if ( in_array( 'Thing', $type->parents ) ) {
+					$main_types[] = $type;
+				}
+			} else {
+				continue;
+			}
+		}
+
 		$this->flysystem->put(
 			'includes/Component/admin/types-list.php',
-			$this->typesListTemplate->render( [ 'types' => $types->toArray() ] )
+			$this->typesListTemplate->render( [ 'types' => $main_types ] )
 		);
 	}
 

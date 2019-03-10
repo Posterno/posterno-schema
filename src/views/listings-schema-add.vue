@@ -8,7 +8,7 @@
 		<div class="wrapper metabox-holder">
 
 			<wp-row :gutter="20" class="postbox-container">
-				<wp-col :span="10">
+				<wp-col :span="12">
 					<div class="postbox generate-metabox start-customizing">
 						<div class="inside">
 							<div class="non-action">

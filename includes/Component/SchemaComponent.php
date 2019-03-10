@@ -70,6 +70,7 @@ class SchemaComponent {
 	public function setup_files() {
 
 		require_once PNO_SCHEMA_DIR . '/post-type.php';
+		require_once PNO_SCHEMA_DIR . '/admin/admin-functions.php';
 
 		// Admin.
 		if ( is_admin() || ( defined( 'WP_CLI' ) && WP_CLI ) ) {

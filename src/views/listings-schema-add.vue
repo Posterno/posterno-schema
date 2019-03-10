@@ -156,7 +156,7 @@ export default {
 
 			if ( this.newSchemaMode === 'global' && this.newSchemaName ) {
 				canSubmit = true
-			} else if ( this.newSchemaMode === 'type' && this.availableListingTypes.length > 0 && this.newSchemaListingType ) {
+			} else if ( this.newSchemaMode === 'type' && this.availableListingTypes.length > 0 && this.newSchemaListingType && this.newSchemaListingType.length > 0 && this.newSchemaName ) {
 				canSubmit = true
 			}
 

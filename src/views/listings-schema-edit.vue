@@ -148,6 +148,8 @@ export default {
 			propertiesLoading: false,
 			availableSchemas: [],
 			availableListingTypes: [],
+
+			level1children: [],
 		}
 	},
 	methods: {

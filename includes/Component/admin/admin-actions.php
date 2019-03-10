@@ -199,3 +199,12 @@ function pno_ajax_get_listing_schema() {
 
 }
 add_action( 'wp_ajax_pno_get_listing_schema', 'pno_ajax_get_listing_schema' );
+
+function t() {
+
+	//print_r( pno_get_schema_hierarchy() );
+
+	print_r( pno_get_schema_direct_children( 'Intangible' ) );
+
+}
+//add_action( 'admin_init', 't' );

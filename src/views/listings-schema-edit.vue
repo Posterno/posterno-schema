@@ -22,6 +22,17 @@
 
 						<wp-spinner class="properties-spinner" v-if="propertiesLoading"></wp-spinner>
 
+						<fieldset class="container-holder carbon-grid carbon-fields-collection">
+							<div class="carbon-container carbon-container-post_meta">
+								<div class="carbon-field carbon-checkbox">
+									<div class="field-holder">
+										<label>
+										</label>
+									</div>
+								</div>
+							</div>
+						</fieldset>
+
 					</wp-metabox>
 
 				</wp-col>
@@ -31,7 +42,6 @@
 					<wp-metabox :title="labels.schema_edit.title_edit">
 
 						<form action="#">
-
 
 							<fieldset class="container-holder carbon-grid carbon-fields-collection">
 								<div class="carbon-container carbon-container-post_meta">
@@ -50,7 +60,9 @@
 										<label>{{labels.settings.schemas.label}}</label>
 										<div class="field-holder">
 											<div class="carbon-field-group-holder">
-												<Select2 v-model="schema.name" :options="availableSchemas" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.settings.schemas.label }"/>
+												<select name="schemaName" v-model="schema.name" :disabled="! canPerformAction()">
+													<option v-for="(schema, key) in availableSchemas" :key="key" :value="schema">{{schema}}</option>
+												</select>
 											</div>
 										</div>
 									</div>

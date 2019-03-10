@@ -22,12 +22,16 @@ function pno_generate_schema_hierarchy( $items ) {
 	$return = [];
 
 	foreach ( $items as $key => $item ) {
-		$return[ $item->name ] = [
-			'id' => $item->name,
+
+		$prop = '@id';
+
+		$return[ $key ] = [
+			'id'    => $item->$prop,
+			'label' => $item->name,
 		];
 
 		if ( isset( $item->children ) && count( $item->children ) > 0 ) {
-			$return[ $item->name ]['children'] = pno_generate_schema_hierarchy( $item->children );
+			$return[ $key ]['children'] = pno_generate_schema_hierarchy( $item->children );
 		}
 	}
 

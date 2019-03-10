@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@alessandrotesoro/vuewp": "^1.0.2",
+    "@riophae/vue-treeselect": "^0.0.38",
     "axios": "^0.18.0",
     "qs": "^6.6.0",
     "v-select2-component": "^0.3.3",

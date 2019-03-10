@@ -36,7 +36,10 @@
 												<th scope="row">{{labels.settings.schemas.label}}</th>
 												<td>
 													<fieldset>
-														<Select2 v-model="newSchemaName" :options="availableSchemas" :disabled="loading" :settings="{ width: '100%', placeholder: labels.settings.schemas.label }"/>
+														<select name="schemaName" v-model="newSchemaName" :disabled="loading">
+															<option value=""></option>
+															<option v-for="(schema, key) in availableSchemas" :key="key" :value="schema">{{schema}}</option>
+														</select>
 													</fieldset>
 												</td>
 											</tr>
@@ -119,13 +122,31 @@ export default {
 				}
 			],
 			newSchemaMode: 'global',
-			newSchemaName: '',
+			newSchemaName: null,
 			newSchemaListingType: '',
 			availableSchemas: [],
 			availableListingTypes: [],
 			loading: false,
 			isError: false,
 			statusMessage: '',
+
+			options: [ {
+          id: 'a',
+          label: 'a',
+          children: [ {
+            id: 'aa',
+            label: 'aa',
+          }, {
+            id: 'ab',
+            label: 'ab',
+          } ],
+        }, {
+          id: 'b',
+          label: 'b',
+        }, {
+          id: 'c',
+          label: 'c',
+        } ],
 		}
 	},
 	methods: {
@@ -341,6 +362,52 @@ export default {
     opacity: 1;
 	transform: translateX(0px);
   }
+}
+
+.vue-treeselect__indent-level-1,
+.vue-treeselect__indent-level-2,
+.vue-treeselect__indent-level-3,
+.vue-treeselect__indent-level-4,
+.vue-treeselect__indent-level-5 {
+	padding-left: 20px;
+}
+
+.vue-treeselect__control {
+	border:none !important;
+}
+
+.vue-treeselect {
+	border:1px solid #c0c0c0;
+	border-radius: 3px;
+}
+
+.vue-treeselect--multi .vue-treeselect__input {
+	background: transparent !important;
+	border:none !important;
+	box-shadow: none !important;
+}
+
+.vue-treeselect__placeholder {
+	padding-left: 15px !important;
+}
+
+.vue-treeselect__value-container {
+	top: 1px;
+	padding-left: 10px;
+}
+
+.vue-treeselect__control-arrow-container {
+	position: relative;
+	top:2px;
+	right: 5px;
+}
+
+.vue-treeselect__menu {
+	margin: 0 -1px;
+}
+
+.vue-treeselect__multi-value-item {
+	font-size: inherit !important;
 }
 
 </style>

@@ -104,10 +104,11 @@ function pno_get_schema_editor_js_vars() {
 				'save'          => esc_html__( 'Save schema' ),
 			],
 			'schema_edit'    => [
-				'title'              => esc_html__( 'Schema properties' ),
-				'title_edit'         => esc_html__( 'Edit schema' ),
-				'level1schema_label' => esc_html__( 'Specific schema type' ),
-				'level1schema_desc'  => esc_html__( 'The selected schema has child schema that can be selected.' ),
+				'title'           => esc_html__( 'Schema properties' ),
+				'title_edit'      => esc_html__( 'Edit schema' ),
+				'primary_label'   => esc_html__( 'Primary schema type' ),
+				'secondary_label' => esc_html__( 'Secondary schema type' ),
+				'tertiary_label'  => esc_html__( 'Tertiary schema type' ),
 			],
 		],
 	];

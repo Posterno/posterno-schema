@@ -32,7 +32,7 @@
 								<div class="carbon-field has-width" style="flex-basis: 33%;">
 									<div class="field-holder">
 										<label>
-											{{labels.schema_edit.level1schema_label}}
+											{{labels.schema_edit.primary_label}}
 										</label>
 										<div class="carbon-field-group-holder">
 											<Select2 v-model="schema.primarySchemaChildren" :options="primarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.level1schema_label, multiple: false }" @select="loadSecondaryChildren($event)"/>
@@ -42,7 +42,7 @@
 								<div class="carbon-field has-width" style="flex-basis: 33%;" v-if="secondarySchemaChildren.length > 0">
 									<div class="field-holder">
 										<label>
-											{{labels.schema_edit.level1schema_label}}
+											{{labels.schema_edit.secondary_label}}
 										</label>
 										<div class="carbon-field-group-holder">
 											<Select2 v-model="schema.secondarySchemaChildren" :options="secondarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.level1schema_label, multiple: false }" @select="loadTertiaryChildren($event)"/>
@@ -52,7 +52,7 @@
 								<div class="carbon-field has-width" style="flex-basis: 33%;" v-if="tertiarySchemaChildren.length > 0">
 									<div class="field-holder">
 										<label>
-											{{labels.schema_edit.level1schema_label}}
+											{{labels.schema_edit.tertiary_label}}
 										</label>
 										<div class="carbon-field-group-holder">
 											<Select2 v-model="schema.tertiarySchemaChildren" :options="tertiarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.level1schema_label, multiple: false }"/>

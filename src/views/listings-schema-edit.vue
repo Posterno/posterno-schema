@@ -34,7 +34,7 @@
 											{{labels.schema_edit.primary_label}}
 										</label>
 										<div class="carbon-field-group-holder">
-											<Select2 v-model="schema.primarySchemaChildren" :options="primarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.level1schema_label, multiple: false }" @change="detectSchemaChange()" @select="loadSecondaryChildren($event)"/>
+											<Select2 v-model="schema.primarySchemaChildren" :options="primarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.additional_type, multiple: false }" @change="detectSchemaChange()" @select="loadSecondaryChildren($event)"/>
 										</div>
 									</div>
 								</div>
@@ -44,7 +44,7 @@
 											{{labels.schema_edit.secondary_label}}
 										</label>
 										<div class="carbon-field-group-holder">
-											<Select2 v-model="schema.secondarySchemaChildren" :options="secondarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.level1schema_label, multiple: false }" @change="detectSchemaChange()" @select="loadTertiaryChildren($event)"/>
+											<Select2 v-model="schema.secondarySchemaChildren" :options="secondarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.additional_type, multiple: false }" @change="detectSchemaChange()" @select="loadTertiaryChildren($event)"/>
 										</div>
 									</div>
 								</div>
@@ -54,7 +54,7 @@
 											{{labels.schema_edit.tertiary_label}}
 										</label>
 										<div class="carbon-field-group-holder">
-											<Select2 v-model="schema.tertiarySchemaChildren" :options="tertiarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.level1schema_label, multiple: false }" @change="detectSchemaChange()" />
+											<Select2 v-model="schema.tertiarySchemaChildren" :options="tertiarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.additional_type, multiple: false }" @change="detectSchemaChange()" />
 										</div>
 									</div>
 								</div>

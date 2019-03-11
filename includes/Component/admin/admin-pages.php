@@ -99,7 +99,7 @@ function pno_get_schema_editor_js_vars() {
 				'actions'       => esc_html__( 'Actions' ),
 				'not_found'     => esc_html__( 'No schema yet, click the button above to add a schema.' ),
 				'edit'          => esc_html__( 'Edit' ),
-				'delete'        => esc_html__( 'Delete schema' ),
+				'delete'        => esc_html__( 'Delete' ),
 				'save'          => esc_html__( 'Save schema' ),
 			],
 			'schema_edit'    => [

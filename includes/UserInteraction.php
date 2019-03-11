@@ -11,6 +11,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Event
  */
-class UserInteraction extends BaseType
-{
+class UserInteraction extends BaseType {
+
 }

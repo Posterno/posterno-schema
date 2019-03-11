@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\EntertainmentBusiness
  */
-class Casino extends BaseType
-{
+class Casino extends BaseType {
+
 }

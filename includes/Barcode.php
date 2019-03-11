@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\ImageObject
  */
-class Barcode extends BaseType
-{
+class Barcode extends BaseType {
+
 }

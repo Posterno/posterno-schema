@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Residence
  */
-class GatedResidenceCommunity extends BaseType
-{
+class GatedResidenceCommunity extends BaseType {
+
 }

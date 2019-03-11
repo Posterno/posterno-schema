@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\ReactAction
  */
-class AgreeAction extends BaseType
-{
+class AgreeAction extends BaseType {
+
 }

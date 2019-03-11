@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CivicStructure
  */
-class Aquarium extends BaseType
-{
+class Aquarium extends BaseType {
+
 }

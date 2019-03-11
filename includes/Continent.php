@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Landform
  */
-class Continent extends BaseType
-{
+class Continent extends BaseType {
+
 }

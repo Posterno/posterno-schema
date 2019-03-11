@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Episode
  */
-class RadioEpisode extends BaseType
-{
+class RadioEpisode extends BaseType {
+
 }

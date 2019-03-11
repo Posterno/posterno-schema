@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Store
  */
-class FurnitureStore extends BaseType
-{
+class FurnitureStore extends BaseType {
+
 }

@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Quantity
  */
-class Energy extends BaseType
-{
+class Energy extends BaseType {
+
 }

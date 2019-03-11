@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\BodyOfWater
  */
-class LakeBodyOfWater extends BaseType
-{
+class LakeBodyOfWater extends BaseType {
+
 }

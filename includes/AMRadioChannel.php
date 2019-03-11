@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\RadioChannel
  */
-class AMRadioChannel extends BaseType
-{
+class AMRadioChannel extends BaseType {
+
 }

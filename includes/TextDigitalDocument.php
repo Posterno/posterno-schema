@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\DigitalDocument
  */
-class TextDigitalDocument extends BaseType
-{
+class TextDigitalDocument extends BaseType {
+
 }

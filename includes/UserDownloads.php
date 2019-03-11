@@ -11,6 +11,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\UserInteraction
  */
-class UserDownloads extends BaseType
-{
+class UserDownloads extends BaseType {
+
 }

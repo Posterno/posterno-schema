@@ -10,92 +10,86 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\PerformingGroup
  */
-class MusicGroup extends BaseType
-{
-    /**
-     * A music album.
-     *
-     * @param MusicAlbum|MusicAlbum[] $album
-     *
-     * @return static
-     *
-     * @see http://schema.org/album
-     */
-    public function album($album)
-    {
-        return $this->setProperty('album', $album);
-    }
+class MusicGroup extends BaseType {
 
-    /**
-     * A collection of music albums.
-     *
-     * @param MusicAlbum|MusicAlbum[] $albums
-     *
-     * @return static
-     *
-     * @see http://schema.org/albums
-     */
-    public function albums($albums)
-    {
-        return $this->setProperty('albums', $albums);
-    }
+	/**
+	 * A music album.
+	 *
+	 * @param MusicAlbum|MusicAlbum[] $album
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/album
+	 */
+	public function album( $album ) {
+		return $this->setProperty( 'album', $album );
+	}
 
-    /**
-     * Genre of the creative work, broadcast channel or group.
-     *
-     * @param string|string[] $genre
-     *
-     * @return static
-     *
-     * @see http://schema.org/genre
-     */
-    public function genre($genre)
-    {
-        return $this->setProperty('genre', $genre);
-    }
+	/**
+	 * A collection of music albums.
+	 *
+	 * @param MusicAlbum|MusicAlbum[] $albums
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/albums
+	 */
+	public function albums( $albums ) {
+		return $this->setProperty( 'albums', $albums );
+	}
 
-    /**
-     * A member of a music group&#x2014;for example, John, Paul, George, or
-     * Ringo.
-     *
-     * @param Person|Person[] $musicGroupMember
-     *
-     * @return static
-     *
-     * @see http://schema.org/musicGroupMember
-     */
-    public function musicGroupMember($musicGroupMember)
-    {
-        return $this->setProperty('musicGroupMember', $musicGroupMember);
-    }
+	/**
+	 * Genre of the creative work, broadcast channel or group.
+	 *
+	 * @param string|string[] $genre
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/genre
+	 */
+	public function genre( $genre ) {
+		return $this->setProperty( 'genre', $genre );
+	}
 
-    /**
-     * A music recording (track)&#x2014;usually a single song. If an ItemList is
-     * given, the list should contain items of type MusicRecording.
-     *
-     * @param ItemList|ItemList[]|MusicRecording|MusicRecording[] $track
-     *
-     * @return static
-     *
-     * @see http://schema.org/track
-     */
-    public function track($track)
-    {
-        return $this->setProperty('track', $track);
-    }
+	/**
+	 * A member of a music group&#x2014;for example, John, Paul, George, or
+	 * Ringo.
+	 *
+	 * @param Person|Person[] $musicGroupMember
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/musicGroupMember
+	 */
+	public function musicGroupMember( $musicGroupMember ) {
+		return $this->setProperty( 'musicGroupMember', $musicGroupMember );
+	}
 
-    /**
-     * A music recording (track)&#x2014;usually a single song.
-     *
-     * @param MusicRecording|MusicRecording[] $tracks
-     *
-     * @return static
-     *
-     * @see http://schema.org/tracks
-     */
-    public function tracks($tracks)
-    {
-        return $this->setProperty('tracks', $tracks);
-    }
+	/**
+	 * A music recording (track)&#x2014;usually a single song. If an ItemList is
+	 * given, the list should contain items of type MusicRecording.
+	 *
+	 * @param ItemList|ItemList[]|MusicRecording|MusicRecording[] $track
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/track
+	 */
+	public function track( $track ) {
+		return $this->setProperty( 'track', $track );
+	}
+
+	/**
+	 * A music recording (track)&#x2014;usually a single song.
+	 *
+	 * @param MusicRecording|MusicRecording[] $tracks
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/tracks
+	 */
+	public function tracks( $tracks ) {
+		return $this->setProperty( 'tracks', $tracks );
+	}
 
 }

@@ -10,20 +10,19 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Review
  */
-class ClaimReview extends BaseType
-{
-    /**
-     * A short summary of the specific claims reviewed in a ClaimReview.
-     *
-     * @param string|string[] $claimReviewed
-     *
-     * @return static
-     *
-     * @see http://schema.org/claimReviewed
-     */
-    public function claimReviewed($claimReviewed)
-    {
-        return $this->setProperty('claimReviewed', $claimReviewed);
-    }
+class ClaimReview extends BaseType {
+
+	/**
+	 * A short summary of the specific claims reviewed in a ClaimReview.
+	 *
+	 * @param string|string[] $claimReviewed
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/claimReviewed
+	 */
+	public function claimReviewed( $claimReviewed ) {
+		return $this->setProperty( 'claimReviewed', $claimReviewed );
+	}
 
 }

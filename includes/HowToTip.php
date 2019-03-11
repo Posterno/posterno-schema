@@ -13,6 +13,6 @@ namespace PNO\SchemaOrg;
  * @mixin \PNO\SchemaOrg\ListItem
  * @mixin \PNO\SchemaOrg\CreativeWork
  */
-class HowToTip extends BaseType
-{
+class HowToTip extends BaseType {
+
 }

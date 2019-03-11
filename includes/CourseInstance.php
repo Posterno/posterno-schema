@@ -11,39 +11,37 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Event
  */
-class CourseInstance extends BaseType
-{
-    /**
-     * The medium or means of delivery of the course instance or the mode of
-     * study, either as a text label (e.g. "online", "onsite" or "blended";
-     * "synchronous" or "asynchronous"; "full-time" or "part-time") or as a URL
-     * reference to a term from a controlled vocabulary (e.g.
-     * https://ceds.ed.gov/element/001311#Asynchronous ).
-     *
-     * @param string|string[] $courseMode
-     *
-     * @return static
-     *
-     * @see http://schema.org/courseMode
-     */
-    public function courseMode($courseMode)
-    {
-        return $this->setProperty('courseMode', $courseMode);
-    }
+class CourseInstance extends BaseType {
 
-    /**
-     * A person assigned to instruct or provide instructional assistance for the
-     * [[CourseInstance]].
-     *
-     * @param Person|Person[] $instructor
-     *
-     * @return static
-     *
-     * @see http://schema.org/instructor
-     */
-    public function instructor($instructor)
-    {
-        return $this->setProperty('instructor', $instructor);
-    }
+	/**
+	 * The medium or means of delivery of the course instance or the mode of
+	 * study, either as a text label (e.g. "online", "onsite" or "blended";
+	 * "synchronous" or "asynchronous"; "full-time" or "part-time") or as a URL
+	 * reference to a term from a controlled vocabulary (e.g.
+	 * https://ceds.ed.gov/element/001311#Asynchronous ).
+	 *
+	 * @param string|string[] $courseMode
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/courseMode
+	 */
+	public function courseMode( $courseMode ) {
+		return $this->setProperty( 'courseMode', $courseMode );
+	}
+
+	/**
+	 * A person assigned to instruct or provide instructional assistance for the
+	 * [[CourseInstance]].
+	 *
+	 * @param Person|Person[] $instructor
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/instructor
+	 */
+	public function instructor( $instructor ) {
+		return $this->setProperty( 'instructor', $instructor );
+	}
 
 }

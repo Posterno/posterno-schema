@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\UpdateAction
  */
-class DeleteAction extends BaseType
-{
+class DeleteAction extends BaseType {
+
 }

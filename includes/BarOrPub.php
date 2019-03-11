@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\FoodEstablishment
  */
-class BarOrPub extends BaseType
-{
+class BarOrPub extends BaseType {
+
 }

@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Landform
  */
-class Mountain extends BaseType
-{
+class Mountain extends BaseType {
+
 }

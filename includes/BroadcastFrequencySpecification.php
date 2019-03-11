@@ -10,20 +10,19 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Intangible
  */
-class BroadcastFrequencySpecification extends BaseType
-{
-    /**
-     * The frequency in MHz for a particular broadcast.
-     *
-     * @param QuantitativeValue|QuantitativeValue[]|float|float[]|int|int[] $broadcastFrequencyValue
-     *
-     * @return static
-     *
-     * @see http://schema.org/broadcastFrequencyValue
-     */
-    public function broadcastFrequencyValue($broadcastFrequencyValue)
-    {
-        return $this->setProperty('broadcastFrequencyValue', $broadcastFrequencyValue);
-    }
+class BroadcastFrequencySpecification extends BaseType {
+
+	/**
+	 * The frequency in MHz for a particular broadcast.
+	 *
+	 * @param QuantitativeValue|QuantitativeValue[]|float|float[]|int|int[] $broadcastFrequencyValue
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/broadcastFrequencyValue
+	 */
+	public function broadcastFrequencyValue( $broadcastFrequencyValue ) {
+		return $this->setProperty( 'broadcastFrequencyValue', $broadcastFrequencyValue );
+	}
 
 }

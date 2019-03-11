@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  * @mixin \PNO\SchemaOrg\HealthAndBeautyBusiness
  * @mixin \PNO\SchemaOrg\SportsActivityLocation
  */
-class HealthClub extends BaseType
-{
+class HealthClub extends BaseType {
+
 }

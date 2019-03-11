@@ -4,9 +4,9 @@ namespace PNO\SchemaOrg;
 
 /**
  * The act of registering to be a user of a service, product or web page.
- * 
+ *
  * Related actions:
- * 
+ *
  * * [[JoinAction]]: Unlike JoinAction, RegisterAction implies you are
  * registering to be a user of a service, *not* a group/team of people.
  * * [FollowAction]]: Unlike FollowAction, RegisterAction doesn't imply that the
@@ -18,6 +18,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\InteractAction
  */
-class RegisterAction extends BaseType
-{
+class RegisterAction extends BaseType {
+
 }

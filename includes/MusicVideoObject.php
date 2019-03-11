@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\MediaObject
  */
-class MusicVideoObject extends BaseType
-{
+class MusicVideoObject extends BaseType {
+
 }

@@ -12,36 +12,34 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Intangible
  */
-class BedDetails extends BaseType
-{
-    /**
-     * The quantity of the given bed type available in the HotelRoom, Suite,
-     * House, or Apartment.
-     *
-     * @param float|float[]|int|int[] $numberOfBeds
-     *
-     * @return static
-     *
-     * @see http://schema.org/numberOfBeds
-     */
-    public function numberOfBeds($numberOfBeds)
-    {
-        return $this->setProperty('numberOfBeds', $numberOfBeds);
-    }
+class BedDetails extends BaseType {
 
-    /**
-     * The type of bed to which the BedDetail refers, i.e. the type of bed
-     * available in the quantity indicated by quantity.
-     *
-     * @param string|string[] $typeOfBed
-     *
-     * @return static
-     *
-     * @see http://schema.org/typeOfBed
-     */
-    public function typeOfBed($typeOfBed)
-    {
-        return $this->setProperty('typeOfBed', $typeOfBed);
-    }
+	/**
+	 * The quantity of the given bed type available in the HotelRoom, Suite,
+	 * House, or Apartment.
+	 *
+	 * @param float|float[]|int|int[] $numberOfBeds
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/numberOfBeds
+	 */
+	public function numberOfBeds( $numberOfBeds ) {
+		return $this->setProperty( 'numberOfBeds', $numberOfBeds );
+	}
+
+	/**
+	 * The type of bed to which the BedDetail refers, i.e. the type of bed
+	 * available in the quantity indicated by quantity.
+	 *
+	 * @param string|string[] $typeOfBed
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/typeOfBed
+	 */
+	public function typeOfBed( $typeOfBed ) {
+		return $this->setProperty( 'typeOfBed', $typeOfBed );
+	}
 
 }

@@ -21,17 +21,20 @@ class Filesystem {
 		$adapter         = new Local( $root );
 		$this->flysystem = new Flysystem( $adapter );
 
-		$this->typesListTemplate    = new Template( 'types-list.php.twig' );
-		$this->typeTemplate         = new Template( 'Type.php.twig' );
-		$this->builderClassTemplate = new Template( 'Schema.php.twig' );
+		$this->typesListTemplate      = new Template( 'types-list.php.twig' );
+		$this->propertiesListTemplate = new Template( 'properties-list.php.twig' );
+		$this->typeTemplate           = new Template( 'Type.php.twig' );
+		$this->builderClassTemplate   = new Template( 'Schema.php.twig' );
 	}
 
 	public function clearAutomatedFiles() {
 
 		$contents = $this->flysystem->listContents( 'includes', true );
 
+		$excluded = [ 'types-list.php', 'properties-list.php' ];
+
 		foreach ( $contents as $object ) {
-			if ( strpos( $object['path'], 'includes/Component' ) === 0 && $object['basename'] !== 'types-list.php' ) {
+			if ( strpos( $object['path'], 'includes/Component' ) === 0 && ! in_array( $object['basename'], $excluded ) ) {
 				continue;
 			} else {
 				$this->flysystem->delete( $object['path'] );
@@ -64,7 +67,7 @@ class Filesystem {
 
 		$this->flysystem->put(
 			'includes/Component/admin/properties-list.php',
-			$this->typesListTemplate->render( [ 'properties' => $types->propertiesList ] )
+			$this->propertiesListTemplate->render( [ 'properties' => $types->propertiesList ] )
 		);
 
 	}

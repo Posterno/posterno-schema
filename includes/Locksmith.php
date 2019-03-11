@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\HomeAndConstructionBusiness
  */
-class Locksmith extends BaseType
-{
+class Locksmith extends BaseType {
+
 }

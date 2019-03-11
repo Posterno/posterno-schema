@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Place
  */
-class AdministrativeArea extends BaseType
-{
+class AdministrativeArea extends BaseType {
+
 }

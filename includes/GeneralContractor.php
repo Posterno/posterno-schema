@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\HomeAndConstructionBusiness
  */
-class GeneralContractor extends BaseType
-{
+class GeneralContractor extends BaseType {
+
 }

@@ -11,35 +11,33 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\StructuredValue
  */
-class WarrantyPromise extends BaseType
-{
-    /**
-     * The duration of the warranty promise. Common unitCode values are ANN for
-     * year, MON for months, or DAY for days.
-     *
-     * @param QuantitativeValue|QuantitativeValue[] $durationOfWarranty
-     *
-     * @return static
-     *
-     * @see http://schema.org/durationOfWarranty
-     */
-    public function durationOfWarranty($durationOfWarranty)
-    {
-        return $this->setProperty('durationOfWarranty', $durationOfWarranty);
-    }
+class WarrantyPromise extends BaseType {
 
-    /**
-     * The scope of the warranty promise.
-     *
-     * @param WarrantyScope|WarrantyScope[] $warrantyScope
-     *
-     * @return static
-     *
-     * @see http://schema.org/warrantyScope
-     */
-    public function warrantyScope($warrantyScope)
-    {
-        return $this->setProperty('warrantyScope', $warrantyScope);
-    }
+	/**
+	 * The duration of the warranty promise. Common unitCode values are ANN for
+	 * year, MON for months, or DAY for days.
+	 *
+	 * @param QuantitativeValue|QuantitativeValue[] $durationOfWarranty
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/durationOfWarranty
+	 */
+	public function durationOfWarranty( $durationOfWarranty ) {
+		return $this->setProperty( 'durationOfWarranty', $durationOfWarranty );
+	}
+
+	/**
+	 * The scope of the warranty promise.
+	 *
+	 * @param WarrantyScope|WarrantyScope[] $warrantyScope
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/warrantyScope
+	 */
+	public function warrantyScope( $warrantyScope ) {
+		return $this->setProperty( 'warrantyScope', $warrantyScope );
+	}
 
 }

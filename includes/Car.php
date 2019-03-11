@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Vehicle
  */
-class Car extends BaseType
-{
+class Car extends BaseType {
+
 }

@@ -9,41 +9,41 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Enumeration
  */
-class PaymentStatusType extends BaseType
-{
-    /**
-     * An automatic payment system is in place and will be used.
-     *
-     * @see http://schema.org/PaymentAutomaticallyApplied
-     */
-     const PaymentAutomaticallyApplied = 'http://schema.org/PaymentAutomaticallyApplied';
+class PaymentStatusType extends BaseType {
 
-    /**
-     * The payment has been received and processed.
-     *
-     * @see http://schema.org/PaymentComplete
-     */
-     const PaymentComplete = 'http://schema.org/PaymentComplete';
+	/**
+	 * An automatic payment system is in place and will be used.
+	 *
+	 * @see http://schema.org/PaymentAutomaticallyApplied
+	 */
+	 const PaymentAutomaticallyApplied = 'http://schema.org/PaymentAutomaticallyApplied';
 
-    /**
-     * The payee received the payment, but it was declined for some reason.
-     *
-     * @see http://schema.org/PaymentDeclined
-     */
-     const PaymentDeclined = 'http://schema.org/PaymentDeclined';
+	/**
+	 * The payment has been received and processed.
+	 *
+	 * @see http://schema.org/PaymentComplete
+	 */
+	 const PaymentComplete = 'http://schema.org/PaymentComplete';
 
-    /**
-     * The payment is due, but still within an acceptable time to be received.
-     *
-     * @see http://schema.org/PaymentDue
-     */
-     const PaymentDue = 'http://schema.org/PaymentDue';
+	/**
+	 * The payee received the payment, but it was declined for some reason.
+	 *
+	 * @see http://schema.org/PaymentDeclined
+	 */
+	 const PaymentDeclined = 'http://schema.org/PaymentDeclined';
 
-    /**
-     * The payment is due and considered late.
-     *
-     * @see http://schema.org/PaymentPastDue
-     */
-     const PaymentPastDue = 'http://schema.org/PaymentPastDue';
+	/**
+	 * The payment is due, but still within an acceptable time to be received.
+	 *
+	 * @see http://schema.org/PaymentDue
+	 */
+	 const PaymentDue = 'http://schema.org/PaymentDue';
+
+	/**
+	 * The payment is due and considered late.
+	 *
+	 * @see http://schema.org/PaymentPastDue
+	 */
+	 const PaymentPastDue = 'http://schema.org/PaymentPastDue';
 
 }

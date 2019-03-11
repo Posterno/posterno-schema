@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\LocalBusiness
  */
-class EmploymentAgency extends BaseType
-{
+class EmploymentAgency extends BaseType {
+
 }

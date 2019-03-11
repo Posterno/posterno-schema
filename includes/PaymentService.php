@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\FinancialProduct
  */
-class PaymentService extends BaseType
-{
+class PaymentService extends BaseType {
+
 }

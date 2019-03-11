@@ -10,69 +10,69 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Enumeration
  */
-class MusicAlbumProductionType extends BaseType
-{
-    /**
-     * CompilationAlbum.
-     *
-     * @see http://schema.org/CompilationAlbum
-     */
-     const CompilationAlbum = 'http://schema.org/CompilationAlbum';
+class MusicAlbumProductionType extends BaseType {
 
-    /**
-     * DJMixAlbum.
-     *
-     * @see http://schema.org/DJMixAlbum
-     */
-     const DJMixAlbum = 'http://schema.org/DJMixAlbum';
+	/**
+	 * CompilationAlbum.
+	 *
+	 * @see http://schema.org/CompilationAlbum
+	 */
+	 const CompilationAlbum = 'http://schema.org/CompilationAlbum';
 
-    /**
-     * DemoAlbum.
-     *
-     * @see http://schema.org/DemoAlbum
-     */
-     const DemoAlbum = 'http://schema.org/DemoAlbum';
+	/**
+	 * DJMixAlbum.
+	 *
+	 * @see http://schema.org/DJMixAlbum
+	 */
+	 const DJMixAlbum = 'http://schema.org/DJMixAlbum';
 
-    /**
-     * LiveAlbum.
-     *
-     * @see http://schema.org/LiveAlbum
-     */
-     const LiveAlbum = 'http://schema.org/LiveAlbum';
+	/**
+	 * DemoAlbum.
+	 *
+	 * @see http://schema.org/DemoAlbum
+	 */
+	 const DemoAlbum = 'http://schema.org/DemoAlbum';
 
-    /**
-     * MixtapeAlbum.
-     *
-     * @see http://schema.org/MixtapeAlbum
-     */
-     const MixtapeAlbum = 'http://schema.org/MixtapeAlbum';
+	/**
+	 * LiveAlbum.
+	 *
+	 * @see http://schema.org/LiveAlbum
+	 */
+	 const LiveAlbum = 'http://schema.org/LiveAlbum';
 
-    /**
-     * RemixAlbum.
-     *
-     * @see http://schema.org/RemixAlbum
-     */
-     const RemixAlbum = 'http://schema.org/RemixAlbum';
+	/**
+	 * MixtapeAlbum.
+	 *
+	 * @see http://schema.org/MixtapeAlbum
+	 */
+	 const MixtapeAlbum = 'http://schema.org/MixtapeAlbum';
 
-    /**
-     * SoundtrackAlbum.
-     *
-     * @see http://schema.org/SoundtrackAlbum
-     */
-     const SoundtrackAlbum = 'http://schema.org/SoundtrackAlbum';
+	/**
+	 * RemixAlbum.
+	 *
+	 * @see http://schema.org/RemixAlbum
+	 */
+	 const RemixAlbum = 'http://schema.org/RemixAlbum';
 
-    /**
-     * SpokenWordAlbum.
-     *
-     * @see http://schema.org/SpokenWordAlbum
-     */
-     const SpokenWordAlbum = 'http://schema.org/SpokenWordAlbum';
+	/**
+	 * SoundtrackAlbum.
+	 *
+	 * @see http://schema.org/SoundtrackAlbum
+	 */
+	 const SoundtrackAlbum = 'http://schema.org/SoundtrackAlbum';
 
-    /**
-     * StudioAlbum.
-     *
-     * @see http://schema.org/StudioAlbum
-     */
-     const StudioAlbum = 'http://schema.org/StudioAlbum';
+	/**
+	 * SpokenWordAlbum.
+	 *
+	 * @see http://schema.org/SpokenWordAlbum
+	 */
+	 const SpokenWordAlbum = 'http://schema.org/SpokenWordAlbum';
+
+	/**
+	 * StudioAlbum.
+	 *
+	 * @see http://schema.org/StudioAlbum
+	 */
+	 const StudioAlbum = 'http://schema.org/StudioAlbum';
 
 }

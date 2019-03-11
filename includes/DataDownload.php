@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\MediaObject
  */
-class DataDownload extends BaseType
-{
+class DataDownload extends BaseType {
+
 }

@@ -27,7 +27,7 @@ function pno_get_schema_list() {
 		'Person',
 		'Place',
 		'Product',
-		];
+	];
 
 	return $available_types;
 

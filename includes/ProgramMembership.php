@@ -10,78 +10,73 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Intangible
  */
-class ProgramMembership extends BaseType
-{
-    /**
-     * The organization (airline, travelers' club, etc.) the membership is made
-     * with.
-     *
-     * @param Organization|Organization[] $hostingOrganization
-     *
-     * @return static
-     *
-     * @see http://schema.org/hostingOrganization
-     */
-    public function hostingOrganization($hostingOrganization)
-    {
-        return $this->setProperty('hostingOrganization', $hostingOrganization);
-    }
+class ProgramMembership extends BaseType {
 
-    /**
-     * A member of an Organization or a ProgramMembership. Organizations can be
-     * members of organizations; ProgramMembership is typically for individuals.
-     *
-     * @param Organization|Organization[]|Person|Person[] $member
-     *
-     * @return static
-     *
-     * @see http://schema.org/member
-     */
-    public function member($member)
-    {
-        return $this->setProperty('member', $member);
-    }
+	/**
+	 * The organization (airline, travelers' club, etc.) the membership is made
+	 * with.
+	 *
+	 * @param Organization|Organization[] $hostingOrganization
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/hostingOrganization
+	 */
+	public function hostingOrganization( $hostingOrganization ) {
+		return $this->setProperty( 'hostingOrganization', $hostingOrganization );
+	}
 
-    /**
-     * A member of this organization.
-     *
-     * @param Organization|Organization[]|Person|Person[] $members
-     *
-     * @return static
-     *
-     * @see http://schema.org/members
-     */
-    public function members($members)
-    {
-        return $this->setProperty('members', $members);
-    }
+	/**
+	 * A member of an Organization or a ProgramMembership. Organizations can be
+	 * members of organizations; ProgramMembership is typically for individuals.
+	 *
+	 * @param Organization|Organization[]|Person|Person[] $member
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/member
+	 */
+	public function member( $member ) {
+		return $this->setProperty( 'member', $member );
+	}
 
-    /**
-     * A unique identifier for the membership.
-     *
-     * @param string|string[] $membershipNumber
-     *
-     * @return static
-     *
-     * @see http://schema.org/membershipNumber
-     */
-    public function membershipNumber($membershipNumber)
-    {
-        return $this->setProperty('membershipNumber', $membershipNumber);
-    }
+	/**
+	 * A member of this organization.
+	 *
+	 * @param Organization|Organization[]|Person|Person[] $members
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/members
+	 */
+	public function members( $members ) {
+		return $this->setProperty( 'members', $members );
+	}
 
-    /**
-     * The program providing the membership.
-     *
-     * @param string|string[] $programName
-     *
-     * @return static
-     *
-     * @see http://schema.org/programName
-     */
-    public function programName($programName)
-    {
-        return $this->setProperty('programName', $programName);
-    }
+	/**
+	 * A unique identifier for the membership.
+	 *
+	 * @param string|string[] $membershipNumber
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/membershipNumber
+	 */
+	public function membershipNumber( $membershipNumber ) {
+		return $this->setProperty( 'membershipNumber', $membershipNumber );
+	}
+
+	/**
+	 * The program providing the membership.
+	 *
+	 * @param string|string[] $programName
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/programName
+	 */
+	public function programName( $programName ) {
+		return $this->setProperty( 'programName', $programName );
+	}
 
 }

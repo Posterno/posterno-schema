@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\SportsActivityLocation
  */
-class SportsClub extends BaseType
-{
+class SportsClub extends BaseType {
+
 }

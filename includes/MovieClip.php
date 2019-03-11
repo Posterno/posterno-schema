@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Clip
  */
-class MovieClip extends BaseType
-{
+class MovieClip extends BaseType {
+
 }

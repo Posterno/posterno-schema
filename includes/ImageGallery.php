@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CollectionPage
  */
-class ImageGallery extends BaseType
-{
+class ImageGallery extends BaseType {
+
 }

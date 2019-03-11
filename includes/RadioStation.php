@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\LocalBusiness
  */
-class RadioStation extends BaseType
-{
+class RadioStation extends BaseType {
+
 }

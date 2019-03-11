@@ -16,6 +16,8 @@ class PackageGenerator {
 
 		$filesystem->createTypesList( $types );
 
+		$filesystem->createPropertiesList( $types );
+
 		$filesystem->cloneStaticFiles();
 
 		$types->each(

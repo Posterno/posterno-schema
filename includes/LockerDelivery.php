@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\DeliveryMethod
  */
-class LockerDelivery extends BaseType
-{
+class LockerDelivery extends BaseType {
+
 }

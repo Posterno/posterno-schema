@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\GovernmentBuilding
  */
-class Embassy extends BaseType
-{
+class Embassy extends BaseType {
+
 }

@@ -10,20 +10,19 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\ChooseAction
  */
-class VoteAction extends BaseType
-{
-    /**
-     * A sub property of object. The candidate subject of this action.
-     *
-     * @param Person|Person[] $candidate
-     *
-     * @return static
-     *
-     * @see http://schema.org/candidate
-     */
-    public function candidate($candidate)
-    {
-        return $this->setProperty('candidate', $candidate);
-    }
+class VoteAction extends BaseType {
+
+	/**
+	 * A sub property of object. The candidate subject of this action.
+	 *
+	 * @param Person|Person[] $candidate
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/candidate
+	 */
+	public function candidate( $candidate ) {
+		return $this->setProperty( 'candidate', $candidate );
+	}
 
 }

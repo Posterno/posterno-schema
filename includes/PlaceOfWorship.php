@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CivicStructure
  */
-class PlaceOfWorship extends BaseType
-{
+class PlaceOfWorship extends BaseType {
+
 }

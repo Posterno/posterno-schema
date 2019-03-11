@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Organization
  */
-class PerformingGroup extends BaseType
-{
+class PerformingGroup extends BaseType {
+
 }

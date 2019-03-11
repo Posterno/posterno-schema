@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\LocalBusiness
  */
-class TravelAgency extends BaseType
-{
+class TravelAgency extends BaseType {
+
 }

@@ -11,35 +11,33 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\TradeAction
  */
-class RentAction extends BaseType
-{
-    /**
-     * A sub property of participant. The owner of the real estate property.
-     *
-     * @param Organization|Organization[]|Person|Person[] $landlord
-     *
-     * @return static
-     *
-     * @see http://schema.org/landlord
-     */
-    public function landlord($landlord)
-    {
-        return $this->setProperty('landlord', $landlord);
-    }
+class RentAction extends BaseType {
 
-    /**
-     * A sub property of participant. The real estate agent involved in the
-     * action.
-     *
-     * @param RealEstateAgent|RealEstateAgent[] $realEstateAgent
-     *
-     * @return static
-     *
-     * @see http://schema.org/realEstateAgent
-     */
-    public function realEstateAgent($realEstateAgent)
-    {
-        return $this->setProperty('realEstateAgent', $realEstateAgent);
-    }
+	/**
+	 * A sub property of participant. The owner of the real estate property.
+	 *
+	 * @param Organization|Organization[]|Person|Person[] $landlord
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/landlord
+	 */
+	public function landlord( $landlord ) {
+		return $this->setProperty( 'landlord', $landlord );
+	}
+
+	/**
+	 * A sub property of participant. The real estate agent involved in the
+	 * action.
+	 *
+	 * @param RealEstateAgent|RealEstateAgent[] $realEstateAgent
+	 *
+	 * @return static
+	 *
+	 * @see http://schema.org/realEstateAgent
+	 */
+	public function realEstateAgent( $realEstateAgent ) {
+		return $this->setProperty( 'realEstateAgent', $realEstateAgent );
+	}
 
 }

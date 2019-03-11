@@ -4,9 +4,9 @@ namespace PNO\SchemaOrg;
 
 /**
  * The act of un-registering from a service.
- * 
+ *
  * Related actions:
- * 
+ *
  * * [[RegisterAction]]: antonym of UnRegisterAction.
  * * [[LeaveAction]]: Unlike LeaveAction, UnRegisterAction implies that you are
  * unregistering from a service you werer previously registered, rather than
@@ -16,6 +16,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\InteractAction
  */
-class UnRegisterAction extends BaseType
-{
+class UnRegisterAction extends BaseType {
+
 }

@@ -7,6 +7,8 @@ class TypeCollection {
 	/** @var array */
 	private $types = [];
 
+	public $propertiesList = [];
+
 	public function __construct( array $types, array $properties, array $constants ) {
 		$typeNames = array_map(
 			function ( Type $type ) {
@@ -14,6 +16,8 @@ class TypeCollection {
 			},
 			$types
 		);
+
+		$this->propertiesList = $properties;
 
 		$this->types = array_combine( $typeNames, $types );
 

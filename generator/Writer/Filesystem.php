@@ -41,7 +41,7 @@ class Filesystem {
 
 	public function createTypesList( TypeCollection $types ) {
 
-		$types = $types->toArray();
+		$types      = $types->toArray();
 		$main_types = [];
 
 		foreach ( $types as $type ) {
@@ -58,6 +58,15 @@ class Filesystem {
 			'includes/Component/admin/types-list.php',
 			$this->typesListTemplate->render( [ 'types' => $main_types ] )
 		);
+	}
+
+	public function createPropertiesList( TypeCollection $types ) {
+
+		$this->flysystem->put(
+			'includes/Component/admin/properties-list.php',
+			$this->typesListTemplate->render( [ 'properties' => $types->propertiesList ] )
+		);
+
 	}
 
 	public function cloneStaticFiles() {

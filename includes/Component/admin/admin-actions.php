@@ -237,7 +237,12 @@ function pno_ajax_get_child_schema() {
 		wp_die( $general_message, 403 ); //phpcs:ignore
 	}
 
-	wp_send_json_success( [ 'childs' => $childs, 'has_children' => $has_children ] );
+	wp_send_json_success(
+		[
+			'childs'       => $childs,
+			'has_children' => $has_children,
+		]
+	);
 
 }
 add_action( 'wp_ajax_pno_get_child_schema', 'pno_ajax_get_child_schema' );

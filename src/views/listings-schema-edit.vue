@@ -29,7 +29,7 @@
 
 						<fieldset class="container-holder carbon-grid carbon-fields-collection schema-settings" v-if="canPerformAction()">
 							<div class="carbon-container carbon-container-post_meta">
-								<div class="carbon-field has-width" style="flex-basis: 33%;">
+								<div class="carbon-field has-width first-row" style="flex-basis: 33%;">
 									<div class="field-holder">
 										<label>
 											{{labels.schema_edit.primary_label}}
@@ -39,7 +39,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="carbon-field has-width" style="flex-basis: 33%;" v-if="secondarySchemaChildren.length > 0">
+								<div class="carbon-field has-width first-row" style="flex-basis: 33%;" v-if="secondarySchemaChildren.length > 0">
 									<div class="field-holder">
 										<label>
 											{{labels.schema_edit.secondary_label}}
@@ -49,7 +49,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="carbon-field has-width" style="flex-basis: 33%;" v-if="tertiarySchemaChildren.length > 0">
+								<div class="carbon-field has-width first-row" style="flex-basis: 33%;" v-if="tertiarySchemaChildren.length > 0">
 									<div class="field-holder">
 										<label>
 											{{labels.schema_edit.tertiary_label}}
@@ -60,6 +60,20 @@
 									</div>
 								</div>
 							</div>
+
+							<div class="carbon-container carbon-container-post_meta">
+								<div class="carbon-field has-width" style="flex-basis: 50%;" v-for="(prop, key) in properties" :key="key">
+									<div class="field-holder">
+										<label>
+											{{prop.name}} - <a :href="prop.url" target="_blank">{{prop.url}}</a>
+										</label>
+										<div class="carbon-field-group-holder">
+											field goes here
+										</div>
+									</div>
+								</div>
+							</div>
+
 						</fieldset>
 
 					</wp-metabox>
@@ -181,6 +195,7 @@ export default {
 			propertiesLoading: false,
 			availableSchemas: [],
 			availableListingTypes: [],
+			availableListingFields: [],
 
 			primarySchemaChildren: [],
 			secondarySchemaChildren: [],
@@ -422,6 +437,7 @@ export default {
 			this.propertiesLoading = true
 
 			const schemas = [
+				this.schema.name,
 				this.schema.primarySchemaChildren,
 				this.schema.secondarySchemaChildren,
 				this.schema.tertiarySchemaChildren
@@ -499,8 +515,7 @@ export default {
 
 	.carbon-field {
 		border-right:none;
-		&:first-child,
-		&.has-width {
+		&.first-row {
 			border-top: 0;
 		}
 	}

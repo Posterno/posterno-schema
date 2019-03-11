@@ -247,6 +247,11 @@ function pno_ajax_get_child_schema() {
 }
 add_action( 'wp_ajax_pno_get_child_schema', 'pno_ajax_get_child_schema' );
 
+/**
+ * Get all properties of given schemas.
+ *
+ * @return void
+ */
 function pno_ajax_get_schema_properties() {
 
 	check_ajax_referer( 'pno_get_schema_properties', 'nonce' );

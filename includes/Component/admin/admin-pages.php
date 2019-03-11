@@ -43,14 +43,15 @@ function pno_schema_admin_listings_schema_page() {
 function pno_get_schema_editor_js_vars() {
 
 	$labels = [
-		'plugin_url'      => PNO_PLUGIN_URL,
-		'schema'          => pno_get_schema_list(),
-		'ajax'            => admin_url( 'admin-ajax.php' ),
-		'nonce'           => wp_create_nonce( 'pno_create_listing_schema' ),
-		'getSchemasNonce' => wp_create_nonce( 'pno_get_listings_schemas' ),
-		'editSchemaNonce' => wp_create_nonce( 'pno_get_listing_schema' ),
-		'listing_types'   => pno_get_listings_types_for_association(),
-		'labels'          => [
+		'plugin_url'       => PNO_PLUGIN_URL,
+		'schema'           => pno_get_schema_list(),
+		'ajax'             => admin_url( 'admin-ajax.php' ),
+		'nonce'            => wp_create_nonce( 'pno_create_listing_schema' ),
+		'getSchemasNonce'  => wp_create_nonce( 'pno_get_listings_schemas' ),
+		'editSchemaNonce'  => wp_create_nonce( 'pno_get_listing_schema' ),
+		'childSchemaNonce' => wp_create_nonce( 'pno_get_child_schema' ),
+		'listing_types'    => pno_get_listings_types_for_association(),
+		'labels'           => [
 			'documentation'  => esc_html__( 'Documentation', 'posterno' ),
 			'add'            => esc_html__( 'Add new schema' ),
 			'back'           => esc_html__( 'Go back to the schema list' ),
@@ -103,8 +104,10 @@ function pno_get_schema_editor_js_vars() {
 				'save'          => esc_html__( 'Save schema' ),
 			],
 			'schema_edit'    => [
-				'title'      => esc_html__( 'Schema properties settings' ),
-				'title_edit' => esc_html__( 'Edit schema' ),
+				'title'              => esc_html__( 'Schema properties' ),
+				'title_edit'         => esc_html__( 'Edit schema' ),
+				'level1schema_label' => esc_html__( 'Specific schema type' ),
+				'level1schema_desc'  => esc_html__( 'The selected schema has child schema that can be selected.' ),
 			],
 		],
 	];

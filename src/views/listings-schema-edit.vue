@@ -22,12 +22,16 @@
 
 						<wp-spinner class="properties-spinner" v-if="propertiesLoading"></wp-spinner>
 
-						<fieldset class="container-holder carbon-grid carbon-fields-collection">
+						<fieldset class="container-holder carbon-grid carbon-fields-collection schema-settings" v-if="canPerformAction()">
 							<div class="carbon-container carbon-container-post_meta">
 								<div class="carbon-field carbon-checkbox">
 									<div class="field-holder">
 										<label>
+											{{labels.schema_edit.level1schema_label}}
 										</label>
+										<div class="carbon-field-group-holder">
+											<Select2 v-model="schema.additionalMode" :options="level1children" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.level1schema_label, multiple: false }"/>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -60,7 +64,7 @@
 										<label>{{labels.settings.schemas.label}}</label>
 										<div class="field-holder">
 											<div class="carbon-field-group-holder">
-												<select name="schemaName" v-model="schema.name" :disabled="! canPerformAction()">
+												<select name="schemaName" v-model="schema.name" :disabled="! canPerformAction()" @change="detectPrimarySchemaChange($event)">
 													<option v-for="(schema, key) in availableSchemas" :key="key" :value="schema">{{schema}}</option>
 												</select>
 											</div>
@@ -141,6 +145,7 @@ export default {
 				name: '',
 				mode: '',
 				listing_types: [],
+				additionalMode: '',
 			},
 			isError: false,
 			isSuccess: false,
@@ -194,8 +199,6 @@ export default {
 			})
 			.then( response => {
 
-				this.propertiesLoading = false
-
 				if ( response.data.success === true ) {
 
 					this.schema = {
@@ -203,6 +206,12 @@ export default {
 						mode: response.data.data.mode,
 						listing_types: response.data.data.listing_types
 					}
+
+					this.loadChildSchema()
+
+				} else {
+
+					this.propertiesLoading = false
 
 				}
 
@@ -229,6 +238,48 @@ export default {
 			}
 
 			return pass
+
+		},
+
+		loadChildSchema() {
+
+			this.propertiesLoading = true
+			this.level1children = []
+
+			const configParams = {
+				nonce: pno_schema_editor.childSchemaNonce,
+				action: 'pno_get_child_schema',
+				schema: this.schema.name,
+			}
+
+			axios.get( pno_schema_editor.ajax, {
+				params: configParams
+			})
+			.then( response => {
+
+				this.propertiesLoading = false
+
+				Object.keys( response.data.data.childs ).forEach( key => {
+					this.level1children.push( { id: response.data.data.childs[ key ].id, text: response.data.data.childs[ key ].label } )
+				});
+
+			})
+			.catch( error => {
+
+				this.propertiesLoading = false
+
+				if ( error.response.data ) {
+					this.showError( error.response.data )
+				} else {
+					this.showError( error.message )
+				}
+			})
+
+		},
+
+		detectPrimarySchemaChange( event ) {
+
+			this.loadChildSchema()
 
 		}
 
@@ -269,6 +320,12 @@ export default {
 		border-right:none;
 		&:first-child {
 			border-top: 0;
+		}
+	}
+
+	.schema-settings {
+		label {
+			margin-bottom:10px;
 		}
 	}
 

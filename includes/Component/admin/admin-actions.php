@@ -200,11 +200,43 @@ function pno_ajax_get_listing_schema() {
 }
 add_action( 'wp_ajax_pno_get_listing_schema', 'pno_ajax_get_listing_schema' );
 
+function pno_ajax_get_child_schema() {
+
+	check_ajax_referer( 'pno_get_child_schema', 'nonce' );
+
+	$general_message = esc_html__( 'Something went wrong: could not get schema details.' );
+
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( $general_message, 403 ); //phpcs:ignore
+	}
+
+	$childs = [];
+
+	$schema_id = isset( $_GET['schema'] ) && ! empty( $_GET['schema'] ) ? sanitize_text_field( $_GET['schema'] ) : false;
+
+	if ( $schema_id ) {
+
+		$childs = pno_get_schema_direct_children( $schema_id );
+
+		if ( ! empty( $childs ) ) {
+
+			$childskey = key( $childs );
+			$childs    = $childs[ $childskey ]['children'];
+
+		}
+	} else {
+		wp_die( $general_message, 403 ); //phpcs:ignore
+	}
+
+	wp_send_json_success( [ 'childs' => $childs ] );
+
+}
+add_action( 'wp_ajax_pno_get_child_schema', 'pno_ajax_get_child_schema' );
+
 function t() {
 
-	//print_r( pno_get_schema_hierarchy() );
-
+	// print_r( pno_get_schema_hierarchy() );
 	print_r( pno_get_schema_direct_children( 'Intangible' ) );
 
 }
-//add_action( 'admin_init', 't' );
+// add_action( 'admin_init', 't' );

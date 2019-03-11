@@ -347,6 +347,7 @@ export default {
 		 * When the primary schema changes, reload the child schema.
 		*/
 		detectMainSchemaChange( event ) {
+			this.loadProperties()
 			this.loadPrimarySchemaChildren()
 		},
 
@@ -432,9 +433,13 @@ export default {
 
 		},
 
+		/**
+		 * Load properties from all selected schema.
+		 */
 		loadProperties() {
 
 			this.propertiesLoading = true
+			this.properties = []
 
 			const schemas = [
 				this.schema.name,
@@ -476,6 +481,9 @@ export default {
 
 		},
 
+		/**
+		 * When a schema changes, reload properties.
+		 */
 		detectSchemaChange() {
 			this.loadProperties()
 		}

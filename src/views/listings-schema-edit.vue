@@ -6,14 +6,19 @@
 
 		<div class="wrapper" id="poststuff">
 
-			<h1>{{labels.schema_edit.title_edit}}: {{schema.name}}</h1>
-			<router-link to="/" class="back-btn">{{labels.back}}</router-link>
+			<h1>{{labels.schema_edit.title_edit}}: {{schema.title}}</h1>
+			<router-link to="/" class="back-btn">{{labels.back}}</router-link> | <router-link to="/add" class="back-btn">{{labels.add}}</router-link>
 
 			<wp-row :gutter="20" class="postbox-container">
 
 				<wp-col :span="24">
 					<wp-notice type="success" dismissible v-if="isSuccess">{{statusMessage}}</wp-notice>
 					<wp-notice type="error" dismissible v-if="isError">{{statusMessage}}</wp-notice>
+					<div id="titlediv">
+						<div id="titlewrap">
+							<input type="text" v-model="schema.title" name="post_title" size="30" value="" id="title" spellcheck="true" autocomplete="off">
+						</div>
+					</div>
 				</wp-col>
 
 				<wp-col :span="19">
@@ -144,6 +149,7 @@ export default {
 			schema: {
 				name: '',
 				mode: '',
+				title: '',
 				listing_types: [],
 				additionalMode: '',
 			},
@@ -159,6 +165,9 @@ export default {
 	},
 	methods: {
 
+		/**
+		 * Display an error message within the app.
+		 */
 		showError( message = false ) {
 
 			this.isError = true
@@ -184,6 +193,9 @@ export default {
 
 		},
 
+		/**
+		 * Load schema details from the database.
+		*/
 		loadSchemaDetails() {
 
 			this.propertiesLoading = true
@@ -204,7 +216,8 @@ export default {
 					this.schema = {
 						name: response.data.data.name,
 						mode: response.data.data.mode,
-						listing_types: response.data.data.listing_types
+						listing_types: response.data.data.listing_types,
+						title: response.data.data.title,
 					}
 
 					this.loadChildSchema()
@@ -229,6 +242,9 @@ export default {
 
 		},
 
+		/**
+		 * Determine if actions can be performed or not.
+		 */
 		canPerformAction() {
 
 			let pass = true
@@ -241,6 +257,9 @@ export default {
 
 		},
 
+		/**
+		 * Load first level child schemas.
+		*/
 		loadChildSchema() {
 
 			this.propertiesLoading = true
@@ -277,6 +296,9 @@ export default {
 
 		},
 
+		/**
+		 * When the primary schema changes, reload the child schema.
+		*/
 		detectPrimarySchemaChange( event ) {
 
 			this.loadChildSchema()
@@ -327,6 +349,10 @@ export default {
 		label {
 			margin-bottom:10px;
 		}
+	}
+
+	#titlediv {
+		margin-bottom: 10px;
 	}
 
 }

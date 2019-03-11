@@ -54,7 +54,7 @@ function pno_get_schema_editor_js_vars() {
 		'labels'           => [
 			'documentation'  => esc_html__( 'Documentation', 'posterno' ),
 			'add'            => esc_html__( 'Add new schema' ),
-			'back'           => esc_html__( 'Go back to the schema list' ),
+			'back'           => esc_html__( 'Schema list' ),
 			'setup'          => esc_html__( 'Setup new schema' ),
 			'readmore'       => esc_html__( 'Read more' ),
 			'success_create' => esc_html__( 'New schema successfully created.' ),

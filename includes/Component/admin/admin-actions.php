@@ -187,6 +187,7 @@ function pno_ajax_get_listing_schema() {
 				'name'          => get_post_meta( $schema_id, 'schema_name', true ),
 				'mode'          => get_post_meta( $schema_id, 'schema_mode', true ),
 				'id'            => $schema_id,
+				'title'         => get_the_title(),
 				'listing_types' => get_post_meta( $schema_id, 'schema_listing_types', true ),
 			];
 
@@ -195,11 +196,18 @@ function pno_ajax_get_listing_schema() {
 		wp_die( $general_message, 403 ); //phpcs:ignore
 	}
 
+	wp_reset_postdata();
+
 	wp_send_json_success( $details );
 
 }
 add_action( 'wp_ajax_pno_get_listing_schema', 'pno_ajax_get_listing_schema' );
 
+/**
+ * Retrive child schemas from a given primary schema.
+ *
+ * @return void
+ */
 function pno_ajax_get_child_schema() {
 
 	check_ajax_referer( 'pno_get_child_schema', 'nonce' );

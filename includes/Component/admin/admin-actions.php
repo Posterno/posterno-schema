@@ -224,27 +224,20 @@ function pno_ajax_get_child_schema() {
 
 	if ( $schema_id ) {
 
-		$childs = pno_get_schema_direct_children( $schema_id );
+		$childs = pno_search_in_array( pno_get_schema_hierarchy(), 'label', $schema_id );
 
 		if ( ! empty( $childs ) ) {
 
-			$childskey = key( $childs );
-			$childs    = $childs[ $childskey ]['children'];
+			$childskey    = key( $childs );
+			$childs       = $childs[ $childskey ]['children'];
+			$has_children = isset( $childs['children'] ) && ! empty( $childs['children'] ) ? true : false;
 
 		}
 	} else {
 		wp_die( $general_message, 403 ); //phpcs:ignore
 	}
 
-	wp_send_json_success( [ 'childs' => $childs ] );
+	wp_send_json_success( [ 'childs' => $childs, 'has_children' => $has_children ] );
 
 }
 add_action( 'wp_ajax_pno_get_child_schema', 'pno_ajax_get_child_schema' );
-
-function t() {
-
-	// print_r( pno_get_schema_hierarchy() );
-	print_r( pno_get_schema_direct_children( 'Intangible' ) );
-
-}
-// add_action( 'admin_init', 't' );

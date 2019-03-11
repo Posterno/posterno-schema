@@ -69,21 +69,3 @@ function pno_get_schema_hierarchy() {
 	return $schemas;
 
 }
-
-/**
- * Get the first direct children of a given schema.
- *
- * @param string $schema schema name.
- * @return array
- */
-function pno_get_schema_direct_children( $schema ) {
-
-	$children = [];
-
-	$schemas = pno_get_schema_hierarchy();
-
-	$children = wp_list_filter( $schemas, [ 'label' => $schema ] );
-
-	return $children;
-
-}

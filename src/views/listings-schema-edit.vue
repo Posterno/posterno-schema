@@ -29,13 +29,33 @@
 
 						<fieldset class="container-holder carbon-grid carbon-fields-collection schema-settings" v-if="canPerformAction()">
 							<div class="carbon-container carbon-container-post_meta">
-								<div class="carbon-field carbon-checkbox">
+								<div class="carbon-field has-width" style="flex-basis: 33%;">
 									<div class="field-holder">
 										<label>
 											{{labels.schema_edit.level1schema_label}}
 										</label>
 										<div class="carbon-field-group-holder">
-											<Select2 v-model="schema.additionalMode" :options="level1children" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.level1schema_label, multiple: false }"/>
+											<Select2 v-model="schema.primarySchemaChildren" :options="primarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.level1schema_label, multiple: false }" @select="loadSecondaryChildren($event)"/>
+										</div>
+									</div>
+								</div>
+								<div class="carbon-field has-width" style="flex-basis: 33%;" v-if="secondarySchemaChildren.length > 0">
+									<div class="field-holder">
+										<label>
+											{{labels.schema_edit.level1schema_label}}
+										</label>
+										<div class="carbon-field-group-holder">
+											<Select2 v-model="schema.secondarySchemaChildren" :options="secondarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.level1schema_label, multiple: false }" @select="loadTertiaryChildren($event)"/>
+										</div>
+									</div>
+								</div>
+								<div class="carbon-field has-width" style="flex-basis: 33%;" v-if="tertiarySchemaChildren.length > 0">
+									<div class="field-holder">
+										<label>
+											{{labels.schema_edit.level1schema_label}}
+										</label>
+										<div class="carbon-field-group-holder">
+											<Select2 v-model="schema.tertiarySchemaChildren" :options="tertiarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.level1schema_label, multiple: false }"/>
 										</div>
 									</div>
 								</div>
@@ -151,7 +171,9 @@ export default {
 				mode: '',
 				title: '',
 				listing_types: [],
-				additionalMode: '',
+				primarySchemaChildren: '',
+				secondarySchemaChildren: '',
+				tertiarySchemaChildren: '',
 			},
 			isError: false,
 			isSuccess: false,
@@ -160,7 +182,9 @@ export default {
 			availableSchemas: [],
 			availableListingTypes: [],
 
-			level1children: [],
+			primarySchemaChildren: [],
+			secondarySchemaChildren: [],
+			tertiarySchemaChildren: [],
 		}
 	},
 	methods: {
@@ -220,7 +244,7 @@ export default {
 						title: response.data.data.title,
 					}
 
-					this.loadChildSchema()
+					this.loadPrimarySchemaChildren()
 
 				} else {
 
@@ -260,10 +284,15 @@ export default {
 		/**
 		 * Load first level child schemas.
 		*/
-		loadChildSchema() {
+		loadPrimarySchemaChildren() {
 
 			this.propertiesLoading = true
-			this.level1children = []
+			this.primarySchemaChildren = []
+			this.secondarySchemaChildren = []
+			this.tertiarySchemaChildren = []
+			this.schema.primarySchemaChildren = ''
+			this.schema.secondarySchemaChildren = ''
+			this.schema.tertiarySchemaChildren = ''
 
 			const configParams = {
 				nonce: pno_schema_editor.childSchemaNonce,
@@ -279,7 +308,7 @@ export default {
 				this.propertiesLoading = false
 
 				Object.keys( response.data.data.childs ).forEach( key => {
-					this.level1children.push( { id: response.data.data.childs[ key ].id, text: response.data.data.childs[ key ].label } )
+					this.primarySchemaChildren.push( { id: response.data.data.childs[ key ].id, text: response.data.data.childs[ key ].label } )
 				});
 
 			})
@@ -300,8 +329,84 @@ export default {
 		 * When the primary schema changes, reload the child schema.
 		*/
 		detectPrimarySchemaChange( event ) {
+			this.loadPrimarySchemaChildren()
+		},
 
-			this.loadChildSchema()
+		/**
+		 * Load child schemas of the primary schema.
+		*/
+		loadSecondaryChildren( {id, text} ) {
+
+			this.propertiesLoading = true
+			this.secondarySchemaChildren = []
+
+			const configParams = {
+				nonce: pno_schema_editor.childSchemaNonce,
+				action: 'pno_get_child_schema',
+				schema: text,
+			}
+
+			axios.get( pno_schema_editor.ajax, {
+				params: configParams
+			})
+			.then( response => {
+
+				this.propertiesLoading = false
+
+				Object.keys( response.data.data.childs ).forEach( key => {
+					this.secondarySchemaChildren.push( { id: response.data.data.childs[ key ].id, text: response.data.data.childs[ key ].label } )
+				});
+
+			})
+			.catch( error => {
+
+				this.propertiesLoading = false
+
+				if ( error.response.data ) {
+					this.showError( error.response.data )
+				} else {
+					this.showError( error.message )
+				}
+			})
+
+		},
+
+		/**
+		 * Load child schemas of the secondary schema.
+		 */
+		loadTertiaryChildren( {id, text} ) {
+
+			this.propertiesLoading = true
+			this.tertiarySchemaChildren = []
+
+			const configParams = {
+				nonce: pno_schema_editor.childSchemaNonce,
+				action: 'pno_get_child_schema',
+				schema: text,
+			}
+
+			axios.get( pno_schema_editor.ajax, {
+				params: configParams
+			})
+			.then( response => {
+
+				this.propertiesLoading = false
+
+				Object.keys( response.data.data.childs ).forEach( key => {
+					this.tertiarySchemaChildren.push( { id: response.data.data.childs[ key ].id, text: response.data.data.childs[ key ].label } )
+				});
+
+			})
+			.catch( error => {
+
+				this.propertiesLoading = false
+
+				if ( error.response.data ) {
+					this.showError( error.response.data )
+				} else {
+					this.showError( error.message )
+				}
+			})
 
 		}
 
@@ -340,7 +445,8 @@ export default {
 
 	.carbon-field {
 		border-right:none;
-		&:first-child {
+		&:first-child,
+		&.has-width {
 			border-top: 0;
 		}
 	}

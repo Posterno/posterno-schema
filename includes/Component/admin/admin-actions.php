@@ -275,11 +275,45 @@ function pno_ajax_get_schema_properties() {
 }
 add_action( 'wp_ajax_pno_get_schema_properties', 'pno_ajax_get_schema_properties' );
 
-function t() {
+/**
+ * Get all listings fields.
+ *
+ * @return void
+ */
+function pno_ajax_get_schema_listings_fields() {
 
-	// print_r( pno_search_in_array( pno_get_schema_properties_list(), 'types', 'Hotel' ) );
-	print_r( pno_get_schema_properties( [ 'Message' ] ) );
-	exit;
+	check_ajax_referer( 'pno_get_schema_listings_fields', 'nonce' );
+
+	$general_message = esc_html__( 'Something went wrong: could not get listings fields details.' );
+
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( $general_message, 403 ); //phpcs:ignore
+	}
+
+	$fields = [];
+
+	$listing_fields = new \PNO\Database\Queries\Listing_Fields( [ 'number' => 999 ] );
+
+	if ( ! empty( $listing_fields->items ) && is_array( $listing_fields->items ) ) {
+		$custom_fields_ids = [];
+
+		foreach ( $listing_fields->items as $field ) {
+			$custom_fields_ids[] = $field->get_post_id();
+		}
+
+		foreach ( $custom_fields_ids as $listing_field_id ) {
+
+			$custom_listing_field = new \PNO\Field\Listing( $listing_field_id );
+
+			$fields[ $listing_field_id ] = [
+				'type' => $custom_listing_field->get_type(),
+				'name' => $custom_listing_field->get_name(),
+			];
+
+		}
+	}
+
+	wp_send_json_success( [ 'fields' => $fields ] );
 
 }
-// add_action( 'init', 't' );
+add_action( 'wp_ajax_pno_get_schema_listings_fields', 'pno_ajax_get_schema_listings_fields' );

@@ -6,7 +6,6 @@
 
 		<div class="wrapper" id="poststuff">
 
-			<h1>{{labels.schema_edit.title_edit}}: {{schema.title}}</h1>
 			<router-link to="/" class="back-btn">{{labels.back}}</router-link> | <router-link to="/add" class="back-btn">{{labels.add}}</router-link>
 
 			<wp-row :gutter="20" class="postbox-container">
@@ -68,7 +67,7 @@
 											{{prop.name}} - <a :href="prop.url" target="_blank">{{prop.url}}</a>
 										</label>
 										<div class="carbon-field-group-holder">
-											field goes here
+											<Select2 v-model="prop.value" :options="availableListingFields" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.field, multiple: false }" />
 										</div>
 									</div>
 								</div>
@@ -89,7 +88,7 @@
 							<fieldset class="container-holder carbon-grid carbon-fields-collection">
 								<div class="carbon-container carbon-container-post_meta">
 
-									<div class="carbon-field carbon-radio">
+									<div class="carbon-field carbon-radio first-row">
 										<label>{{labels.settings.where.label}}</label>
 										<div class="field-holder">
 											<div class="carbon-field-group-holder">
@@ -159,6 +158,7 @@ export default {
 
 		this.schemaID = this.$route.params.id
 		this.loadSchemaDetails()
+		this.loadCustomFields()
 
 		const vm = this
 
@@ -305,12 +305,13 @@ export default {
 		loadPrimarySchemaChildren() {
 
 			this.propertiesLoading = true
+			this.properties = [],
 			this.primarySchemaChildren = []
 			this.secondarySchemaChildren = []
 			this.tertiarySchemaChildren = []
-			this.schema.primarySchemaChildren = ''
-			this.schema.secondarySchemaChildren = ''
-			this.schema.tertiarySchemaChildren = ''
+			this.schema.primarySchemaChildren = null
+			this.schema.secondarySchemaChildren = null
+			this.schema.tertiarySchemaChildren = null
 
 			const configParams = {
 				nonce: pno_schema_editor.childSchemaNonce,
@@ -347,8 +348,8 @@ export default {
 		 * When the primary schema changes, reload the child schema.
 		*/
 		detectMainSchemaChange( event ) {
-			this.loadProperties()
 			this.loadPrimarySchemaChildren()
+			this.loadProperties()
 		},
 
 		/**
@@ -358,6 +359,7 @@ export default {
 
 			this.propertiesLoading = true
 			this.secondarySchemaChildren = []
+			this.tertiarySchemaChildren = []
 			const vm = this
 
 			const configParams = {
@@ -486,6 +488,46 @@ export default {
 		 */
 		detectSchemaChange() {
 			this.loadProperties()
+		},
+
+		/**
+		 * Load custom listings fields.
+		*/
+		loadCustomFields() {
+
+			this.propertiesLoading = true
+
+			const configParams = {
+				nonce: pno_schema_editor.listingFieldsSchemaNonce,
+				action: 'pno_get_schema_listings_fields',
+			}
+
+			axios.get( pno_schema_editor.ajax, {
+				params: configParams
+			})
+			.then( response => {
+
+				this.propertiesLoading = false
+
+				if ( typeof(response.data.data.fields) !== 'undefined' && response.data.data.fields !== null ) {
+					Object.keys( response.data.data.fields ).forEach( key => {
+						this.availableListingFields.push( { id: key, text: response.data.data.fields[ key ].name } )
+					});
+				}
+
+			})
+			.catch( error => {
+
+				this.propertiesLoading = false
+
+				if ( typeof(error.response) !== 'undefined' && typeof(error.response.data) !== 'undefined' ) {
+					this.showError( error.response.data )
+				} else if ( typeof(error.message) !== 'undefined' ) {
+					this.showError( error.message )
+				}
+
+			})
+
 		}
 
 	}

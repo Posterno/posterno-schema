@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\HealthAndBeautyBusiness
  */
-class TattooParlor extends BaseType {
-
+class TattooParlor extends BaseType
+{
 }

@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Quantity
  */
-class Duration extends BaseType {
-
+class Duration extends BaseType
+{
 }

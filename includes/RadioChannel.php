@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\BroadcastChannel
  */
-class RadioChannel extends BaseType {
-
+class RadioChannel extends BaseType
+{
 }

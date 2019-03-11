@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Landform
  */
-class Volcano extends BaseType {
-
+class Volcano extends BaseType
+{
 }

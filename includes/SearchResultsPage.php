@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\WebPage
  */
-class SearchResultsPage extends BaseType {
-
+class SearchResultsPage extends BaseType
+{
 }

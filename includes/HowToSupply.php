@@ -10,20 +10,21 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\HowToItem
  */
-class HowToSupply extends BaseType {
-
-	/**
-	 * The estimated cost of the supply or supplies consumed when performing
-	 * instructions.
-	 *
-	 * @param MonetaryAmount|MonetaryAmount[]|string|string[] $estimatedCost
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/estimatedCost
-	 */
-	public function estimatedCost( $estimatedCost ) {
-		return $this->setProperty( 'estimatedCost', $estimatedCost );
-	}
+class HowToSupply extends BaseType
+{
+    /**
+     * The estimated cost of the supply or supplies consumed when performing
+     * instructions.
+     *
+     * @param MonetaryAmount|MonetaryAmount[]|string|string[] $estimatedCost
+     *
+     * @return static
+     *
+     * @see http://schema.org/estimatedCost
+     */
+    public function estimatedCost($estimatedCost)
+    {
+        return $this->setProperty('estimatedCost', $estimatedCost);
+    }
 
 }

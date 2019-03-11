@@ -11,7 +11,7 @@ namespace PNO\SchemaOrg;
  *          some [[agent]]. As is common elsewhere in schema.org, it is
  * sometimes more useful to describe the results of such an action without
  * explicitly describing the [[Action]].
- *
+ * 
  *          An [[EndorsementRating]] may be part of a numeric scale or organized
  * system, but this is not required: having an explicit type for indicating a
  * positive,
@@ -22,6 +22,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Rating
  */
-class EndorsementRating extends BaseType {
-
+class EndorsementRating extends BaseType
+{
 }

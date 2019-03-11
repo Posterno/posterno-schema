@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CivicStructure
  */
-class Museum extends BaseType {
-
+class Museum extends BaseType
+{
 }

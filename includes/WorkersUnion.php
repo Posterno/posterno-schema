@@ -11,6 +11,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Organization
  */
-class WorkersUnion extends BaseType {
-
+class WorkersUnion extends BaseType
+{
 }

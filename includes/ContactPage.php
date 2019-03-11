@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\WebPage
  */
-class ContactPage extends BaseType {
-
+class ContactPage extends BaseType
+{
 }

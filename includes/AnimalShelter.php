@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\LocalBusiness
  */
-class AnimalShelter extends BaseType {
-
+class AnimalShelter extends BaseType
+{
 }

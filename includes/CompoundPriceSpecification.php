@@ -12,20 +12,21 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\PriceSpecification
  */
-class CompoundPriceSpecification extends BaseType {
-
-	/**
-	 * This property links to all [[UnitPriceSpecification]] nodes that apply in
-	 * parallel for the [[CompoundPriceSpecification]] node.
-	 *
-	 * @param UnitPriceSpecification|UnitPriceSpecification[] $priceComponent
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/priceComponent
-	 */
-	public function priceComponent( $priceComponent ) {
-		return $this->setProperty( 'priceComponent', $priceComponent );
-	}
+class CompoundPriceSpecification extends BaseType
+{
+    /**
+     * This property links to all [[UnitPriceSpecification]] nodes that apply in
+     * parallel for the [[CompoundPriceSpecification]] node.
+     *
+     * @param UnitPriceSpecification|UnitPriceSpecification[] $priceComponent
+     *
+     * @return static
+     *
+     * @see http://schema.org/priceComponent
+     */
+    public function priceComponent($priceComponent)
+    {
+        return $this->setProperty('priceComponent', $priceComponent);
+    }
 
 }

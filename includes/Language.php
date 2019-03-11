@@ -14,6 +14,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Intangible
  */
-class Language extends BaseType {
-
+class Language extends BaseType
+{
 }

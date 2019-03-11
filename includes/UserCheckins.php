@@ -11,6 +11,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\UserInteraction
  */
-class UserCheckins extends BaseType {
-
+class UserCheckins extends BaseType
+{
 }

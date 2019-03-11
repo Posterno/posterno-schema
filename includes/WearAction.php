@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\UseAction
  */
-class WearAction extends BaseType {
-
+class WearAction extends BaseType
+{
 }

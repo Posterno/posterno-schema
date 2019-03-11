@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\OrganizeAction
  */
-class BookmarkAction extends BaseType {
-
+class BookmarkAction extends BaseType
+{
 }

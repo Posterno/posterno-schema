@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\FinancialService
  */
-class InsuranceAgency extends BaseType {
-
+class InsuranceAgency extends BaseType
+{
 }

@@ -14,50 +14,53 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CreativeWork
  */
-class Course extends BaseType {
+class Course extends BaseType
+{
+    /**
+     * The identifier for the [[Course]] used by the course [[provider]] (e.g.
+     * CS101 or 6.001).
+     *
+     * @param string|string[] $courseCode
+     *
+     * @return static
+     *
+     * @see http://schema.org/courseCode
+     */
+    public function courseCode($courseCode)
+    {
+        return $this->setProperty('courseCode', $courseCode);
+    }
 
-	/**
-	 * The identifier for the [[Course]] used by the course [[provider]] (e.g.
-	 * CS101 or 6.001).
-	 *
-	 * @param string|string[] $courseCode
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/courseCode
-	 */
-	public function courseCode( $courseCode ) {
-		return $this->setProperty( 'courseCode', $courseCode );
-	}
+    /**
+     * Requirements for taking the Course. May be completion of another
+     * [[Course]] or a textual description like "permission of instructor".
+     * Requirements may be a pre-requisite competency, referenced using
+     * [[AlignmentObject]].
+     *
+     * @param AlignmentObject|AlignmentObject[]|Course|Course[]|string|string[] $coursePrerequisites
+     *
+     * @return static
+     *
+     * @see http://schema.org/coursePrerequisites
+     */
+    public function coursePrerequisites($coursePrerequisites)
+    {
+        return $this->setProperty('coursePrerequisites', $coursePrerequisites);
+    }
 
-	/**
-	 * Requirements for taking the Course. May be completion of another
-	 * [[Course]] or a textual description like "permission of instructor".
-	 * Requirements may be a pre-requisite competency, referenced using
-	 * [[AlignmentObject]].
-	 *
-	 * @param AlignmentObject|AlignmentObject[]|Course|Course[]|string|string[] $coursePrerequisites
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/coursePrerequisites
-	 */
-	public function coursePrerequisites( $coursePrerequisites ) {
-		return $this->setProperty( 'coursePrerequisites', $coursePrerequisites );
-	}
-
-	/**
-	 * An offering of the course at a specific time and place or through
-	 * specific media or mode of study or to a specific section of students.
-	 *
-	 * @param CourseInstance|CourseInstance[] $hasCourseInstance
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/hasCourseInstance
-	 */
-	public function hasCourseInstance( $hasCourseInstance ) {
-		return $this->setProperty( 'hasCourseInstance', $hasCourseInstance );
-	}
+    /**
+     * An offering of the course at a specific time and place or through
+     * specific media or mode of study or to a specific section of students.
+     *
+     * @param CourseInstance|CourseInstance[] $hasCourseInstance
+     *
+     * @return static
+     *
+     * @see http://schema.org/hasCourseInstance
+     */
+    public function hasCourseInstance($hasCourseInstance)
+    {
+        return $this->setProperty('hasCourseInstance', $hasCourseInstance);
+    }
 
 }

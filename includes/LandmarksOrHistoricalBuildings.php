@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Place
  */
-class LandmarksOrHistoricalBuildings extends BaseType {
-
+class LandmarksOrHistoricalBuildings extends BaseType
+{
 }

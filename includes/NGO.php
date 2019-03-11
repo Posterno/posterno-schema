@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Organization
  */
-class NGO extends BaseType {
-
+class NGO extends BaseType
+{
 }

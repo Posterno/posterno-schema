@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\PublicationEvent
  */
-class OnDemandEvent extends BaseType {
-
+class OnDemandEvent extends BaseType
+{
 }

@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\BroadcastChannel
  */
-class TelevisionChannel extends BaseType {
-
+class TelevisionChannel extends BaseType
+{
 }

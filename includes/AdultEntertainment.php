@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\EntertainmentBusiness
  */
-class AdultEntertainment extends BaseType {
-
+class AdultEntertainment extends BaseType
+{
 }

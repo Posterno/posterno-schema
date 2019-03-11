@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\FinancialService
  */
-class AutomatedTeller extends BaseType {
-
+class AutomatedTeller extends BaseType
+{
 }

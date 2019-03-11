@@ -9,36 +9,38 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CreativeWork
  */
-class WebPageElement extends BaseType {
+class WebPageElement extends BaseType
+{
+    /**
+     * A CSS selector, e.g. of a [[SpeakableSpecification]] or
+     * [[WebPageElement]]. In the latter case, multiple matches within a page
+     * can constitute a single conceptual "Web page element".
+     *
+     * @param CssSelectorType|CssSelectorType[] $cssSelector
+     *
+     * @return static
+     *
+     * @see http://schema.org/cssSelector
+     */
+    public function cssSelector($cssSelector)
+    {
+        return $this->setProperty('cssSelector', $cssSelector);
+    }
 
-	/**
-	 * A CSS selector, e.g. of a [[SpeakableSpecification]] or
-	 * [[WebPageElement]]. In the latter case, multiple matches within a page
-	 * can constitute a single conceptual "Web page element".
-	 *
-	 * @param CssSelectorType|CssSelectorType[] $cssSelector
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/cssSelector
-	 */
-	public function cssSelector( $cssSelector ) {
-		return $this->setProperty( 'cssSelector', $cssSelector );
-	}
-
-	/**
-	 * An XPath, e.g. of a [[SpeakableSpecification]] or [[WebPageElement]]. In
-	 * the latter case, multiple matches within a page can constitute a single
-	 * conceptual "Web page element".
-	 *
-	 * @param XPathType|XPathType[] $xpath
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/xpath
-	 */
-	public function xpath( $xpath ) {
-		return $this->setProperty( 'xpath', $xpath );
-	}
+    /**
+     * An XPath, e.g. of a [[SpeakableSpecification]] or [[WebPageElement]]. In
+     * the latter case, multiple matches within a page can constitute a single
+     * conceptual "Web page element".
+     *
+     * @param XPathType|XPathType[] $xpath
+     *
+     * @return static
+     *
+     * @see http://schema.org/xpath
+     */
+    public function xpath($xpath)
+    {
+        return $this->setProperty('xpath', $xpath);
+    }
 
 }

@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\EntertainmentBusiness
  */
-class ArtGallery extends BaseType {
-
+class ArtGallery extends BaseType
+{
 }

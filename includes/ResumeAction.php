@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\ControlAction
  */
-class ResumeAction extends BaseType {
-
+class ResumeAction extends BaseType
+{
 }

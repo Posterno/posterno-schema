@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CreateAction
  */
-class PhotographAction extends BaseType {
-
+class PhotographAction extends BaseType
+{
 }

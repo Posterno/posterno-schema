@@ -11,19 +11,20 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\FinancialProduct
  */
-class InvestmentOrDeposit extends BaseType {
-
-	/**
-	 * The amount of money.
-	 *
-	 * @param MonetaryAmount|MonetaryAmount[]|float|float[]|int|int[] $amount
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/amount
-	 */
-	public function amount( $amount ) {
-		return $this->setProperty( 'amount', $amount );
-	}
+class InvestmentOrDeposit extends BaseType
+{
+    /**
+     * The amount of money.
+     *
+     * @param MonetaryAmount|MonetaryAmount[]|float|float[]|int|int[] $amount
+     *
+     * @return static
+     *
+     * @see http://schema.org/amount
+     */
+    public function amount($amount)
+    {
+        return $this->setProperty('amount', $amount);
+    }
 
 }

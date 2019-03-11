@@ -11,47 +11,50 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CreativeWork
  */
-class Comment extends BaseType {
+class Comment extends BaseType
+{
+    /**
+     * The number of downvotes this question, answer or comment has received
+     * from the community.
+     *
+     * @param int|int[] $downvoteCount
+     *
+     * @return static
+     *
+     * @see http://schema.org/downvoteCount
+     */
+    public function downvoteCount($downvoteCount)
+    {
+        return $this->setProperty('downvoteCount', $downvoteCount);
+    }
 
-	/**
-	 * The number of downvotes this question, answer or comment has received
-	 * from the community.
-	 *
-	 * @param int|int[] $downvoteCount
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/downvoteCount
-	 */
-	public function downvoteCount( $downvoteCount ) {
-		return $this->setProperty( 'downvoteCount', $downvoteCount );
-	}
+    /**
+     * The parent of a question, answer or item in general.
+     *
+     * @param Question|Question[] $parentItem
+     *
+     * @return static
+     *
+     * @see http://schema.org/parentItem
+     */
+    public function parentItem($parentItem)
+    {
+        return $this->setProperty('parentItem', $parentItem);
+    }
 
-	/**
-	 * The parent of a question, answer or item in general.
-	 *
-	 * @param Question|Question[] $parentItem
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/parentItem
-	 */
-	public function parentItem( $parentItem ) {
-		return $this->setProperty( 'parentItem', $parentItem );
-	}
-
-	/**
-	 * The number of upvotes this question, answer or comment has received from
-	 * the community.
-	 *
-	 * @param int|int[] $upvoteCount
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/upvoteCount
-	 */
-	public function upvoteCount( $upvoteCount ) {
-		return $this->setProperty( 'upvoteCount', $upvoteCount );
-	}
+    /**
+     * The number of upvotes this question, answer or comment has received from
+     * the community.
+     *
+     * @param int|int[] $upvoteCount
+     *
+     * @return static
+     *
+     * @see http://schema.org/upvoteCount
+     */
+    public function upvoteCount($upvoteCount)
+    {
+        return $this->setProperty('upvoteCount', $upvoteCount);
+    }
 
 }

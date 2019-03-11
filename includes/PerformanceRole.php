@@ -10,20 +10,21 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Role
  */
-class PerformanceRole extends BaseType {
-
-	/**
-	 * The name of a character played in some acting or performing role, i.e. in
-	 * a PerformanceRole.
-	 *
-	 * @param string|string[] $characterName
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/characterName
-	 */
-	public function characterName( $characterName ) {
-		return $this->setProperty( 'characterName', $characterName );
-	}
+class PerformanceRole extends BaseType
+{
+    /**
+     * The name of a character played in some acting or performing role, i.e. in
+     * a PerformanceRole.
+     *
+     * @param string|string[] $characterName
+     *
+     * @return static
+     *
+     * @see http://schema.org/characterName
+     */
+    public function characterName($characterName)
+    {
+        return $this->setProperty('characterName', $characterName);
+    }
 
 }

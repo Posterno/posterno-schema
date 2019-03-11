@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\ControlAction
  */
-class SuspendAction extends BaseType {
-
+class SuspendAction extends BaseType
+{
 }

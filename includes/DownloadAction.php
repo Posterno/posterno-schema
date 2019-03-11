@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\TransferAction
  */
-class DownloadAction extends BaseType {
-
+class DownloadAction extends BaseType
+{
 }

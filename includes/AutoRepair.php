@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\AutomotiveBusiness
  */
-class AutoRepair extends BaseType {
-
+class AutoRepair extends BaseType
+{
 }

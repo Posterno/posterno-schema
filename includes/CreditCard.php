@@ -6,9 +6,9 @@ namespace PNO\SchemaOrg;
  * A card payment method of a particular brand or name.  Used to mark up a
  * particular payment method and/or the financial product/service that supplies
  * the card account.
- *
+ * 
  * Commonly used values:
- *
+ * 
  * * http://purl.org/goodrelations/v1#AmericanExpress
  * * http://purl.org/goodrelations/v1#DinersClub
  * * http://purl.org/goodrelations/v1#Discover
@@ -21,6 +21,6 @@ namespace PNO\SchemaOrg;
  * @mixin \PNO\SchemaOrg\PaymentCard
  * @mixin \PNO\SchemaOrg\LoanOrCredit
  */
-class CreditCard extends BaseType {
-
+class CreditCard extends BaseType
+{
 }

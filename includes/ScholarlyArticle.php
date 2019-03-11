@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Article
  */
-class ScholarlyArticle extends BaseType {
-
+class ScholarlyArticle extends BaseType
+{
 }

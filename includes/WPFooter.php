@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\WebPageElement
  */
-class WPFooter extends BaseType {
-
+class WPFooter extends BaseType
+{
 }

@@ -12,20 +12,21 @@ namespace PNO\SchemaOrg;
  * @mixin \PNO\SchemaOrg\ListItem
  * @mixin \PNO\SchemaOrg\CreativeWork
  */
-class HowToSection extends BaseType {
-
-	/**
-	 * A single step item (as HowToStep, text, document, video, etc.) or a
-	 * HowToSection (originally misnamed 'steps'; 'step' is preferred).
-	 *
-	 * @param CreativeWork|CreativeWork[]|ItemList|ItemList[]|string|string[] $steps
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/steps
-	 */
-	public function steps( $steps ) {
-		return $this->setProperty( 'steps', $steps );
-	}
+class HowToSection extends BaseType
+{
+    /**
+     * A single step item (as HowToStep, text, document, video, etc.) or a
+     * HowToSection (originally misnamed 'steps'; 'step' is preferred).
+     *
+     * @param CreativeWork|CreativeWork[]|ItemList|ItemList[]|string|string[] $steps
+     *
+     * @return static
+     *
+     * @see http://schema.org/steps
+     */
+    public function steps($steps)
+    {
+        return $this->setProperty('steps', $steps);
+    }
 
 }

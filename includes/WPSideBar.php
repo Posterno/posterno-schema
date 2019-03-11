@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\WebPageElement
  */
-class WPSideBar extends BaseType {
-
+class WPSideBar extends BaseType
+{
 }

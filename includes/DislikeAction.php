@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\ReactAction
  */
-class DislikeAction extends BaseType {
-
+class DislikeAction extends BaseType
+{
 }

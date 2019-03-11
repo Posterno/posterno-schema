@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Action
  */
-class AchieveAction extends BaseType {
-
+class AchieveAction extends BaseType
+{
 }

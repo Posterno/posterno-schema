@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  * @mixin \PNO\SchemaOrg\AutomotiveBusiness
  * @mixin \PNO\SchemaOrg\Store
  */
-class AutoPartsStore extends BaseType {
-
+class AutoPartsStore extends BaseType
+{
 }

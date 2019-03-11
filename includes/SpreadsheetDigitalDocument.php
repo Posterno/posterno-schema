@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\DigitalDocument
  */
-class SpreadsheetDigitalDocument extends BaseType {
-
+class SpreadsheetDigitalDocument extends BaseType
+{
 }

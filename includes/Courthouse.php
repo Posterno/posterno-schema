@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\GovernmentBuilding
  */
-class Courthouse extends BaseType {
-
+class Courthouse extends BaseType
+{
 }

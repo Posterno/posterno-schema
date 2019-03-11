@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\HomeAndConstructionBusiness
  */
-class MovingCompany extends BaseType {
-
+class MovingCompany extends BaseType
+{
 }

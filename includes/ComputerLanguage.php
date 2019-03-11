@@ -11,6 +11,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Intangible
  */
-class ComputerLanguage extends BaseType {
-
+class ComputerLanguage extends BaseType
+{
 }

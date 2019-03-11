@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\ControlAction
  */
-class ActivateAction extends BaseType {
-
+class ActivateAction extends BaseType
+{
 }

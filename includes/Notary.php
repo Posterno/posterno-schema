@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\LegalService
  */
-class Notary extends BaseType {
-
+class Notary extends BaseType
+{
 }

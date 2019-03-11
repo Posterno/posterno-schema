@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\WebPage
  */
-class FAQPage extends BaseType {
-
+class FAQPage extends BaseType
+{
 }

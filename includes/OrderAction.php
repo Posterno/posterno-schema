@@ -9,19 +9,20 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\TradeAction
  */
-class OrderAction extends BaseType {
-
-	/**
-	 * A sub property of instrument. The method of delivery.
-	 *
-	 * @param DeliveryMethod|DeliveryMethod[] $deliveryMethod
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/deliveryMethod
-	 */
-	public function deliveryMethod( $deliveryMethod ) {
-		return $this->setProperty( 'deliveryMethod', $deliveryMethod );
-	}
+class OrderAction extends BaseType
+{
+    /**
+     * A sub property of instrument. The method of delivery.
+     *
+     * @param DeliveryMethod|DeliveryMethod[] $deliveryMethod
+     *
+     * @return static
+     *
+     * @see http://schema.org/deliveryMethod
+     */
+    public function deliveryMethod($deliveryMethod)
+    {
+        return $this->setProperty('deliveryMethod', $deliveryMethod);
+    }
 
 }

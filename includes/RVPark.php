@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CivicStructure
  */
-class RVPark extends BaseType {
-
+class RVPark extends BaseType
+{
 }

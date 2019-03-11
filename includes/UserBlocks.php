@@ -11,6 +11,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\UserInteraction
  */
-class UserBlocks extends BaseType {
-
+class UserBlocks extends BaseType
+{
 }

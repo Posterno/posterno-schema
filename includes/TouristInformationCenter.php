@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\LocalBusiness
  */
-class TouristInformationCenter extends BaseType {
-
+class TouristInformationCenter extends BaseType
+{
 }

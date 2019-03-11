@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\WebPageElement
  */
-class Table extends BaseType {
-
+class Table extends BaseType
+{
 }

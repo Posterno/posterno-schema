@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CreativeWork
  */
-class Code extends BaseType {
-
+class Code extends BaseType
+{
 }

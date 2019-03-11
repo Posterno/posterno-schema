@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CommunicateAction
  */
-class ShareAction extends BaseType {
-
+class ShareAction extends BaseType
+{
 }

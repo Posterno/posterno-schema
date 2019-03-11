@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Quantity
  */
-class Mass extends BaseType {
-
+class Mass extends BaseType
+{
 }

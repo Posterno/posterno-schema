@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\LocalBusiness
  */
-class ChildCare extends BaseType {
-
+class ChildCare extends BaseType
+{
 }

@@ -10,19 +10,20 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\MoveAction
  */
-class TravelAction extends BaseType {
-
-	/**
-	 * The distance travelled, e.g. exercising or travelling.
-	 *
-	 * @param Distance|Distance[] $distance
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/distance
-	 */
-	public function distance( $distance ) {
-		return $this->setProperty( 'distance', $distance );
-	}
+class TravelAction extends BaseType
+{
+    /**
+     * The distance travelled, e.g. exercising or travelling.
+     *
+     * @param Distance|Distance[] $distance
+     *
+     * @return static
+     *
+     * @see http://schema.org/distance
+     */
+    public function distance($distance)
+    {
+        return $this->setProperty('distance', $distance);
+    }
 
 }

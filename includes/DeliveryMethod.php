@@ -8,9 +8,9 @@ namespace PNO\SchemaOrg;
  * methods are characterized by the means of transportation used, and by the
  * organization or group that is the contracting party for the sending
  * organization or person.
- *
+ * 
  * Commonly used values:
- *
+ * 
  * * http://purl.org/goodrelations/v1#DeliveryModeDirectDownload
  * * http://purl.org/goodrelations/v1#DeliveryModeFreight
  * * http://purl.org/goodrelations/v1#DeliveryModeMail
@@ -24,14 +24,14 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Enumeration
  */
-class DeliveryMethod extends BaseType {
-
-	/**
-	 * A DeliveryMethod in which an item is collected on site, e.g. in a store
-	 * or at a box office.
-	 *
-	 * @see http://schema.org/OnSitePickup
-	 */
-	 const OnSitePickup = 'http://schema.org/OnSitePickup';
+class DeliveryMethod extends BaseType
+{
+    /**
+     * A DeliveryMethod in which an item is collected on site, e.g. in a store
+     * or at a box office.
+     *
+     * @see http://schema.org/OnSitePickup
+     */
+     const OnSitePickup = 'http://schema.org/OnSitePickup';
 
 }

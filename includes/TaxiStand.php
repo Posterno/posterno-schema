@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CivicStructure
  */
-class TaxiStand extends BaseType {
-
+class TaxiStand extends BaseType
+{
 }

@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\AllocateAction
  */
-class AssignAction extends BaseType {
-
+class AssignAction extends BaseType
+{
 }

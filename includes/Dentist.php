@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  * @mixin \PNO\SchemaOrg\MedicalOrganization
  * @mixin \PNO\SchemaOrg\LocalBusiness
  */
-class Dentist extends BaseType {
-
+class Dentist extends BaseType
+{
 }

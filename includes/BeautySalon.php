@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\HealthAndBeautyBusiness
  */
-class BeautySalon extends BaseType {
-
+class BeautySalon extends BaseType
+{
 }

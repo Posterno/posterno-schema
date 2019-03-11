@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Store
  */
-class MobilePhoneStore extends BaseType {
-
+class MobilePhoneStore extends BaseType
+{
 }

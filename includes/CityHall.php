@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\GovernmentBuilding
  */
-class CityHall extends BaseType {
-
+class CityHall extends BaseType
+{
 }

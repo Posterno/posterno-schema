@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\QualitativeValue
  */
-class BedType extends BaseType {
-
+class BedType extends BaseType
+{
 }

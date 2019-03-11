@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Quantity
  */
-class Distance extends BaseType {
-
+class Distance extends BaseType
+{
 }

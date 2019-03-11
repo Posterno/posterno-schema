@@ -14,20 +14,21 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\GeoShape
  */
-class GeoCircle extends BaseType {
-
-	/**
-	 * Indicates the approximate radius of a GeoCircle (metres unless indicated
-	 * otherwise via Distance notation).
-	 *
-	 * @param Distance|Distance[]|float|float[]|int|int[]|string|string[] $geoRadius
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/geoRadius
-	 */
-	public function geoRadius( $geoRadius ) {
-		return $this->setProperty( 'geoRadius', $geoRadius );
-	}
+class GeoCircle extends BaseType
+{
+    /**
+     * Indicates the approximate radius of a GeoCircle (metres unless indicated
+     * otherwise via Distance notation).
+     *
+     * @param Distance|Distance[]|float|float[]|int|int[]|string|string[] $geoRadius
+     *
+     * @return static
+     *
+     * @see http://schema.org/geoRadius
+     */
+    public function geoRadius($geoRadius)
+    {
+        return $this->setProperty('geoRadius', $geoRadius);
+    }
 
 }

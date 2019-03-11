@@ -12,6 +12,6 @@ namespace PNO\SchemaOrg;
  * @mixin \PNO\SchemaOrg\ItemList
  * @mixin \PNO\SchemaOrg\CreativeWork
  */
-class HowToStep extends BaseType {
-
+class HowToStep extends BaseType
+{
 }

@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CreativeWork
  */
-class Season extends BaseType {
-
+class Season extends BaseType
+{
 }

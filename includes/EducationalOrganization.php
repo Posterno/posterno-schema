@@ -9,19 +9,20 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Organization
  */
-class EducationalOrganization extends BaseType {
-
-	/**
-	 * Alumni of an organization.
-	 *
-	 * @param Person|Person[] $alumni
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/alumni
-	 */
-	public function alumni( $alumni ) {
-		return $this->setProperty( 'alumni', $alumni );
-	}
+class EducationalOrganization extends BaseType
+{
+    /**
+     * Alumni of an organization.
+     *
+     * @param Person|Person[] $alumni
+     *
+     * @return static
+     *
+     * @see http://schema.org/alumni
+     */
+    public function alumni($alumni)
+    {
+        return $this->setProperty('alumni', $alumni);
+    }
 
 }

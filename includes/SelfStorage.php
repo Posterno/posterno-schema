@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\LocalBusiness
  */
-class SelfStorage extends BaseType {
-
+class SelfStorage extends BaseType
+{
 }

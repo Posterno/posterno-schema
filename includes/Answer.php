@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Comment
  */
-class Answer extends BaseType {
-
+class Answer extends BaseType
+{
 }

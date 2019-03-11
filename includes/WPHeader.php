@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\WebPageElement
  */
-class WPHeader extends BaseType {
-
+class WPHeader extends BaseType
+{
 }

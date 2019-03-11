@@ -4,7 +4,7 @@ namespace PNO\SchemaOrg;
 
 /**
  * Original definition: "provider of professional services."
- *
+ * 
  * The general [[ProfessionalService]] type for local businesses was deprecated
  * due to confusion with [[Service]]. For reference, the types that it included
  * were: [[Dentist]],
@@ -19,6 +19,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\LocalBusiness
  */
-class ProfessionalService extends BaseType {
-
+class ProfessionalService extends BaseType
+{
 }

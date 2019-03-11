@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CivicStructure
  */
-class ParkingFacility extends BaseType {
-
+class ParkingFacility extends BaseType
+{
 }

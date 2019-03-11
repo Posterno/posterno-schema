@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\AutomotiveBusiness
  */
-class AutoBodyShop extends BaseType {
-
+class AutoBodyShop extends BaseType
+{
 }

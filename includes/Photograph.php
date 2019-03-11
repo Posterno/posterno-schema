@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CreativeWork
  */
-class Photograph extends BaseType {
-
+class Photograph extends BaseType
+{
 }

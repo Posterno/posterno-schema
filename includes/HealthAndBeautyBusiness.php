@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\LocalBusiness
  */
-class HealthAndBeautyBusiness extends BaseType {
-
+class HealthAndBeautyBusiness extends BaseType
+{
 }

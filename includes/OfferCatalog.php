@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\ItemList
  */
-class OfferCatalog extends BaseType {
-
+class OfferCatalog extends BaseType
+{
 }

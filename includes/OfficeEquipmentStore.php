@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Store
  */
-class OfficeEquipmentStore extends BaseType {
-
+class OfficeEquipmentStore extends BaseType
+{
 }

@@ -5,9 +5,9 @@ namespace PNO\SchemaOrg;
 /**
  * The act of forming a personal connection with someone/something (object)
  * unidirectionally/asymmetrically to get updates polled from.
- *
+ * 
  * Related actions:
- *
+ * 
  * * [[BefriendAction]]: Unlike BefriendAction, FollowAction implies that the
  * connection is *not* necessarily reciprocal.
  * * [[SubscribeAction]]: Unlike SubscribeAction, FollowAction implies that the
@@ -24,19 +24,20 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\InteractAction
  */
-class FollowAction extends BaseType {
-
-	/**
-	 * A sub property of object. The person or organization being followed.
-	 *
-	 * @param Organization|Organization[]|Person|Person[] $followee
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/followee
-	 */
-	public function followee( $followee ) {
-		return $this->setProperty( 'followee', $followee );
-	}
+class FollowAction extends BaseType
+{
+    /**
+     * A sub property of object. The person or organization being followed.
+     *
+     * @param Organization|Organization[]|Person|Person[] $followee
+     *
+     * @return static
+     *
+     * @see http://schema.org/followee
+     */
+    public function followee($followee)
+    {
+        return $this->setProperty('followee', $followee);
+    }
 
 }

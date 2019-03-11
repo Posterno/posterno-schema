@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Clip
  */
-class RadioClip extends BaseType {
-
+class RadioClip extends BaseType
+{
 }

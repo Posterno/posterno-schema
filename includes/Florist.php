@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Store
  */
-class Florist extends BaseType {
-
+class Florist extends BaseType
+{
 }

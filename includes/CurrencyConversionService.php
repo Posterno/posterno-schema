@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\FinancialProduct
  */
-class CurrencyConversionService extends BaseType {
-
+class CurrencyConversionService extends BaseType
+{
 }

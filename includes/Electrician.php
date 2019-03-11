@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\HomeAndConstructionBusiness
  */
-class Electrician extends BaseType {
-
+class Electrician extends BaseType
+{
 }

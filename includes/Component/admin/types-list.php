@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @return array
  */
-function pno_get_schema_list() {
+function pno_get_schema_list( $exclude = [] ) {
 
 	$available_types = [
 		'Action',
@@ -27,7 +27,15 @@ function pno_get_schema_list() {
 		'Person',
 		'Place',
 		'Product',
-	];
+		];
+
+	if ( ! empty( $exclude ) && is_array( $exclude ) ) {
+		foreach ( $exclude as $removedType ) {
+			if ( ( $key = array_search( $removedType, $available_types ) ) !== false ) {
+				unset( $available_types[ $key ] );
+			}
+		}
+	}
 
 	return $available_types;
 

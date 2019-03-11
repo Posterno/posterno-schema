@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CivicStructure
  */
-class Crematorium extends BaseType {
-
+class Crematorium extends BaseType
+{
 }

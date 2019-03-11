@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\WebPage
  */
-class CheckoutPage extends BaseType {
-
+class CheckoutPage extends BaseType
+{
 }

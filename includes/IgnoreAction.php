@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\AssessAction
  */
-class IgnoreAction extends BaseType {
-
+class IgnoreAction extends BaseType
+{
 }

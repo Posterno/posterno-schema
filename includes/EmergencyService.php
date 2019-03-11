@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\LocalBusiness
  */
-class EmergencyService extends BaseType {
-
+class EmergencyService extends BaseType
+{
 }

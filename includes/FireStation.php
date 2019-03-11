@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  * @mixin \PNO\SchemaOrg\CivicStructure
  * @mixin \PNO\SchemaOrg\EmergencyService
  */
-class FireStation extends BaseType {
-
+class FireStation extends BaseType
+{
 }

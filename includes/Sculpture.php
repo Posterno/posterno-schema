@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CreativeWork
  */
-class Sculpture extends BaseType {
-
+class Sculpture extends BaseType
+{
 }

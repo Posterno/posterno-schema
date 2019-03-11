@@ -44,7 +44,7 @@ function pno_get_schema_editor_js_vars() {
 
 	$labels = [
 		'plugin_url'               => PNO_PLUGIN_URL,
-		'schema'                   => pno_get_schema_list(),
+		'schema'                   => pno_get_schema_list( [ 'Action', 'Person' ] ),
 		'ajax'                     => admin_url( 'admin-ajax.php' ),
 		'nonce'                    => wp_create_nonce( 'pno_create_listing_schema' ),
 		'getSchemasNonce'          => wp_create_nonce( 'pno_get_listings_schemas' ),

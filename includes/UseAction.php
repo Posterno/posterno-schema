@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\ConsumeAction
  */
-class UseAction extends BaseType {
-
+class UseAction extends BaseType
+{
 }

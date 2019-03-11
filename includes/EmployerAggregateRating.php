@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\AggregateRating
  */
-class EmployerAggregateRating extends BaseType {
-
+class EmployerAggregateRating extends BaseType
+{
 }

@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Service
  */
-class Taxi extends BaseType {
-
+class Taxi extends BaseType
+{
 }

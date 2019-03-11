@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CivicStructure
  */
-class EventVenue extends BaseType {
-
+class EventVenue extends BaseType
+{
 }

@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\LocalBusiness
  */
-class RealEstateAgent extends BaseType {
-
+class RealEstateAgent extends BaseType
+{
 }

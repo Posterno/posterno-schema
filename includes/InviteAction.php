@@ -9,20 +9,21 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CommunicateAction
  */
-class InviteAction extends BaseType {
-
-	/**
-	 * Upcoming or past event associated with this place, organization, or
-	 * action.
-	 *
-	 * @param Event|Event[] $event
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/event
-	 */
-	public function event( $event ) {
-		return $this->setProperty( 'event', $event );
-	}
+class InviteAction extends BaseType
+{
+    /**
+     * Upcoming or past event associated with this place, organization, or
+     * action.
+     *
+     * @param Event|Event[] $event
+     *
+     * @return static
+     *
+     * @see http://schema.org/event
+     */
+    public function event($event)
+    {
+        return $this->setProperty('event', $event);
+    }
 
 }

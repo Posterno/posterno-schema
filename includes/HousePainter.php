@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\HomeAndConstructionBusiness
  */
-class HousePainter extends BaseType {
-
+class HousePainter extends BaseType
+{
 }

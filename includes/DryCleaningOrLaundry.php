@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\LocalBusiness
  */
-class DryCleaningOrLaundry extends BaseType {
-
+class DryCleaningOrLaundry extends BaseType
+{
 }

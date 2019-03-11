@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\MoveAction
  */
-class ArriveAction extends BaseType {
-
+class ArriveAction extends BaseType
+{
 }

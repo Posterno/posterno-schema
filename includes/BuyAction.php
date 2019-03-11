@@ -11,46 +11,49 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\TradeAction
  */
-class BuyAction extends BaseType {
+class BuyAction extends BaseType
+{
+    /**
+     * An entity which offers (sells / leases / lends / loans) the services /
+     * goods.  A seller may also be a provider.
+     *
+     * @param Organization|Organization[]|Person|Person[] $seller
+     *
+     * @return static
+     *
+     * @see http://schema.org/seller
+     */
+    public function seller($seller)
+    {
+        return $this->setProperty('seller', $seller);
+    }
 
-	/**
-	 * An entity which offers (sells / leases / lends / loans) the services /
-	 * goods.  A seller may also be a provider.
-	 *
-	 * @param Organization|Organization[]|Person|Person[] $seller
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/seller
-	 */
-	public function seller( $seller ) {
-		return $this->setProperty( 'seller', $seller );
-	}
+    /**
+     * 'vendor' is an earlier term for 'seller'.
+     *
+     * @param Organization|Organization[]|Person|Person[] $vendor
+     *
+     * @return static
+     *
+     * @see http://schema.org/vendor
+     */
+    public function vendor($vendor)
+    {
+        return $this->setProperty('vendor', $vendor);
+    }
 
-	/**
-	 * 'vendor' is an earlier term for 'seller'.
-	 *
-	 * @param Organization|Organization[]|Person|Person[] $vendor
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/vendor
-	 */
-	public function vendor( $vendor ) {
-		return $this->setProperty( 'vendor', $vendor );
-	}
-
-	/**
-	 * The warranty promise(s) included in the offer.
-	 *
-	 * @param WarrantyPromise|WarrantyPromise[] $warrantyPromise
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/warrantyPromise
-	 */
-	public function warrantyPromise( $warrantyPromise ) {
-		return $this->setProperty( 'warrantyPromise', $warrantyPromise );
-	}
+    /**
+     * The warranty promise(s) included in the offer.
+     *
+     * @param WarrantyPromise|WarrantyPromise[] $warrantyPromise
+     *
+     * @return static
+     *
+     * @see http://schema.org/warrantyPromise
+     */
+    public function warrantyPromise($warrantyPromise)
+    {
+        return $this->setProperty('warrantyPromise', $warrantyPromise);
+    }
 
 }

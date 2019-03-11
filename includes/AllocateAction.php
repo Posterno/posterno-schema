@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\OrganizeAction
  */
-class AllocateAction extends BaseType {
-
+class AllocateAction extends BaseType
+{
 }

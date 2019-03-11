@@ -16,13 +16,21 @@ defined( 'ABSPATH' ) || exit;
  *
  * @return array
  */
-function pno_get_schema_list() {
+function pno_get_schema_list( $exclude = [] ) {
 
 	$available_types = [
 	{% for type in types %}
 	'{{ type.name }}',
 	{% endfor %}
 	];
+
+	if ( ! empty( $exclude ) && is_array( $exclude ) ) {
+		foreach ( $exclude as $removedType ) {
+			if ( ( $key = array_search( $removedType, $available_types ) ) !== false ) {
+				unset( $available_types[ $key ] );
+			}
+		}
+	}
 
 	return $available_types;
 

@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\ConsumeAction
  */
-class DrinkAction extends BaseType {
-
+class DrinkAction extends BaseType
+{
 }

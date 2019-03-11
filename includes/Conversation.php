@@ -11,6 +11,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CreativeWork
  */
-class Conversation extends BaseType {
-
+class Conversation extends BaseType
+{
 }

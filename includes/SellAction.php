@@ -11,33 +11,35 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\TradeAction
  */
-class SellAction extends BaseType {
+class SellAction extends BaseType
+{
+    /**
+     * A sub property of participant. The participant/person/organization that
+     * bought the object.
+     *
+     * @param Person|Person[] $buyer
+     *
+     * @return static
+     *
+     * @see http://schema.org/buyer
+     */
+    public function buyer($buyer)
+    {
+        return $this->setProperty('buyer', $buyer);
+    }
 
-	/**
-	 * A sub property of participant. The participant/person/organization that
-	 * bought the object.
-	 *
-	 * @param Person|Person[] $buyer
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/buyer
-	 */
-	public function buyer( $buyer ) {
-		return $this->setProperty( 'buyer', $buyer );
-	}
-
-	/**
-	 * The warranty promise(s) included in the offer.
-	 *
-	 * @param WarrantyPromise|WarrantyPromise[] $warrantyPromise
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/warrantyPromise
-	 */
-	public function warrantyPromise( $warrantyPromise ) {
-		return $this->setProperty( 'warrantyPromise', $warrantyPromise );
-	}
+    /**
+     * The warranty promise(s) included in the offer.
+     *
+     * @param WarrantyPromise|WarrantyPromise[] $warrantyPromise
+     *
+     * @return static
+     *
+     * @see http://schema.org/warrantyPromise
+     */
+    public function warrantyPromise($warrantyPromise)
+    {
+        return $this->setProperty('warrantyPromise', $warrantyPromise);
+    }
 
 }

@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Place
  */
-class Residence extends BaseType {
-
+class Residence extends BaseType
+{
 }

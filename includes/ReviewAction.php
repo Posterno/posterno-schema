@@ -10,20 +10,21 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\AssessAction
  */
-class ReviewAction extends BaseType {
-
-	/**
-	 * A sub property of result. The review that resulted in the performing of
-	 * the action.
-	 *
-	 * @param Review|Review[] $resultReview
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/resultReview
-	 */
-	public function resultReview( $resultReview ) {
-		return $this->setProperty( 'resultReview', $resultReview );
-	}
+class ReviewAction extends BaseType
+{
+    /**
+     * A sub property of result. The review that resulted in the performing of
+     * the action.
+     *
+     * @param Review|Review[] $resultReview
+     *
+     * @return static
+     *
+     * @see http://schema.org/resultReview
+     */
+    public function resultReview($resultReview)
+    {
+        return $this->setProperty('resultReview', $resultReview);
+    }
 
 }

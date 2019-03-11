@@ -10,33 +10,35 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Article
  */
-class TechArticle extends BaseType {
+class TechArticle extends BaseType
+{
+    /**
+     * Prerequisites needed to fulfill steps in article.
+     *
+     * @param string|string[] $dependencies
+     *
+     * @return static
+     *
+     * @see http://schema.org/dependencies
+     */
+    public function dependencies($dependencies)
+    {
+        return $this->setProperty('dependencies', $dependencies);
+    }
 
-	/**
-	 * Prerequisites needed to fulfill steps in article.
-	 *
-	 * @param string|string[] $dependencies
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/dependencies
-	 */
-	public function dependencies( $dependencies ) {
-		return $this->setProperty( 'dependencies', $dependencies );
-	}
-
-	/**
-	 * Proficiency needed for this content; expected values: 'Beginner',
-	 * 'Expert'.
-	 *
-	 * @param string|string[] $proficiencyLevel
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/proficiencyLevel
-	 */
-	public function proficiencyLevel( $proficiencyLevel ) {
-		return $this->setProperty( 'proficiencyLevel', $proficiencyLevel );
-	}
+    /**
+     * Proficiency needed for this content; expected values: 'Beginner',
+     * 'Expert'.
+     *
+     * @param string|string[] $proficiencyLevel
+     *
+     * @return static
+     *
+     * @see http://schema.org/proficiencyLevel
+     */
+    public function proficiencyLevel($proficiencyLevel)
+    {
+        return $this->setProperty('proficiencyLevel', $proficiencyLevel);
+    }
 
 }

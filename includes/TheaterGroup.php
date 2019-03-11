@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\PerformingGroup
  */
-class TheaterGroup extends BaseType {
-
+class TheaterGroup extends BaseType
+{
 }

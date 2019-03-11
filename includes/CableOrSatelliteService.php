@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Service
  */
-class CableOrSatelliteService extends BaseType {
-
+class CableOrSatelliteService extends BaseType
+{
 }

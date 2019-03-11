@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\CollectionPage
  */
-class VideoGallery extends BaseType {
-
+class VideoGallery extends BaseType
+{
 }

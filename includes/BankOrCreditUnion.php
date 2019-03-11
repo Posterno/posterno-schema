@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\FinancialService
  */
-class BankOrCreditUnion extends BaseType {
-
+class BankOrCreditUnion extends BaseType
+{
 }

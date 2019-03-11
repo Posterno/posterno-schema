@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\ConsumeAction
  */
-class WatchAction extends BaseType {
-
+class WatchAction extends BaseType
+{
 }

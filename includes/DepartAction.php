@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\MoveAction
  */
-class DepartAction extends BaseType {
-
+class DepartAction extends BaseType
+{
 }

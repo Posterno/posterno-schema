@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\FinancialProduct
  */
-class BankAccount extends BaseType {
-
+class BankAccount extends BaseType
+{
 }

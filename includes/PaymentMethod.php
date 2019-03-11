@@ -7,9 +7,9 @@ namespace PNO\SchemaOrg;
  * amount for a purchase. Payment methods are characterized by the legal and
  * technical structures used, and by the organization or group carrying out the
  * transaction.
- *
+ * 
  * Commonly used values:
- *
+ * 
  * * http://purl.org/goodrelations/v1#ByBankTransferInAdvance
  * * http://purl.org/goodrelations/v1#ByInvoice
  * * http://purl.org/goodrelations/v1#Cash
@@ -24,6 +24,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\Enumeration
  */
-class PaymentMethod extends BaseType {
-
+class PaymentMethod extends BaseType
+{
 }

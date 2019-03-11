@@ -10,6 +10,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\TradeAction
  */
-class QuoteAction extends BaseType {
-
+class QuoteAction extends BaseType
+{
 }

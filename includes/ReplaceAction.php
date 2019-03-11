@@ -9,32 +9,34 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\UpdateAction
  */
-class ReplaceAction extends BaseType {
+class ReplaceAction extends BaseType
+{
+    /**
+     * A sub property of object. The object that is being replaced.
+     *
+     * @param Thing|Thing[] $replacee
+     *
+     * @return static
+     *
+     * @see http://schema.org/replacee
+     */
+    public function replacee($replacee)
+    {
+        return $this->setProperty('replacee', $replacee);
+    }
 
-	/**
-	 * A sub property of object. The object that is being replaced.
-	 *
-	 * @param Thing|Thing[] $replacee
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/replacee
-	 */
-	public function replacee( $replacee ) {
-		return $this->setProperty( 'replacee', $replacee );
-	}
-
-	/**
-	 * A sub property of object. The object that replaces.
-	 *
-	 * @param Thing|Thing[] $replacer
-	 *
-	 * @return static
-	 *
-	 * @see http://schema.org/replacer
-	 */
-	public function replacer( $replacer ) {
-		return $this->setProperty( 'replacer', $replacer );
-	}
+    /**
+     * A sub property of object. The object that replaces.
+     *
+     * @param Thing|Thing[] $replacer
+     *
+     * @return static
+     *
+     * @see http://schema.org/replacer
+     */
+    public function replacer($replacer)
+    {
+        return $this->setProperty('replacer', $replacer);
+    }
 
 }

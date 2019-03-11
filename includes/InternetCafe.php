@@ -9,6 +9,6 @@ namespace PNO\SchemaOrg;
  *
  * @mixin \PNO\SchemaOrg\LocalBusiness
  */
-class InternetCafe extends BaseType {
-
+class InternetCafe extends BaseType
+{
 }

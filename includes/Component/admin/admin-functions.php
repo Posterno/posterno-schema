@@ -69,3 +69,34 @@ function pno_get_schema_hierarchy() {
 	return $schemas;
 
 }
+
+/**
+ * Get all the properties of a given schema.
+ *
+ * @param array $schema schema types for which we're going to retrieve properties.
+ * @return array
+ */
+function pno_get_schema_properties( $schema = [] ) {
+
+	$all_properties = pno_get_schema_properties_list();
+
+	$schema_properties = [];
+
+	if ( is_array( $schema ) && ! empty( $schema ) ) {
+		foreach ( $all_properties as $propkey => $property ) {
+			foreach ( $schema as $type ) {
+				if ( in_array( $type, $property['types'] ) ) {
+					if ( ! isset( $schema_properties[ $propkey ] ) ) {
+						$schema_properties[ $propkey ] = [
+							'name' => $propkey,
+							'url'  => $property['url'],
+						];
+					}
+				}
+			}
+		}
+	}
+
+	return $schema_properties;
+
+}

@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @return array
  */
-function pno_get_properties_list() {
+function pno_get_schema_properties_list() {
 
 	$available_properties = [
 	{% for property in properties %}

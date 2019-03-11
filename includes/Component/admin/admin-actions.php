@@ -246,3 +246,12 @@ function pno_ajax_get_child_schema() {
 
 }
 add_action( 'wp_ajax_pno_get_child_schema', 'pno_ajax_get_child_schema' );
+
+function t() {
+
+	//print_r( pno_search_in_array( pno_get_schema_properties_list(), 'types', 'Hotel' ) );
+	print_r( pno_get_schema_properties( [ 'Message' ] ) );
+	exit;
+
+}
+//add_action( 'init', 't' );

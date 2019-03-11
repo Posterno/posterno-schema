@@ -35,7 +35,7 @@
 											{{labels.schema_edit.primary_label}}
 										</label>
 										<div class="carbon-field-group-holder">
-											<Select2 v-model="schema.primarySchemaChildren" :options="primarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.level1schema_label, multiple: false }" @select="loadSecondaryChildren($event)"/>
+											<Select2 v-model="schema.primarySchemaChildren" :options="primarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.level1schema_label, multiple: false }" @change="detectSchemaChange()" @select="loadSecondaryChildren($event)"/>
 										</div>
 									</div>
 								</div>
@@ -45,7 +45,7 @@
 											{{labels.schema_edit.secondary_label}}
 										</label>
 										<div class="carbon-field-group-holder">
-											<Select2 v-model="schema.secondarySchemaChildren" :options="secondarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.level1schema_label, multiple: false }" @select="loadTertiaryChildren($event)"/>
+											<Select2 v-model="schema.secondarySchemaChildren" :options="secondarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.level1schema_label, multiple: false }" @change="detectSchemaChange()" @select="loadTertiaryChildren($event)"/>
 										</div>
 									</div>
 								</div>
@@ -55,7 +55,7 @@
 											{{labels.schema_edit.tertiary_label}}
 										</label>
 										<div class="carbon-field-group-holder">
-											<Select2 v-model="schema.tertiarySchemaChildren" :options="tertiarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.level1schema_label, multiple: false }"/>
+											<Select2 v-model="schema.tertiarySchemaChildren" :options="tertiarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.level1schema_label, multiple: false }" @change="detectSchemaChange()" />
 										</div>
 									</div>
 								</div>
@@ -89,7 +89,7 @@
 										<label>{{labels.settings.schemas.label}}</label>
 										<div class="field-holder">
 											<div class="carbon-field-group-holder">
-												<select name="schemaName" v-model="schema.name" :disabled="! canPerformAction()" @change="detectPrimarySchemaChange($event)">
+												<select name="schemaName" v-model="schema.name" :disabled="! canPerformAction()" @change="detectMainSchemaChange($event)">
 													<option v-for="(schema, key) in availableSchemas" :key="key" :value="schema">{{schema}}</option>
 												</select>
 											</div>
@@ -185,6 +185,9 @@ export default {
 			primarySchemaChildren: [],
 			secondarySchemaChildren: [],
 			tertiarySchemaChildren: [],
+
+			properties: [],
+
 		}
 	},
 	methods: {
@@ -308,7 +311,7 @@ export default {
 				this.propertiesLoading = false
 
 				Object.keys( response.data.data.childs ).forEach( key => {
-					this.primarySchemaChildren.push( { id: response.data.data.childs[ key ].id, text: response.data.data.childs[ key ].label } )
+					this.primarySchemaChildren.push( { id: response.data.data.childs[ key ].label, text: response.data.data.childs[ key ].label } )
 				});
 
 			})
@@ -328,7 +331,7 @@ export default {
 		/**
 		 * When the primary schema changes, reload the child schema.
 		*/
-		detectPrimarySchemaChange( event ) {
+		detectMainSchemaChange( event ) {
 			this.loadPrimarySchemaChildren()
 		},
 
@@ -339,6 +342,7 @@ export default {
 
 			this.propertiesLoading = true
 			this.secondarySchemaChildren = []
+			const vm = this
 
 			const configParams = {
 				nonce: pno_schema_editor.childSchemaNonce,
@@ -353,18 +357,20 @@ export default {
 
 				this.propertiesLoading = false
 
-				Object.keys( response.data.data.childs ).forEach( key => {
-					this.secondarySchemaChildren.push( { id: response.data.data.childs[ key ].id, text: response.data.data.childs[ key ].label } )
-				});
+				if ( typeof(response.data.data.childs) !== 'undefined' && response.data.data.childs !== null ) {
+					Object.keys( response.data.data.childs ).forEach( key => {
+						this.secondarySchemaChildren.push( { id: response.data.data.childs[ key ].label, text: response.data.data.childs[ key ].label } )
+					});
+				}
 
 			})
 			.catch( error => {
 
 				this.propertiesLoading = false
 
-				if ( error.response.data ) {
+				if ( typeof(error.response) !== 'undefined' && typeof(error.response.data) !== 'undefined' ) {
 					this.showError( error.response.data )
-				} else {
+				} else if ( typeof(error.message) !== 'undefined' ) {
 					this.showError( error.message )
 				}
 			})
@@ -392,22 +398,70 @@ export default {
 
 				this.propertiesLoading = false
 
-				Object.keys( response.data.data.childs ).forEach( key => {
-					this.tertiarySchemaChildren.push( { id: response.data.data.childs[ key ].id, text: response.data.data.childs[ key ].label } )
-				});
+				if ( typeof(response.data.data.childs) !== 'undefined' && response.data.data.childs !== null ) {
+					Object.keys( response.data.data.childs ).forEach( key => {
+						this.tertiarySchemaChildren.push( { id: response.data.data.childs[ key ].label, text: response.data.data.childs[ key ].label } )
+					});
+				}
+			})
+			.catch( error => {
+
+				this.propertiesLoading = false
+
+				if ( typeof(error.response) !== 'undefined' && typeof(error.response.data) !== 'undefined' ) {
+					this.showError( error.response.data )
+				} else if ( typeof(error.message) !== 'undefined' ) {
+					this.showError( error.message )
+				}
+			})
+
+		},
+
+		loadProperties() {
+
+			this.propertiesLoading = true
+
+			const schemas = [
+				this.schema.primarySchemaChildren,
+				this.schema.secondarySchemaChildren,
+				this.schema.tertiarySchemaChildren
+			]
+
+			const configParams = {
+				nonce: pno_schema_editor.propertiesSchemaNonce,
+				action: 'pno_get_schema_properties',
+				schema: schemas,
+			}
+
+			axios.get( pno_schema_editor.ajax, {
+				params: configParams
+			})
+			.then( response => {
+
+				this.propertiesLoading = false
+
+				if ( typeof(response.data.data.props) !== 'undefined' && response.data.data.props !== null ) {
+					Object.keys( response.data.data.props ).forEach( key => {
+						this.properties.push( response.data.data.props[ key ] )
+					});
+				}
 
 			})
 			.catch( error => {
 
 				this.propertiesLoading = false
 
-				if ( error.response.data ) {
+				if ( typeof(error.response) !== 'undefined' && typeof(error.response.data) !== 'undefined' ) {
 					this.showError( error.response.data )
-				} else {
+				} else if ( typeof(error.message) !== 'undefined' ) {
 					this.showError( error.message )
 				}
 			})
 
+		},
+
+		detectSchemaChange() {
+			this.loadProperties()
 		}
 
 	}

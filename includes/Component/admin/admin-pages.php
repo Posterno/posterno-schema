@@ -43,15 +43,16 @@ function pno_schema_admin_listings_schema_page() {
 function pno_get_schema_editor_js_vars() {
 
 	$labels = [
-		'plugin_url'       => PNO_PLUGIN_URL,
-		'schema'           => pno_get_schema_list(),
-		'ajax'             => admin_url( 'admin-ajax.php' ),
-		'nonce'            => wp_create_nonce( 'pno_create_listing_schema' ),
-		'getSchemasNonce'  => wp_create_nonce( 'pno_get_listings_schemas' ),
-		'editSchemaNonce'  => wp_create_nonce( 'pno_get_listing_schema' ),
-		'childSchemaNonce' => wp_create_nonce( 'pno_get_child_schema' ),
-		'listing_types'    => pno_get_listings_types_for_association(),
-		'labels'           => [
+		'plugin_url'            => PNO_PLUGIN_URL,
+		'schema'                => pno_get_schema_list(),
+		'ajax'                  => admin_url( 'admin-ajax.php' ),
+		'nonce'                 => wp_create_nonce( 'pno_create_listing_schema' ),
+		'getSchemasNonce'       => wp_create_nonce( 'pno_get_listings_schemas' ),
+		'editSchemaNonce'       => wp_create_nonce( 'pno_get_listing_schema' ),
+		'childSchemaNonce'      => wp_create_nonce( 'pno_get_child_schema' ),
+		'propertiesSchemaNonce' => wp_create_nonce( 'pno_get_schema_properties' ),
+		'listing_types'         => pno_get_listings_types_for_association(),
+		'labels'                => [
 			'documentation'  => esc_html__( 'Documentation', 'posterno' ),
 			'add'            => esc_html__( 'Add new schema' ),
 			'back'           => esc_html__( 'Schema list' ),

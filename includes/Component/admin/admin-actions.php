@@ -247,11 +247,34 @@ function pno_ajax_get_child_schema() {
 }
 add_action( 'wp_ajax_pno_get_child_schema', 'pno_ajax_get_child_schema' );
 
+function pno_ajax_get_schema_properties() {
+
+	check_ajax_referer( 'pno_get_schema_properties', 'nonce' );
+
+	$general_message = esc_html__( 'Something went wrong: could not get properties details.' );
+
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( $general_message, 403 ); //phpcs:ignore
+	}
+
+	$schemas = isset( $_GET['schema'] ) && is_array( $_GET['schema'] ) && ! empty( $_GET['schema'] ) ? array_map( 'sanitize_text_field', $_GET['schema'] ) : false;
+
+	$properties = pno_get_schema_properties( $schemas );
+
+	wp_send_json_success(
+		[
+			'props' => $properties,
+		]
+	);
+
+}
+add_action( 'wp_ajax_pno_get_schema_properties', 'pno_ajax_get_schema_properties' );
+
 function t() {
 
-	//print_r( pno_search_in_array( pno_get_schema_properties_list(), 'types', 'Hotel' ) );
+	// print_r( pno_search_in_array( pno_get_schema_properties_list(), 'types', 'Hotel' ) );
 	print_r( pno_get_schema_properties( [ 'Message' ] ) );
 	exit;
 
 }
-//add_action( 'init', 't' );
+// add_action( 'init', 't' );

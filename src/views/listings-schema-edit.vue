@@ -4,9 +4,11 @@
 			{{labels.listing.title}}
 		</AdminHeader>
 
-		<div class="wrapper" id="poststuff">
+		<div class="wrap links-wrap">
+			<router-link to="/" class="back-btn page-title-action">{{labels.back}}</router-link> <router-link to="/add" class="back-btn page-title-action">{{labels.add}}</router-link>
+		</div>
 
-			<router-link to="/" class="back-btn">{{labels.back}}</router-link> | <router-link to="/add" class="back-btn">{{labels.add}}</router-link>
+		<div class="wrapper" id="poststuff">
 
 			<wp-row :gutter="20" class="postbox-container">
 
@@ -34,7 +36,7 @@
 											{{labels.schema_edit.primary_label}}
 										</label>
 										<div class="carbon-field-group-holder">
-											<Select2 v-model="schema.primarySchemaChildren" :options="primarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.additional_type, multiple: false }" @change="detectSchemaChange()" @select="loadSecondaryChildren($event)"/>
+											<Select2 v-model="schema.primarySchemaChildren" :options="primarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.additional_type, multiple: false }" @select="loadSecondaryChildren($event)"/>
 										</div>
 									</div>
 								</div>
@@ -44,7 +46,7 @@
 											{{labels.schema_edit.secondary_label}}
 										</label>
 										<div class="carbon-field-group-holder">
-											<Select2 v-model="schema.secondarySchemaChildren" :options="secondarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.additional_type, multiple: false }" @change="detectSchemaChange()" @select="loadTertiaryChildren($event)"/>
+											<Select2 v-model="schema.secondarySchemaChildren" :options="secondarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.additional_type, multiple: false }" @select="loadTertiaryChildren($event)"/>
 										</div>
 									</div>
 								</div>
@@ -54,20 +56,7 @@
 											{{labels.schema_edit.tertiary_label}}
 										</label>
 										<div class="carbon-field-group-holder">
-											<Select2 v-model="schema.tertiarySchemaChildren" :options="tertiarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.additional_type, multiple: false }" @change="detectSchemaChange()" />
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="carbon-container carbon-container-post_meta">
-								<div class="carbon-field has-width" style="flex-basis: 50%;" v-for="(prop, key) in properties" :key="key">
-									<div class="field-holder">
-										<label>
-											{{prop.name}} - <a :href="prop.url" target="_blank">{{prop.url}}</a>
-										</label>
-										<div class="carbon-field-group-holder">
-											<Select2 v-model="prop.value" :options="availableListingFields" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.field, multiple: false }" />
+											<Select2 v-model="schema.tertiarySchemaChildren" :options="tertiarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.additional_type, multiple: false }" />
 										</div>
 									</div>
 								</div>
@@ -349,7 +338,6 @@ export default {
 		*/
 		detectMainSchemaChange( event ) {
 			this.loadPrimarySchemaChildren()
-			this.loadProperties()
 		},
 
 		/**
@@ -436,61 +424,6 @@ export default {
 		},
 
 		/**
-		 * Load properties from all selected schema.
-		 */
-		loadProperties() {
-
-			this.propertiesLoading = true
-			this.properties = []
-
-			const schemas = [
-				this.schema.name,
-				this.schema.primarySchemaChildren,
-				this.schema.secondarySchemaChildren,
-				this.schema.tertiarySchemaChildren
-			]
-
-			const configParams = {
-				nonce: pno_schema_editor.propertiesSchemaNonce,
-				action: 'pno_get_schema_properties',
-				schema: schemas,
-			}
-
-			axios.get( pno_schema_editor.ajax, {
-				params: configParams
-			})
-			.then( response => {
-
-				this.propertiesLoading = false
-
-				if ( typeof(response.data.data.props) !== 'undefined' && response.data.data.props !== null ) {
-					Object.keys( response.data.data.props ).forEach( key => {
-						this.properties.push( response.data.data.props[ key ] )
-					});
-				}
-
-			})
-			.catch( error => {
-
-				this.propertiesLoading = false
-
-				if ( typeof(error.response) !== 'undefined' && typeof(error.response.data) !== 'undefined' ) {
-					this.showError( error.response.data )
-				} else if ( typeof(error.message) !== 'undefined' ) {
-					this.showError( error.message )
-				}
-			})
-
-		},
-
-		/**
-		 * When a schema changes, reload properties.
-		 */
-		detectSchemaChange() {
-			this.loadProperties()
-		},
-
-		/**
 		 * Load custom listings fields.
 		*/
 		loadCustomFields() {
@@ -539,9 +472,6 @@ export default {
 	.wrapper {
 		margin:10px 20px;
 	}
-	.postbox-container {
-		margin-top: 30px;
-	}
 
 	.vue-wp-notice {
 		margin-bottom: 20px;
@@ -578,6 +508,10 @@ export default {
 
 	#titlediv {
 		margin-bottom: 10px;
+	}
+
+	.wrap.links-wrap {
+		margin: 30px 20px;
 	}
 
 }

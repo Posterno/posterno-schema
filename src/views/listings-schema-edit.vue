@@ -63,6 +63,11 @@
 							</div>
 
 							<div class="carbon-container carbon-container-post_meta">
+								<div class="carbon-field carbon-separator">
+									<div class="field-holder">
+										<h3>{{labels.schema_edit.properties}}</h3>
+									</div>
+								</div>
 								<div class="carbon-field has-width" style="flex-basis: 33.33%;" v-for="(item, index) in properties" :key="index">
 									<div class="field-holder">
 										<label>
@@ -565,6 +570,14 @@ export default {
 
 	.wrap.links-wrap {
 		margin: 30px 20px;
+	}
+
+	.carbon-separator {
+		background: #f5f5f5;
+		h3 {
+			font-size: 16px !important;
+			font-weight: 600;
+		}
 	}
 
 }

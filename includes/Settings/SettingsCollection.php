@@ -23,49 +23,49 @@ class SettingsCollection {
 	 * @param string $schema the schema to look for.
 	 * @return array
 	 */
-	public function get_settings( $schema ) {
+	public static function get_settings( $schema ) {
 
 		$settings = [];
 
 		switch ( $schema ) {
 			case 'Article':
-				$settings = $this->get_article_settings();
+				$settings = self::get_article_settings();
 				break;
 			case 'Book':
-				$settings = $this->get_book_settings();
+				$settings = self::get_book_settings();
 				break;
 			case 'Course':
-				$settings = $this->get_course_settings();
+				$settings = self::get_course_settings();
 				break;
 			case 'Event':
-				$settings = $this->get_event_settings();
+				$settings = self::get_event_settings();
 				break;
 			case 'JobPosting':
-				$settings = $this->get_job_settings();
+				$settings = self::get_job_settings();
 				break;
 			case 'LocalBusiness':
-				$settings = $this->get_place_settings();
+				$settings = self::get_place_settings();
 				break;
 			case 'Review':
-				$settings = $this->get_review_settings();
+				$settings = self::get_review_settings();
 				break;
 			case 'Person':
-				$settings = $this->get_person_settings();
+				$settings = self::get_person_settings();
 				break;
 			case 'Product':
-				$settings = $this->get_product_settings();
+				$settings = self::get_product_settings();
 				break;
 			case 'Recipe':
-				$settings = $this->get_recipe_settings();
+				$settings = self::get_recipe_settings();
 				break;
 			case 'Service':
-				$settings = $this->get_service_settings();
+				$settings = self::get_service_settings();
 				break;
 			case 'SoftwareApplication':
-				$settings = $this->get_software_settings();
+				$settings = self::get_software_settings();
 				break;
 			case 'VideoObject':
-				$settings = $this->get_video_settings();
+				$settings = self::get_video_settings();
 				break;
 		}
 

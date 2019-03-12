@@ -8,6 +8,9 @@
  * @since       0.1.0
  */
 
+use PNO\SchemaOrg\Settings;
+use PNO\SchemaOrg\Settings\SettingsCollection;
+
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
@@ -262,15 +265,21 @@ function pno_ajax_get_schema_properties() {
 		wp_die( $general_message, 403 ); //phpcs:ignore
 	}
 
-	$schemas = isset( $_GET['schema'] ) && is_array( $_GET['schema'] ) && ! empty( $_GET['schema'] ) ? array_map( 'sanitize_text_field', $_GET['schema'] ) : false;
+	$schema = isset( $_GET['schema'] ) && ! empty( $_GET['schema'] ) ? sanitize_text_field( $_GET['schema'] ) : false;
 
-	$properties = pno_get_schema_properties( $schemas );
+	if ( $schema ) {
 
-	wp_send_json_success(
-		[
-			'props' => $properties,
-		]
-	);
+		$properties = SettingsCollection::get_settings( $schema );
+
+		wp_send_json_success(
+			[
+				'props' => $properties,
+			]
+		);
+
+	} else {
+		wp_die( $general_message, 403 ); //phpcs:ignore
+	}
 
 }
 add_action( 'wp_ajax_pno_get_schema_properties', 'pno_ajax_get_schema_properties' );

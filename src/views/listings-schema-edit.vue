@@ -62,6 +62,19 @@
 								</div>
 							</div>
 
+							<div class="carbon-container carbon-container-post_meta">
+								<div class="carbon-field has-width" style="flex-basis: 33.33%;" v-for="(item, index) in properties" :key="index">
+									<div class="field-holder">
+										<label>
+											{{item.label}}
+										</label>
+										<div class="carbon-field-group-holder">
+											<Select2 v-model="item.value" :options="availableListingFields" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.field, multiple: false }" />
+										</div>
+									</div>
+								</div>
+							</div>
+
 						</fieldset>
 
 					</wp-metabox>
@@ -252,6 +265,7 @@ export default {
 					}
 
 					this.loadPrimarySchemaChildren()
+					this.loadSchemaPropSettings()
 
 				} else {
 
@@ -338,6 +352,7 @@ export default {
 		*/
 		detectMainSchemaChange( event ) {
 			this.loadPrimarySchemaChildren()
+			this.loadSchemaPropSettings()
 		},
 
 		/**
@@ -471,9 +486,9 @@ export default {
 			this.propertiesLoading = true
 
 			const configParams = {
-				nonce: pno_schema_editor.settingsSchemaNonce,
-				action: 'pno_get_schema_settings',
-				schema: text,
+				nonce: pno_schema_editor.propertiesSchemaNonce,
+				action: 'pno_get_schema_properties',
+				schema: this.schema.name,
 			}
 
 			axios.get( pno_schema_editor.ajax, {
@@ -482,6 +497,10 @@ export default {
 			.then( response => {
 
 				this.propertiesLoading = false
+
+				if ( typeof(response.data.data.props) !== 'undefined' && response.data.data.props !== null ) {
+					this.properties = response.data.data.props
+				}
 
 			})
 			.catch( error => {
@@ -528,7 +547,6 @@ export default {
 	}
 
 	.carbon-field {
-		border-right:none;
 		&.first-row {
 			border-top: 0;
 		}

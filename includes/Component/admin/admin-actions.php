@@ -191,12 +191,16 @@ function pno_ajax_get_listing_schema() {
 			$name = get_post_meta( $schema_id, 'schema_name', true );
 
 			$details = [
-				'name'          => $name,
-				'mode'          => get_post_meta( $schema_id, 'schema_mode', true ),
-				'id'            => $schema_id,
-				'title'         => get_the_title(),
-				'listing_types' => get_post_meta( $schema_id, 'schema_listing_types', true ),
-				'schema_url'    => pno_get_schema_url( $name ),
+				'name'             => $name,
+				'mode'             => get_post_meta( $schema_id, 'schema_mode', true ),
+				'id'               => $schema_id,
+				'title'            => get_the_title(),
+				'listing_types'    => get_post_meta( $schema_id, 'schema_listing_types', true ),
+				'primary_schema'   => get_post_meta( $schema_id, 'schema_optional_type_1', true ),
+				'secondary_schema' => get_post_meta( $schema_id, 'schema_optional_type_2', true ),
+				'tertiary_schema'  => get_post_meta( $schema_id, 'schema_optional_type_3', true ),
+				'properties'       => get_post_meta( $schema_id, 'schema_properties', true ),
+				'schema_url'       => pno_get_schema_url( $name ),
 			];
 
 		}

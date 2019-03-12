@@ -65,7 +65,7 @@
 							<div class="carbon-container carbon-container-post_meta">
 								<div class="carbon-field carbon-separator">
 									<div class="field-holder">
-										<h3>{{labels.schema_edit.properties}}</h3>
+										<h3>{{labels.schema_edit.properties}} - <a :href="schema.url" target="_blank">{{labels.schema_edit.schema_url}}</a></h3>
 									</div>
 								</div>
 								<div class="carbon-field has-width" style="flex-basis: 33.33%;" v-for="(item, index) in properties" :key="index">
@@ -196,6 +196,7 @@ export default {
 				primarySchemaChildren: '',
 				secondarySchemaChildren: '',
 				tertiarySchemaChildren: '',
+				url: '',
 			},
 			isError: false,
 			isSuccess: false,
@@ -268,6 +269,7 @@ export default {
 						mode: response.data.data.mode,
 						listing_types: response.data.data.listing_types,
 						title: response.data.data.title,
+						url: response.data.data.schema_url,
 					}
 
 					this.loadPrimarySchemaChildren()
@@ -578,6 +580,10 @@ export default {
 		h3 {
 			font-size: 16px !important;
 			font-weight: 600;
+
+			a, span {
+				font-size: 14px;
+			}
 		}
 	}
 

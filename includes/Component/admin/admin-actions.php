@@ -186,12 +186,15 @@ function pno_ajax_get_listing_schema() {
 
 			$schema->the_post();
 
+			$name = get_post_meta( $schema_id, 'schema_name', true );
+
 			$details = [
-				'name'          => get_post_meta( $schema_id, 'schema_name', true ),
+				'name'          => $name,
 				'mode'          => get_post_meta( $schema_id, 'schema_mode', true ),
 				'id'            => $schema_id,
 				'title'         => get_the_title(),
 				'listing_types' => get_post_meta( $schema_id, 'schema_listing_types', true ),
+				'schema_url'    => pno_get_schema_url( $name ),
 			];
 
 		}

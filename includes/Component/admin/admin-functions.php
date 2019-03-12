@@ -127,3 +127,37 @@ function pno_get_allowed_schemas() {
 	return $list;
 
 }
+
+/**
+ * Retrieve an helper link for a given schema.
+ *
+ * @param string $schema the schema for which to retrieve the url.
+ * @return string
+ */
+function pno_get_schema_url( $schema ) {
+
+	$urls = [
+		'Article'             => 'https://developers.google.com/search/docs/data-types/article',
+		'Book'                => 'https://developers.google.com/search/docs/data-types/book',
+		'Course'              => 'https://developers.google.com/search/docs/data-types/course',
+		'Event'               => 'https://developers.google.com/search/docs/data-types/event',
+		'JobPosting'          => 'https://developers.google.com/search/docs/data-types/job-posting',
+		'LocalBusiness'       => 'https://developers.google.com/search/docs/data-types/local-business',
+		'Review'              => 'https://developers.google.com/search/docs/data-types/review-snippet',
+		'Person'              => 'https://schema.org/Person',
+		'Product'             => 'https://developers.google.com/search/docs/data-types/product',
+		'Recipe'              => 'https://developers.google.com/search/docs/data-types/recipe',
+		'Service'             => 'https://schema.org/Service',
+		'SoftwareApplication' => 'https://developers.google.com/search/docs/data-types/software-app',
+		'VideoObject'         => 'https://developers.google.com/search/docs/data-types/video',
+	];
+
+	$url = false;
+
+	if ( isset( $urls[ $schema ] ) ) {
+		$url = $urls[ $schema ];
+	}
+
+	return $url;
+
+}

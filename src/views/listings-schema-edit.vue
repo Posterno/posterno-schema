@@ -67,6 +67,7 @@
 									<div class="field-holder">
 										<label>
 											{{item.label}}
+											<span v-if="item.required" class="required">*</span>
 										</label>
 										<div class="carbon-field-group-holder">
 											<Select2 v-model="item.value" :options="availableListingFields" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.field, multiple: false }" />

@@ -335,3 +335,23 @@ function pno_ajax_get_schema_listings_fields() {
 
 }
 add_action( 'wp_ajax_pno_get_schema_listings_fields', 'pno_ajax_get_schema_listings_fields' );
+
+/**
+ * Save listing schema in the database.
+ *
+ * @return void
+ */
+function pno_ajax_save_listing_schema() {
+
+	check_ajax_referer( 'pno_save_listing_schema', 'nonce' );
+
+	$general_message = esc_html__( 'Something went wrong: could not save listing schema.' );
+
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( $general_message, 403 ); //phpcs:ignore
+	}
+
+	wp_send_json_success();
+
+}
+add_action( 'wp_ajax_pno_save_listing_schema', 'pno_ajax_save_listing_schema' );

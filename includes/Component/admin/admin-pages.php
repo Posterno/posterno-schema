@@ -52,6 +52,7 @@ function pno_get_schema_editor_js_vars() {
 		'childSchemaNonce'         => wp_create_nonce( 'pno_get_child_schema' ),
 		'propertiesSchemaNonce'    => wp_create_nonce( 'pno_get_schema_properties' ),
 		'listingFieldsSchemaNonce' => wp_create_nonce( 'pno_get_schema_listings_fields' ),
+		'saveListingSchemaNonce'   => wp_create_nonce( 'pno_save_listing_schema' ),
 		'listing_types'            => pno_get_listings_types_for_association(),
 		'labels'                   => [
 			'documentation'  => esc_html__( 'Documentation', 'posterno' ),
@@ -116,6 +117,7 @@ function pno_get_schema_editor_js_vars() {
 				'properties'      => esc_html__( 'Properties' ),
 				'schema_url'      => esc_html__( 'Read guidelines for this schema' ),
 				'cf'              => esc_html__( 'Custom fields' ),
+				'saved' => esc_html__( 'Schema successfully saved.' ),
 			],
 		],
 	];

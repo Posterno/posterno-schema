@@ -137,7 +137,8 @@
 									<wp-button :disabled="! canPerformAction()">{{labels.table.delete}}</wp-button>
 								</div>
 								<div id="publishing-action">
-									<wp-button type="primary" :disabled="! canPerformAction()">{{labels.table.save}}</wp-button>
+									<wp-spinner v-if="saving"></wp-spinner>
+									<wp-button type="primary" :disabled="! canPerformAction()" @click="saveSchema()">{{labels.table.save}}</wp-button>
 								</div>
 								<div class="clear"></div>
 							</div>
@@ -202,6 +203,7 @@ export default {
 			isSuccess: false,
 			statusMessage: '',
 			propertiesLoading: false,
+			saving: false,
 			availableSchemas: [],
 			availableListingTypes: [],
 			availableListingFields: [],
@@ -220,11 +222,10 @@ export default {
 		 * Display an error message within the app.
 		 */
 		showError( message = false ) {
-
 			this.isError = true
 			this.isSuccess = false
 			this.statusMessage = message
-
+			this.resetMessages()
 		},
 
 		/**
@@ -303,6 +304,8 @@ export default {
 			let pass = true
 
 			if ( this.propertiesLoading === true ) {
+				pass = false
+			} else if ( this.saving === true ) {
 				pass = false
 			}
 
@@ -545,6 +548,71 @@ export default {
 			.catch( error => {
 
 				this.propertiesLoading = false
+
+				if ( typeof(error.response) !== 'undefined' && typeof(error.response.data) !== 'undefined' ) {
+					this.showError( error.response.data )
+				} else if ( typeof(error.message) !== 'undefined' ) {
+					this.showError( error.message )
+				}
+			})
+
+		},
+
+		/**
+		 * Show success messsage.
+		 */
+		showSuccess( message ) {
+			this.isError = false
+			this.isSuccess = true
+			this.statusMessage = message
+			this.resetMessages()
+		},
+
+		/**
+		 * Automatically hide the admin notice after 4 seconds.
+		 */
+		resetMessages() {
+			let self = this
+			setInterval(function() {
+				self.isError = false
+				self.isSuccess = false
+				self.statusMessage = ''
+			}, 4000)
+		},
+
+		/**
+		 * Save schema settings in the database.
+		 */
+		saveSchema() {
+
+			this.saving = true
+
+			axios.post( pno_schema_editor.ajax,
+				qs.stringify({
+					nonce: pno_schema_editor.saveListingSchemaNonce,
+				}),
+				{
+					params: {
+						action: 'pno_save_listing_schema',
+					},
+				}
+			)
+			.then( response => {
+
+				this.saving = false
+
+				if ( response.data.success === true ) {
+
+					this.showSuccess( this.labels.schema_edit.saved )
+
+				}
+
+				console.log(response)
+
+			})
+			.catch( error => {
+
+				this.saving = false
 
 				if ( typeof(error.response) !== 'undefined' && typeof(error.response.data) !== 'undefined' ) {
 					this.showError( error.response.data )

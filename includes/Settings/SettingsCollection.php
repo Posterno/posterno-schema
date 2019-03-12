@@ -1079,16 +1079,16 @@ class SettingsCollection {
 				'required' => true,
 			),
 			'location_locality' => array(
-				'label'   => esc_html__( 'Locality' ),
-				'type'    => 'text',
+				'label' => esc_html__( 'Locality' ),
+				'type'  => 'text',
 			),
 			'location_region'   => array(
-				'label'   => esc_html__( 'Region' ),
-				'type'    => 'text',
+				'label' => esc_html__( 'Region' ),
+				'type'  => 'text',
 			),
 			'location_street'   => array(
-				'label'   => esc_html__( 'Street Address' ),
-				'type'    => 'text',
+				'label' => esc_html__( 'Street Address' ),
+				'type'  => 'text',
 			),
 			'location_image'    => array(
 				'label'    => esc_html__( 'Location Image' ),
@@ -1096,20 +1096,20 @@ class SettingsCollection {
 				'required' => true,
 			),
 			'telephone'         => array(
-				'label'   => esc_html__( 'Telephone' ),
-				'type'    => 'tel',
+				'label' => esc_html__( 'Telephone' ),
+				'type'  => 'tel',
 			),
 			'price_range'       => array(
-				'label'   => esc_html__( 'Price Range' ),
-				'type'    => 'text',
+				'label' => esc_html__( 'Price Range' ),
+				'type'  => 'text',
 			),
 			'rating'            => array(
-				'label'   => esc_html__( 'Rating' ),
-				'type'    => 'rating',
+				'label' => esc_html__( 'Rating' ),
+				'type'  => 'rating',
 			),
 			'review_count'      => array(
-				'label'   => esc_html__( 'Review Count' ),
-				'type'    => 'number',
+				'label' => esc_html__( 'Review Count' ),
+				'type'  => 'number',
 			),
 		];
 
@@ -1167,8 +1167,8 @@ class SettingsCollection {
 				'default' => 'accept_user_rating',
 			),
 			'review_count'     => array(
-				'label'   => esc_html__( 'Review Count' ),
-				'type'    => 'number',
+				'label' => esc_html__( 'Review Count' ),
+				'type'  => 'number',
 			),
 		];
 
@@ -1214,16 +1214,16 @@ class SettingsCollection {
 				'required' => true,
 			),
 			'content_url'       => array(
-				'label'   => esc_html__( 'Content URL' ),
-				'type'    => 'text',
+				'label' => esc_html__( 'Content URL' ),
+				'type'  => 'text',
 			),
 			'embed_url'         => array(
-				'label'   => esc_html__( 'Embed URL' ),
-				'type'    => 'text',
+				'label' => esc_html__( 'Embed URL' ),
+				'type'  => 'text',
 			),
 			'duration'          => array(
-				'label'   => esc_html__( 'Duration' ),
-				'type'    => 'time_duration',
+				'label' => esc_html__( 'Duration' ),
+				'type'  => 'time_duration',
 			),
 			'upload_date'       => array(
 				'label'    => esc_html__( 'Upload Date' ),
@@ -1232,16 +1232,48 @@ class SettingsCollection {
 				'required' => true,
 			),
 			'expires_date'      => array(
-				'label'   => esc_html__( 'Expires On' ),
-				'type'    => 'date',
+				'label' => esc_html__( 'Expires On' ),
+				'type'  => 'date',
 			),
 			'interaction_count' => array(
-				'label'   => esc_html__( 'Interaction Count' ),
-				'type'    => 'number',
+				'label' => esc_html__( 'Interaction Count' ),
+				'type'  => 'number',
 			),
 		];
 
 		return $settings;
+
+	}
+
+	/**
+	 * Get additional settings that belong to listing post meta and site details.
+	 *
+	 * @return array
+	 */
+	public function get_meta_settings() {
+
+		$meta = [
+			'site'         => [
+				'label'    => esc_html__( 'Site details' ),
+				'settings' => [
+					'site_title' => esc_html__( 'Site title' ),
+					'site_url'   => esc_html__( 'Site URL' ),
+				],
+			],
+			'listing_meta' => [
+				'label'    => esc_html__( 'Other listing details' ),
+				'settings' => [
+					'listing_url'               => esc_html__( 'Listing URL' ),
+					'listing_author_name'       => esc_html__( 'Listing author name' ),
+					'listing_author_first_name' => esc_html__( 'Listing author first name' ),
+					'listing_author_last_name'  => esc_html__( 'Listing author last name' ),
+					'listing_publish_date'      => esc_html__( 'Listing publish date' ),
+					'listing_modified_date'     => esc_html__( 'Listing last modified date' ),
+				],
+			],
+		];
+
+		return $meta;
 
 	}
 

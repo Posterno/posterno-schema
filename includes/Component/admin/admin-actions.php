@@ -325,7 +325,14 @@ function pno_ajax_get_schema_listings_fields() {
 		}
 	}
 
-	wp_send_json_success( [ 'fields' => $fields ] );
+	$meta_fields = SettingsCollection::get_meta_settings();
+
+	wp_send_json_success(
+		[
+			'fields' => $fields,
+			'meta'   => $meta_fields,
+		]
+	);
 
 }
 add_action( 'wp_ajax_pno_get_schema_listings_fields', 'pno_ajax_get_schema_listings_fields' );

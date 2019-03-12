@@ -115,6 +115,7 @@ function pno_get_schema_editor_js_vars() {
 				'additional_type' => esc_html__( 'Select optional additional type' ),
 				'properties'      => esc_html__( 'Properties' ),
 				'schema_url'      => esc_html__( 'Read guidelines for this schema' ),
+				'cf'              => esc_html__( 'Custom fields' ),
 			],
 		],
 	];

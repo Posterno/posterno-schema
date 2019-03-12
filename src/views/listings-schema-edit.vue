@@ -466,8 +466,38 @@ export default {
 				this.propertiesLoading = false
 
 				if ( typeof(response.data.data.fields) !== 'undefined' && response.data.data.fields !== null ) {
+
+					let mainChilds = []
+
+					let cfBlock = {
+						id: 0,
+						text: this.labels.schema_edit.cf,
+						children: mainChilds
+					}
+
 					Object.keys( response.data.data.fields ).forEach( key => {
-						this.availableListingFields.push( { id: key, text: response.data.data.fields[ key ].name } )
+						mainChilds.push( { id: key, text: response.data.data.fields[ key ].name } )
+					});
+
+					this.availableListingFields.push( cfBlock )
+
+				}
+
+				if ( typeof(response.data.data.meta) !== 'undefined' && response.data.data.meta !== null ) {
+					Object.keys( response.data.data.meta ).forEach( key => {
+						let childs = []
+						Object.keys( response.data.data.meta[ key ].settings ).forEach( settingkey => {
+							childs.push({
+								id: settingkey,
+								text: response.data.data.meta[ key ].settings[ settingkey ],
+							})
+						})
+						let metaBlock = {
+							id: key,
+							text: response.data.data.meta[ key ].label,
+							children: childs
+						}
+						this.availableListingFields.push( metaBlock )
 					});
 				}
 

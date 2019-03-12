@@ -100,3 +100,30 @@ function pno_get_schema_properties( $schema = [] ) {
 	return $schema_properties;
 
 }
+
+/**
+ * Retrieve the list of schemas allowed to be used.
+ *
+ * @return array
+ */
+function pno_get_allowed_schemas() {
+
+	$list = [
+		'Article',
+		'Book',
+		'Course',
+		'Event',
+		'JobPosting',
+		'LocalBusiness',
+		'Review',
+		'Person',
+		'Product',
+		'Recipe',
+		'Service',
+		'SoftwareApplication',
+		'VideoObject',
+	];
+
+	return $list;
+
+}

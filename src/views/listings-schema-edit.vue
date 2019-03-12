@@ -461,6 +461,40 @@ export default {
 
 			})
 
+		},
+
+		/**
+		 * Load setting for the selected schema.
+		 */
+		loadSchemaPropSettings() {
+
+			this.propertiesLoading = true
+
+			const configParams = {
+				nonce: pno_schema_editor.settingsSchemaNonce,
+				action: 'pno_get_schema_settings',
+				schema: text,
+			}
+
+			axios.get( pno_schema_editor.ajax, {
+				params: configParams
+			})
+			.then( response => {
+
+				this.propertiesLoading = false
+
+			})
+			.catch( error => {
+
+				this.propertiesLoading = false
+
+				if ( typeof(error.response) !== 'undefined' && typeof(error.response.data) !== 'undefined' ) {
+					this.showError( error.response.data )
+				} else if ( typeof(error.message) !== 'undefined' ) {
+					this.showError( error.message )
+				}
+			})
+
 		}
 
 	}

@@ -10,6 +10,8 @@
 
 use PNO\SchemaOrg\Settings\SettingsCollection;
 use PNO\SchemaOrg\Settings\SettingsValidator;
+use PNO\SchemaOrg\Settings\SettingsSanitizer;
+use PNO\SchemaOrg\Settings\SettingsStorage;
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
@@ -381,7 +383,15 @@ function pno_ajax_save_listing_schema() {
 			wp_die( $validation->get_error_message(), 403 ); //phpcs:ignore
 		}
 
-		wp_send_json_success();
+		$properties = SettingsSanitizer::sanitize( $properties );
+
+		$schema = SettingsStorage::save( $schema_id, $name, $mode, $title, $listing_types, $primary_schema, $secondary_schema, $tertiary_schema, $properties );
+
+		if ( is_wp_error( $schema ) ) {
+			wp_die( $schema->get_error_message(), 403 ); //phpcs:ignore
+		}
+
+		wp_send_json_success( $schema );
 
 	} else {
 		wp_die( $general_message, 403 ); //phpcs:ignore

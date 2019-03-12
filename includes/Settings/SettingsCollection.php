@@ -77,7 +77,7 @@ class SettingsCollection {
 	 *
 	 * @return array
 	 */
-	private function get_article_settings() {
+	private static function get_article_settings() {
 		$settings = [
 			'main_entity'      => array(
 				'label'   => esc_html__( 'URL' ),
@@ -149,7 +149,7 @@ class SettingsCollection {
 	 *
 	 * @return array
 	 */
-	private function get_book_settings() {
+	private static function get_book_settings() {
 		$settings = [
 			'name'         => array(
 				'label'    => esc_html__( 'Name' ),
@@ -248,7 +248,7 @@ class SettingsCollection {
 	 *
 	 * @return array
 	 */
-	private function get_course_settings() {
+	private static function get_course_settings() {
 
 		$settings = [
 			'name'             => array(
@@ -370,7 +370,7 @@ class SettingsCollection {
 	 *
 	 * @return array
 	 */
-	private function get_event_settings() {
+	private static function get_event_settings() {
 		$settings = [
 			'name'              => array(
 				'label'    => esc_html__( 'Name' ),
@@ -467,7 +467,7 @@ class SettingsCollection {
 	 *
 	 * @return array
 	 */
-	private function get_job_settings() {
+	private static function get_job_settings() {
 		$settings = [
 			'title'                   => array(
 				'label'    => esc_html__( 'Title' ),
@@ -595,7 +595,7 @@ class SettingsCollection {
 	 *
 	 * @return array
 	 */
-	private function get_place_settings() {
+	private static function get_place_settings() {
 
 		$settings = [
 			'name'                => array(
@@ -690,7 +690,7 @@ class SettingsCollection {
 	 *
 	 * @return array
 	 */
-	private function get_review_settings() {
+	private static function get_review_settings() {
 
 		$settings = [
 			'item'          => array(
@@ -734,7 +734,7 @@ class SettingsCollection {
 	 *
 	 * @return array
 	 */
-	private function get_person_settings() {
+	private static function get_person_settings() {
 
 		$settings = [
 			'name'         => array(
@@ -829,7 +829,7 @@ class SettingsCollection {
 	 *
 	 * @return array
 	 */
-	private function get_product_settings() {
+	private static function get_product_settings() {
 
 		$settings = [
 			'name'         => array(
@@ -895,7 +895,7 @@ class SettingsCollection {
 	 *
 	 * @return array
 	 */
-	private function get_recipe_settings() {
+	private static function get_recipe_settings() {
 		$settings = [
 			'name'                => array(
 				'label'    => esc_html__( 'Name' ),
@@ -1044,7 +1044,7 @@ class SettingsCollection {
 	 *
 	 * @return array
 	 */
-	private function get_service_settings() {
+	private static function get_service_settings() {
 		$settings = [
 			'name'              => array(
 				'label'    => esc_html__( 'Name' ),
@@ -1121,7 +1121,7 @@ class SettingsCollection {
 	 *
 	 * @return array
 	 */
-	private function get_software_settings() {
+	private static function get_software_settings() {
 		$settings = [
 			'name'             => array(
 				'label'    => esc_html__( 'Name' ),
@@ -1180,7 +1180,7 @@ class SettingsCollection {
 	 *
 	 * @return array
 	 */
-	private function get_video_settings() {
+	private static function get_video_settings() {
 
 		$settings = [
 			'name'              => array(

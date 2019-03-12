@@ -270,6 +270,9 @@ export default {
 						listing_types: response.data.data.listing_types,
 						title: response.data.data.title,
 						url: response.data.data.schema_url,
+						primarySchemaChildren: response.data.data.primary_schema,
+						secondarySchemaChildren: response.data.data.secondary_schema,
+						tertiarySchemaChildren: response.data.data.tertiary_schema,
 					}
 
 					this.loadPrimarySchemaChildren()
@@ -322,9 +325,6 @@ export default {
 			this.primarySchemaChildren = []
 			this.secondarySchemaChildren = []
 			this.tertiarySchemaChildren = []
-			this.schema.primarySchemaChildren = null
-			this.schema.secondarySchemaChildren = null
-			this.schema.tertiarySchemaChildren = null
 
 			const configParams = {
 				nonce: pno_schema_editor.childSchemaNonce,

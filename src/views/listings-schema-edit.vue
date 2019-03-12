@@ -590,6 +590,9 @@ export default {
 			axios.post( pno_schema_editor.ajax,
 				qs.stringify({
 					nonce: pno_schema_editor.saveListingSchemaNonce,
+					post_id: this.schemaID,
+					schema: this.schema,
+					properties: this.properties
 				}),
 				{
 					params: {
@@ -602,12 +605,8 @@ export default {
 				this.saving = false
 
 				if ( response.data.success === true ) {
-
 					this.showSuccess( this.labels.schema_edit.saved )
-
 				}
-
-				console.log(response)
 
 			})
 			.catch( error => {

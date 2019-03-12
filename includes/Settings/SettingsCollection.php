@@ -1250,7 +1250,7 @@ class SettingsCollection {
 	 *
 	 * @return array
 	 */
-	public function get_meta_settings() {
+	public static function get_meta_settings() {
 
 		$meta = [
 			'site'         => [

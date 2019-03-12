@@ -495,6 +495,7 @@ export default {
 				nonce: pno_schema_editor.propertiesSchemaNonce,
 				action: 'pno_get_schema_properties',
 				schema: this.schema.name,
+				post_id: this.schemaID,
 			}
 
 			axios.get( pno_schema_editor.ajax, {

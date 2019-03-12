@@ -8,7 +8,6 @@
  * @since       0.1.0
  */
 
-use PNO\SchemaOrg\Settings;
 use PNO\SchemaOrg\Settings\SettingsCollection;
 
 // Exit if accessed directly.

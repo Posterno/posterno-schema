@@ -403,3 +403,33 @@ function pno_ajax_save_listing_schema() {
 
 }
 add_action( 'wp_ajax_pno_save_listing_schema', 'pno_ajax_save_listing_schema' );
+
+/**
+ * Delete a given schema from the database.
+ *
+ * @return void
+ */
+function pno_ajax_delete_schema() {
+
+	check_ajax_referer( 'pno_delete_schema', 'nonce' );
+
+	$general_message = esc_html__( 'Something went wrong: could not delete schema.' );
+
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( $general_message, 403 ); //phpcs:ignore
+	}
+
+	$schema = isset( $_POST['schema'] ) && ! empty( $_POST['schema'] ) ? absint( $_POST['schema'] ) : false;
+
+	if ( $schema ) {
+
+		wp_delete_post( $schema, true );
+
+		wp_send_json_success();
+
+	} else {
+		wp_die( $general_message, 403 ); //phpcs:ignore
+	}
+
+}
+add_action( 'wp_ajax_pno_delete_schema', 'pno_ajax_delete_schema' );

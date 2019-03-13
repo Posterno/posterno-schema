@@ -128,7 +128,7 @@
 								<div id="delete-action">
 									<popper
 										trigger="click"
-										append-to-body="true"
+										:append-to-body="true"
 										:options="{
 										placement: 'left',
 										modifiers: { offset: { offset: '0,10px' } }
@@ -355,9 +355,9 @@ export default {
 
 				this.schemaLoading = false
 
-				if ( error.response.data ) {
+				if ( typeof(error.response) !== 'undefined' && typeof(error.response.data) !== 'undefined' ) {
 					this.showError( error.response.data )
-				} else {
+				} else if ( typeof(error.message) !== 'undefined' ) {
 					this.showError( error.message )
 				}
 			})

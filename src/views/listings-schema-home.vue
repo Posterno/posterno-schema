@@ -8,6 +8,8 @@
 
 			<wp-notice type="error" v-if="isError" dismissible>{{statusMessage}}</wp-notice>
 
+			<wp-notice type="success" v-if="isSuccess" dismissible>{{statusMessage}}</wp-notice>
+
 			<router-link to="/add" class="button-primary">{{labels.add}}</router-link>
 
 			<table class="wp-list-table widefat fixed striped">
@@ -20,7 +22,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr v-for="(schema, key) in schemas" :key="key">
+					<tr v-for="(schema, key) in schemas" :key="key" v-if="! loading">
 						<td class="column-primary" :data-colname="labels.table.name">
 							<router-link :to="{ name: 'edit', params: {id: schema.id } }">{{schema.name}}</router-link>
 							<button type="button" class="toggle-row"></button>
@@ -38,12 +40,15 @@
 								:options="{
 								placement: 'top',
 								modifiers: { offset: { offset: '0,10px' } }
-								}">
+								}"
+								@show="toggleDeleteBtn($event)"
+								@hide="toggleDeleteBtn($event)"
+								>
 								<div class="popper schema-delete">
-									<p>{{labels.schema_edit.confirm_delete}} <wp-button type="primary">{{labels.table.delete}}</wp-button></p>
+									<p>{{labels.schema_edit.confirm_delete}} <wp-button type="primary" @click="deleteSchema( schema.id )">{{labels.table.delete}}</wp-button></p>
 								</div>
 
-								<wp-button slot="reference">{{labels.table.delete}}</wp-button>
+								<wp-button slot="reference" :disabled="! canDelete">{{labels.table.delete}}</wp-button>
 							</popper>
 						</td>
 					</tr>
@@ -66,9 +71,10 @@
 
 <script>
 import axios from 'axios'
+import qs from 'qs'
 import AdminHeader from '../components/pno-admin-header'
-import Popper from 'vue-popperjs';
-import 'vue-popperjs/dist/vue-popper.css';
+import Popper from 'vue-popperjs'
+import 'vue-popperjs/dist/vue-popper.css'
 
 export default {
 	name: 'listings-schema-editor',
@@ -94,7 +100,10 @@ export default {
 			loading: false,
 			schemas: [],
 			isError: false,
+			isSuccess: false,
 			statusMessage: '',
+			canDelete: true,
+			deleting: false,
 		}
 	},
 	methods: {
@@ -106,6 +115,19 @@ export default {
 
 			this.loading = false
 			this.isError = true
+			this.isSuccess = false
+			this.statusMessage = message
+
+		},
+
+		/**
+		 * Show success message.
+		*/
+		showSuccess( message = false ) {
+
+			this.loading = false
+			this.isError = false
+			this.isSuccess = true
 			this.statusMessage = message
 
 		},
@@ -116,6 +138,7 @@ export default {
 		loadSchemas() {
 
 			this.loading = true
+			this.schemas = [];
 
 			const configParams = {
 				nonce: pno_schema_editor.getSchemasNonce,
@@ -140,6 +163,48 @@ export default {
 				if ( error.response.data ) {
 					this.showError( error.response.data )
 				} else {
+					this.showError( error.message )
+				}
+			})
+
+		},
+
+		/**
+		 * Toggle the disabled status of the delete button within the table row.
+		*/
+		toggleDeleteBtn( event ) {
+			this.canDelete = !this.canDelete
+		},
+
+		/**
+		 * Delete a schema from the database then reload the table.
+		*/
+		deleteSchema( schema ) {
+
+			this.loading = true
+
+			axios.post( pno_schema_editor.ajax,
+				qs.stringify({
+					nonce: pno_schema_editor.deleteSchemaNonce,
+					schema: schema,
+				}),
+				{
+					params: {
+						action: 'pno_delete_schema',
+					},
+				}
+			)
+			.then( response => {
+
+				this.toggleDeleteBtn()
+				this.showSuccess( this.labels.schema_edit.deleted_message )
+				this.loadSchemas()
+
+			})
+			.catch( error => {
+				if ( typeof(error.response) !== 'undefined' && typeof(error.response.data) !== 'undefined' ) {
+					this.showError( error.response.data )
+				} else if ( typeof(error.message) !== 'undefined' ) {
 					this.showError( error.message )
 				}
 			})

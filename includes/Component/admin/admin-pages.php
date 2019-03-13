@@ -53,6 +53,7 @@ function pno_get_schema_editor_js_vars() {
 		'propertiesSchemaNonce'    => wp_create_nonce( 'pno_get_schema_properties' ),
 		'listingFieldsSchemaNonce' => wp_create_nonce( 'pno_get_schema_listings_fields' ),
 		'saveListingSchemaNonce'   => wp_create_nonce( 'pno_save_listing_schema' ),
+		'deleteSchemaNonce'        => wp_create_nonce( 'pno_delete_schema' ),
 		'listing_types'            => pno_get_listings_types_for_association(),
 		'labels'                   => [
 			'documentation'  => esc_html__( 'Documentation', 'posterno' ),
@@ -119,6 +120,7 @@ function pno_get_schema_editor_js_vars() {
 				'cf'              => esc_html__( 'Custom fields' ),
 				'saved'           => esc_html__( 'Schema successfully saved.' ),
 				'confirm_delete'  => esc_html__( 'Are you sure you want to delete this schema?' ),
+				'deleted_message' => esc_html__( 'Schema successfully deleted.' ),
 			],
 		],
 	];

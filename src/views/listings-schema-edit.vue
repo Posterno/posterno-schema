@@ -22,7 +22,7 @@
 					</div>
 				</wp-col>
 
-				<wp-col :span="19">
+				<wp-col :sm="24" :lg="19">
 
 					<wp-metabox :title="labels.schema_edit.title">
 
@@ -90,7 +90,7 @@
 
 				</wp-col>
 
-				<wp-col :span="5">
+				<wp-col :sm="24" :lg="5">
 
 					<wp-metabox :title="labels.schema_edit.title_edit">
 

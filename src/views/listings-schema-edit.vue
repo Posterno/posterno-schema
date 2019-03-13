@@ -26,9 +26,9 @@
 
 					<wp-metabox :title="labels.schema_edit.title">
 
-						<wp-spinner class="properties-spinner" v-if="propertiesLoading"></wp-spinner>
+						<wp-spinner class="properties-spinner" v-if="schemaLoading"></wp-spinner>
 
-						<fieldset class="container-holder carbon-grid carbon-fields-collection schema-settings" v-if="canPerformAction()">
+						<fieldset class="container-holder carbon-grid carbon-fields-collection schema-settings" v-if="canPerformAction() || saving">
 							<div class="carbon-container carbon-container-post_meta">
 								<div class="carbon-field has-width first-row" style="flex-basis: 33%;">
 									<div class="field-holder">
@@ -36,7 +36,7 @@
 											{{labels.schema_edit.primary_label}}
 										</label>
 										<div class="carbon-field-group-holder">
-											<Select2 v-model="schema.primarySchemaChildren" :options="primarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.additional_type, multiple: false }" @select="loadSecondaryChildren($event)"/>
+											<Select2 v-model="schema.primarySchemaChildren" :options="primarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.additional_type, multiple: false }"/>
 										</div>
 									</div>
 								</div>
@@ -46,7 +46,7 @@
 											{{labels.schema_edit.secondary_label}}
 										</label>
 										<div class="carbon-field-group-holder">
-											<Select2 v-model="schema.secondarySchemaChildren" :options="secondarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.additional_type, multiple: false }" @select="loadTertiaryChildren($event)"/>
+											<Select2 v-model="schema.secondarySchemaChildren" :options="secondarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.additional_type, multiple: false }" />
 										</div>
 									</div>
 								</div>
@@ -65,9 +65,12 @@
 							<div class="carbon-container carbon-container-post_meta">
 								<div class="carbon-field carbon-separator">
 									<div class="field-holder">
-										<h3>{{labels.schema_edit.properties}} - <a :href="schema.url" target="_blank">{{labels.schema_edit.schema_url}}</a></h3>
+										<h3>{{this.schema.name}} - {{labels.schema_edit.properties}} - <a :href="schema.url" target="_blank">{{labels.schema_edit.schema_url}}</a></h3>
 									</div>
 								</div>
+
+								<wp-spinner class="properties-spinner" v-if="propertiesLoading"></wp-spinner>
+
 								<div class="carbon-field has-width" style="flex-basis: 33.33%;" v-for="(item, index) in properties" :key="index">
 									<div class="field-holder">
 										<label>
@@ -102,17 +105,6 @@
 											<div class="carbon-field-group-holder">
 												<label><input name="schema_position" v-model="schema.mode" type="radio" value="global" :disabled="! canPerformAction()" >{{labels.settings.where.global}}</label>
 												<label><input name="schema_position" v-model="schema.mode" type="radio" value="type" :disabled="! canPerformAction()" >{{labels.settings.where.type}}</label>
-											</div>
-										</div>
-									</div>
-
-									<div class="carbon-field carbon-select">
-										<label>{{labels.settings.schemas.label}}</label>
-										<div class="field-holder">
-											<div class="carbon-field-group-holder">
-												<select name="schemaName" v-model="schema.name" :disabled="! canPerformAction()" @change="detectMainSchemaChange($event)">
-													<option v-for="(schema, key) in availableSchemas" :key="key" :value="schema">{{schema}}</option>
-												</select>
 											</div>
 										</div>
 									</div>
@@ -203,6 +195,7 @@ export default {
 			isSuccess: false,
 			statusMessage: '',
 			propertiesLoading: false,
+			schemaLoading: false,
 			saving: false,
 			availableSchemas: [],
 			availableListingTypes: [],
@@ -249,7 +242,7 @@ export default {
 		*/
 		loadSchemaDetails() {
 
-			this.propertiesLoading = true
+			this.schemaLoading = true
 
 			const configParams = {
 				nonce: pno_schema_editor.editSchemaNonce,
@@ -261,6 +254,8 @@ export default {
 				params: configParams
 			})
 			.then( response => {
+
+				this.schemaLoading = false
 
 				if ( response.data.success === true ) {
 
@@ -278,16 +273,12 @@ export default {
 					this.loadPrimarySchemaChildren()
 					this.loadSchemaPropSettings()
 
-				} else {
-
-					this.propertiesLoading = false
-
 				}
 
 			})
 			.catch( error => {
 
-				this.propertiesLoading = false
+				this.schemaLoading = false
 
 				if ( error.response.data ) {
 					this.showError( error.response.data )
@@ -309,6 +300,8 @@ export default {
 				pass = false
 			} else if ( this.saving === true ) {
 				pass = false
+			} else if ( this.schemaLoading === true ) {
+				pass = false
 			}
 
 			return pass
@@ -320,8 +313,7 @@ export default {
 		*/
 		loadPrimarySchemaChildren() {
 
-			this.propertiesLoading = true
-			this.properties = [],
+			this.schemaLoading = true
 			this.primarySchemaChildren = []
 			this.secondarySchemaChildren = []
 			this.tertiarySchemaChildren = []
@@ -337,7 +329,7 @@ export default {
 			})
 			.then( response => {
 
-				this.propertiesLoading = false
+				this.schemaLoading = false
 
 				Object.keys( response.data.data.childs ).forEach( key => {
 					this.primarySchemaChildren.push( { id: response.data.data.childs[ key ].label, text: response.data.data.childs[ key ].label } )
@@ -346,7 +338,7 @@ export default {
 			})
 			.catch( error => {
 
-				this.propertiesLoading = false
+				this.schemaLoading = false
 
 				if ( error.response.data ) {
 					this.showError( error.response.data )
@@ -358,27 +350,18 @@ export default {
 		},
 
 		/**
-		 * When the primary schema changes, reload the child schema.
-		*/
-		detectMainSchemaChange( event ) {
-			this.loadPrimarySchemaChildren()
-			this.loadSchemaPropSettings()
-		},
-
-		/**
 		 * Load child schemas of the primary schema.
 		*/
-		loadSecondaryChildren( {id, text} ) {
+		loadSecondaryChildren( selectedSchema ) {
 
-			this.propertiesLoading = true
+			this.schemaLoading = true
 			this.secondarySchemaChildren = []
-			this.tertiarySchemaChildren = []
 			const vm = this
 
 			const configParams = {
 				nonce: pno_schema_editor.childSchemaNonce,
 				action: 'pno_get_child_schema',
-				schema: text,
+				schema: selectedSchema,
 			}
 
 			axios.get( pno_schema_editor.ajax, {
@@ -386,7 +369,7 @@ export default {
 			})
 			.then( response => {
 
-				this.propertiesLoading = false
+				this.schemaLoading = false
 
 				if ( typeof(response.data.data.childs) !== 'undefined' && response.data.data.childs !== null ) {
 					Object.keys( response.data.data.childs ).forEach( key => {
@@ -397,7 +380,7 @@ export default {
 			})
 			.catch( error => {
 
-				this.propertiesLoading = false
+				this.schemaLoading = false
 
 				if ( typeof(error.response) !== 'undefined' && typeof(error.response.data) !== 'undefined' ) {
 					this.showError( error.response.data )
@@ -411,15 +394,15 @@ export default {
 		/**
 		 * Load child schemas of the secondary schema.
 		 */
-		loadTertiaryChildren( {id, text} ) {
+		loadTertiaryChildren( selectedSchema ) {
 
-			this.propertiesLoading = true
+			this.schemaLoading = true
 			this.tertiarySchemaChildren = []
 
 			const configParams = {
 				nonce: pno_schema_editor.childSchemaNonce,
 				action: 'pno_get_child_schema',
-				schema: text,
+				schema: selectedSchema,
 			}
 
 			axios.get( pno_schema_editor.ajax, {
@@ -427,7 +410,7 @@ export default {
 			})
 			.then( response => {
 
-				this.propertiesLoading = false
+				this.schemaLoading = false
 
 				if ( typeof(response.data.data.childs) !== 'undefined' && response.data.data.childs !== null ) {
 					Object.keys( response.data.data.childs ).forEach( key => {
@@ -437,7 +420,7 @@ export default {
 			})
 			.catch( error => {
 
-				this.propertiesLoading = false
+				this.schemaLoading = false
 
 				if ( typeof(error.response) !== 'undefined' && typeof(error.response.data) !== 'undefined' ) {
 					this.showError( error.response.data )
@@ -524,6 +507,7 @@ export default {
 		loadSchemaPropSettings() {
 
 			this.propertiesLoading = true
+			this.properties = []
 
 			const configParams = {
 				nonce: pno_schema_editor.propertiesSchemaNonce,
@@ -621,6 +605,18 @@ export default {
 
 		}
 
+	},
+	watch: {
+		'schema.primarySchemaChildren': function (newVal, oldVal) {
+			if ( newVal ) {
+				this.loadSecondaryChildren( newVal )
+			}
+		},
+		'schema.secondarySchemaChildren': function (newVal, oldVal) {
+			if ( newVal ) {
+				this.loadTertiaryChildren( newVal )
+			}
+		},
 	}
 }
 </script>

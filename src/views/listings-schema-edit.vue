@@ -271,7 +271,7 @@ export default {
 					}
 
 					this.loadPrimarySchemaChildren()
-					this.loadSchemaPropSettings()
+					this.loadSchemaPropSettings( response.data.data.properties )
 
 				}
 
@@ -504,7 +504,7 @@ export default {
 		/**
 		 * Load setting for the selected schema.
 		 */
-		loadSchemaPropSettings() {
+		loadSchemaPropSettings( dbvalues = false ) {
 
 			this.propertiesLoading = true
 			this.properties = []
@@ -525,6 +525,19 @@ export default {
 
 				if ( typeof(response.data.data.props) !== 'undefined' && response.data.data.props !== null ) {
 					this.properties = response.data.data.props
+				}
+
+				if ( dbvalues ) {
+					Object.keys( dbvalues ).forEach( key => {
+
+						const propName = key
+						const propValue = dbvalues[key]
+
+						if ( typeof( this.properties[propName] ) !== 'undefined' && this.properties[propName] !== null ) {
+							this.properties[propName].value = propValue
+						}
+
+					});
 				}
 
 			})

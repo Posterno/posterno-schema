@@ -36,7 +36,7 @@ function pno_ajax_create_listing_schema() {
 	$schema = isset( $_POST['schema'] ) && ! empty( $_POST['schema'] ) ? sanitize_text_field( $_POST['schema'] ) : false;
 	$types  = isset( $_POST['types'] ) && is_array( $_POST['types'] ) ? array_map( 'absint', $_POST['types'] ) : [];
 
-	if ( in_array( $schema, pno_get_schema_list() ) && $mode ) {
+	if ( in_array( $schema, pno_get_allowed_schemas() ) && $mode ) {
 
 		$args = array(
 			'post_title'  => $schema,

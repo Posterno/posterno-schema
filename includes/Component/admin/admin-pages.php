@@ -117,7 +117,8 @@ function pno_get_schema_editor_js_vars() {
 				'properties'      => esc_html__( 'Properties' ),
 				'schema_url'      => esc_html__( 'Read guidelines for this schema' ),
 				'cf'              => esc_html__( 'Custom fields' ),
-				'saved' => esc_html__( 'Schema successfully saved.' ),
+				'saved'           => esc_html__( 'Schema successfully saved.' ),
+				'confirm_delete'  => esc_html__( 'Are you sure you want to delete this schema?' ),
 			],
 		],
 	];

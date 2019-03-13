@@ -33,7 +33,18 @@
 						</td>
 						<td :data-colname="labels.table.actions">
 							<router-link :to="{ name: 'edit', params: {id: schema.id } }" class="button">{{labels.table.edit}}</router-link>
-							<wp-button>{{labels.table.delete}}</wp-button>
+							<popper
+								trigger="click"
+								:options="{
+								placement: 'top',
+								modifiers: { offset: { offset: '0,10px' } }
+								}">
+								<div class="popper schema-delete">
+									<p>{{labels.schema_edit.confirm_delete}} <wp-button type="primary">{{labels.table.delete}}</wp-button></p>
+								</div>
+
+								<wp-button slot="reference">{{labels.table.delete}}</wp-button>
+							</popper>
 						</td>
 					</tr>
 					<tr class="no-items" v-if="schemas < 1 && ! loading">
@@ -56,11 +67,14 @@
 <script>
 import axios from 'axios'
 import AdminHeader from '../components/pno-admin-header'
+import Popper from 'vue-popperjs';
+import 'vue-popperjs/dist/vue-popper.css';
 
 export default {
 	name: 'listings-schema-editor',
 	components: {
-		AdminHeader
+		AdminHeader,
+		'popper': Popper
 	},
 	mounted() {
 

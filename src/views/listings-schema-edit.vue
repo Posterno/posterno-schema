@@ -126,7 +126,19 @@
 						<template v-slot:metabox-footer>
 							<div id="major-publishing-actions">
 								<div id="delete-action">
-									<wp-button :disabled="! canPerformAction()">{{labels.table.delete}}</wp-button>
+									<popper
+										trigger="click"
+										append-to-body="true"
+										:options="{
+										placement: 'left',
+										modifiers: { offset: { offset: '0,10px' } }
+										}">
+										<div class="popper schema-delete">
+											<p>{{labels.schema_edit.confirm_delete}} <wp-button type="primary">{{labels.table.delete}}</wp-button></p>
+										</div>
+
+										<wp-button :disabled="! canPerformAction()" slot="reference">{{labels.table.delete}}</wp-button>
+									</popper>
 								</div>
 								<div id="publishing-action">
 									<wp-spinner v-if="saving"></wp-spinner>
@@ -149,11 +161,14 @@
 import axios from 'axios'
 import qs from 'qs'
 import AdminHeader from '../components/pno-admin-header'
+import Popper from 'vue-popperjs';
+import 'vue-popperjs/dist/vue-popper.css';
 
 export default {
 	name: 'edit-listing-schema',
 	components: {
-		AdminHeader
+		AdminHeader,
+		'popper': Popper,
 	},
 	mounted() {
 

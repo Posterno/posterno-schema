@@ -132,12 +132,15 @@
 										:options="{
 										placement: 'left',
 										modifiers: { offset: { offset: '0,10px' } }
-										}">
+										}"
+										@show="toggleDeleteBtn($event)"
+										@hide="toggleDeleteBtn($event)"
+										>
 										<div class="popper schema-delete">
-											<p>{{labels.schema_edit.confirm_delete}} <wp-button type="primary">{{labels.table.delete}}</wp-button></p>
+											<p>{{labels.schema_edit.confirm_delete}} <wp-button type="primary" @click="deleteSchema()">{{labels.table.delete}}</wp-button></p>
 										</div>
 
-										<wp-button :disabled="! canPerformAction()" slot="reference">{{labels.table.delete}}</wp-button>
+										<wp-button :disabled="! canPerformAction() || ! canDelete" slot="reference">{{labels.table.delete}}</wp-button>
 									</popper>
 								</div>
 								<div id="publishing-action">
@@ -221,6 +224,9 @@ export default {
 			tertiarySchemaChildren: [],
 
 			properties: [],
+
+			canDelete: true,
+			deleting: false,
 
 		}
 	},
@@ -623,6 +629,51 @@ export default {
 			.catch( error => {
 
 				this.saving = false
+
+				if ( typeof(error.response) !== 'undefined' && typeof(error.response.data) !== 'undefined' ) {
+					this.showError( error.response.data )
+				} else if ( typeof(error.message) !== 'undefined' ) {
+					this.showError( error.message )
+				}
+			})
+
+		},
+
+		/**
+		 * Toggle the disabled status of the delete button within the table row.
+		*/
+		toggleDeleteBtn( event ) {
+			this.canDelete = !this.canDelete
+		},
+
+		/**
+		 * Delete a schema from the database then reload the table.
+		*/
+		deleteSchema() {
+
+			this.schemaLoading = true
+			this.propertiesLoading = true
+
+			axios.post( pno_schema_editor.ajax,
+				qs.stringify({
+					nonce: pno_schema_editor.deleteSchemaNonce,
+					schema: this.schemaID,
+				}),
+				{
+					params: {
+						action: 'pno_delete_schema',
+					},
+				}
+			)
+			.then( response => {
+
+				this.$router.push({ name: 'home', query: { deleted: true } })
+
+			})
+			.catch( error => {
+
+				this.schemaLoading = false
+				this.propertiesLoading = false
 
 				if ( typeof(error.response) !== 'undefined' && typeof(error.response.data) !== 'undefined' ) {
 					this.showError( error.response.data )

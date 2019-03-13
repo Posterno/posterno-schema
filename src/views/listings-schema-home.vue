@@ -84,7 +84,21 @@ export default {
 	},
 	mounted() {
 
+		const routerQuery = this.$route.query
+
 		this.loadSchemas()
+
+		if ( routerQuery.deleted ) {
+			this.showSuccess( this.labels.schema_edit.deleted_message )
+
+			this.$router.replace({
+				...this.$router.currentRoute,
+				query: {
+					deleted: undefined,
+				}
+			})
+
+		}
 
 	},
 	data() {

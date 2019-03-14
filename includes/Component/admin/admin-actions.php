@@ -381,18 +381,17 @@ function pno_ajax_save_listing_schema() {
 			wp_die( esc_html__( 'Something went wrong: select listing types or set this schema as global.' ), 403 ); //phpcs:ignore
 		}
 
-		/*$validation = SettingsValidator::verify_required_fields( $properties );
+		$validation = SettingsValidator::verify_required_fields( $properties );
 
 		if ( is_wp_error( $validation ) ) {
 			wp_die( $validation->get_error_message(), 403 ); //phpcs:ignore
-		}*/
+		}
 
 		$type_validator = SettingsValidator::verify_assigned_field_type_matches( $properties );
 
 		if ( is_wp_error( $type_validator ) ) {
 			wp_die( $type_validator->get_error_message(), 403 ); //phpcs:ignore
 		}
-		exit;
 
 		$properties = SettingsSanitizer::sanitize( $properties );
 		$schema     = SettingsStorage::save( $schema_id, $name, $mode, $title, $listing_types, $primary_schema, $secondary_schema, $tertiary_schema, $properties );

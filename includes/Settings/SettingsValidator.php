@@ -72,10 +72,14 @@ class SettingsValidator {
 
 			$assigned_field_id = isset( $property['value'] ) && ! empty( $property['value'] ) ? sanitize_text_field( $property['value'] ) : false;
 
-			$is_location_error = self::verify_if_location_field( $property_id, $assigned_field_id, $property_label );
+			if ( strpos( $property_id, 'location' ) === 0 ) {
+				$is_location_error = self::verify_if_location_field( $property_id, $assigned_field_id, $property_label );
 
-			if ( is_wp_error( $is_location_error ) ) {
-				return $is_location_error;
+				if ( is_wp_error( $is_location_error ) ) {
+					return $is_location_error;
+				}
+
+				continue;
 			}
 
 			if ( $assigned_field_id && $property_label && $required_type ) {

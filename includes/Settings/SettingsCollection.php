@@ -81,12 +81,12 @@ class SettingsCollection {
 		$settings = [
 			'main_entity'      => array(
 				'label'   => esc_html__( 'URL' ),
-				'type'    => 'text',
+				'type'    => self::get_single_value_field_types(),
 				'default' => 'post_permalink',
 			),
 			'name'             => array(
 				'label'    => esc_html__( 'Headline' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'default'  => 'post_title',
 				'required' => true,
 			),
@@ -98,7 +98,7 @@ class SettingsCollection {
 			),
 			'orgnization_name' => array(
 				'label'    => esc_html__( 'Publisher Name' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'default'  => 'site_title',
 				'required' => true,
 			),
@@ -110,25 +110,25 @@ class SettingsCollection {
 			),
 			'published_date'   => array(
 				'label'    => esc_html__( 'Published Date' ),
-				'type'     => [ 'text', 'date' ],
+				'type'     => self::get_date_value_field_types(),
 				'default'  => 'post_date',
 				'required' => true,
 			),
 			'modified_date'    => array(
 				'label'    => esc_html__( 'Modified Date' ),
-				'type'     => [ 'text', 'date' ],
+				'type'     => self::get_date_value_field_types(),
 				'default'  => 'post_modified',
 				'required' => true,
 			),
 			'author'           => array(
 				'label'    => esc_html__( 'Author Name' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'default'  => 'author_name',
 				'required' => true,
 			),
 			'description'      => array(
 				'label'   => esc_html__( 'Description' ),
-				'type'    => [ 'textarea', 'editor' ],
+				'type'    => self::get_multiline_value_field_types(),
 				'default' => 'post_excerpt',
 			),
 			'rating'           => array(
@@ -137,7 +137,7 @@ class SettingsCollection {
 			),
 			'review_count'     => array(
 				'label' => esc_html__( 'Review Count' ),
-				'type'  => 'number',
+				'type'  => self::get_single_value_field_types(),
 			),
 		];
 
@@ -153,7 +153,7 @@ class SettingsCollection {
 		$settings = [
 			'name'         => array(
 				'label'    => esc_html__( 'Name' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'default'  => 'post_title',
 				'required' => true,
 			),
@@ -164,12 +164,12 @@ class SettingsCollection {
 			),
 			'author'       => array(
 				'label'    => esc_html__( 'Author Name' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'required' => true,
 			),
 			'url'          => array(
 				'label'    => esc_html__( 'URL' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'default'  => 'post_permalink',
 				'required' => true,
 			),
@@ -179,34 +179,34 @@ class SettingsCollection {
 				'required' => true,
 				'fields'   => array(
 					'serial_number'   => array(
-						'label'       => esc_html__( 'ISBN' ),
-						'type'        => 'number',
-						'required'    => true,
+						'label'    => esc_html__( 'ISBN' ),
+						'type'     => self::get_single_value_field_types(),
+						'required' => true,
 					),
 					'book_edition'    => array(
 						'label' => esc_html__( 'Book Edition' ),
-						'type'  => 'text',
+						'type'  => self::get_single_value_field_types(),
 					),
 					'book_format'     => array(
 						'label'         => esc_html__( 'Book Format' ),
-						'type'          => [ 'text', 'select', 'radio' ],
+						'type'          => self::get_single_value_field_types(),
 						'dropdown_type' => 'book_format',
 						'required'      => true,
 					),
 					'url_template'    => array(
-						'label'       => esc_html__( 'URL Template' ),
-						'type'        => 'text',
-						'required'    => true,
+						'label'    => esc_html__( 'URL Template' ),
+						'type'     => self::get_single_value_field_types(),
+						'required' => true,
 					),
 					'action_platform' => array(
 						'label'         => esc_html__( 'Action Platform' ),
-						'type'          => 'multi_select',
+						'type'          => self::get_multiline_value_field_types(),
 						'dropdown_type' => 'action_platform',
 						'required'      => true,
 					),
 					'price'           => array(
 						'label'    => esc_html__( 'Price' ),
-						'type'     => 'number',
+						'type'     => self::get_single_value_field_types(),
 						'required' => true,
 						'attrs'    => array(
 							'min'  => '0',
@@ -215,25 +215,25 @@ class SettingsCollection {
 					),
 					'currency'        => array(
 						'label'         => esc_html__( 'Currency' ),
-						'type'          => [ 'text', 'select', 'radio' ],
+						'type'          => self::get_single_value_field_types(),
 						'required'      => true,
 						'dropdown_type' => 'currency',
 					),
 					'country'         => array(
 						'label'         => esc_html__( 'Eligible Region' ),
-						'type'          => 'multi_select',
+						'type'          => self::get_multiline_value_field_types(),
 						'dropdown_type' => 'country',
 					),
 					'avail'           => array(
 						'label'         => esc_html__( 'Availability' ),
-						'type'          => [ 'text', 'select', 'radio' ],
+						'type'          => self::get_single_value_field_types(),
 						'dropdown_type' => 'availability',
 					),
 				),
 			),
 			'same_as'      => array(
-				'label'       => esc_html__( 'Same As' ),
-				'type'        => 'text',
+				'label' => esc_html__( 'Same As' ),
+				'type'  => self::get_single_value_field_types(),
 			),
 		];
 
@@ -250,19 +250,19 @@ class SettingsCollection {
 		$settings = [
 			'name'             => array(
 				'label'    => esc_html__( 'Name' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'default'  => 'post_title',
 				'required' => true,
 			),
 			'description'      => array(
 				'label'    => esc_html__( 'Description' ),
-				'type'     => [ 'textarea', 'editor' ],
+				'type'     => self::get_multiline_value_field_types(),
 				'default'  => 'post_content',
 				'required' => true,
 			),
 			'course_code'      => array(
-				'label'       => esc_html__( 'Course Code' ),
-				'type'        => 'text',
+				'label' => esc_html__( 'Course Code' ),
+				'type'  => self::get_single_value_field_types(),
 			),
 			'course_instance'  => array(
 				'label'  => esc_html__( 'Course Instance' ),
@@ -270,17 +270,17 @@ class SettingsCollection {
 				'fields' => array(
 					'name'             => array(
 						'label'    => esc_html__( 'Instance Name' ),
-						'type'     => 'text',
+						'type'     => self::get_single_value_field_types(),
 						'required' => true,
 					),
 					'description'      => array(
 						'label'    => esc_html__( 'Instance Description' ),
-						'type'     => [ 'textarea', 'editor' ],
+						'type'     => self::get_multiline_value_field_types(),
 						'required' => true,
 					),
 					'course_mode'      => array(
-						'label'       => esc_html__( 'Course Mode' ),
-						'type'        => 'text',
+						'label' => esc_html__( 'Course Mode' ),
+						'type'  => self::get_single_value_field_types(),
 					),
 					'image'            => array(
 						'label' => esc_html__( 'Image' ),
@@ -288,25 +288,25 @@ class SettingsCollection {
 					),
 					'start_date'       => array(
 						'label'    => esc_html__( 'Start Date' ),
-						'type'     => [ 'text', 'date' ],
+						'type'     => self::get_date_value_field_types(),
 						'required' => true,
 					),
 					'end_date'         => array(
 						'label' => esc_html__( 'End Date' ),
-						'type'  => [ 'text', 'date' ],
+						'type'  => self::get_date_value_field_types(),
 					),
 					'location_name'    => array(
 						'label' => esc_html__( 'Location Name' ),
-						'type'  => 'text',
+						'type'  => self::get_single_value_field_types(),
 					),
 					'location_address' => array(
 						'label'    => esc_html__( 'Location Address' ),
-						'type'     => 'text',
+						'type'     => self::get_single_value_field_types(),
 						'required' => true,
 					),
 					'price'            => array(
 						'label' => esc_html__( 'Price' ),
-						'type'  => 'number',
+						'type'  => self::get_single_value_field_types(),
 						'attrs' => array(
 							'min'  => '0',
 							'step' => 'any',
@@ -314,31 +314,31 @@ class SettingsCollection {
 					),
 					'currency'         => array(
 						'label'         => esc_html__( 'Currency' ),
-						'type'          => [ 'text', 'select', 'radio' ],
+						'type'          => self::get_single_value_field_types(),
 						'dropdown_type' => 'currency',
 					),
 					'valid_from'       => array(
 						'label' => esc_html__( 'Valid From' ),
-						'type'  => [ 'text', 'date' ],
+						'type'  => self::get_date_value_field_types(),
 					),
 					'url'              => array(
 						'label' => esc_html__( 'Offer URL' ),
-						'type'  => 'text',
+						'type'  => self::get_single_value_field_types(),
 					),
 					'avail'            => array(
 						'label'         => esc_html__( 'Availability' ),
-						'type'          => [ 'text', 'select', 'radio' ],
+						'type'          => self::get_single_value_field_types(),
 						'dropdown_type' => 'availability',
 					),
 					'performer'        => array(
 						'label' => esc_html__( 'Performer' ),
-						'type'  => 'text',
+						'type'  => self::get_single_value_field_types(),
 					),
 				),
 			),
 			'orgnization_name' => array(
 				'label'   => esc_html__( 'Organization Name' ),
-				'type'    => 'text',
+				'type'    => self::get_single_value_field_types(),
 				'default' => 'site_title',
 			),
 			'rating'           => array(
@@ -347,11 +347,11 @@ class SettingsCollection {
 			),
 			'review_count'     => array(
 				'label' => esc_html__( 'Review Count' ),
-				'type'  => 'number',
+				'type'  => self::get_single_value_field_types(),
 			),
 			'same_as'          => array(
-				'label'       => esc_html__( 'Same As' ),
-				'type'        => 'text',
+				'label' => esc_html__( 'Same As' ),
+				'type'  => self::get_single_value_field_types(),
 			),
 		];
 
@@ -368,7 +368,7 @@ class SettingsCollection {
 		$settings = [
 			'name'              => array(
 				'label'    => esc_html__( 'Name' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'default'  => 'post_title',
 				'required' => true,
 			),
@@ -379,51 +379,51 @@ class SettingsCollection {
 			),
 			'location'          => array(
 				'label' => esc_html__( 'Location Name' ),
-				'type'  => 'text',
+				'type'  => self::get_single_value_field_types(),
 			),
 			'location_street'   => array(
 				'label'    => esc_html__( 'Street Address' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'required' => true,
 			),
 			'location_locality' => array(
 				'label'    => esc_html__( 'Locality' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'required' => true,
 			),
 			'location_postal'   => array(
 				'label'    => esc_html__( 'Postal Code' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'required' => true,
 			),
 			'location_region'   => array(
 				'label'    => esc_html__( 'Region' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'required' => true,
 			),
 			'location_country'  => array(
 				'label'         => esc_html__( 'Country' ),
-				'type'          => [ 'text', 'select', 'radio' ],
+				'type'          => self::get_single_value_field_types(),
 				'required'      => true,
 				'dropdown_type' => 'country',
 			),
 			'start_date'        => array(
 				'label'    => esc_html__( 'Start Date' ),
-				'type'     => [ 'date', 'text' ],
+				'type'     => self::get_date_value_field_types(),
 				'required' => true,
 			),
 			'end_date'          => array(
 				'label' => esc_html__( 'End Date' ),
-				'type'  => [ 'date', 'text' ],
+				'type'  => self::get_date_value_field_types(),
 			),
 			'avail'             => array(
 				'label'         => esc_html__( 'Offer Availability' ),
-				'type'          => [ 'text', 'select', 'radio' ],
+				'type'          => self::get_single_value_field_types(),
 				'dropdown_type' => 'availability',
 			),
 			'price'             => array(
 				'label' => esc_html__( 'Offer Price' ),
-				'type'  => 'number',
+				'type'  => self::get_single_value_field_types(),
 				'attrs' => array(
 					'min'  => '0',
 					'step' => 'any',
@@ -431,24 +431,24 @@ class SettingsCollection {
 			),
 			'currency'          => array(
 				'label'         => esc_html__( 'Currency' ),
-				'type'          => [ 'text', 'select', 'radio' ],
+				'type'          => self::get_single_value_field_types(),
 				'dropdown_type' => 'currency',
 			),
 			'valid_from'        => array(
 				'label' => esc_html__( 'Offer Valid From' ),
-				'type'  => [ 'text', 'date' ],
+				'type'  => self::get_date_value_field_types(),
 			),
 			'ticket_buy_url'    => array(
 				'label' => esc_html__( 'Ticket Link' ),
-				'type'  => 'text',
+				'type'  => self::get_single_value_field_types(),
 			),
 			'performer'         => array(
 				'label' => esc_html__( 'Performer' ),
-				'type'  => 'text',
+				'type'  => self::get_single_value_field_types(),
 			),
 			'description'       => array(
 				'label'   => esc_html__( 'Description' ),
-				'type'    => [ 'textarea', 'editor' ],
+				'type'    => self::get_multiline_value_field_types(),
 				'default' => 'post_content',
 			),
 		];
@@ -465,117 +465,117 @@ class SettingsCollection {
 		$settings = [
 			'title'                   => array(
 				'label'    => esc_html__( 'Title' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'required' => true,
 			),
 			'job_type'                => array(
 				'label'         => esc_html__( 'Employment Type' ),
-				'type'          => [ 'text', 'select', 'radio' ],
+				'type'          => self::get_single_value_field_types(),
 				'dropdown_type' => 'employment',
 			),
 			'orgnization_name'        => array(
 				'label'    => esc_html__( 'Organization Name' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'default'  => 'site_title',
 				'required' => true,
 			),
 			'same_as'                 => array(
-				'label'       => esc_html__( 'URL' ),
-				'type'        => 'text',
-				'required'    => true,
+				'label'    => esc_html__( 'URL' ),
+				'type'     => self::get_single_value_field_types(),
+				'required' => true,
 			),
 			'description'             => array(
 				'label'    => esc_html__( 'Description' ),
-				'type'     => [ 'textarea', 'editor' ],
+				'type'     => self::get_multiline_value_field_types(),
 				'default'  => 'post_content',
 				'required' => true,
 			),
 			'education_requirements'  => array(
 				'label' => esc_html__( 'Education Requirements' ),
-				'type'  => 'text',
+				'type'  => self::get_single_value_field_types(),
 			),
 			'experience_requirements' => array(
 				'label' => esc_html__( 'Experience Requirements' ),
-				'type'  => 'text',
+				'type'  => self::get_single_value_field_types(),
 			),
 			'industry'                => array(
 				'label' => esc_html__( 'Industry' ),
-				'type'  => 'text',
+				'type'  => self::get_single_value_field_types(),
 			),
 			'qualifications'          => array(
 				'label' => esc_html__( 'Qualifications' ),
-				'type'  => 'text',
+				'type'  => self::get_single_value_field_types(),
 			),
 			'responsibilities'        => array(
 				'label' => esc_html__( 'Responsibilities' ),
-				'type'  => 'text',
+				'type'  => self::get_single_value_field_types(),
 			),
 			'skills'                  => array(
 				'label' => esc_html__( 'Skills' ),
-				'type'  => 'text',
+				'type'  => self::get_single_value_field_types(),
 			),
 			'work_hours'              => array(
 				'label' => esc_html__( 'Work Hours' ),
-				'type'  => 'text',
+				'type'  => self::get_single_value_field_types(),
 			),
 			'start_date'              => array(
 				'label'    => esc_html__( 'Date Posted' ),
-				'type'     => [ 'text', 'date' ],
+				'type'     => self::get_date_value_field_types(),
 				'default'  => 'post_date',
 				'required' => true,
 			),
 			'expiry_date'             => array(
 				'label' => esc_html__( 'Valid Through' ),
-				'type'  => [ 'text', 'date' ],
+				'type'  => self::get_date_value_field_types(),
 			),
 			'location_street'         => array(
 				'label'    => esc_html__( 'Street Address' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'required' => true,
 			),
 			'location_locality'       => array(
 				'label'    => esc_html__( 'Locality' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'required' => true,
 			),
 			'location_postal'         => array(
 				'label'    => esc_html__( 'Postal Code' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'required' => true,
 			),
 			'location_region'         => array(
 				'label'    => esc_html__( 'Region' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'required' => true,
 			),
 			'location_country'        => array(
 				'label'         => esc_html__( 'Country' ),
-				'type'          => [ 'text', 'select', 'radio' ],
+				'type'          => self::get_single_value_field_types(),
 				'required'      => true,
 				'dropdown_type' => 'country',
 			),
 			'salary'                  => array(
 				'label' => esc_html__( 'Base Salary' ),
-				'type'  => 'number',
+				'type'  => self::get_single_value_field_types(),
 			),
 			'salary_min_value'        => array(
 				'label'   => esc_html__( 'Min Salary' ),
-				'type'    => 'number',
+				'type'    => self::get_single_value_field_types(),
 				'default' => 'create_field',
 			),
 			'salary_max_value'        => array(
 				'label'   => esc_html__( 'Max Salary' ),
-				'type'    => 'number',
+				'type'    => self::get_single_value_field_types(),
 				'default' => 'create_field',
 			),
 			'salary_currency'         => array(
 				'label'         => esc_html__( 'Salary In Currency' ),
-				'type'          => [ 'text', 'select', 'radio' ],
+				'type'          => self::get_single_value_field_types(),
 				'dropdown_type' => 'currency',
 			),
 			'salary_unit'             => array(
 				'label'         => esc_html__( 'Salary Per Unit' ),
-				'type'          => [ 'text', 'select', 'radio' ],
+				'type'          => self::get_single_value_field_types(),
 				'dropdown_type' => 'time_unit',
 			),
 		];
@@ -593,7 +593,7 @@ class SettingsCollection {
 		$settings = [
 			'name'                => array(
 				'label'    => esc_html__( 'Name' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'default'  => 'site_title',
 				'required' => true,
 			),
@@ -604,36 +604,36 @@ class SettingsCollection {
 			),
 			'telephone'           => array(
 				'label' => esc_html__( 'Telephone' ),
-				'type'  => 'tel',
+				'type'  => self::get_single_value_field_types(),
 			),
 			'url'                 => array(
 				'label'   => esc_html__( 'URL' ),
-				'type'    => 'text',
+				'type'    => self::get_single_value_field_types(),
 				'default' => 'site_url',
 			),
 			'location_street'     => array(
 				'label'    => esc_html__( 'Street Address' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'required' => true,
 			),
 			'location_locality'   => array(
 				'label'    => esc_html__( 'Locality' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'required' => true,
 			),
 			'location_postal'     => array(
 				'label'    => esc_html__( 'Postal Code' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'required' => true,
 			),
 			'location_region'     => array(
 				'label'    => esc_html__( 'Region' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'required' => true,
 			),
 			'location_country'    => array(
 				'label'         => esc_html__( 'Country' ),
-				'type'          => [ 'text', 'select', 'radio' ],
+				'type'          => self::get_single_value_field_types(),
 				'dropdown_type' => 'country',
 			),
 			'hours_specification' => array(
@@ -642,18 +642,18 @@ class SettingsCollection {
 				'fields' => array(
 					'days'   => array(
 						'label'         => esc_html__( 'Day Of Week' ),
-						'type'          => 'multi_select',
+						'type'          => self::get_multiline_value_field_types(),
 						'required'      => true,
 						'dropdown_type' => 'days',
 					),
 					'opens'  => array(
 						'label'    => esc_html__( 'Opens' ),
-						'type'     => 'time',
+						'type'     => self::get_date_value_field_types(),
 						'required' => true,
 					),
 					'closes' => array(
 						'label'    => esc_html__( 'Closes' ),
-						'type'     => 'time',
+						'type'     => self::get_date_value_field_types(),
 						'required' => true,
 					),
 				),
@@ -665,11 +665,11 @@ class SettingsCollection {
 			),
 			'review_count'        => array(
 				'label' => esc_html__( 'Review Count' ),
-				'type'  => 'number',
+				'type'  => self::get_single_value_field_types(),
 			),
 			'price_range'         => array(
 				'label'    => esc_html__( 'Price Range' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'required' => true,
 			),
 		];
@@ -688,7 +688,7 @@ class SettingsCollection {
 		$settings = [
 			'item'          => array(
 				'label'    => esc_html__( 'Review Item' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'required' => true,
 			),
 			'item_image'    => array(
@@ -697,13 +697,13 @@ class SettingsCollection {
 			),
 			'description'   => array(
 				'label'    => esc_html__( 'Review Description' ),
-				'type'     => [ 'textarea', 'editor' ],
+				'type'     => self::get_multiline_value_field_types(),
 				'default'  => 'post_content',
 				'required' => true,
 			),
 			'date'          => array(
 				'label'    => esc_html__( 'Review Date' ),
-				'type'     => [ 'text', 'date' ],
+				'type'     => self::get_date_value_field_types(),
 				'default'  => 'post_date',
 				'required' => true,
 			),
@@ -713,7 +713,7 @@ class SettingsCollection {
 			),
 			'reviewer_name' => array(
 				'label'   => esc_html__( 'Reviewer Name' ),
-				'type'    => 'text',
+				'type'    => self::get_single_value_field_types(),
 				'default' => 'author_name',
 			),
 		];
@@ -732,55 +732,55 @@ class SettingsCollection {
 		$settings = [
 			'name'         => array(
 				'label'    => esc_html__( 'Name' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'required' => true,
 			),
 			'street'       => array(
 				'label'    => esc_html__( 'Street Address' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'required' => false,
 			),
 			'locality'     => array(
 				'label'    => esc_html__( 'Locality' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'required' => false,
 			),
 			'postal'       => array(
 				'label'    => esc_html__( 'Postal Code' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'required' => false,
 			),
 			'region'       => array(
 				'label'    => esc_html__( 'Region' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'required' => false,
 			),
 			'country'      => array(
 				'label'         => esc_html__( 'Country' ),
-				'type'          => [ 'text', 'select', 'radio' ],
+				'type'          => self::get_single_value_field_types(),
 				'dropdown_type' => 'country',
 			),
 			'email'        => array(
 				'label'    => esc_html__( 'Email' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'required' => false,
 			),
 			'gender'       => array(
 				'label'         => esc_html__( 'Gender' ),
-				'type'          => [ 'text', 'select', 'radio' ],
+				'type'          => self::get_single_value_field_types(),
 				'dropdown_type' => 'gender_select',
 			),
 			'dob'          => array(
 				'label' => esc_html__( 'Date of Birth' ),
-				'type'  => [ 'text', 'date' ],
+				'type'  => self::get_date_value_field_types(),
 			),
 			'member'       => array(
 				'label' => esc_html__( 'Member of' ),
-				'type'  => 'text',
+				'type'  => self::get_single_value_field_types(),
 			),
 			'nationality'  => array(
 				'label'    => esc_html__( 'Nationality' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'required' => false,
 			),
 
@@ -790,11 +790,11 @@ class SettingsCollection {
 			),
 			'job_title'    => array(
 				'label' => esc_html__( 'Job Title' ),
-				'type'  => 'text',
+				'type'  => self::get_single_value_field_types(),
 			),
 			'homepage_url' => array(
 				'label' => esc_html__( 'Homepage URL' ),
-				'type'  => 'text',
+				'type'  => self::get_single_value_field_types(),
 			),
 			'add_url'      => array(
 				'label'  => esc_html__( 'Same As' ),
@@ -802,14 +802,14 @@ class SettingsCollection {
 				'fields' => array(
 					'same_as' => array(
 						'label'    => esc_html__( 'URL' ),
-						'type'     => 'text',
+						'type'     => self::get_single_value_field_types(),
 						'required' => false,
 					),
 				),
 			),
 			'telephone'    => array(
 				'label' => esc_html__( 'Telephone' ),
-				'type'  => 'tel',
+				'type'  => self::get_single_value_field_types(),
 			),
 		];
 
@@ -827,13 +827,13 @@ class SettingsCollection {
 		$settings = [
 			'name'         => array(
 				'label'    => esc_html__( 'Name' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'default'  => 'post_title',
 				'required' => true,
 			),
 			'brand_name'   => array(
 				'label'   => esc_html__( 'Brand Name' ),
-				'type'    => 'text',
+				'type'    => self::get_single_value_field_types(),
 				'default' => 'none',
 			),
 			'image'        => array(
@@ -844,18 +844,18 @@ class SettingsCollection {
 			),
 			'description'  => array(
 				'label'   => esc_html__( 'Description' ),
-				'type'    => [ 'textarea', 'editor' ],
+				'type'    => self::get_multiline_value_field_types(),
 				'default' => 'post_content',
 			),
 			'avail'        => array(
 				'label'         => esc_html__( 'Availability' ),
-				'type'          => [ 'text', 'select', 'radio' ],
+				'type'          => self::get_single_value_field_types(),
 				'dropdown_type' => 'availability',
 				'required'      => true,
 			),
 			'price'        => array(
 				'label'    => esc_html__( 'Price' ),
-				'type'     => 'number',
+				'type'     => self::get_single_value_field_types(),
 				'required' => true,
 				'attrs'    => array(
 					'min'  => '0',
@@ -864,7 +864,7 @@ class SettingsCollection {
 			),
 			'currency'     => array(
 				'label'         => esc_html__( 'Currency' ),
-				'type'          => [ 'text', 'select', 'radio' ],
+				'type'          => self::get_single_value_field_types(),
 				'required'      => true,
 				'dropdown_type' => 'currency',
 			),
@@ -875,7 +875,7 @@ class SettingsCollection {
 			),
 			'review_count' => array(
 				'label' => esc_html__( 'Review Count' ),
-				'type'  => 'text',
+				'type'  => self::get_single_value_field_types(),
 			),
 		];
 
@@ -892,7 +892,7 @@ class SettingsCollection {
 		$settings = [
 			'name'                => array(
 				'label'    => esc_html__( 'Name' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'default'  => 'none',
 				'required' => true,
 			),
@@ -904,48 +904,48 @@ class SettingsCollection {
 			),
 			'description'         => array(
 				'label'   => esc_html__( 'Description' ),
-				'type'    => [ 'textarea', 'editor' ],
+				'type'    => self::get_multiline_value_field_types(),
 				'default' => 'post_content',
 			),
 			'author'              => array(
 				'label'   => esc_html__( 'Author Name' ),
-				'type'    => 'text',
+				'type'    => self::get_single_value_field_types(),
 				'default' => 'author_name',
 			),
 			'preperation_time'    => array(
 				'label'   => esc_html__( 'Preparation Time' ),
-				'type'    => 'time_duration',
+				'type'    => self::get_date_value_field_types(),
 				'default' => 'none',
 			),
 			'cook_time'           => array(
 				'label'   => esc_html__( 'Cook Time' ),
-				'type'    => 'time_duration',
+				'type'    => self::get_date_value_field_types(),
 				'default' => 'none',
 			),
 			'recipe_keywords'     => array(
-				'label'       => esc_html__( 'Keywords' ),
-				'type'        => 'text',
-				'default'     => 'create_field',
+				'label'   => esc_html__( 'Keywords' ),
+				'type'    => self::get_single_value_field_types(),
+				'default' => 'create_field',
 			),
 			'recipe_category'     => array(
-				'label'       => esc_html__( 'Category' ),
-				'type'        => 'text',
-				'default'     => 'create_field',
+				'label'   => esc_html__( 'Category' ),
+				'type'    => self::get_single_value_field_types(),
+				'default' => 'create_field',
 			),
 			'recipe_cuisine'      => array(
-				'label'       => esc_html__( 'Cuisine' ),
-				'type'        => 'text',
-				'default'     => 'create_field',
+				'label'   => esc_html__( 'Cuisine' ),
+				'type'    => self::get_single_value_field_types(),
+				'default' => 'create_field',
 			),
 			'nutrition'           => array(
-				'label'       => esc_html__( 'Calories' ),
-				'type'        => 'text',
-				'default'     => 'none',
+				'label'   => esc_html__( 'Calories' ),
+				'type'    => self::get_single_value_field_types(),
+				'default' => 'none',
 			),
 			'ingredients'         => array(
-				'label'       => esc_html__( 'Ingredients' ),
-				'type'        => 'text',
-				'default'     => 'none',
+				'label'   => esc_html__( 'Ingredients' ),
+				'type'    => self::get_single_value_field_types(),
+				'default' => 'none',
 			),
 			'recipe_instructions' => array(
 				'label'  => esc_html__( 'Instructions' ),
@@ -953,7 +953,7 @@ class SettingsCollection {
 				'fields' => array(
 					'steps' => array(
 						'label'   => esc_html__( 'Instructions Step' ),
-						'type'    => 'text',
+						'type'    => self::get_single_value_field_types(),
 						'default' => 'create_field',
 					),
 				),
@@ -964,13 +964,13 @@ class SettingsCollection {
 				'fields' => array(
 					'video_name'                     => array(
 						'label'    => esc_html__( 'Video Name' ),
-						'type'     => 'text',
+						'type'     => self::get_single_value_field_types(),
 						'default'  => 'create_field',
 						'required' => true,
 					),
 					'video_desc'                     => array(
 						'label'    => esc_html__( 'Video Description' ),
-						'type'     => [ 'textarea', 'editor' ],
+						'type'     => self::get_multiline_value_field_types(),
 						'default'  => 'create_field',
 						'required' => true,
 					),
@@ -982,33 +982,33 @@ class SettingsCollection {
 					),
 					'recipe_video_content_url'       => array(
 						'label'   => esc_html__( 'Content URL' ),
-						'type'    => 'text',
+						'type'    => self::get_single_value_field_types(),
 						'default' => 'create_field',
 					),
 					'recipe_video_embed_url'         => array(
 						'label'   => esc_html__( 'Embed URL' ),
-						'type'    => 'text',
+						'type'    => self::get_single_value_field_types(),
 						'default' => 'create_field',
 					),
 					'recipe_video_duration'          => array(
 						'label'   => esc_html__( 'Duration' ),
-						'type'    => 'time_duration',
+						'type'    => self::get_date_value_field_types(),
 						'default' => 'create_field',
 					),
 					'recipe_video_upload_date'       => array(
 						'label'    => esc_html__( 'Upload Date' ),
-						'type'     => [ 'text', 'date' ],
+						'type'     => self::get_date_value_field_types(),
 						'default'  => 'post_date',
 						'required' => true,
 					),
 					'recipe_video_expires_date'      => array(
 						'label'   => esc_html__( 'Expires On' ),
-						'type'    => [ 'text', 'date' ],
+						'type'    => self::get_date_value_field_types(),
 						'default' => 'create_field',
 					),
 					'recipe_video_interaction_count' => array(
 						'label'   => esc_html__( 'Interaction Count' ),
-						'type'    => 'number',
+						'type'    => self::get_single_value_field_types(),
 						'default' => 'create_field',
 					),
 				),
@@ -1020,7 +1020,7 @@ class SettingsCollection {
 			),
 			'review_count'        => array(
 				'label' => esc_html__( 'Review Count' ),
-				'type'  => 'text',
+				'type'  => self::get_single_value_field_types(),
 			),
 		];
 
@@ -1036,22 +1036,22 @@ class SettingsCollection {
 		$settings = [
 			'name'              => array(
 				'label'    => esc_html__( 'Name' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'default'  => 'post_title',
 				'required' => true,
 			),
 			'type'              => array(
 				'label'    => esc_html__( 'Type' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'required' => true,
 			),
 			'area'              => array(
-				'label'       => esc_html__( 'Area' ),
-				'type'        => 'text',
+				'label' => esc_html__( 'Area' ),
+				'type'  => self::get_single_value_field_types(),
 			),
 			'description'       => array(
 				'label'   => esc_html__( 'Description' ),
-				'type'    => [ 'textarea', 'editor' ],
+				'type'    => self::get_multiline_value_field_types(),
 				'default' => 'post_content',
 			),
 			'image'             => array(
@@ -1061,21 +1061,21 @@ class SettingsCollection {
 			),
 			'provider'          => array(
 				'label'    => esc_html__( 'Provider Name' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'default'  => 'site_title',
 				'required' => true,
 			),
 			'location_locality' => array(
 				'label' => esc_html__( 'Locality' ),
-				'type'  => 'text',
+				'type'  => self::get_single_value_field_types(),
 			),
 			'location_region'   => array(
 				'label' => esc_html__( 'Region' ),
-				'type'  => 'text',
+				'type'  => self::get_single_value_field_types(),
 			),
 			'location_street'   => array(
 				'label' => esc_html__( 'Street Address' ),
-				'type'  => 'text',
+				'type'  => self::get_single_value_field_types(),
 			),
 			'location_image'    => array(
 				'label'    => esc_html__( 'Location Image' ),
@@ -1084,11 +1084,11 @@ class SettingsCollection {
 			),
 			'telephone'         => array(
 				'label' => esc_html__( 'Telephone' ),
-				'type'  => 'tel',
+				'type'  => self::get_single_value_field_types(),
 			),
 			'price_range'       => array(
 				'label' => esc_html__( 'Price Range' ),
-				'type'  => 'text',
+				'type'  => self::get_single_value_field_types(),
 			),
 			'rating'            => array(
 				'label' => esc_html__( 'Rating' ),
@@ -1096,7 +1096,7 @@ class SettingsCollection {
 			),
 			'review_count'      => array(
 				'label' => esc_html__( 'Review Count' ),
-				'type'  => 'number',
+				'type'  => self::get_single_value_field_types(),
 			),
 		];
 
@@ -1112,18 +1112,18 @@ class SettingsCollection {
 		$settings = [
 			'name'             => array(
 				'label'    => esc_html__( 'Name' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'default'  => 'post_title',
 				'required' => true,
 			),
 			'operating_system' => array(
-				'label'       => esc_html__( 'Operating System' ),
-				'type'        => 'text',
-				'required'    => true,
+				'label'    => esc_html__( 'Operating System' ),
+				'type'     => self::get_single_value_field_types(),
+				'required' => true,
 			),
 			'category'         => array(
 				'label'         => esc_html__( 'Category' ),
-				'type'          => [ 'text', 'select', 'radio' ],
+				'type'          => self::get_single_value_field_types(),
 				'required'      => true,
 				'dropdown_type' => 'software_category',
 			),
@@ -1134,7 +1134,7 @@ class SettingsCollection {
 			),
 			'price'            => array(
 				'label'    => esc_html__( 'Price' ),
-				'type'     => 'number',
+				'type'     => self::get_single_value_field_types(),
 				'required' => true,
 				'attrs'    => array(
 					'min'  => '0',
@@ -1143,7 +1143,7 @@ class SettingsCollection {
 			),
 			'currency'         => array(
 				'label'         => esc_html__( 'Currency' ),
-				'type'          => [ 'text', 'select', 'radio' ],
+				'type'          => self::get_single_value_field_types(),
 				'required'      => true,
 				'dropdown_type' => 'currency',
 			),
@@ -1154,7 +1154,7 @@ class SettingsCollection {
 			),
 			'review_count'     => array(
 				'label' => esc_html__( 'Review Count' ),
-				'type'  => 'number',
+				'type'  => self::get_single_value_field_types(),
 			),
 		];
 
@@ -1171,13 +1171,13 @@ class SettingsCollection {
 		$settings = [
 			'name'              => array(
 				'label'    => esc_html__( 'Title' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'default'  => 'post_title',
 				'required' => true,
 			),
 			'description'       => array(
 				'label'    => esc_html__( 'Description' ),
-				'type'     => [ 'textarea', 'editor' ],
+				'type'     => self::get_multiline_value_field_types(),
 				'default'  => 'post_content',
 				'required' => true,
 			),
@@ -1189,7 +1189,7 @@ class SettingsCollection {
 			),
 			'orgnization_name'  => array(
 				'label'    => esc_html__( 'Publisher Name' ),
-				'type'     => 'text',
+				'type'     => self::get_single_value_field_types(),
 				'default'  => 'site_title',
 				'required' => true,
 			),
@@ -1201,29 +1201,29 @@ class SettingsCollection {
 			),
 			'content_url'       => array(
 				'label' => esc_html__( 'Content URL' ),
-				'type'  => 'text',
+				'type'  => self::get_single_value_field_types(),
 			),
 			'embed_url'         => array(
 				'label' => esc_html__( 'Embed URL' ),
-				'type'  => 'text',
+				'type'  => self::get_single_value_field_types(),
 			),
 			'duration'          => array(
 				'label' => esc_html__( 'Duration' ),
-				'type'  => 'time_duration',
+				'type'  => self::get_date_value_field_types(),
 			),
 			'upload_date'       => array(
 				'label'    => esc_html__( 'Upload Date' ),
-				'type'     => [ 'text', 'date' ],
+				'type'     => self::get_date_value_field_types(),
 				'default'  => 'post_date',
 				'required' => true,
 			),
 			'expires_date'      => array(
 				'label' => esc_html__( 'Expires On' ),
-				'type'  => [ 'text', 'date' ],
+				'type'  => self::get_date_value_field_types(),
 			),
 			'interaction_count' => array(
 				'label' => esc_html__( 'Interaction Count' ),
-				'type'  => 'number',
+				'type'  => self::get_single_value_field_types(),
 			),
 		];
 
@@ -1260,6 +1260,65 @@ class SettingsCollection {
 		];
 
 		return $meta;
+
+	}
+
+	/**
+	 * Retrieve allowed field types for single line value type of properties.
+	 *
+	 * @return array
+	 */
+	private static function get_single_value_field_types() {
+
+		$types = [
+			'text',
+			'date',
+			'number',
+			'select',
+			'radio',
+			'checkbox',
+			'term-select',
+
+		];
+
+		return $types;
+
+	}
+
+	/**
+	 * Retrieve allowed field types for multi line value type of properties.
+	 *
+	 * @return array
+	 */
+	private static function get_multiline_value_field_types() {
+
+		$types = [
+			'textarea',
+			'editor',
+			'multiselect',
+			'multicheckbox',
+			'term-multiselect',
+			'term-checklist',
+			'term-chain-dropdown',
+		];
+
+		return $types;
+
+	}
+
+	/**
+	 * Retrieve allowed field types for date value type of properties.
+	 *
+	 * @return array
+	 */
+	private static function get_date_value_field_types() {
+
+		$types = [
+			'text',
+			'date',
+		];
+
+		return $types;
 
 	}
 

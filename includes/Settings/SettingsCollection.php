@@ -110,13 +110,13 @@ class SettingsCollection {
 			),
 			'published_date'   => array(
 				'label'    => esc_html__( 'Published Date' ),
-				'type'     => 'date',
+				'type'     => [ 'text', 'date' ],
 				'default'  => 'post_date',
 				'required' => true,
 			),
 			'modified_date'    => array(
 				'label'    => esc_html__( 'Modified Date' ),
-				'type'     => 'date',
+				'type'     => [ 'text', 'date' ],
 				'default'  => 'post_modified',
 				'required' => true,
 			),
@@ -189,7 +189,7 @@ class SettingsCollection {
 					),
 					'book_format'     => array(
 						'label'         => esc_html__( 'Book Format' ),
-						'type'          => 'dropdown',
+						'type'          => [ 'text', 'select', 'radio' ],
 						'dropdown_type' => 'book_format',
 						'required'      => true,
 					),
@@ -215,7 +215,7 @@ class SettingsCollection {
 					),
 					'currency'        => array(
 						'label'         => esc_html__( 'Currency' ),
-						'type'          => 'dropdown',
+						'type'          => [ 'text', 'select', 'radio' ],
 						'required'      => true,
 						'dropdown_type' => 'currency',
 					),
@@ -226,7 +226,7 @@ class SettingsCollection {
 					),
 					'avail'           => array(
 						'label'         => esc_html__( 'Availability' ),
-						'type'          => 'dropdown',
+						'type'          => [ 'text', 'select', 'radio' ],
 						'dropdown_type' => 'availability',
 					),
 				),
@@ -288,12 +288,12 @@ class SettingsCollection {
 					),
 					'start_date'       => array(
 						'label'    => esc_html__( 'Start Date' ),
-						'type'     => 'date',
+						'type'     => [ 'text', 'date' ],
 						'required' => true,
 					),
 					'end_date'         => array(
 						'label' => esc_html__( 'End Date' ),
-						'type'  => 'date',
+						'type'  => [ 'text', 'date' ],
 					),
 					'location_name'    => array(
 						'label' => esc_html__( 'Location Name' ),
@@ -314,12 +314,12 @@ class SettingsCollection {
 					),
 					'currency'         => array(
 						'label'         => esc_html__( 'Currency' ),
-						'type'          => 'dropdown',
+						'type'          => [ 'text', 'select', 'radio' ],
 						'dropdown_type' => 'currency',
 					),
 					'valid_from'       => array(
 						'label' => esc_html__( 'Valid From' ),
-						'type'  => 'date',
+						'type'  => [ 'text', 'date' ],
 					),
 					'url'              => array(
 						'label' => esc_html__( 'Offer URL' ),
@@ -327,7 +327,7 @@ class SettingsCollection {
 					),
 					'avail'            => array(
 						'label'         => esc_html__( 'Availability' ),
-						'type'          => 'dropdown',
+						'type'          => [ 'text', 'select', 'radio' ],
 						'dropdown_type' => 'availability',
 					),
 					'performer'        => array(
@@ -403,7 +403,7 @@ class SettingsCollection {
 			),
 			'location_country'  => array(
 				'label'         => esc_html__( 'Country' ),
-				'type'          => 'dropdown',
+				'type'          => [ 'text', 'select', 'radio' ],
 				'required'      => true,
 				'dropdown_type' => 'country',
 			),
@@ -418,7 +418,7 @@ class SettingsCollection {
 			),
 			'avail'             => array(
 				'label'         => esc_html__( 'Offer Availability' ),
-				'type'          => 'dropdown',
+				'type'          => [ 'text', 'select', 'radio' ],
 				'dropdown_type' => 'availability',
 			),
 			'price'             => array(
@@ -431,12 +431,12 @@ class SettingsCollection {
 			),
 			'currency'          => array(
 				'label'         => esc_html__( 'Currency' ),
-				'type'          => 'dropdown',
+				'type'          => [ 'text', 'select', 'radio' ],
 				'dropdown_type' => 'currency',
 			),
 			'valid_from'        => array(
 				'label' => esc_html__( 'Offer Valid From' ),
-				'type'  => 'date',
+				'type'  => [ 'text', 'date' ],
 			),
 			'ticket_buy_url'    => array(
 				'label' => esc_html__( 'Ticket Link' ),
@@ -470,7 +470,7 @@ class SettingsCollection {
 			),
 			'job_type'                => array(
 				'label'         => esc_html__( 'Employment Type' ),
-				'type'          => 'dropdown',
+				'type'          => [ 'text', 'select', 'radio' ],
 				'dropdown_type' => 'employment',
 			),
 			'orgnization_name'        => array(
@@ -520,13 +520,13 @@ class SettingsCollection {
 			),
 			'start_date'              => array(
 				'label'    => esc_html__( 'Date Posted' ),
-				'type'     => 'date',
+				'type'     => [ 'text', 'date' ],
 				'default'  => 'post_date',
 				'required' => true,
 			),
 			'expiry_date'             => array(
 				'label' => esc_html__( 'Valid Through' ),
-				'type'  => 'date',
+				'type'  => [ 'text', 'date' ],
 			),
 			'location_street'         => array(
 				'label'    => esc_html__( 'Street Address' ),
@@ -550,7 +550,7 @@ class SettingsCollection {
 			),
 			'location_country'        => array(
 				'label'         => esc_html__( 'Country' ),
-				'type'          => 'dropdown',
+				'type'          => [ 'text', 'select', 'radio' ],
 				'required'      => true,
 				'dropdown_type' => 'country',
 			),
@@ -570,12 +570,12 @@ class SettingsCollection {
 			),
 			'salary_currency'         => array(
 				'label'         => esc_html__( 'Salary In Currency' ),
-				'type'          => 'dropdown',
+				'type'          => [ 'text', 'select', 'radio' ],
 				'dropdown_type' => 'currency',
 			),
 			'salary_unit'             => array(
 				'label'         => esc_html__( 'Salary Per Unit' ),
-				'type'          => 'dropdown',
+				'type'          => [ 'text', 'select', 'radio' ],
 				'dropdown_type' => 'time_unit',
 			),
 		];
@@ -633,7 +633,7 @@ class SettingsCollection {
 			),
 			'location_country'    => array(
 				'label'         => esc_html__( 'Country' ),
-				'type'          => 'dropdown',
+				'type'          => [ 'text', 'select', 'radio' ],
 				'dropdown_type' => 'country',
 			),
 			'hours_specification' => array(
@@ -703,7 +703,7 @@ class SettingsCollection {
 			),
 			'date'          => array(
 				'label'    => esc_html__( 'Review Date' ),
-				'type'     => 'date',
+				'type'     => [ 'text', 'date' ],
 				'default'  => 'post_date',
 				'required' => true,
 			),
@@ -757,7 +757,7 @@ class SettingsCollection {
 			),
 			'country'      => array(
 				'label'         => esc_html__( 'Country' ),
-				'type'          => 'dropdown',
+				'type'          => [ 'text', 'select', 'radio' ],
 				'dropdown_type' => 'country',
 			),
 			'email'        => array(
@@ -767,12 +767,12 @@ class SettingsCollection {
 			),
 			'gender'       => array(
 				'label'         => esc_html__( 'Gender' ),
-				'type'          => 'dropdown',
+				'type'          => [ 'text', 'select', 'radio' ],
 				'dropdown_type' => 'gender_select',
 			),
 			'dob'          => array(
 				'label' => esc_html__( 'Date of Birth' ),
-				'type'  => 'date',
+				'type'  => [ 'text', 'date' ],
 			),
 			'member'       => array(
 				'label' => esc_html__( 'Member of' ),
@@ -849,7 +849,7 @@ class SettingsCollection {
 			),
 			'avail'        => array(
 				'label'         => esc_html__( 'Availability' ),
-				'type'          => 'dropdown',
+				'type'          => [ 'text', 'select', 'radio' ],
 				'dropdown_type' => 'availability',
 				'required'      => true,
 			),
@@ -864,7 +864,7 @@ class SettingsCollection {
 			),
 			'currency'     => array(
 				'label'         => esc_html__( 'Currency' ),
-				'type'          => 'dropdown',
+				'type'          => [ 'text', 'select', 'radio' ],
 				'required'      => true,
 				'dropdown_type' => 'currency',
 			),
@@ -997,13 +997,13 @@ class SettingsCollection {
 					),
 					'recipe_video_upload_date'       => array(
 						'label'    => esc_html__( 'Upload Date' ),
-						'type'     => 'date',
+						'type'     => [ 'text', 'date' ],
 						'default'  => 'post_date',
 						'required' => true,
 					),
 					'recipe_video_expires_date'      => array(
 						'label'   => esc_html__( 'Expires On' ),
-						'type'    => 'date',
+						'type'    => [ 'text', 'date' ],
 						'default' => 'create_field',
 					),
 					'recipe_video_interaction_count' => array(
@@ -1123,7 +1123,7 @@ class SettingsCollection {
 			),
 			'category'         => array(
 				'label'         => esc_html__( 'Category' ),
-				'type'          => 'dropdown',
+				'type'          => [ 'text', 'select', 'radio' ],
 				'required'      => true,
 				'dropdown_type' => 'software_category',
 			),
@@ -1143,7 +1143,7 @@ class SettingsCollection {
 			),
 			'currency'         => array(
 				'label'         => esc_html__( 'Currency' ),
-				'type'          => 'dropdown',
+				'type'          => [ 'text', 'select', 'radio' ],
 				'required'      => true,
 				'dropdown_type' => 'currency',
 			),
@@ -1213,13 +1213,13 @@ class SettingsCollection {
 			),
 			'upload_date'       => array(
 				'label'    => esc_html__( 'Upload Date' ),
-				'type'     => 'date',
+				'type'     => [ 'text', 'date' ],
 				'default'  => 'post_date',
 				'required' => true,
 			),
 			'expires_date'      => array(
 				'label' => esc_html__( 'Expires On' ),
-				'type'  => 'date',
+				'type'  => [ 'text', 'date' ],
 			),
 			'interaction_count' => array(
 				'label' => esc_html__( 'Interaction Count' ),

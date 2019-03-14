@@ -99,7 +99,7 @@ class SettingsCollection {
 			'orgnization_name' => array(
 				'label'    => esc_html__( 'Publisher Name' ),
 				'type'     => 'text',
-				'default'  => 'blogname',
+				'default'  => 'site_title',
 				'required' => true,
 			),
 			'site_logo'        => array(
@@ -182,7 +182,6 @@ class SettingsCollection {
 						'label'       => esc_html__( 'ISBN' ),
 						'type'        => 'number',
 						'required'    => true,
-						'description' => esc_html__( 'The International Standard Book Number (ISBN) is a unique numeric commercial book identifier. ISBN having 10 or 13 digit number.' ),
 					),
 					'book_edition'    => array(
 						'label' => esc_html__( 'Book Edition' ),
@@ -198,7 +197,6 @@ class SettingsCollection {
 						'label'       => esc_html__( 'URL Template' ),
 						'type'        => 'text',
 						'required'    => true,
-						'description' => esc_html__( 'Link(s) to content. Proper deep link format for each platform.' ),
 					),
 					'action_platform' => array(
 						'label'         => esc_html__( 'Action Platform' ),
@@ -236,7 +234,6 @@ class SettingsCollection {
 			'same_as'      => array(
 				'label'       => esc_html__( 'Same As' ),
 				'type'        => 'text',
-				'description' => esc_html__( 'A reference page that unambiguously indicates the item\'s identity; for example, the URL of the item\'s Wikipedia page, Freebase page, or official website.' ),
 			),
 		];
 
@@ -266,7 +263,6 @@ class SettingsCollection {
 			'course_code'      => array(
 				'label'       => esc_html__( 'Course Code' ),
 				'type'        => 'text',
-				'description' => esc_html__( 'The identifier for the Course used by the course provider (e.g. CS101 or 6.001).' ),
 			),
 			'course_instance'  => array(
 				'label'  => esc_html__( 'Course Instance' ),
@@ -285,7 +281,6 @@ class SettingsCollection {
 					'course_mode'      => array(
 						'label'       => esc_html__( 'Course Mode' ),
 						'type'        => 'text',
-						'description' => esc_html__( 'The medium or means of delivery of the course instance or the mode of study, either as a text label (e.g. "online", "onsite" or "blended"; "synchronous" or "asynchronous"; "full_time" or "part_time") or as a URL reference to a term from a controlled vocabulary (e.g. https://ceds.ed.gov/element/001311#Asynchronous )' ),
 					),
 					'image'            => array(
 						'label' => esc_html__( 'Image' ),
@@ -344,7 +339,7 @@ class SettingsCollection {
 			'orgnization_name' => array(
 				'label'   => esc_html__( 'Organization Name' ),
 				'type'    => 'text',
-				'default' => 'blogname',
+				'default' => 'site_title',
 			),
 			'rating'           => array(
 				'label' => esc_html__( 'Rating' ),
@@ -357,7 +352,6 @@ class SettingsCollection {
 			'same_as'          => array(
 				'label'       => esc_html__( 'Same As' ),
 				'type'        => 'text',
-				'description' => esc_html__( 'A reference page that unambiguously indicates the item\'s identity; for example, the URL of the item\'s Wikipedia page, Freebase page, or official website.' ),
 			),
 		];
 
@@ -482,14 +476,13 @@ class SettingsCollection {
 			'orgnization_name'        => array(
 				'label'    => esc_html__( 'Organization Name' ),
 				'type'     => 'text',
-				'default'  => 'blogname',
+				'default'  => 'site_title',
 				'required' => true,
 			),
 			'same_as'                 => array(
 				'label'       => esc_html__( 'URL' ),
 				'type'        => 'text',
 				'required'    => true,
-				'description' => esc_html__( 'A reference page that unambiguously indicates the item\'s identity; for example, the URL of the item\'s Wikipedia page, Freebase page, or official website.' ),
 			),
 			'description'             => array(
 				'label'    => esc_html__( 'Description' ),
@@ -601,7 +594,7 @@ class SettingsCollection {
 			'name'                => array(
 				'label'    => esc_html__( 'Name' ),
 				'type'     => 'text',
-				'default'  => 'blogname',
+				'default'  => 'site_title',
 				'required' => true,
 			),
 			'image'               => array(
@@ -933,31 +926,26 @@ class SettingsCollection {
 				'label'       => esc_html__( 'Keywords' ),
 				'type'        => 'text',
 				'default'     => 'create_field',
-				'description' => esc_html__( 'e.g. "winter apple pie", "nutmeg crust"' ),
 			),
 			'recipe_category'     => array(
 				'label'       => esc_html__( 'Category' ),
 				'type'        => 'text',
 				'default'     => 'create_field',
-				'description' => esc_html__( 'e.g. "dinner", "entree", or "dessert"' ),
 			),
 			'recipe_cuisine'      => array(
 				'label'       => esc_html__( 'Cuisine' ),
 				'type'        => 'text',
 				'default'     => 'create_field',
-				'description' => esc_html__( 'e.g. "French", "Indian", or "American"' ),
 			),
 			'nutrition'           => array(
 				'label'       => esc_html__( 'Calories' ),
 				'type'        => 'text',
 				'default'     => 'none',
-				'description' => esc_html__( 'The number of calories in the recipe.' ),
 			),
 			'ingredients'         => array(
 				'label'       => esc_html__( 'Ingredients' ),
 				'type'        => 'text',
 				'default'     => 'none',
-				'description' => esc_html__( 'Ingredient used in the recipe. Separate multiple ingredients with comma(,).' ),
 			),
 			'recipe_instructions' => array(
 				'label'  => esc_html__( 'Instructions' ),
@@ -1060,7 +1048,6 @@ class SettingsCollection {
 			'area'              => array(
 				'label'       => esc_html__( 'Area' ),
 				'type'        => 'text',
-				'description' => esc_html__( 'The geographic area where a service or offered item is provided.' ),
 			),
 			'description'       => array(
 				'label'   => esc_html__( 'Description' ),
@@ -1075,7 +1062,7 @@ class SettingsCollection {
 			'provider'          => array(
 				'label'    => esc_html__( 'Provider Name' ),
 				'type'     => 'text',
-				'default'  => 'blogname',
+				'default'  => 'site_title',
 				'required' => true,
 			),
 			'location_locality' => array(
@@ -1133,7 +1120,6 @@ class SettingsCollection {
 				'label'       => esc_html__( 'Operating System' ),
 				'type'        => 'text',
 				'required'    => true,
-				'description' => esc_html__( 'Software for the operating system, for example, "Windows 7", "OSX 10.6", "Android 1.6"' ),
 			),
 			'category'         => array(
 				'label'         => esc_html__( 'Category' ),
@@ -1204,7 +1190,7 @@ class SettingsCollection {
 			'orgnization_name'  => array(
 				'label'    => esc_html__( 'Publisher Name' ),
 				'type'     => 'text',
-				'default'  => 'blogname',
+				'default'  => 'site_title',
 				'required' => true,
 			),
 			'site_logo'         => array(

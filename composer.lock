@@ -1976,12 +1976,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Pressmodo/phpcs-config.git",
-                "reference": "8e500446387aac5375800f9e9536c7690b35f80d"
+                "reference": "8259e650295042ea242dd59446cd5b4dfc77addf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Pressmodo/phpcs-config/zipball/8e500446387aac5375800f9e9536c7690b35f80d",
-                "reference": "8e500446387aac5375800f9e9536c7690b35f80d",
+                "url": "https://api.github.com/repos/Pressmodo/phpcs-config/zipball/8259e650295042ea242dd59446cd5b4dfc77addf",
+                "reference": "8259e650295042ea242dd59446cd5b4dfc77addf",
                 "shasum": ""
             },
             "require": {
@@ -1995,7 +1995,7 @@
             "license": [
                 "MIT"
             ],
-            "time": "2019-02-27T17:48:17+00:00"
+            "time": "2019-03-07T10:59:40+00:00"
         },
         {
             "name": "psr/http-message",
@@ -3362,16 +3362,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.37.1",
+            "version": "v1.38.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "66be9366c76cbf23e82e7171d47cbfa54a057a62"
+                "reference": "874adbd9222f928f6998732b25b01b41dff15b0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/66be9366c76cbf23e82e7171d47cbfa54a057a62",
-                "reference": "66be9366c76cbf23e82e7171d47cbfa54a057a62",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/874adbd9222f928f6998732b25b01b41dff15b0c",
+                "reference": "874adbd9222f928f6998732b25b01b41dff15b0c",
                 "shasum": ""
             },
             "require": {
@@ -3386,7 +3386,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.37-dev"
+                    "dev-master": "1.38-dev"
                 }
             },
             "autoload": {
@@ -3424,7 +3424,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2019-01-14T14:59:29+00:00"
+            "time": "2019-03-12T18:45:24+00:00"
         },
         {
             "name": "webmozart/assert",

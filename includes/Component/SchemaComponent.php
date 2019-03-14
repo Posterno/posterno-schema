@@ -9,6 +9,8 @@
 
 namespace PNO\SchemaOrg\Component;
 
+use PNO\SchemaOrg\Tag\Listing;
+
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
@@ -46,6 +48,7 @@ class SchemaComponent {
 
 		$this->setup_constants();
 		$this->setup_files();
+		$this->hook();
 
 	}
 
@@ -70,7 +73,6 @@ class SchemaComponent {
 	public function setup_files() {
 
 		require_once PNO_SCHEMA_DIR . '/post-type.php';
-		require_once PNO_SCHEMA_DIR . '/admin/admin-functions.php';
 
 		// Admin.
 		if ( is_admin() || ( defined( 'WP_CLI' ) && WP_CLI ) ) {
@@ -91,6 +93,18 @@ class SchemaComponent {
 		require_once PNO_SCHEMA_DIR . '/admin/admin-assets.php';
 		require_once PNO_SCHEMA_DIR . '/admin/admin-pages.php';
 		require_once PNO_SCHEMA_DIR . '/admin/admin-actions.php';
+		require_once PNO_SCHEMA_DIR . '/admin/admin-functions.php';
+
+	}
+
+	/**
+	 * Hook into WordPress.
+	 *
+	 * @return void
+	 */
+	public function hook() {
+
+		( new Listing() )->init();
 
 	}
 

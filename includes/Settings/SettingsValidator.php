@@ -55,11 +55,18 @@ class SettingsValidator {
 
 		foreach ( $fields as $property_id => $property ) {
 
-			$property_label    = esc_html( $property['label'] );
-			$required_type     = esc_html( $property['type'] );
+			$property_label = sanitize_text_field( $property['label'] );
+			$required_type  = '';
+
+			if ( isset( $property['type'] ) && is_array( $property['type'] ) ) {
+				$required_type = array_map( 'sanitize_text_field', $property['type'] );
+			} else {
+				$required_type = sanitize_text_field( $property['type'] );
+			}
+
 			$assigned_field_id = isset( $property['value'] ) && ! empty( $property['value'] ) ? absint( $property['value'] ) : false;
 
-			if ( $assigned_field_id ) {
+			if ( $assigned_field_id && $property_label && $required_type ) {
 
 				$listing_field      = new \PNO\Field\Listing( $assigned_field_id );
 				$listing_field_name = $listing_field->get_name();
@@ -67,18 +74,45 @@ class SettingsValidator {
 
 				if ( $listing_field->get_post_id() > 0 ) {
 
-					if ( $required_type !== $listing_field_type ) {
+					$registered_field_types = pno_get_registered_field_types();
+
+					if ( is_array( $required_type ) && ! in_array( $listing_field_type, $required_type ) ) {
+
+						$human_types_labels = [];
+
+						foreach ( $required_type as $single_type ) {
+							if ( isset( $registered_field_types[ $single_type ] ) ) {
+								$human_types_labels[] = $registered_field_types[ $single_type ];
+							}
+						}
+
+						$human_types_labels = implode( ', ', $human_types_labels );
 
 						$message = sprintf(
-							__( 'Property "%1$s" requires a field type of "%2$s" but the assigned listing field (%3$s) type is "%4$s". Please assign an "%2$s" type of field.' ),
+							__( 'Property "%1$s" requires a field type of "%2$s" but the assigned field (%3$s) type is "%4$s". Please adjust the type of field.' ),
 							$property_label,
-							$required_type,
+							$human_types_labels,
 							$listing_field_name,
-							$listing_field_type
+							$registered_field_types[ $listing_field_type ]
 						);
 
 						return new WP_Error( 'schema-field-type-error', $message );
 
+					} else {
+
+						if ( $required_type !== $listing_field_type ) {
+
+							$message = sprintf(
+								__( 'Property "%1$s" requires a field type of "%2$s" but the assigned field (%3$s) type is "%4$s". Please assign a "%2$s" type of field.' ),
+								$property_label,
+								$registered_field_types[ $required_type ],
+								$listing_field_name,
+								$registered_field_types[ $listing_field_type ]
+							);
+
+							return new WP_Error( 'schema-field-type-error', $message );
+
+						}
 					}
 				}
 			}

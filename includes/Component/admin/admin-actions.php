@@ -381,7 +381,8 @@ function pno_ajax_save_listing_schema() {
 			wp_die( esc_html__( 'Something went wrong: select listing types or set this schema as global.' ), 403 ); //phpcs:ignore
 		}
 
-		/*$validation = SettingsValidator::verify_required_fields( $properties );
+		/*
+		$validation = SettingsValidator::verify_required_fields( $properties );
 
 		if ( is_wp_error( $validation ) ) {
 			wp_die( $validation->get_error_message(), 403 ); //phpcs:ignore
@@ -394,8 +395,7 @@ function pno_ajax_save_listing_schema() {
 		}
 
 		$properties = SettingsSanitizer::sanitize( $properties );
-
-		$schema = SettingsStorage::save( $schema_id, $name, $mode, $title, $listing_types, $primary_schema, $secondary_schema, $tertiary_schema, $properties );
+		$schema     = SettingsStorage::save( $schema_id, $name, $mode, $title, $listing_types, $primary_schema, $secondary_schema, $tertiary_schema, $properties );
 
 		if ( is_wp_error( $schema ) ) {
 			wp_die( $schema->get_error_message(), 403 ); //phpcs:ignore

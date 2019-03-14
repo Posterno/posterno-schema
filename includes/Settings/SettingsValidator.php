@@ -177,7 +177,6 @@ class SettingsValidator {
 		if ( strpos( $field_id, 'location' ) === 0 && $assigned_field ) {
 
 			$assigned_listing_field      = new \PNO\Field\Listing( $assigned_field );
-			$assigned_listing_field_name = $assigned_listing_field->get_name();
 			$assigned_listing_field_type = $assigned_listing_field->get_type();
 
 			if ( $assigned_listing_field_type !== 'listing-location' ) {

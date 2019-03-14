@@ -92,7 +92,7 @@ class SettingsCollection {
 			),
 			'image'            => array(
 				'label'    => esc_html__( 'Image' ),
-				'type'     => 'image',
+				'type'     => 'file',
 				'default'  => 'featured_img',
 				'required' => true,
 			),
@@ -104,7 +104,7 @@ class SettingsCollection {
 			),
 			'site_logo'        => array(
 				'label'    => esc_html__( 'Publisher Logo' ),
-				'type'     => 'image',
+				'type'     => 'file',
 				'default'  => 'site_logo',
 				'required' => true,
 			),
@@ -159,7 +159,7 @@ class SettingsCollection {
 			),
 			'image'        => array(
 				'label'   => esc_html__( 'Image' ),
-				'type'    => 'image',
+				'type'    => 'file',
 				'default' => 'featured_img',
 			),
 			'author'       => array(
@@ -284,7 +284,7 @@ class SettingsCollection {
 					),
 					'image'            => array(
 						'label' => esc_html__( 'Image' ),
-						'type'  => 'image',
+						'type'  => 'file',
 					),
 					'start_date'       => array(
 						'label'    => esc_html__( 'Start Date' ),
@@ -374,7 +374,7 @@ class SettingsCollection {
 			),
 			'image'             => array(
 				'label'   => esc_html__( 'Image' ),
-				'type'    => 'image',
+				'type'    => 'file',
 				'default' => 'featured_img',
 			),
 			'location'          => array(
@@ -599,7 +599,7 @@ class SettingsCollection {
 			),
 			'image'               => array(
 				'label'    => esc_html__( 'Image' ),
-				'type'     => 'image',
+				'type'     => 'file',
 				'required' => true,
 			),
 			'telephone'           => array(
@@ -693,7 +693,7 @@ class SettingsCollection {
 			),
 			'item_image'    => array(
 				'label' => esc_html__( 'Review Item Image' ),
-				'type'  => 'image',
+				'type'  => 'file',
 			),
 			'description'   => array(
 				'label'    => esc_html__( 'Review Description' ),
@@ -786,7 +786,7 @@ class SettingsCollection {
 
 			'image'        => array(
 				'label' => esc_html__( 'Photograph' ),
-				'type'  => 'image',
+				'type'  => 'file',
 			),
 			'job_title'    => array(
 				'label' => esc_html__( 'Job Title' ),
@@ -838,7 +838,7 @@ class SettingsCollection {
 			),
 			'image'        => array(
 				'label'    => esc_html__( 'Image' ),
-				'type'     => 'image',
+				'type'     => 'file',
 				'default'  => 'featured_img',
 				'required' => true,
 			),
@@ -898,7 +898,7 @@ class SettingsCollection {
 			),
 			'image'               => array(
 				'label'    => esc_html__( 'Photo' ),
-				'type'     => 'image',
+				'type'     => 'file',
 				'default'  => 'featured_img',
 				'required' => true,
 			),
@@ -976,7 +976,7 @@ class SettingsCollection {
 					),
 					'video_image'                    => array(
 						'label'    => esc_html__( 'Thumbnail Url' ),
-						'type'     => 'image',
+						'type'     => 'file',
 						'default'  => 'create_field',
 						'required' => true,
 					),
@@ -1056,7 +1056,7 @@ class SettingsCollection {
 			),
 			'image'             => array(
 				'label'   => esc_html__( 'Image' ),
-				'type'    => 'image',
+				'type'    => 'file',
 				'default' => 'featured_img',
 			),
 			'provider'          => array(
@@ -1079,7 +1079,7 @@ class SettingsCollection {
 			),
 			'location_image'    => array(
 				'label'    => esc_html__( 'Location Image' ),
-				'type'     => 'image',
+				'type'     => 'file',
 				'required' => true,
 			),
 			'telephone'         => array(
@@ -1129,7 +1129,7 @@ class SettingsCollection {
 			),
 			'image'            => array(
 				'label'   => esc_html__( 'Image' ),
-				'type'    => 'image',
+				'type'    => 'file',
 				'default' => 'featured_img',
 			),
 			'price'            => array(
@@ -1183,7 +1183,7 @@ class SettingsCollection {
 			),
 			'image'             => array(
 				'label'    => esc_html__( 'Thumbnail' ),
-				'type'     => 'image',
+				'type'     => 'file',
 				'default'  => 'featured_img',
 				'required' => true,
 			),
@@ -1195,7 +1195,7 @@ class SettingsCollection {
 			),
 			'site_logo'         => array(
 				'label'    => esc_html__( 'Publisher Logo' ),
-				'type'     => 'image',
+				'type'     => 'file',
 				'default'  => 'site_logo',
 				'required' => true,
 			),

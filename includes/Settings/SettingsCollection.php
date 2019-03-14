@@ -128,7 +128,7 @@ class SettingsCollection {
 			),
 			'description'      => array(
 				'label'   => esc_html__( 'Description' ),
-				'type'    => 'textarea',
+				'type'    => [ 'textarea', 'editor' ],
 				'default' => 'post_excerpt',
 			),
 			'rating'           => array(
@@ -256,7 +256,7 @@ class SettingsCollection {
 			),
 			'description'      => array(
 				'label'    => esc_html__( 'Description' ),
-				'type'     => 'textarea',
+				'type'     => [ 'textarea', 'editor' ],
 				'default'  => 'post_content',
 				'required' => true,
 			),
@@ -275,7 +275,7 @@ class SettingsCollection {
 					),
 					'description'      => array(
 						'label'    => esc_html__( 'Instance Description' ),
-						'type'     => 'textarea',
+						'type'     => [ 'textarea', 'editor' ],
 						'required' => true,
 					),
 					'course_mode'      => array(
@@ -448,7 +448,7 @@ class SettingsCollection {
 			),
 			'description'       => array(
 				'label'   => esc_html__( 'Description' ),
-				'type'    => 'textarea',
+				'type'    => [ 'textarea', 'editor' ],
 				'default' => 'post_content',
 			),
 		];
@@ -486,7 +486,7 @@ class SettingsCollection {
 			),
 			'description'             => array(
 				'label'    => esc_html__( 'Description' ),
-				'type'     => 'textarea',
+				'type'     => [ 'textarea', 'editor' ],
 				'default'  => 'post_content',
 				'required' => true,
 			),
@@ -697,7 +697,7 @@ class SettingsCollection {
 			),
 			'description'   => array(
 				'label'    => esc_html__( 'Review Description' ),
-				'type'     => 'textarea',
+				'type'     => [ 'textarea', 'editor' ],
 				'default'  => 'post_content',
 				'required' => true,
 			),
@@ -844,7 +844,7 @@ class SettingsCollection {
 			),
 			'description'  => array(
 				'label'   => esc_html__( 'Description' ),
-				'type'    => 'textarea',
+				'type'    => [ 'textarea', 'editor' ],
 				'default' => 'post_content',
 			),
 			'avail'        => array(
@@ -904,7 +904,7 @@ class SettingsCollection {
 			),
 			'description'         => array(
 				'label'   => esc_html__( 'Description' ),
-				'type'    => 'textarea',
+				'type'    => [ 'textarea', 'editor' ],
 				'default' => 'post_content',
 			),
 			'author'              => array(
@@ -970,7 +970,7 @@ class SettingsCollection {
 					),
 					'video_desc'                     => array(
 						'label'    => esc_html__( 'Video Description' ),
-						'type'     => 'textarea',
+						'type'     => [ 'textarea', 'editor' ],
 						'default'  => 'create_field',
 						'required' => true,
 					),
@@ -1051,7 +1051,7 @@ class SettingsCollection {
 			),
 			'description'       => array(
 				'label'   => esc_html__( 'Description' ),
-				'type'    => 'textarea',
+				'type'    => [ 'textarea', 'editor' ],
 				'default' => 'post_content',
 			),
 			'image'             => array(
@@ -1177,7 +1177,7 @@ class SettingsCollection {
 			),
 			'description'       => array(
 				'label'    => esc_html__( 'Description' ),
-				'type'     => 'textarea',
+				'type'     => [ 'textarea', 'editor' ],
 				'default'  => 'post_content',
 				'required' => true,
 			),

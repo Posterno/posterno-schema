@@ -368,7 +368,7 @@ function pno_ajax_save_listing_schema() {
 		$name             = isset( $schema_details['name'] ) ? sanitize_text_field( $schema_details['name'] ) : false;
 		$mode             = isset( $schema_details['mode'] ) ? sanitize_text_field( $schema_details['mode'] ) : false;
 		$title            = isset( $schema_details['title'] ) ? sanitize_text_field( $schema_details['title'] ) : false;
-		$listing_types    = isset( $schema_details['listing_types'] ) ? array_map( 'absint', $schema_details['listing_types'] ) : false;
+		$listing_types    = isset( $schema_details['listing_types'] ) && is_array( $schema_details['listing_types'] ) && ! empty( $schema_details['listing_types'] ) ? array_map( 'absint', $schema_details['listing_types'] ) : false;
 		$primary_schema   = isset( $schema_details['primarySchemaChildren'] ) ? sanitize_text_field( $schema_details['primarySchemaChildren'] ) : false;
 		$secondary_schema = isset( $schema_details['secondarySchemaChildren'] ) ? sanitize_text_field( $schema_details['secondarySchemaChildren'] ) : false;
 		$tertiary_schema  = isset( $schema_details['tertiarySchemaChildren'] ) ? sanitize_text_field( $schema_details['tertiarySchemaChildren'] ) : false;
@@ -381,10 +381,16 @@ function pno_ajax_save_listing_schema() {
 			wp_die( esc_html__( 'Something went wrong: select listing types or set this schema as global.' ), 403 ); //phpcs:ignore
 		}
 
-		$validation = SettingsValidator::verify_required_fields( $properties );
+		/*$validation = SettingsValidator::verify_required_fields( $properties );
 
 		if ( is_wp_error( $validation ) ) {
 			wp_die( $validation->get_error_message(), 403 ); //phpcs:ignore
+		}*/
+
+		$type_validator = SettingsValidator::verify_assigned_field_type_matches( $properties );
+
+		if ( is_wp_error( $type_validator ) ) {
+			wp_die( $type_validator->get_error_message(), 403 ); //phpcs:ignore
 		}
 
 		$properties = SettingsSanitizer::sanitize( $properties );

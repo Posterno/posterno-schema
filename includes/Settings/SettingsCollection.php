@@ -409,12 +409,12 @@ class SettingsCollection {
 			),
 			'start_date'        => array(
 				'label'    => esc_html__( 'Start Date' ),
-				'type'     => 'datetime_local',
+				'type'     => [ 'date', 'text' ],
 				'required' => true,
 			),
 			'end_date'          => array(
 				'label' => esc_html__( 'End Date' ),
-				'type'  => 'datetime_local',
+				'type'  => [ 'date', 'text' ],
 			),
 			'avail'             => array(
 				'label'         => esc_html__( 'Offer Availability' ),

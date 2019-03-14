@@ -72,6 +72,12 @@ class SettingsValidator {
 
 			$assigned_field_id = isset( $property['value'] ) && ! empty( $property['value'] ) ? sanitize_text_field( $property['value'] ) : false;
 
+			$is_location_error = self::verify_if_location_field( $property_id, $assigned_field_id, $property_label );
+
+			if ( is_wp_error( $is_location_error ) ) {
+				return $is_location_error;
+			}
+
 			if ( $assigned_field_id && $property_label && $required_type ) {
 
 				$registered_field_types = pno_get_registered_field_types();
@@ -140,6 +146,49 @@ class SettingsValidator {
 				if ( $invalid && $message ) {
 					return new WP_Error( 'property-type-validation-error', $message );
 				}
+			}
+		}
+
+		return $valid;
+
+	}
+
+	/**
+	 * Verify if location fields are matched to the listing location field.
+	 *
+	 * @param string $field_id the property id.
+	 * @param string $assigned_field the assigned listing field id.
+	 * @param string $property_label the label of the property we're checking.
+	 * @return boolean|WP_Error
+	 */
+	private static function verify_if_location_field( $field_id, $assigned_field, $property_label ) {
+
+		$valid = true;
+
+		$field_id            = sanitize_text_field( $field_id );
+		$location_field      = new \PNO\Database\Queries\Listing_Fields();
+		$real_location_field = $location_field->get_item_by( 'listing_meta_key', 'listing_location' );
+		$location_field_name = '';
+
+		if ( $real_location_field ) {
+			$location_field_name = $real_location_field->get_name();
+		}
+
+		if ( strpos( $field_id, 'location' ) === 0 && $assigned_field ) {
+
+			$assigned_listing_field      = new \PNO\Field\Listing( $assigned_field );
+			$assigned_listing_field_name = $assigned_listing_field->get_name();
+			$assigned_listing_field_type = $assigned_listing_field->get_type();
+
+			if ( $assigned_listing_field_type !== 'listing-location' ) {
+				return new WP_Error(
+					'property-type-validation-error',
+					sprintf(
+						__( 'Property "%1$s" is only compatible with the "%2$s" field. Please select the "%2$s" field for the "%1$s" property.' ),
+						$property_label,
+						$location_field_name
+					)
+				);
 			}
 		}
 

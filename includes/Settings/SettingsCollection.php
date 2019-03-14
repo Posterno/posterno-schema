@@ -207,7 +207,6 @@ class SettingsCollection {
 					'price'           => array(
 						'label'    => esc_html__( 'Price' ),
 						'type'     => self::get_single_value_field_types(),
-						'required' => true,
 						'attrs'    => array(
 							'min'  => '0',
 							'step' => 'any',
@@ -670,7 +669,6 @@ class SettingsCollection {
 			'price_range'         => array(
 				'label'    => esc_html__( 'Price Range' ),
 				'type'     => self::get_single_value_field_types(),
-				'required' => true,
 			),
 		];
 
@@ -856,7 +854,6 @@ class SettingsCollection {
 			'price'        => array(
 				'label'    => esc_html__( 'Price' ),
 				'type'     => self::get_single_value_field_types(),
-				'required' => true,
 				'attrs'    => array(
 					'min'  => '0',
 					'step' => '0.01',
@@ -1135,7 +1132,6 @@ class SettingsCollection {
 			'price'            => array(
 				'label'    => esc_html__( 'Price' ),
 				'type'     => self::get_single_value_field_types(),
-				'required' => true,
 				'attrs'    => array(
 					'min'  => '0',
 					'step' => 'any',

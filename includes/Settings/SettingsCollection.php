@@ -1278,6 +1278,7 @@ class SettingsCollection {
 			'radio',
 			'checkbox',
 			'term-select',
+			'url',
 
 		];
 
@@ -1319,6 +1320,40 @@ class SettingsCollection {
 		];
 
 		return $types;
+
+	}
+
+	/**
+	 * Mock allowed field type for static meta fields displayed while
+	 * assigning fields to a schema property.
+	 *
+	 * @param string $field_id the field for which we're generating mock types.
+	 * @return string|boolean|array
+	 */
+	public static function get_type_for_meta_field( $field_id ) {
+
+		$type = false;
+
+		if ( ! $field_id ) {
+			return;
+		}
+
+		switch ( $field_id ) {
+			case 'site_title':
+			case 'site_url':
+			case 'listing_url':
+			case 'listing_author_name':
+			case 'listing_author_first_name':
+			case 'listing_author_last_name':
+				$type = self::get_single_value_field_types();
+				break;
+			case 'listing_publish_date':
+			case 'listing_modified_date':
+				$type = self::get_date_value_field_types();
+				break;
+		}
+
+		return $type;
 
 	}
 

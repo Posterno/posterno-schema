@@ -45,6 +45,12 @@ class SettingsValidator {
 
 	}
 
+	/**
+	 * Verify that the fielda assigned to the schema property is among one of the allowed ones for that property.
+	 *
+	 * @param array $fields properties to verify.
+	 * @return boolean|WP_Error
+	 */
 	public static function verify_assigned_field_type_matches( $fields ) {
 
 		$valid = true;
@@ -64,43 +70,46 @@ class SettingsValidator {
 				$required_type = sanitize_text_field( $property['type'] );
 			}
 
-			$assigned_field_id = isset( $property['value'] ) && ! empty( $property['value'] ) ? absint( $property['value'] ) : false;
+			$assigned_field_id = isset( $property['value'] ) && ! empty( $property['value'] ) ? sanitize_text_field( $property['value'] ) : false;
 
 			if ( $assigned_field_id && $property_label && $required_type ) {
 
-				$listing_field      = new \PNO\Field\Listing( $assigned_field_id );
-				$listing_field_name = $listing_field->get_name();
-				$listing_field_type = $listing_field->get_type();
+				$registered_field_types = pno_get_registered_field_types();
+				$invalid                = false;
+				$message                = false;
 
-				if ( $listing_field->get_post_id() > 0 ) {
+				foreach ( $required_type as $single_type ) {
+					if ( isset( $registered_field_types[ $single_type ] ) ) {
+						$human_types_labels[] = $registered_field_types[ $single_type ];
+					}
+				}
 
-					$registered_field_types = pno_get_registered_field_types();
+				$human_types_labels = implode( ', ', $human_types_labels );
 
-					if ( is_array( $required_type ) && ! in_array( $listing_field_type, $required_type ) ) {
+				// Validation process for when a custom field ID is passed.
+				if ( is_numeric( $assigned_field_id ) ) {
 
-						$human_types_labels = [];
+					$listing_field      = new \PNO\Field\Listing( $assigned_field_id );
+					$listing_field_name = $listing_field->get_name();
+					$listing_field_type = $listing_field->get_type();
 
-						foreach ( $required_type as $single_type ) {
-							if ( isset( $registered_field_types[ $single_type ] ) ) {
-								$human_types_labels[] = $registered_field_types[ $single_type ];
-							}
-						}
+					if ( $listing_field->get_post_id() > 0 ) {
 
-						$human_types_labels = implode( ', ', $human_types_labels );
+						if ( is_array( $required_type ) && ! in_array( $listing_field_type, $required_type ) ) {
 
-						$message = sprintf(
-							__( 'Property "%1$s" requires a field type of "%2$s" but the assigned field (%3$s) type is "%4$s". Please adjust the type of field.' ),
-							$property_label,
-							$human_types_labels,
-							$listing_field_name,
-							$registered_field_types[ $listing_field_type ]
-						);
+							$invalid = true;
 
-						return new WP_Error( 'schema-field-type-error', $message );
+							$message = sprintf(
+								__( 'Property "%1$s" requires a field type of "%2$s" but the assigned field (%3$s) type is "%4$s". Please adjust the type of field.' ),
+								$property_label,
+								$human_types_labels,
+								$listing_field_name,
+								$registered_field_types[ $listing_field_type ]
+							);
 
-					} else {
+						} elseif ( ! is_array( $required_type ) && $required_type !== $listing_field_type ) {
 
-						if ( $required_type !== $listing_field_type ) {
+							$invalid = true;
 
 							$message = sprintf(
 								__( 'Property "%1$s" requires a field type of "%2$s" but the assigned field (%3$s) type is "%4$s". Please assign a "%2$s" type of field.' ),
@@ -109,11 +118,27 @@ class SettingsValidator {
 								$listing_field_name,
 								$registered_field_types[ $listing_field_type ]
 							);
-
-							return new WP_Error( 'schema-field-type-error', $message );
-
 						}
 					}
+				} else {
+
+					$types_allowed_for_meta_field = SettingsCollection::get_type_for_meta_field( $assigned_field_id );
+					$types_sent_through           = $required_type;
+					$matches                      = ( $types_allowed_for_meta_field === $types_sent_through );
+
+					if ( ! $matches ) {
+						$invalid = true;
+						$message = sprintf(
+							__( 'Property "%1$s" requires a field type of "%2$s". Please adjust the type of field.' ),
+							$property_label,
+							$human_types_labels
+						);
+
+					}
+				}
+
+				if ( $invalid && $message ) {
+					return new WP_Error( 'property-type-validation-error', $message );
 				}
 			}
 		}

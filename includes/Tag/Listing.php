@@ -41,6 +41,11 @@ class Listing {
 
 	}
 
+	/**
+	 * Retrive all listings global schemas.
+	 *
+	 * @return array
+	 */
 	private function get_global_schemas() {
 
 		$schemas = [];
@@ -73,12 +78,13 @@ class Listing {
 
 				$post_id    = get_the_id();
 				$properties = get_post_meta( $post_id, 'schema_properties', true );
+				$properties = $this->parse_properties( $properties );
 
 				if ( is_array( $properties ) && ! empty( $properties ) ) {
 					$schemas[] = [
 						'post_id'    => $post_id,
 						'schema_id'  => get_post_meta( $post_id, 'schema_name', true ),
-						'properties' => get_post_meta( $post_id, 'schema_properties', true ),
+						'properties' => $properties,
 					];
 				}
 			}
@@ -87,6 +93,67 @@ class Listing {
 		wp_reset_postdata();
 
 		return $schemas;
+
+	}
+
+	/**
+	 * Retrive details of the field assigned to a property before we actually retrieve it's value.
+	 *
+	 * @param array $properties properties to parse.
+	 * @return array
+	 */
+	private function parse_properties( $properties ) {
+
+		$parsed = [];
+
+		if ( is_array( $properties ) && ! empty( $properties ) ) {
+
+			foreach ( $properties as $prop => $field_id ) {
+
+				$field = new \PNO\Field\Listing( $field_id );
+
+				if ( $field->get_post_id() > 0 ) {
+					$parsed[ $prop ] = [
+						'type'     => $field->get_type(),
+						'meta_key' => $field->get_object_meta_key(),
+					];
+				}
+			}
+		}
+
+		return $parsed;
+
+	}
+
+	/**
+	 * Attach listing values to schema properties.
+	 *
+	 * @param array  $schema the schema to parse.
+	 * @param string $listing_id the listing id for which we're grabbing the values.
+	 * @return array
+	 */
+	private function attach_values_to_schema( $schema, $listing_id ) {
+
+		$parsed_schema     = $schema;
+		$parsed_properties = [];
+
+		foreach ( $schema['properties'] as $prop => $field ) {
+
+			$meta_key = $field['meta_key'];
+			$type     = $field['type'];
+
+			$value = ListingData::get( $listing_id, $type, $meta_key, $prop );
+
+			if ( $value ) {
+				$parsed_properties[ $prop ] = $value;
+			}
+		}
+
+		if ( ! empty( $parsed_properties ) ) {
+			$parsed_schema['properties'] = $parsed_properties;
+		}
+
+		return $parsed_schema;
 
 	}
 
@@ -102,8 +169,22 @@ class Listing {
 		}
 
 		$global_schemas = $this->get_global_schemas();
+		$parsed_schemas = [];
 
-		print_r( $global_schemas );
+		$listing_id = get_queried_object_id();
+
+		if ( ! empty( $global_schemas ) && is_array( $global_schemas ) ) {
+			foreach ( $global_schemas as $schema ) {
+
+				$schema = $this->attach_values_to_schema( $schema, $listing_id );
+
+				if ( $schema ) {
+					$parsed_schemas[] = $schema;
+				}
+			}
+		}
+
+		print_r( $parsed_schemas );
 
 	}
 

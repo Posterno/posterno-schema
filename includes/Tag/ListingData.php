@@ -45,8 +45,11 @@ class ListingData {
 			case 'listing-location':
 				$data = self::get_location_data( $listing_id, $meta_key, $prop );
 				break;
+			case 'listing-opening-hours':
+				$data = self::get_hours_data( $listing_id, $meta_key );
+				break;
 			case 'static':
-				$data = self::get_static_data( $listing_id, $meta_key, $prop );
+				$data = self::get_static_data( $listing_id, $meta_key );
 				break;
 			default:
 				$data = carbon_get_post_meta( $listing_id, $meta_key );
@@ -126,7 +129,7 @@ class ListingData {
 
 	}
 
-	public static function get_static_data( $listing_id, $meta_key, $prop ) {
+	public static function get_static_data( $listing_id, $meta_key ) {
 
 		$data = false;
 
@@ -158,6 +161,36 @@ class ListingData {
 			case 'site_url':
 				$data = home_url();
 				break;
+		}
+
+		return $data;
+
+	}
+
+	public static function get_hours_data( $listing_id, $meta_key ) {
+
+		$data = false;
+		$sets = [];
+
+		$business_hours = new \PNO\Listing\BusinessHours( $listing_id );
+
+		if ( $business_hours->has_business_hours() ) {
+
+			$opening_hours = $business_hours->get_opening_hours();
+
+			foreach ( $opening_hours as $set ) {
+				if ( ! $set->to_string() ) {
+					continue;
+				}
+				$sets[ esc_html( $set->get_day_name() ) ] = [
+					'opens'  => $set->start_time,
+					'closes' => $set->start_time,
+				];
+			}
+
+			if ( ! empty( $sets ) ) {
+				return $sets;
+			}
 		}
 
 		return $data;

@@ -87,10 +87,13 @@ class SettingsValidator {
 				$registered_field_types = pno_get_registered_field_types();
 				$invalid                = false;
 				$message                = false;
+				$human_types_labels = [];
 
-				foreach ( $required_type as $single_type ) {
-					if ( isset( $registered_field_types[ $single_type ] ) ) {
-						$human_types_labels[] = $registered_field_types[ $single_type ];
+				if ( is_array( $required_type ) ) {
+					foreach ( $required_type as $single_type ) {
+						if ( isset( $registered_field_types[ $single_type ] ) ) {
+							$human_types_labels[] = $registered_field_types[ $single_type ];
+						}
 					}
 				}
 

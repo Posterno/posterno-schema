@@ -34,7 +34,7 @@ class SettingsSanitizer {
 			}
 
 			$property_id       = sanitize_text_field( $property_id );
-			$assigned_field_id = absint( $property['value'] );
+			$assigned_field_id = sanitize_text_field( $property['value'] );
 
 			if ( $property_id && $assigned_field_id ) {
 				$sanitized_properties[ $property_id ] = $assigned_field_id;

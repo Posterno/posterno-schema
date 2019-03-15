@@ -45,6 +45,9 @@ class ListingData {
 			case 'listing-location':
 				$data = self::get_location_data( $listing_id, $meta_key, $prop );
 				break;
+			case 'static':
+				$data = self::get_static_data( $listing_id, $meta_key, $prop );
+				break;
 			default:
 				$data = carbon_get_post_meta( $listing_id, $meta_key );
 				break;
@@ -96,6 +99,44 @@ class ListingData {
 		switch ( $prop ) {
 			case 'location_street':
 				$data = isset( $address['address'] ) ? $address['address'] : false;
+				break;
+		}
+
+		return $data;
+
+	}
+
+	public static function get_static_data( $listing_id, $meta_key, $prop ) {
+
+		$data = false;
+
+		switch ( $meta_key ) {
+			case 'listing_url':
+				$data = get_permalink( $listing_id );
+				break;
+			case 'listing_author_name':
+				$listing_author = pno_get_listing_author( $listing_id );
+				$data           = pno_get_user_fullname( $listing_author );
+				break;
+			case 'listing_author_first_name':
+				$listing_author = pno_get_listing_author( $listing_id );
+				$data           = pno_get_user_first_name( $listing_author );
+				break;
+			case 'listing_author_last_name':
+				$listing_author = pno_get_listing_author( $listing_id );
+				$data           = pno_get_user_last_name( $listing_author );
+				break;
+			case 'listing_publish_date':
+				$data = pno_get_the_listing_publish_date( $listing_id );
+				break;
+			case 'listing_modified_date':
+				$data = pno_get_listing_last_modified_date( $listing_id );
+				break;
+			case 'site_title':
+				$data = get_bloginfo( 'name' );
+				break;
+			case 'site_url':
+				$data = home_url();
 				break;
 		}
 

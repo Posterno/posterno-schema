@@ -9,6 +9,7 @@
 
 namespace PNO\SchemaOrg\Tag;
 
+use PNO\SchemaOrg\Settings\SettingsCollection;
 use WP_Query;
 
 // Exit if accessed directly.
@@ -110,13 +111,23 @@ class Listing {
 
 			foreach ( $properties as $prop => $field_id ) {
 
-				$field = new \PNO\Field\Listing( $field_id );
+				if ( is_numeric( $field_id ) ) {
 
-				if ( $field->get_post_id() > 0 ) {
+					$field = new \PNO\Field\Listing( $field_id );
+
+					if ( $field->get_post_id() > 0 ) {
+						$parsed[ $prop ] = [
+							'type'     => $field->get_type(),
+							'meta_key' => $field->get_object_meta_key(),
+						];
+					}
+				} else {
+
 					$parsed[ $prop ] = [
-						'type'     => $field->get_type(),
-						'meta_key' => $field->get_object_meta_key(),
+						'type'     => 'static',
+						'meta_key' => $field_id,
 					];
+
 				}
 			}
 		}

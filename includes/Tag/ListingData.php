@@ -80,7 +80,27 @@ class ListingData {
 
 		switch ( $meta_key ) {
 			case 'listing_featured_image':
-				$data = get_the_post_thumbnail_url( $listing_id, 'full' );
+				$data  = false;
+				$image = get_the_post_thumbnail_url( $listing_id, 'full' );
+				if ( $image ) {
+					$data = [ $image ];
+				}
+				break;
+			case 'listing_gallery':
+				$images      = get_post_meta( $listing_id, '_listing_gallery_images', true );
+				$data        = false;
+				$img_sources = [];
+				if ( ! empty( $images ) && is_array( $images ) ) {
+					foreach ( $images as $img ) {
+						$attachment = wp_get_attachment_url( $img['value'] );
+						if ( $attachment ) {
+							$img_sources[] = $attachment;
+						}
+					}
+					if ( ! empty( $img_sources ) ) {
+						$data = $img_sources;
+					}
+				}
 				break;
 			default:
 				$data = carbon_get_post_meta( $listing_id, $meta_key );

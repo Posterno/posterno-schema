@@ -582,19 +582,6 @@ export default {
 			this.isError = false
 			this.isSuccess = true
 			this.statusMessage = message
-			this.resetMessages()
-		},
-
-		/**
-		 * Automatically hide the admin notice after 4 seconds.
-		 */
-		resetMessages() {
-			let self = this
-			setInterval(function() {
-				self.isError = false
-				self.isSuccess = false
-				self.statusMessage = ''
-			}, 4000)
 		},
 
 		/**

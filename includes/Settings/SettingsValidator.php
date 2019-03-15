@@ -72,7 +72,7 @@ class SettingsValidator {
 
 			$assigned_field_id = isset( $property['value'] ) && ! empty( $property['value'] ) ? sanitize_text_field( $property['value'] ) : false;
 
-			if ( strpos( $property_id, 'location' ) === 0 ) {
+			if ( strpos( $property_id, 'location' ) === 0 && $property_id !== 'location_postal' ) {
 				$is_location_error = self::verify_if_location_field( $property_id, $assigned_field_id, $property_label );
 
 				if ( is_wp_error( $is_location_error ) ) {
@@ -178,7 +178,7 @@ class SettingsValidator {
 			$location_field_name = $real_location_field->get_name();
 		}
 
-		if ( strpos( $field_id, 'location' ) === 0 && $assigned_field ) {
+		if ( strpos( $field_id, 'location' ) === 0 && $field_id !== 'location_postal' && $assigned_field ) {
 
 			$assigned_listing_field      = new \PNO\Field\Listing( $assigned_field );
 			$assigned_listing_field_type = $assigned_listing_field->get_type();

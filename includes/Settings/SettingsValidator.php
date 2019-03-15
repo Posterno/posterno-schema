@@ -74,11 +74,17 @@ class SettingsValidator {
 
 			if ( strpos( $property_id, 'location' ) === 0 && $property_id !== 'location_postal' ) {
 				$is_location_error = self::verify_if_location_field( $property_id, $assigned_field_id, $property_label );
-
 				if ( is_wp_error( $is_location_error ) ) {
 					return $is_location_error;
 				}
+				continue;
+			}
 
+			if ( $property_id === 'hours_specification' ) {
+				$is_business_hours = self::verify_if_business_hours( $property_id, $assigned_field_id, $property_label );
+				if ( is_wp_error( $is_business_hours ) ) {
+					return $is_business_hours;
+				}
 				continue;
 			}
 
@@ -87,7 +93,7 @@ class SettingsValidator {
 				$registered_field_types = pno_get_registered_field_types();
 				$invalid                = false;
 				$message                = false;
-				$human_types_labels = [];
+				$human_types_labels     = [];
 
 				if ( is_array( $required_type ) ) {
 					foreach ( $required_type as $single_type ) {
@@ -196,6 +202,45 @@ class SettingsValidator {
 					)
 				);
 			}
+		}
+
+		return $valid;
+
+	}
+
+	/**
+	 * Verify if business hours properties are matched to the opening hours field.
+	 *
+	 * @param string $field_id the property id.
+	 * @param string $assigned_field the assigned listing field id.
+	 * @param string $property_label the label of the property we're checking.
+	 * @return boolean|WP_Error
+	 */
+	private static function verify_if_business_hours( $field_id, $assigned_field, $property_label ) {
+
+		$valid = true;
+
+		$field_id                  = sanitize_text_field( $field_id );
+		$business_hours            = new \PNO\Database\Queries\Listing_Fields();
+		$real_business_hours_field = $business_hours->get_item_by( 'listing_meta_key', 'listing_opening_hours' );
+		$business_hours_name       = '';
+
+		if ( $real_business_hours_field ) {
+			$business_hours_name = $real_business_hours_field->get_name();
+		}
+
+		$assigned_listing_field      = new \PNO\Field\Listing( $assigned_field );
+		$assigned_listing_field_type = $assigned_listing_field->get_type();
+
+		if ( $assigned_listing_field_type !== 'listing-opening-hours' ) {
+			return new WP_Error(
+				'property-type-validation-error',
+				sprintf(
+					__( 'Property "%1$s" is only compatible with the "%2$s" field. Please select the "%2$s" field for the "%1$s" property.' ),
+					$property_label,
+					$business_hours_name
+				)
+			);
 		}
 
 		return $valid;

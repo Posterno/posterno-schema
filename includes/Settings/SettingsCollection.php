@@ -205,9 +205,9 @@ class SettingsCollection {
 						'required'      => true,
 					),
 					'price'           => array(
-						'label'    => esc_html__( 'Price' ),
-						'type'     => self::get_single_value_field_types(),
-						'attrs'    => array(
+						'label' => esc_html__( 'Price' ),
+						'type'  => self::get_single_value_field_types(),
+						'attrs' => array(
 							'min'  => '0',
 							'step' => 'any',
 						),
@@ -636,26 +636,8 @@ class SettingsCollection {
 				'dropdown_type' => 'country',
 			),
 			'hours_specification' => array(
-				'label'  => esc_html__( 'Hours Specification' ),
-				'type'   => 'repeater',
-				'fields' => array(
-					'days'   => array(
-						'label'         => esc_html__( 'Day Of Week' ),
-						'type'          => self::get_multiline_value_field_types(),
-						'required'      => true,
-						'dropdown_type' => 'days',
-					),
-					'opens'  => array(
-						'label'    => esc_html__( 'Opens' ),
-						'type'     => self::get_date_value_field_types(),
-						'required' => true,
-					),
-					'closes' => array(
-						'label'    => esc_html__( 'Closes' ),
-						'type'     => self::get_date_value_field_types(),
-						'required' => true,
-					),
-				),
+				'label' => esc_html__( 'Hours Specification' ),
+				'type'  => 'business-hours',
 			),
 			'rating'              => array(
 				'label'   => esc_html__( 'Rating' ),
@@ -667,8 +649,8 @@ class SettingsCollection {
 				'type'  => self::get_single_value_field_types(),
 			),
 			'price_range'         => array(
-				'label'    => esc_html__( 'Price Range' ),
-				'type'     => self::get_single_value_field_types(),
+				'label' => esc_html__( 'Price Range' ),
+				'type'  => self::get_single_value_field_types(),
 			),
 		];
 
@@ -852,9 +834,9 @@ class SettingsCollection {
 				'required'      => true,
 			),
 			'price'        => array(
-				'label'    => esc_html__( 'Price' ),
-				'type'     => self::get_single_value_field_types(),
-				'attrs'    => array(
+				'label' => esc_html__( 'Price' ),
+				'type'  => self::get_single_value_field_types(),
+				'attrs' => array(
 					'min'  => '0',
 					'step' => '0.01',
 				),
@@ -1130,9 +1112,9 @@ class SettingsCollection {
 				'default' => 'featured_img',
 			),
 			'price'            => array(
-				'label'    => esc_html__( 'Price' ),
-				'type'     => self::get_single_value_field_types(),
-				'attrs'    => array(
+				'label' => esc_html__( 'Price' ),
+				'type'  => self::get_single_value_field_types(),
+				'attrs' => array(
 					'min'  => '0',
 					'step' => 'any',
 				),

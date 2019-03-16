@@ -9,7 +9,6 @@
 
 namespace PNO\SchemaOrg\Tag;
 
-use PNO\SchemaOrg\Settings\SettingsCollection;
 use WP_Query;
 
 // Exit if accessed directly.

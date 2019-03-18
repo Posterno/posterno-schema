@@ -63,6 +63,10 @@ class SchemaComponent {
 			define( 'PNO_SCHEMA_DIR', __DIR__ );
 		}
 
+		if ( ! defined( 'PNO_SCHEMA_URL' ) ) {
+			define( 'PNO_SCHEMA_URL', plugin_dir_url( __DIR__ ) );
+		}
+
 	}
 
 	/**

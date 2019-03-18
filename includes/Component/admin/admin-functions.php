@@ -12,96 +12,6 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Loop through the response from the schema.org api and prepare a formatted array.
- *
- * @param array $items the items from the api response.
- * @return array
- */
-function pno_generate_schema_hierarchy( $items ) {
-
-	$return = [];
-
-	foreach ( $items as $key => $item ) {
-
-		$prop = '@id';
-
-		$return[ $key ] = [
-			'id'    => $item->$prop,
-			'label' => $item->name,
-		];
-
-		if ( isset( $item->children ) && count( $item->children ) > 0 ) {
-			$return[ $key ]['children'] = pno_generate_schema_hierarchy( $item->children );
-		}
-	}
-
-	return $return;
-
-}
-
-/**
- * Query the schema.org api and cache the formatted response.
- *
- * @return array
- */
-function pno_get_schema_hierarchy() {
-
-	$schemas = remember_transient(
-		'pno_schema_hierarchy',
-		function () {
-
-			$url     = 'https://schema.org/docs/tree.jsonld';
-			$request = wp_remote_get( $url );
-
-			if ( is_wp_error( $request ) ) {
-				return;
-			}
-
-			$response = wp_remote_retrieve_body( $request );
-			$response = json_decode( $response );
-
-			return pno_generate_schema_hierarchy( $response->children );
-
-		},
-		WEEK_IN_SECONDS
-	);
-
-	return $schemas;
-
-}
-
-/**
- * Get all the properties of a given schema.
- *
- * @param array $schema schema types for which we're going to retrieve properties.
- * @return array
- */
-function pno_get_schema_properties( $schema = [] ) {
-
-	$all_properties = pno_get_schema_properties_list();
-
-	$schema_properties = [];
-
-	if ( is_array( $schema ) && ! empty( $schema ) ) {
-		foreach ( $all_properties as $propkey => $property ) {
-			foreach ( $schema as $type ) {
-				if ( in_array( $type, $property['types'] ) ) {
-					if ( ! isset( $schema_properties[ $propkey ] ) ) {
-						$schema_properties[ $propkey ] = [
-							'name' => $propkey,
-							'url'  => $property['url'],
-						];
-					}
-				}
-			}
-		}
-	}
-
-	return $schema_properties;
-
-}
-
-/**
  * Retrieve the list of schemas allowed to be used.
  *
  * @return array
@@ -157,5 +67,52 @@ function pno_get_schema_url( $schema ) {
 	}
 
 	return $url;
+
+}
+
+/**
+ * Retrieve example json file for one of the schemas available.
+ *
+ * @param string $schema the schema for which we're looking an example file.
+ * @return boolean|object
+ */
+function pno_get_schema_example_json( $schema ) {
+
+	$json = false;
+
+	$directory = trailingslashit( PNO_SCHEMA_URL ) . 'examples/';
+
+	$url = $directory;
+
+	$schema = strtolower( $schema );
+
+	switch ( $schema ) {
+		case 'jobposting':
+			$url .= 'job.json';
+			break;
+		case 'localbusiness':
+			$url .= 'place.json';
+			break;
+		case 'softwareapplication':
+			$url .= 'software.json';
+			break;
+		case 'videoobject':
+			$url .= 'video.json';
+			break;
+		default:
+			$url .= "{$schema}.json";
+			break;
+	}
+
+	$request = wp_remote_get( $url );
+
+	if ( is_wp_error( $request ) ) {
+		return false;
+	}
+
+	$body = wp_remote_retrieve_body( $request );
+	$json = json_decode( $body );
+
+	return $json;
 
 }

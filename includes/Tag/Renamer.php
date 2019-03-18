@@ -26,6 +26,12 @@ class Renamer {
 	 */
 	public static function rename( $prop ) {
 
+		switch ( $prop ) {
+			case 'hours_specification':
+				$prop = 'openingHoursSpecification';
+				break;
+		}
+
 		return $prop;
 
 	}

@@ -3,8 +3,7 @@
 </template>
 
 <script>
-import JSONEditor from "jsoneditor/dist/jsoneditor-minimalist.js";
-import "jsoneditor/dist/jsoneditor.min.css";
+import JSONEditor from 'jsoneditor';
 import _ from "lodash";
 
 export default {

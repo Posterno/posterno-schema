@@ -33,6 +33,7 @@ function pno_schema_admin_assets() {
 
 	if ( $screen->id === 'listings_page_posterno-listings-schema' ) {
 		wp_enqueue_style( 'pno-editors-styling' );
+		wp_enqueue_style( 'pno-jsoneditor', PNO_PLUGIN_URL . 'assets/css/third-party/jsoneditor/jsoneditor.css', false, $version );
 		wp_enqueue_script( 'pno-schema-js' );
 		wp_localize_script( 'pno-schema-js', 'pno_schema_editor', pno_get_schema_editor_js_vars() );
 	}

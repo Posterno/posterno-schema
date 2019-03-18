@@ -28,6 +28,8 @@
 
 						<wp-spinner class="properties-spinner" v-if="schemaLoading"></wp-spinner>
 
+						<jsoneditor ref="editor" :onChange="onChange" :json="json" :options="{ search: false }" />
+
 						<fieldset class="container-holder carbon-grid carbon-fields-collection schema-settings" v-if="canPerformAction() || saving">
 							<div class="carbon-container carbon-container-post_meta">
 								<div class="carbon-field has-width first-row" style="flex-basis: 33%;">
@@ -165,13 +167,15 @@ import axios from 'axios'
 import qs from 'qs'
 import AdminHeader from '../components/pno-admin-header'
 import Popper from 'vue-popperjs';
-import 'vue-popperjs/dist/vue-popper.css';
+import 'vue-popperjs/dist/vue-popper.css'
+import jsoneditor from '../components/jsoneditor'
 
 export default {
 	name: 'edit-listing-schema',
 	components: {
 		AdminHeader,
 		'popper': Popper,
+		jsoneditor
 	},
 	mounted() {
 
@@ -228,9 +232,23 @@ export default {
 			canDelete: true,
 			deleting: false,
 
+			json: {
+				'integer': 42,
+				'float': 1.24,
+				'string': 'foo',
+				'array': ['one', 2, 'three'],
+				'object': {
+				'foo': 'bar'
+				}
+			}
+
 		}
 	},
 	methods: {
+
+		onChange (newVal) {
+      console.log(newVal)
+    },
 
 		/**
 		 * Display an error message within the app.
@@ -744,6 +762,5 @@ export default {
 			}
 		}
 	}
-
 }
 </style>

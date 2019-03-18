@@ -28,65 +28,7 @@
 
 						<wp-spinner class="properties-spinner" v-if="schemaLoading"></wp-spinner>
 
-						<jsoneditor ref="editor" :onChange="onChange" :json="json" :options="{ search: false, colorPicker: false, enableSort: false, enableTransform: false }" />
-
-						<fieldset class="container-holder carbon-grid carbon-fields-collection schema-settings" v-if="canPerformAction() || saving">
-							<div class="carbon-container carbon-container-post_meta">
-								<div class="carbon-field has-width first-row" style="flex-basis: 33%;">
-									<div class="field-holder">
-										<label>
-											{{labels.schema_edit.primary_label}}
-										</label>
-										<div class="carbon-field-group-holder">
-											<Select2 v-model="schema.primarySchemaChildren" :options="primarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.additional_type, multiple: false }"/>
-										</div>
-									</div>
-								</div>
-								<div class="carbon-field has-width first-row" style="flex-basis: 33%;" v-if="secondarySchemaChildren.length > 0">
-									<div class="field-holder">
-										<label>
-											{{labels.schema_edit.secondary_label}}
-										</label>
-										<div class="carbon-field-group-holder">
-											<Select2 v-model="schema.secondarySchemaChildren" :options="secondarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.additional_type, multiple: false }" />
-										</div>
-									</div>
-								</div>
-								<div class="carbon-field has-width first-row" style="flex-basis: 33%;" v-if="tertiarySchemaChildren.length > 0">
-									<div class="field-holder">
-										<label>
-											{{labels.schema_edit.tertiary_label}}
-										</label>
-										<div class="carbon-field-group-holder">
-											<Select2 v-model="schema.tertiarySchemaChildren" :options="tertiarySchemaChildren" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.additional_type, multiple: false }" />
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="carbon-container carbon-container-post_meta">
-								<div class="carbon-field carbon-separator">
-									<div class="field-holder">
-										<h3>{{this.schema.name}} - {{labels.schema_edit.properties}} - <a :href="schema.url" target="_blank">{{labels.schema_edit.schema_url}}</a></h3>
-									</div>
-								</div>
-
-								<wp-spinner class="properties-spinner" v-if="propertiesLoading"></wp-spinner>
-
-								<div class="carbon-field has-width" style="flex-basis: 33.33%;" v-for="(item, index) in properties" :key="index">
-									<div class="field-holder">
-										<label>
-											{{item.label}}
-											<span v-if="item.required" class="required">*</span>
-										</label>
-										<div class="carbon-field-group-holder">
-											<Select2 v-model="item.value" :options="availableListingFields" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.schema_edit.field, multiple: false }" />
-										</div>
-									</div>
-								</div>
-							</div>
-
-						</fieldset>
+						<jsoneditor v-if="canPerformAction() || saving" ref="editor" :onChange="onChange" :json="json" :options="{ search: false, colorPicker: false, enableSort: false, enableTransform: false }" />
 
 					</wp-metabox>
 
@@ -181,7 +123,6 @@ export default {
 
 		this.schemaID = this.$route.params.id
 		this.loadSchemaDetails()
-		this.loadCustomFields()
 
 		const vm = this
 
@@ -309,9 +250,6 @@ export default {
 						tertiarySchemaChildren: response.data.data.tertiary_schema,
 					}
 
-					this.loadPrimarySchemaChildren()
-					this.loadSchemaPropSettings( response.data.data.properties )
-
 				}
 
 			})
@@ -344,252 +282,6 @@ export default {
 			}
 
 			return pass
-
-		},
-
-		/**
-		 * Load first level child schemas.
-		*/
-		loadPrimarySchemaChildren() {
-
-			this.schemaLoading = true
-			this.primarySchemaChildren = []
-			this.secondarySchemaChildren = []
-			this.tertiarySchemaChildren = []
-
-			const configParams = {
-				nonce: pno_schema_editor.childSchemaNonce,
-				action: 'pno_get_child_schema',
-				schema: this.schema.name,
-			}
-
-			axios.get( pno_schema_editor.ajax, {
-				params: configParams
-			})
-			.then( response => {
-
-				this.schemaLoading = false
-
-				Object.keys( response.data.data.childs ).forEach( key => {
-					this.primarySchemaChildren.push( { id: response.data.data.childs[ key ].label, text: response.data.data.childs[ key ].label } )
-				});
-
-			})
-			.catch( error => {
-
-				this.schemaLoading = false
-
-				if ( typeof(error.response) !== 'undefined' && typeof(error.response.data) !== 'undefined' ) {
-					this.showError( error.response.data )
-				} else if ( typeof(error.message) !== 'undefined' ) {
-					this.showError( error.message )
-				}
-			})
-
-		},
-
-		/**
-		 * Load child schemas of the primary schema.
-		*/
-		loadSecondaryChildren( selectedSchema ) {
-
-			this.schemaLoading = true
-			this.secondarySchemaChildren = []
-			const vm = this
-
-			const configParams = {
-				nonce: pno_schema_editor.childSchemaNonce,
-				action: 'pno_get_child_schema',
-				schema: selectedSchema,
-			}
-
-			axios.get( pno_schema_editor.ajax, {
-				params: configParams
-			})
-			.then( response => {
-
-				this.schemaLoading = false
-
-				if ( typeof(response.data.data.childs) !== 'undefined' && response.data.data.childs !== null ) {
-					Object.keys( response.data.data.childs ).forEach( key => {
-						this.secondarySchemaChildren.push( { id: response.data.data.childs[ key ].label, text: response.data.data.childs[ key ].label } )
-					});
-				}
-
-			})
-			.catch( error => {
-
-				this.schemaLoading = false
-
-				if ( typeof(error.response) !== 'undefined' && typeof(error.response.data) !== 'undefined' ) {
-					this.showError( error.response.data )
-				} else if ( typeof(error.message) !== 'undefined' ) {
-					this.showError( error.message )
-				}
-			})
-
-		},
-
-		/**
-		 * Load child schemas of the secondary schema.
-		 */
-		loadTertiaryChildren( selectedSchema ) {
-
-			this.schemaLoading = true
-			this.tertiarySchemaChildren = []
-
-			const configParams = {
-				nonce: pno_schema_editor.childSchemaNonce,
-				action: 'pno_get_child_schema',
-				schema: selectedSchema,
-			}
-
-			axios.get( pno_schema_editor.ajax, {
-				params: configParams
-			})
-			.then( response => {
-
-				this.schemaLoading = false
-
-				if ( typeof(response.data.data.childs) !== 'undefined' && response.data.data.childs !== null ) {
-					Object.keys( response.data.data.childs ).forEach( key => {
-						this.tertiarySchemaChildren.push( { id: response.data.data.childs[ key ].label, text: response.data.data.childs[ key ].label } )
-					});
-				}
-			})
-			.catch( error => {
-
-				this.schemaLoading = false
-
-				if ( typeof(error.response) !== 'undefined' && typeof(error.response.data) !== 'undefined' ) {
-					this.showError( error.response.data )
-				} else if ( typeof(error.message) !== 'undefined' ) {
-					this.showError( error.message )
-				}
-			})
-
-		},
-
-		/**
-		 * Load custom listings fields.
-		*/
-		loadCustomFields() {
-
-			this.propertiesLoading = true
-
-			const configParams = {
-				nonce: pno_schema_editor.listingFieldsSchemaNonce,
-				action: 'pno_get_schema_listings_fields',
-			}
-
-			axios.get( pno_schema_editor.ajax, {
-				params: configParams
-			})
-			.then( response => {
-
-				this.propertiesLoading = false
-
-				if ( typeof(response.data.data.fields) !== 'undefined' && response.data.data.fields !== null ) {
-
-					let mainChilds = []
-
-					let cfBlock = {
-						id: 0,
-						text: this.labels.schema_edit.cf,
-						children: mainChilds
-					}
-
-					Object.keys( response.data.data.fields ).forEach( key => {
-						mainChilds.push( { id: key, text: response.data.data.fields[ key ].name } )
-					});
-
-					this.availableListingFields.push( cfBlock )
-
-				}
-
-				if ( typeof(response.data.data.meta) !== 'undefined' && response.data.data.meta !== null ) {
-					Object.keys( response.data.data.meta ).forEach( key => {
-						let childs = []
-						Object.keys( response.data.data.meta[ key ].settings ).forEach( settingkey => {
-							childs.push({
-								id: settingkey,
-								text: response.data.data.meta[ key ].settings[ settingkey ],
-							})
-						})
-						let metaBlock = {
-							id: key,
-							text: response.data.data.meta[ key ].label,
-							children: childs
-						}
-						this.availableListingFields.push( metaBlock )
-					});
-				}
-
-			})
-			.catch( error => {
-
-				this.propertiesLoading = false
-
-				if ( typeof(error.response) !== 'undefined' && typeof(error.response.data) !== 'undefined' ) {
-					this.showError( error.response.data )
-				} else if ( typeof(error.message) !== 'undefined' ) {
-					this.showError( error.message )
-				}
-
-			})
-
-		},
-
-		/**
-		 * Load setting for the selected schema.
-		 */
-		loadSchemaPropSettings( dbvalues = false ) {
-
-			this.propertiesLoading = true
-			this.properties = []
-
-			const configParams = {
-				nonce: pno_schema_editor.propertiesSchemaNonce,
-				action: 'pno_get_schema_properties',
-				schema: this.schema.name,
-				post_id: this.schemaID,
-			}
-
-			axios.get( pno_schema_editor.ajax, {
-				params: configParams
-			})
-			.then( response => {
-
-				this.propertiesLoading = false
-
-				if ( typeof(response.data.data.props) !== 'undefined' && response.data.data.props !== null ) {
-					this.properties = response.data.data.props
-				}
-
-				if ( dbvalues ) {
-					Object.keys( dbvalues ).forEach( key => {
-
-						const propName = key
-						const propValue = dbvalues[key]
-
-						if ( typeof( this.properties[propName] ) !== 'undefined' && this.properties[propName] !== null ) {
-							this.properties[propName].value = propValue
-						}
-
-					});
-				}
-
-			})
-			.catch( error => {
-
-				this.propertiesLoading = false
-
-				if ( typeof(error.response) !== 'undefined' && typeof(error.response.data) !== 'undefined' ) {
-					this.showError( error.response.data )
-				} else if ( typeof(error.message) !== 'undefined' ) {
-					this.showError( error.message )
-				}
-			})
 
 		},
 
@@ -688,19 +380,6 @@ export default {
 			})
 
 		}
-
-	},
-	watch: {
-		'schema.primarySchemaChildren': function (newVal, oldVal) {
-			if ( newVal ) {
-				this.loadSecondaryChildren( newVal )
-			}
-		},
-		'schema.secondarySchemaChildren': function (newVal, oldVal) {
-			if ( newVal ) {
-				this.loadTertiaryChildren( newVal )
-			}
-		},
 	}
 }
 </script>

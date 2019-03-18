@@ -149,27 +149,14 @@ export default {
 				mode: '',
 				title: '',
 				listing_types: [],
-				primarySchemaChildren: '',
-				secondarySchemaChildren: '',
-				tertiarySchemaChildren: '',
 				url: '',
 			},
 			isError: false,
 			isSuccess: false,
 			statusMessage: '',
-			propertiesLoading: false,
 			schemaLoading: false,
 			saving: false,
-			availableSchemas: [],
 			availableListingTypes: [],
-			availableListingFields: [],
-
-			primarySchemaChildren: [],
-			secondarySchemaChildren: [],
-			tertiarySchemaChildren: [],
-
-			properties: [],
-
 			canDelete: true,
 			deleting: false,
 

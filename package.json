@@ -10,6 +10,8 @@
   "dependencies": {
     "@alessandrotesoro/vuewp": "^1.0.2",
     "axios": "^0.18.0",
+    "jsoneditor": "^5.31.1",
+    "lodash": "^4.17.11",
     "qs": "^6.6.0",
     "v-select2-component": "^0.3.3",
     "vue": "^2.6.6",

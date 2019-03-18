@@ -61,7 +61,6 @@ function pno_ajax_create_listing_schema() {
 	if ( $schema_id ) {
 
 		update_post_meta( $schema_id, 'schema_mode', $mode );
-		update_post_meta( $schema_id, 'schema_name', $schema );
 
 		if ( $mode === 'type' ) {
 			update_post_meta( $schema_id, 'schema_listing_types', $types );

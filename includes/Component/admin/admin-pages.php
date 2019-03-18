@@ -87,7 +87,8 @@ function pno_get_schema_editor_js_vars() {
 					'type'   => esc_html__( 'Specific listing type(s)' ),
 				],
 				'schemas'       => [
-					'label' => esc_html__( 'Select schema' ),
+					'label'       => esc_html__( 'Select schema' ),
+					'description' => esc_html__( 'Select an example schema from the list or leave blank to start with empty json.' ),
 				],
 				'listing_types' => [
 					'label'     => esc_html__( 'Select listing type(s)' ),

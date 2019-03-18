@@ -40,6 +40,8 @@
 															<option value=""></option>
 															<option v-for="(schema, key) in availableSchemas" :key="key" :value="schema">{{schema}}</option>
 														</select>
+														<p class="description">{{labels.settings.schemas.description}}</p>
+
 													</fieldset>
 												</td>
 											</tr>

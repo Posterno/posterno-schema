@@ -34,7 +34,7 @@ class Graph extends BaseType {
 		throw new BadMethodCallException( sprintf( 'The method "%" does not exist on class "%s".', $method, get_class( $this ) ) );
 	}
 
-	public function add( Type $schema ): self {
+	public function add( $schema ) {
 		$type = get_class( $schema );
 
 		if ( $this->has( $type ) ) {
@@ -44,15 +44,15 @@ class Graph extends BaseType {
 		return $this->set( $schema );
 	}
 
-	public function has( string $type ): bool {
+	public function has( $type ) {
 		return $this->offsetExists( $type );
 	}
 
-	public function set( Type $schema ) {
+	public function set( $schema ) {
 		return $this->setProperty( get_class( $schema ), $schema );
 	}
 
-	public function get( string $type ): Type {
+	public function get( $type ) {
 		if ( ! $this->has( $type ) ) {
 			throw new TypeNotInGraph( sprintf( 'The graph does not have an item of type "%s".', $type ) );
 		}
@@ -60,7 +60,7 @@ class Graph extends BaseType {
 		return $this->getProperty( $type );
 	}
 
-	public function getOrCreate( string $type ): Type {
+	public function getOrCreate( $type ) {
 		if ( ! is_subclass_of( $type, Type::class ) ) {
 			throw new InvalidType( sprintf( 'The given type "%s" is not an instance of "%s".', $type, Type::class ) );
 		}
@@ -72,19 +72,19 @@ class Graph extends BaseType {
 		return $this->get( $type );
 	}
 
-	public function hide( string $type ): self {
+	public function hide( $type ) {
 		$this->hidden[ $type ] = true;
 
 		return $this;
 	}
 
-	public function show( string $type ): self {
+	public function show( $type ) {
 		$this->hidden[ $type ] = false;
 
 		return $this;
 	}
 
-	public function toArray(): array {
+	public function toArray() {
 		$properties = $this->getProperties();
 
 		foreach ( $this->hidden as $type => $hide ) {

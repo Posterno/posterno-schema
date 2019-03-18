@@ -24,7 +24,7 @@ class Filesystem {
 		$this->typesListTemplate      = new Template( 'types-list.php.twig' );
 		$this->propertiesListTemplate = new Template( 'properties-list.php.twig' );
 		$this->typeTemplate           = new Template( 'Type.php.twig' );
-		$this->builderClassTemplate   = new Template( 'Schema.php.twig' );
+		$this->builderClassTemeplate   = new Template( 'Schema.php.twig' );
 	}
 
 	public function clearAutomatedFiles() {
@@ -32,9 +32,12 @@ class Filesystem {
 		$contents = $this->flysystem->listContents( 'includes', true );
 
 		$excluded = [ 'types-list.php', 'properties-list.php' ];
+		$excluded_paths = [ 'includes/Settings', 'includes/Tag' ];
 
 		foreach ( $contents as $object ) {
-			if ( strpos( $object['path'], 'includes/Component' ) === 0 && ! in_array( $object['basename'], $excluded ) ) {
+			if ( strpos( $object['path'], 'includes/Settings' ) === 0 || strpos( $object['path'], 'includes/Tag' ) === 0 ) {
+				continue;
+			} elseif ( strpos( $object['path'], 'includes/Component' ) === 0 && ! in_array( $object['basename'], $excluded ) ) {
 				continue;
 			} else {
 				$this->flysystem->delete( $object['path'] );

@@ -1,0 +1,65 @@
+{
+	"@context": "https://schema.org",
+	"@type": "Book",
+	"name": "The Catcher in the Rye",
+	"author": {
+		"@type": "Person",
+		"name": "J.D. Salinger"
+	},
+	"url": "http://www.barnesandnoble.com/store/info/offer/JDSalinger",
+	"workExample": [{
+		"@type": "Book",
+		"isbn": "031676948",
+		"bookEdition": "2nd Edition",
+		"bookFormat": "https://schema.org/Hardcover",
+		"potentialAction": {
+			"@type": "ReadAction",
+			"target": {
+				"@type": "EntryPoint",
+				"urlTemplate": "http://www.barnesandnoble.com/store/info/offer/0316769487?purchase=true",
+				"actionPlatform": [
+					"http://schema.org/DesktopWebPlatform",
+					"http://schema.org/IOSPlatform",
+					"http://schema.org/AndroidPlatform"
+				]
+			},
+			"expectsAcceptanceOf": {
+				"@type": "Offer",
+				"Price": 6.99,
+				"priceCurrency": "USD",
+				"eligibleRegion": {
+					"@type": "Country",
+					"name": "US"
+				},
+				"availability": "https://schema.org/InStock"
+			}
+		}
+	}, {
+		"@type": "Book",
+		"isbn": "031676947",
+		"bookEdition": "1st Edition",
+		"bookFormat": "https://schema.org/EBook",
+		"potentialAction": {
+			"@type": "ReadAction",
+			"target": {
+				"@type": "EntryPoint",
+				"urlTemplate": "http://www.barnesandnoble.com/store/info/offer/031676947?purchase=true",
+				"actionPlatform": [
+					"http://schema.org/DesktopWebPlatform",
+					"http://schema.org/IOSPlatform",
+					"http://schema.org/AndroidPlatform"
+				]
+			},
+			"expectsAcceptanceOf": {
+				"@type": "Offer",
+				"Price": 1.99,
+				"priceCurrency": "USD",
+				"eligibleRegion": {
+					"@type": "Country",
+					"name": "UK"
+				},
+				"availability": "https://schema.org/InStock"
+			}
+		}
+	}]
+}

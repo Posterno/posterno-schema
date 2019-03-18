@@ -1,5 +1,5 @@
 <template>
-	<div ref="jsoneditor"></div>
+	<div ref="jsoneditor" class="pno-jsoneditor"></div>
 </template>
 
 <script>
@@ -64,3 +64,17 @@ export default {
   	}
 }
 </script>
+
+<style lang="scss">
+.pno-jsoneditor {
+	margin: -6px -12px 0;
+}
+.jsoneditor {
+	border:none !important;
+
+	> .jsoneditor-menu {
+		background: #0085ba !important;
+		border-bottom-color: #ddd !important;
+	}
+}
+</style>

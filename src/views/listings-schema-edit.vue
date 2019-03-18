@@ -28,7 +28,7 @@
 
 						<wp-spinner class="properties-spinner" v-if="schemaLoading"></wp-spinner>
 
-						<jsoneditor ref="editor" :onChange="onChange" :json="json" :options="{ search: false }" />
+						<jsoneditor ref="editor" :onChange="onChange" :json="json" :options="{ search: false, colorPicker: false, enableSort: false, enableTransform: false }" />
 
 						<fieldset class="container-holder carbon-grid carbon-fields-collection schema-settings" v-if="canPerformAction() || saving">
 							<div class="carbon-container carbon-container-post_meta">

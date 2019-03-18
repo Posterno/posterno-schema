@@ -16,9 +16,10 @@ class Graph extends BaseType {
 	/** @var array */
 	protected $hidden = [];
 
-	public function __call( string $method, array $arguments ) {
+	public function __call( $method, $arguments ) {
 		if ( is_callable( [ Schema::class, $method ] ) ) {
-			$type = ( new ReflectionClass( Schema::class ) )->getMethod( $method )->getReturnType();
+
+			$type = ( new ReflectionClass( Schema::class ) )->getMethod( $method );
 
 			$schema = $this->getOrCreate( $type );
 

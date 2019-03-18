@@ -10,6 +10,7 @@
 namespace PNO\SchemaOrg\Tag;
 
 use WP_Query;
+use PNO\SchemaOrg\Graph;
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
@@ -155,6 +156,7 @@ class Listing {
 			$value = ListingData::get( $listing_id, $type, $meta_key, $prop );
 
 			if ( $value ) {
+				$prop                       = Renamer::rename( $prop );
 				$parsed_properties[ $prop ] = $value;
 			}
 		}

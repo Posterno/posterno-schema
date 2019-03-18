@@ -28,7 +28,7 @@
 						</td>
 					</tr>
 				</tbody>
-				<tbody v-else-if="! loading && schemas < 0">
+				<tbody v-else-if="! loading && schemas < 1">
 					<tr class="no-items">
 						<td class="colspanchange" colspan="4">
 							<strong>{{labels.table.not_found}}</strong>

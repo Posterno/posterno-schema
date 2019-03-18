@@ -46,19 +46,26 @@ function pno_ajax_create_listing_schema() {
 
 		$schema_id = wp_insert_post( $args );
 
+	} elseif ( ! $schema && $mode ) {
+
+		$args = array(
+			'post_title'  => esc_html__( 'Custom schema' ),
+			'post_status' => 'publish',
+			'post_type'   => 'pno_schema',
+		);
+
+		$schema_id = wp_insert_post( $args );
+
+	}
+
+	if ( $schema_id ) {
+
 		update_post_meta( $schema_id, 'schema_mode', $mode );
 		update_post_meta( $schema_id, 'schema_name', $schema );
 
 		if ( $mode === 'type' ) {
 			update_post_meta( $schema_id, 'schema_listing_types', $types );
 		}
-	} else {
-
-		wp_die( $general_message, 403 ); //phpcs:ignore
-
-	}
-
-	if ( $schema_id ) {
 
 		wp_send_json_success( $schema_id );
 

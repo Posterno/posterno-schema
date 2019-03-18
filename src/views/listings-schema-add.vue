@@ -131,24 +131,6 @@ export default {
 			loading: false,
 			isError: false,
 			statusMessage: '',
-
-			options: [ {
-          id: 'a',
-          label: 'a',
-          children: [ {
-            id: 'aa',
-            label: 'aa',
-          }, {
-            id: 'ab',
-            label: 'ab',
-          } ],
-        }, {
-          id: 'b',
-          label: 'b',
-        }, {
-          id: 'c',
-          label: 'c',
-        } ],
 		}
 	},
 	methods: {
@@ -177,9 +159,9 @@ export default {
 
 			let canSubmit = false
 
-			if ( this.newSchemaMode === 'global' && this.newSchemaName ) {
+			if ( this.newSchemaMode === 'global' ) {
 				canSubmit = true
-			} else if ( this.newSchemaMode === 'type' && this.availableListingTypes.length > 0 && this.newSchemaListingType && this.newSchemaListingType.length > 0 && this.newSchemaName ) {
+			} else if ( this.newSchemaMode === 'type' && this.availableListingTypes.length > 0 && this.newSchemaListingType && this.newSchemaListingType.length > 0 ) {
 				canSubmit = true
 			}
 

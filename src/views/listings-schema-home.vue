@@ -21,8 +21,22 @@
 						<th scope="col">{{labels.table.actions}}</th>
 					</tr>
 				</thead>
-				<tbody>
-					<tr v-for="(schema, key) in schemas" :key="key" v-if="! loading">
+				<tbody v-if="loading">
+					<tr class="no-items">
+						<td class="colspanchange" colspan="4">
+							<wp-spinner></wp-spinner>
+						</td>
+					</tr>
+				</tbody>
+				<tbody v-else-if="! loading && schemas < 0">
+					<tr class="no-items">
+						<td class="colspanchange" colspan="4">
+							<strong>{{labels.table.not_found}}</strong>
+						</td>
+					</tr>
+				</tbody>
+				<tbody v-else>
+					<tr v-for="(schema, key) in schemas" :key="key">
 						<td class="column-primary" :data-colname="labels.table.name">
 							<router-link :to="{ name: 'edit', params: {id: schema.id } }">{{schema.name}}</router-link>
 							<button type="button" class="toggle-row"></button>
@@ -52,16 +66,6 @@
 							</popper>
 						</td>
 					</tr>
-					<tr class="no-items" v-if="schemas < 1 && ! loading">
-						<td class="colspanchange" colspan="4">
-							<strong>{{labels.table.not_found}}</strong>
-						</td>
-					</tr>
-					<tr class="no-items" v-if="loading">
-						<td class="colspanchange" colspan="4">
-							<wp-spinner></wp-spinner>
-						</td>
-					</tr>
 				</tbody>
 			</table>
 
@@ -86,8 +90,6 @@ export default {
 
 		const routerQuery = this.$route.query
 
-		this.loadSchemas()
-
 		if ( routerQuery.deleted ) {
 			this.showSuccess( this.labels.schema_edit.deleted_message )
 
@@ -99,6 +101,8 @@ export default {
 			})
 
 		}
+
+		this.loadSchemas()
 
 	},
 	data() {

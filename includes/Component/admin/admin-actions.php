@@ -46,6 +46,11 @@ function pno_ajax_create_listing_schema() {
 
 		$schema_id = wp_insert_post( $args );
 
+		$example = pno_get_schema_example_json( $schema );
+
+		if ( $example ) {
+			update_post_meta( $schema_id, 'schema_code', wp_json_encode( $example ) );
+		}
 	} elseif ( ! $schema && $mode ) {
 
 		$args = array(

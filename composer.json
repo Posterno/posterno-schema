@@ -19,28 +19,13 @@
 			"PNO\\SchemaOrg\\": "includes"
 		}
 	},
-	"autoload-dev": {
-        "psr-4": {
-            "PNO\\SchemaOrg\\Generator\\": "generator"
-        }
-    },
 	"require-dev": {
 		"dealerdirect/phpcodesniffer-composer-installer": "0.4.4",
-		"pressmodo/phpcs-config": "dev-master",
-		"graham-campbell/analyzer": "^1.1",
-        "larapack/dd": "^1.1",
-        "league/flysystem": "^1.0",
-        "phpunit/phpunit": "^6.0",
-        "scrutinizer/ocular": "^1.5",
-        "symfony/console": "^3.2",
-        "symfony/css-selector": "^3.2",
-        "symfony/dom-crawler": "^3.2",
-        "twig/twig": "^1.28"
+		"pressmodo/phpcs-config": "dev-master"
 	},
 	"scripts": {
 		"lint": "phpcs .",
-		"lint-fix": "phpcbf .",
-		"generate": "php ./generate.php generate"
+		"lint-fix": "phpcbf ."
 	},
 	"config": {
         "sort-packages": true

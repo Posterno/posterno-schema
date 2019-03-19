@@ -117,6 +117,7 @@ function pno_get_schema_editor_js_vars() {
 				'structure'          => esc_html__( 'Schema structure' ),
 				'update'             => esc_html__( 'Update properties' ),
 				'properties_updated' => esc_html__( 'Properties successfully updated. Click on the "Customize properties" tab to finish customizing the schema.' ),
+				'fields'             => esc_html__( 'Available fields' ),
 			],
 		],
 	];

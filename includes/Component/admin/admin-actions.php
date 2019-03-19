@@ -195,6 +195,9 @@ function pno_ajax_get_listing_schema() {
 
 	$schema = new WP_Query( $args );
 
+	// Get all available fields.
+	$fields = pno_get_schema_listings_fields();
+
 	if ( $schema->have_posts() ) {
 
 		while ( $schema->have_posts() ) {
@@ -211,6 +214,7 @@ function pno_ajax_get_listing_schema() {
 				'listing_types' => get_post_meta( $schema_id, 'schema_listing_types', true ),
 				'schema_url'    => pno_get_schema_url( $name ),
 				'json'          => get_post_meta( $schema_id, 'schema_code', true ),
+				'fields'        => $fields,
 			];
 
 		}

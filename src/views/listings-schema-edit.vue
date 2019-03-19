@@ -48,6 +48,18 @@
 
 						</wp-tab-item>
 
+						<wp-tab-item :label="labels.schema_edit.fields">
+
+							<wp-metabox :title="labels.schema_edit.fields">
+
+								<div v-for="(field, key) in availableFields" :key="key">
+									<p>{{field.name}} - <code>%_{{field.meta}}_%</code></p>
+								</div>
+
+							</wp-metabox>
+
+						</wp-tab-item>
+
 					</wp-tabs>
 
 				</wp-col>
@@ -193,6 +205,7 @@ export default {
 			schemaLoading: false,
 			saving: false,
 			availableListingTypes: [],
+			availableFields: [],
 			canDelete: true,
 			deleting: false,
 			propertiesUpdated: false,
@@ -257,6 +270,14 @@ export default {
 						url: response.data.data.schema_url,
 						json: JSON.parse(response.data.data.json)
 					}
+
+					Object.keys( response.data.data.fields ).forEach( key => {
+						this.availableFields.push( {
+							id: key,
+							name: response.data.data.fields[key].name,
+							meta: response.data.data.fields[key].meta,
+						} )
+					});
 
 				}
 
@@ -406,6 +427,9 @@ export default {
 
 		},
 
+		/**
+		 * Sync properties changed within the structure json editor.
+		*/
 		syncJsonChange (newVal) {
 
 			const editor = this.$refs.editor_json.editor

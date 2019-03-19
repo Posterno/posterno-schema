@@ -116,3 +116,33 @@ function pno_get_schema_example_json( $schema ) {
 	return $json;
 
 }
+
+/**
+ * Retrieve a list of all listings fields available for schemas.
+ *
+ * @return array
+ */
+function pno_get_schema_listings_fields() {
+
+	$fields = [];
+
+	$listing_fields = new \PNO\Database\Queries\Listing_Fields( [ 'number' => 999 ] );
+
+	if ( ! empty( $listing_fields->items ) && is_array( $listing_fields->items ) ) {
+		$custom_fields_ids = [];
+		foreach ( $listing_fields->items as $field ) {
+			$custom_fields_ids[] = $field->get_post_id();
+		}
+		foreach ( $custom_fields_ids as $listing_field_id ) {
+			$custom_listing_field        = new \PNO\Field\Listing( $listing_field_id );
+			$fields[ $listing_field_id ] = [
+				'type' => $custom_listing_field->get_type(),
+				'name' => $custom_listing_field->get_name(),
+				'meta' => $custom_listing_field->get_object_meta_key(),
+			];
+		}
+	}
+
+	return $fields;
+
+}

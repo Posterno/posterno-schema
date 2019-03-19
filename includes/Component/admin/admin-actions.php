@@ -245,15 +245,16 @@ function pno_ajax_save_listing_schema() {
 	}
 
 	$schema_id = isset( $_POST['post_id'] ) && ! empty( $_POST['post_id'] ) ? absint( $_POST['post_id'] ) : false;
+	$json      = isset( $_POST['json'] ) && ! empty( $_POST['json'] ) ? sanitize_text_field( $_POST['json'] ) : false;
 
-	if ( $schema_id ) {
+	if ( $schema_id && $json ) {
 
 		$schema_details = isset( $_POST['schema'] ) && ! empty( $_POST['schema'] ) ? $_POST['schema'] : false;
 
-		$name             = isset( $schema_details['name'] ) ? sanitize_text_field( $schema_details['name'] ) : false;
-		$mode             = isset( $schema_details['mode'] ) ? sanitize_text_field( $schema_details['mode'] ) : false;
-		$title            = isset( $schema_details['title'] ) ? sanitize_text_field( $schema_details['title'] ) : false;
-		$listing_types    = isset( $schema_details['listing_types'] ) && is_array( $schema_details['listing_types'] ) && ! empty( $schema_details['listing_types'] ) ? array_map( 'absint', $schema_details['listing_types'] ) : false;
+		$name          = isset( $schema_details['name'] ) ? sanitize_text_field( $schema_details['name'] ) : false;
+		$mode          = isset( $schema_details['mode'] ) ? sanitize_text_field( $schema_details['mode'] ) : false;
+		$title         = isset( $schema_details['title'] ) ? sanitize_text_field( $schema_details['title'] ) : false;
+		$listing_types = isset( $schema_details['listing_types'] ) && is_array( $schema_details['listing_types'] ) && ! empty( $schema_details['listing_types'] ) ? array_map( 'absint', $schema_details['listing_types'] ) : false;
 
 		if ( empty( $title ) || ! $title ) {
 			wp_die( esc_html__( 'Something went wrong: the schema must have a title. Please enter a title.' ), 403 ); //phpcs:ignore
@@ -262,28 +263,21 @@ function pno_ajax_save_listing_schema() {
 		if ( $mode === 'type' && empty( $listing_types ) ) {
 			wp_die( esc_html__( 'Something went wrong: select listing types or set this schema as global.' ), 403 ); //phpcs:ignore
 		}
-		exit;
-/*
-		$validation = SettingsValidator::verify_required_fields( $properties );
 
-		if ( is_wp_error( $validation ) ) {
-			wp_die( $validation->get_error_message(), 403 ); //phpcs:ignore
-		}
+		$json = json_decode( stripslashes( $json ), true );
 
-		$type_validator = SettingsValidator::verify_assigned_field_type_matches( $properties );
-
-		if ( is_wp_error( $type_validator ) ) {
-			wp_die( $type_validator->get_error_message(), 403 ); //phpcs:ignore
-		}
-
-		$properties = SettingsSanitizer::sanitize( $properties );
-		$schema     = SettingsStorage::save( $schema_id, $name, $mode, $title, $listing_types, $primary_schema, $secondary_schema, $tertiary_schema, $properties );
+		array_walk_recursive(
+			$json,
+			function( &$value ) {
+				$value = sanitize_text_field( $value );
+			}
+		);
 
 		if ( is_wp_error( $schema ) ) {
 			wp_die( $schema->get_error_message(), 403 ); //phpcs:ignore
 		}
 
-		wp_send_json_success( $schema );*/
+		wp_send_json_success( $schema );
 
 	} else {
 		wp_die( $general_message, 403 ); //phpcs:ignore

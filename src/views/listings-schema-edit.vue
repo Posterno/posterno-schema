@@ -330,12 +330,15 @@ export default {
 
 			this.saving = true
 
+			const propertiesEditor = this.$refs.editor.editor
+			const json = propertiesEditor.get()
+
 			axios.post( pno_schema_editor.ajax,
 				qs.stringify({
 					nonce: pno_schema_editor.saveListingSchemaNonce,
 					post_id: this.schemaID,
 					schema: this.schema,
-					properties: this.properties
+					json: JSON.stringify( json )
 				}),
 				{
 					params: {

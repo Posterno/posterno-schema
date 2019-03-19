@@ -37,7 +37,20 @@ class ListingData {
 
 			switch ( $query->get_type() ) {
 				case 'text':
+				case 'email':
+				case 'checkbox':
+				case 'password':
+				case 'select':
+				case 'radio':
+				case 'number':
 					$data = self::get_text_data( $listing_id, $meta_key );
+					break;
+				case 'textarea':
+				case 'editor':
+					$data = self::get_textarea_data( $listing_id, $meta_key );
+					break;
+				case 'url':
+					$data = self::get_url_data( $listing_id, $meta_key );
 					break;
 				case 'file':
 					$data = self::get_file_data( $listing_id, $meta_key );
@@ -46,7 +59,7 @@ class ListingData {
 					$data = self::get_hours_data( $listing_id );
 					break;
 				default:
-					$data = carbon_get_post_meta( $listing_id, $meta_key );
+					$data = esc_html( carbon_get_post_meta( $listing_id, $meta_key ) );
 					break;
 			}
 		} else {
@@ -74,13 +87,50 @@ class ListingData {
 			case 'listing_title':
 				$data = get_the_title( $listing_id );
 				break;
+			case 'listing_email_address':
+				$data = carbon_get_post_meta( $listing_id, 'listing_email' );
+				break;
 			default:
 				$data = carbon_get_post_meta( $listing_id, $meta_key );
 				break;
 		}
 
-		return $data;
+		return esc_html( $data );
 
+	}
+
+	/**
+	 * Get data belonging to a textarea field.
+	 *
+	 * @param string $listing_id id of the listing.
+	 * @param string $meta_key meta key.
+	 * @return string
+	 */
+	public static function get_textarea_data( $listing_id, $meta_key ) {
+		return strip_tags( carbon_get_post_meta( $listing_id, $meta_key ) );
+	}
+
+	/**
+	 * Get data belonging to an url field.
+	 *
+	 * @param string $listing_id id of the listing.
+	 * @param string $meta_key meta key.
+	 * @return string
+	 */
+	public static function get_url_data( $listing_id, $meta_key ) {
+
+		$data = false;
+
+		switch ( $meta_key ) {
+			case 'listing_video':
+				$data = carbon_get_post_meta( $listing_id, 'listing_media_embed' );
+				break;
+			default:
+				$data = carbon_get_post_meta( $listing_id, $meta_key );
+				break;
+		}
+
+		return esc_url( $data );
 	}
 
 	/**
@@ -99,7 +149,7 @@ class ListingData {
 				$data  = false;
 				$image = get_the_post_thumbnail_url( $listing_id, 'full' );
 				if ( $image ) {
-					$data = [ $image ];
+					$data = [ esc_url( $image ) ];
 				}
 				break;
 			case 'listing_gallery':
@@ -110,7 +160,7 @@ class ListingData {
 					foreach ( $images as $img ) {
 						$attachment = wp_get_attachment_url( $img['value'] );
 						if ( $attachment ) {
-							$img_sources[] = $attachment;
+							$img_sources[] = esc_url( $attachment );
 						}
 					}
 					if ( ! empty( $img_sources ) ) {
@@ -165,9 +215,9 @@ class ListingData {
 				}
 				$sets[] = [
 					'@type'     => 'OpeningHoursSpecification',
-					'dayOfWeek' => $set->get_day_name(),
-					'opens'     => $set->start_time,
-					'closes'    => $set->start_time,
+					'dayOfWeek' => esc_html( $set->get_day_name() ),
+					'opens'     => esc_html( $set->start_time ),
+					'closes'    => esc_html( $set->start_time ),
 				];
 			}
 

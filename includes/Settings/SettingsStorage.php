@@ -25,13 +25,10 @@ class SettingsStorage {
 	 * @param string $mode the display mode of the schema.
 	 * @param string $title the title assigned to the schema.
 	 * @param array  $listing_types optional listing types selected if the mode allows for it.
-	 * @param string $primary_schema optional schema type.
-	 * @param string $secondary_schema optional schema type.
-	 * @param string $tertiary_schema optional schema type.
 	 * @param array  $properties list of schema properties mapped to fields.
 	 * @return string
 	 */
-	public static function save( $schema_id, $name, $mode, $title, $listing_types, $primary_schema, $secondary_schema, $tertiary_schema, $properties ) {
+	public static function save( $schema_id, $name, $mode, $title, $listing_types, $properties ) {
 
 		$post_id = false;
 
@@ -56,26 +53,8 @@ class SettingsStorage {
 			delete_post_meta( $post_id, 'schema_listing_types' );
 		}
 
-		if ( $primary_schema ) {
-			update_post_meta( $post_id, 'schema_optional_type_1', $primary_schema );
-		} else {
-			delete_post_meta( $post_id, 'schema_optional_type_1' );
-		}
-
-		if ( $secondary_schema ) {
-			update_post_meta( $post_id, 'schema_optional_type_2', $secondary_schema );
-		} else {
-			delete_post_meta( $post_id, 'schema_optional_type_2' );
-		}
-
-		if ( $tertiary_schema ) {
-			update_post_meta( $post_id, 'schema_optional_type_3', $tertiary_schema );
-		} else {
-			delete_post_meta( $post_id, 'schema_optional_type_3' );
-		}
-
 		if ( ! empty( $properties ) && is_array( $properties ) ) {
-			update_post_meta( $post_id, 'schema_properties', $properties );
+			update_post_meta( $post_id, 'schema_code', wp_json_encode( $properties ) );
 		}
 
 		return $post_id;

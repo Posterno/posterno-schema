@@ -273,6 +273,8 @@ function pno_ajax_save_listing_schema() {
 			}
 		);
 
+		$schema = SettingsStorage::save( $schema_id, $name, $mode, $title, $listing_types, $json );
+
 		if ( is_wp_error( $schema ) ) {
 			wp_die( $schema->get_error_message(), 403 ); //phpcs:ignore
 		}

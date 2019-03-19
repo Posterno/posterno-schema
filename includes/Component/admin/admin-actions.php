@@ -208,6 +208,7 @@ function pno_ajax_get_listing_schema() {
 				'title'         => get_the_title(),
 				'listing_types' => get_post_meta( $schema_id, 'schema_listing_types', true ),
 				'schema_url'    => pno_get_schema_url( $name ),
+				'json'          => get_post_meta( $schema_id, 'schema_code', true ),
 			];
 
 		}

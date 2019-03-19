@@ -28,7 +28,7 @@
 
 						<wp-spinner class="properties-spinner" v-if="schemaLoading"></wp-spinner>
 
-						<jsoneditor v-if="canPerformAction() || saving" ref="editor" :onChange="onChange" :json="json" :options="{ search: false, colorPicker: false, enableSort: false, enableTransform: false }" />
+						<jsoneditor v-if="canPerformAction() || saving" ref="editor" :onChange="onChange" :json="schema.json" :options="{ search: false, colorPicker: false, enableSort: false, enableTransform: false }" />
 
 					</wp-metabox>
 
@@ -150,6 +150,7 @@ export default {
 				title: '',
 				listing_types: [],
 				url: '',
+				json: '',
 			},
 			isError: false,
 			isSuccess: false,
@@ -159,17 +160,6 @@ export default {
 			availableListingTypes: [],
 			canDelete: true,
 			deleting: false,
-
-			json: {
-				'integer': 42,
-				'float': 1.24,
-				'string': 'foo',
-				'array': ['one', 2, 'three'],
-				'object': {
-				'foo': 'bar'
-				}
-			}
-
 		}
 	},
 	methods: {
@@ -232,6 +222,7 @@ export default {
 						listing_types: response.data.data.listing_types,
 						title: response.data.data.title,
 						url: response.data.data.schema_url,
+						json: JSON.parse(response.data.data.json)
 					}
 
 				}

@@ -10,7 +10,6 @@
 namespace PNO\SchemaOrg\Tag;
 
 use WP_Query;
-use PNO\SchemaOrg\Graph;
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
@@ -100,13 +99,14 @@ class Listing {
 	 */
 	private function parse_json( $json ) {
 
-		$data = json_decode( stripslashes( $json ), true );
+		$listing_id = get_queried_object_id();
+		$data       = json_decode( stripslashes( $json ), true );
 
 		array_walk_recursive(
 			$data,
-			function( &$property_value, $key ) {
+			function( &$property_value, $key ) use ( $listing_id ) {
 				if ( $this->is_dynamic_field( $property_value ) ) {
-					$property_value = 'h';
+					$property_value = ListingData::get( $listing_id, $property_value );
 				}
 			}
 		);

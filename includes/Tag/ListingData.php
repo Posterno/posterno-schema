@@ -22,38 +22,34 @@ class ListingData {
 	 * Retrieve data of a given listing field.
 	 *
 	 * @param string $listing_id listing id.
-	 * @param string $field_type type of field.
 	 * @param string $meta_key database meta key.
-	 * @param string $prop the property name.
-	 * @return boolean|string
+	 * @return mixed
 	 */
-	public static function get( $listing_id, $field_type, $meta_key, $prop ) {
+	public static function get( $listing_id, $meta_key ) {
 
 		$data = false;
 
-		if ( ! $listing_id || ! $field_type || ! $meta_key ) {
-			return;
-		}
+		$meta_key = pno_get_string_between( $meta_key, '%_', '_%' );
+		$field    = new \PNO\Database\Queries\Listing_Fields();
+		$query    = $field->get_item_by( 'listing_meta_key', $meta_key );
 
-		switch ( $field_type ) {
-			case 'text':
-				$data = self::get_text_data( $listing_id, $meta_key );
-				break;
-			case 'file':
-				$data = self::get_file_data( $listing_id, $meta_key );
-				break;
-			case 'listing-location':
-				$data = self::get_location_data( $listing_id, $meta_key, $prop );
-				break;
-			case 'listing-opening-hours':
-				$data = self::get_hours_data( $listing_id, $meta_key );
-				break;
-			case 'static':
-				$data = self::get_static_data( $listing_id, $meta_key );
-				break;
-			default:
-				$data = carbon_get_post_meta( $listing_id, $meta_key );
-				break;
+		if ( $query instanceof \PNO\Field\Listing ) {
+
+			switch ( $query->get_type() ) {
+				case 'text':
+					$data = self::get_text_data( $listing_id, $meta_key );
+					break;
+				case 'file':
+					$data = self::get_file_data( $listing_id, $meta_key );
+					break;
+				default:
+					$data = carbon_get_post_meta( $listing_id, $meta_key );
+					break;
+			}
+		} else {
+
+			$data = self::get_static_data( $listing_id, $meta_key );
+
 		}
 
 		return $data;

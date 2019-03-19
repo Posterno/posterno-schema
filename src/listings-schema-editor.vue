@@ -51,4 +51,16 @@ export default {
 			border-color: transparent transparent #32373c transparent;
 		}
 	}
+	.pno-tabs {
+		> h2 {
+			padding-top: 9px !important;
+			padding-bottom: 0 !important;
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+		}
+
+		.postbox {
+			margin-top: 20px;
+		}
+	}
 </style>

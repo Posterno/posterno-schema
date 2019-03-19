@@ -112,6 +112,8 @@ function pno_get_schema_editor_js_vars() {
 				'saved'           => esc_html__( 'Schema successfully saved.' ),
 				'confirm_delete'  => esc_html__( 'Are you sure you want to delete this schema?' ),
 				'deleted_message' => esc_html__( 'Schema successfully deleted.' ),
+				'props_tab'       => esc_html__( 'Customize properties' ),
+				'json_tab'        => esc_html__( 'Customize structure' ),
 			],
 		],
 	];

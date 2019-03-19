@@ -24,13 +24,25 @@
 
 				<wp-col :sm="24" :lg="19">
 
-					<wp-metabox :title="labels.schema_edit.title">
+					<wp-tabs class="pno-tabs">
 
-						<wp-spinner class="properties-spinner" v-if="schemaLoading"></wp-spinner>
+						<wp-tab-item :label="labels.schema_edit.props_tab">
 
-						<jsoneditor v-if="canPerformAction() || saving" ref="editor" :onChange="onChange" :json="schema.json" :options="{ search: false, colorPicker: false, enableSort: false, enableTransform: false }" />
+							<wp-metabox :title="labels.schema_edit.title">
+								<wp-spinner class="properties-spinner" v-if="schemaLoading"></wp-spinner>
+								<jsoneditor v-if="canPerformAction() || saving" ref="editor" :onChange="onChange" :json="schema.json" :options="{ search: false, colorPicker: false, enableSort: false, enableTransform: false }" />
+							</wp-metabox>
 
-					</wp-metabox>
+						</wp-tab-item>
+
+						<wp-tab-item :label="labels.schema_edit.json_tab">
+
+							<wp-metabox :title="labels.schema_edit.title">
+								<jsoneditor v-if="canPerformAction() || saving" ref="editor_json" :json="schema.json" :options="{ search: false, colorPicker: false, enableSort: false, enableTransform: false, mode: 'code' }" />
+							</wp-metabox>
+
+						</wp-tab-item>
+					</wp-tabs>
 
 				</wp-col>
 

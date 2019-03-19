@@ -42,6 +42,9 @@ class ListingData {
 				case 'file':
 					$data = self::get_file_data( $listing_id, $meta_key );
 					break;
+				case 'listing-opening-hours':
+					$data = self::get_hours_data( $listing_id );
+					break;
 				default:
 					$data = carbon_get_post_meta( $listing_id, $meta_key );
 					break;
@@ -139,7 +142,13 @@ class ListingData {
 
 	}
 
-	public static function get_hours_data( $listing_id, $meta_key ) {
+	/**
+	 * Get data belonging to the business hours field.
+	 *
+	 * @param string $listing_id id of the listing.
+	 * @return array
+	 */
+	public static function get_hours_data( $listing_id ) {
 
 		$data = false;
 		$sets = [];
@@ -151,12 +160,14 @@ class ListingData {
 			$opening_hours = $business_hours->get_opening_hours();
 
 			foreach ( $opening_hours as $set ) {
-				if ( ! $set->to_string() ) {
+				if ( ! $set->start_time ) {
 					continue;
 				}
-				$sets[ esc_html( $set->get_day_name() ) ] = [
-					'opens'  => $set->start_time,
-					'closes' => $set->start_time,
+				$sets[] = [
+					'@type'     => 'OpeningHoursSpecification',
+					'dayOfWeek' => $set->get_day_name(),
+					'opens'     => $set->start_time,
+					'closes'    => $set->start_time,
 				];
 			}
 

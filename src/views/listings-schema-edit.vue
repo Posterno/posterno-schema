@@ -37,11 +37,16 @@
 
 						<wp-tab-item :label="labels.schema_edit.json_tab">
 
-							<wp-metabox :title="labels.schema_edit.title">
+							<wp-notice class="prop-message" type="success" v-if="propertiesUpdated" @on-close="propertiesUpdated = false" dismissible><span v-html="labels.schema_edit.properties_updated"></span></wp-notice>
+
+							<wp-metabox :title="labels.schema_edit.structure">
+								<wp-button @click="setPropertiesFromStructure()">{{labels.schema_edit.update}}</wp-button>
+								<br/><br/>
 								<jsoneditor v-if="canPerformAction() || saving" ref="editor_json" :json="schema.json" :options="{ search: false, colorPicker: false, enableSort: false, enableTransform: false, mode: 'code' }" />
 							</wp-metabox>
 
 						</wp-tab-item>
+
 					</wp-tabs>
 
 				</wp-col>
@@ -172,6 +177,8 @@ export default {
 			availableListingTypes: [],
 			canDelete: true,
 			deleting: false,
+
+			propertiesUpdated: false,
 		}
 	},
 	methods: {
@@ -366,7 +373,25 @@ export default {
 				}
 			})
 
+		},
+
+		/**
+		 * Take the json structure from the structure editor and update the one into properties editor.
+		*/
+		setPropertiesFromStructure() {
+
+			this.propertiesUpdated = false
+
+			const editor = this.$refs.editor_json.editor
+			const json = editor.get()
+
+			const propertiesEditor = this.$refs.editor.editor
+			propertiesEditor.set( json )
+
+			this.propertiesUpdated = true
+
 		}
+
 	}
 }
 </script>
@@ -427,6 +452,10 @@ export default {
 				font-size: 14px;
 			}
 		}
+	}
+
+	.prop-message {
+		margin-top: 20px;
 	}
 }
 </style>

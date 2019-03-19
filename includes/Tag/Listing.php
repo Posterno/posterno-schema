@@ -26,9 +26,7 @@ class Listing {
 	 * @return void
 	 */
 	public function init() {
-
 		add_action( 'wp_footer', [ $this, 'inject_tag' ] );
-
 	}
 
 	/**
@@ -37,9 +35,7 @@ class Listing {
 	 * @return boolean
 	 */
 	private function should_load() {
-
 		return is_singular( [ 'listings' ] );
-
 	}
 
 	/**
@@ -77,14 +73,14 @@ class Listing {
 
 				$query->the_post();
 
-				$post_id    = get_the_id();
-				$properties = get_post_meta( $post_id, 'schema_properties', true );
-				$properties = $this->parse_properties( $properties );
+				$post_id = get_the_id();
+				$code    = get_post_meta( $post_id, 'schema_code', true );
+				$code    = $this->parse_json( $code );
 
-				if ( is_array( $properties ) && ! empty( $properties ) ) {
+				if ( $post_id && $code ) {
 					$schemas[] = [
-						'post_id'    => $post_id,
-						'properties' => $properties,
+						'schema_post_id' => $post_id,
+						'code'           => $code,
 					];
 				}
 			}
@@ -97,75 +93,39 @@ class Listing {
 	}
 
 	/**
-	 * Retrive details of the field assigned to a property before we actually retrieve it's value.
+	 * Parse retrieved json and retrieve listing data to attach.
 	 *
-	 * @param array $properties properties to parse.
-	 * @return array
+	 * @param string $json json string stored into a schema.
+	 * @return string
 	 */
-	private function parse_properties( $properties ) {
+	private function parse_json( $json ) {
 
-		$parsed = [];
+		$data = json_decode( stripslashes( $json ), true );
 
-		if ( is_array( $properties ) && ! empty( $properties ) ) {
-
-			foreach ( $properties as $prop => $field_id ) {
-
-				if ( is_numeric( $field_id ) ) {
-
-					$field = new \PNO\Field\Listing( $field_id );
-
-					if ( $field->get_post_id() > 0 ) {
-						$parsed[ $prop ] = [
-							'type'     => $field->get_type(),
-							'meta_key' => $field->get_object_meta_key(),
-						];
-					}
-				} else {
-
-					$parsed[ $prop ] = [
-						'type'     => 'static',
-						'meta_key' => $field_id,
-					];
-
+		array_walk_recursive(
+			$data,
+			function( &$property_value, $key ) {
+				if ( $this->is_dynamic_field( $property_value ) ) {
+					$property_value = 'h';
 				}
 			}
-		}
+		);
 
-		return $parsed;
+		print_r( $data );
+		exit;
+
+		return wp_json_encode( $data );
 
 	}
 
 	/**
-	 * Attach listing values to schema properties.
+	 * Verify a given key, is a dynamic field key placeholder for schemas properties.
 	 *
-	 * @param array  $schema the schema to parse.
-	 * @param string $listing_id the listing id for which we're grabbing the values.
-	 * @return array
+	 * @param string $key the key to verify
+	 * @return boolean
 	 */
-	private function attach_values_to_schema( $schema, $listing_id ) {
-
-		$parsed_schema     = $schema;
-		$parsed_properties = [];
-
-		foreach ( $schema['properties'] as $prop => $field ) {
-
-			$meta_key = $field['meta_key'];
-			$type     = $field['type'];
-
-			$value = ListingData::get( $listing_id, $type, $meta_key, $prop );
-
-			if ( $value ) {
-				$prop                       = Renamer::rename( $prop );
-				$parsed_properties[ $prop ] = $value;
-			}
-		}
-
-		if ( ! empty( $parsed_properties ) ) {
-			$parsed_schema['properties'] = $parsed_properties;
-		}
-
-		return $parsed_schema;
-
+	private function is_dynamic_field( $key ) {
+		return pno_starts_with( $key, '%_' ) && pno_ends_with( $key, '_%' );
 	}
 
 	/**
@@ -180,22 +140,12 @@ class Listing {
 		}
 
 		$global_schemas = $this->get_global_schemas();
+
+		print_r( $global_schemas );
+
 		$parsed_schemas = [];
 
 		$listing_id = get_queried_object_id();
-
-		if ( ! empty( $global_schemas ) && is_array( $global_schemas ) ) {
-			foreach ( $global_schemas as $schema ) {
-
-				$schema = $this->attach_values_to_schema( $schema, $listing_id );
-
-				if ( $schema ) {
-					$parsed_schemas[] = $schema;
-				}
-			}
-		}
-
-		print_r( $parsed_schemas );
 
 	}
 

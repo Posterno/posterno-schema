@@ -8,9 +8,6 @@
  * @since       0.1.0
  */
 
-use PNO\SchemaOrg\Settings\SettingsCollection;
-use PNO\SchemaOrg\Settings\SettingsValidator;
-use PNO\SchemaOrg\Settings\SettingsSanitizer;
 use PNO\SchemaOrg\Settings\SettingsStorage;
 
 // Exit if accessed directly.

@@ -149,6 +149,16 @@ function pno_get_schema_listings_fields() {
 		'name' => esc_html__( 'Listing URL' ),
 		'meta' => 'listing_url',
 	];
+	$fields['listing_lat']               = [
+		'type' => 'location-data',
+		'name' => esc_html__( 'Listing latitude' ),
+		'meta' => 'listing_lat',
+	];
+	$fields['listing_lon']               = [
+		'type' => 'location-data',
+		'name' => esc_html__( 'Listing longitude' ),
+		'meta' => 'listing_lon',
+	];
 	$fields['listing_author_name']       = [
 		'type' => 'text',
 		'name' => esc_html__( 'Listing author name' ),

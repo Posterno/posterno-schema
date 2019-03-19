@@ -177,16 +177,9 @@ class ListingData {
 
 	}
 
-	public static function get_location_data( $listing_id, $meta_key, $prop ) {
+	public static function get_location_data( $listing_id, $meta_key ) {
 
-		$data    = false;
-		$address = carbon_get_post_meta( $listing_id, $meta_key );
-
-		switch ( $prop ) {
-			case 'location_street':
-				$data = isset( $address['address'] ) ? $address['address'] : false;
-				break;
-		}
+		$data = 'heeee';
 
 		return $data;
 

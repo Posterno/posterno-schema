@@ -17,6 +17,16 @@ defined( 'ABSPATH' ) || exit;
  */
 class StaticData {
 
+	/**
+	 * Get static data.
+	 *
+	 * Static data is intended to be either site details or listing's data
+	 * that does not match the original field object meta key hence needs to be adjusted.
+	 *
+	 * @param string $object_id the id of the object.
+	 * @param string $meta_key the key of the data to retrieve.
+	 * @return mixed
+	 */
 	public static function get( $object_id, $meta_key ) {
 
 		$data = false;
@@ -43,11 +53,41 @@ class StaticData {
 			case 'listing_modified_date':
 				$data = pno_get_listing_last_modified_date( $object_id );
 				break;
+			case 'listing_lon':
+			case 'listing_lat':
+				$data = self::get_listing_location_data( $object_id, $meta_key );
+				break;
 			case 'site_title':
 				$data = get_bloginfo( 'name' );
 				break;
 			case 'site_url':
 				$data = home_url();
+				break;
+		}
+
+		return $data;
+
+	}
+
+	/**
+	 * Get location related data.
+	 *
+	 * @param string $object_id listing id.
+	 * @param string $meta_key the key of the data we need.
+	 * @return mixed
+	 */
+	public static function get_listing_location_data( $object_id, $meta_key ) {
+
+		$coordinates = pno_get_listing_coordinates( $object_id );
+
+		$data = false;
+
+		switch ( $meta_key ) {
+			case 'listing_lon':
+				$data = isset( $coordinates['lng'] ) ? floatval( $coordinates['lng'] ) : false;
+				break;
+			case 'listing_lat':
+				$data = isset( $coordinates['lat'] ) ? floatval( $coordinates['lat'] ) : false;
 				break;
 		}
 

@@ -232,9 +232,6 @@ export default {
 						listing_types: response.data.data.listing_types,
 						title: response.data.data.title,
 						url: response.data.data.schema_url,
-						primarySchemaChildren: response.data.data.primary_schema,
-						secondarySchemaChildren: response.data.data.secondary_schema,
-						tertiarySchemaChildren: response.data.data.tertiary_schema,
 					}
 
 				}

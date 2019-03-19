@@ -143,6 +143,50 @@ function pno_get_schema_listings_fields() {
 		}
 	}
 
+	// Add static fields.
+	$fields['listing_url']               = [
+		'type' => 'url',
+		'name' => esc_html__( 'Listing URL' ),
+		'meta' => 'listing_url',
+	];
+	$fields['listing_author_name']       = [
+		'type' => 'text',
+		'name' => esc_html__( 'Listing author name' ),
+		'meta' => 'listing_author_name',
+	];
+	$fields['listing_author_first_name'] = [
+		'type' => 'text',
+		'name' => esc_html__( 'Listing author first name' ),
+		'meta' => 'listing_author_first_name',
+	];
+	$fields['listing_author_last_name']  = [
+		'type' => 'text',
+		'name' => esc_html__( 'Listing author last name' ),
+		'meta' => 'listing_author_last_name',
+	];
+	$fields['listing_publish_date']      = [
+		'type' => 'date',
+		'name' => esc_html__( 'Listing publish date' ),
+		'meta' => 'listing_publish_date',
+	];
+	$fields['listing_modified_date']     = [
+		'type' => 'date',
+		'name' => esc_html__( 'Listing last modified date' ),
+		'meta' => 'listing_modified_date',
+	];
+
+	$fields['site_title'] = [
+		'type' => 'text',
+		'name' => esc_html__( 'Site title' ),
+		'meta' => 'site_title',
+	];
+
+	$fields['site_url'] = [
+		'type' => 'url',
+		'name' => esc_html__( 'Site URL' ),
+		'meta' => 'site_url',
+	];
+
 	return $fields;
 
 }

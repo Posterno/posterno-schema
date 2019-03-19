@@ -30,7 +30,7 @@
 
 							<wp-metabox :title="labels.schema_edit.title">
 								<wp-spinner class="properties-spinner" v-if="schemaLoading"></wp-spinner>
-								<jsoneditor v-if="canPerformAction() || saving" ref="editor" :onChange="onChange" :json="schema.json" :options="{ search: false, colorPicker: false, enableSort: false, enableTransform: false }" />
+								<jsoneditor v-if="canPerformAction() || saving" ref="editor" :onChange="syncJsonChange" :json="schema.json" :options="propertiesOptions" />
 							</wp-metabox>
 
 						</wp-tab-item>
@@ -40,9 +40,10 @@
 							<wp-notice class="prop-message" type="success" v-if="propertiesUpdated" @on-close="propertiesUpdated = false" dismissible><span v-html="labels.schema_edit.properties_updated"></span></wp-notice>
 
 							<wp-metabox :title="labels.schema_edit.structure">
+								<br/>
 								<wp-button @click="setPropertiesFromStructure()">{{labels.schema_edit.update}}</wp-button>
 								<br/><br/>
-								<jsoneditor v-if="canPerformAction() || saving" ref="editor_json" :json="schema.json" :options="{ search: false, colorPicker: false, enableSort: false, enableTransform: false, mode: 'code' }" />
+								<jsoneditor v-if="canPerformAction() || saving" ref="editor_json" :json="schema.json" :options="structureOptions" />
 							</wp-metabox>
 
 						</wp-tab-item>
@@ -128,6 +129,7 @@ import AdminHeader from '../components/pno-admin-header'
 import Popper from 'vue-popperjs';
 import 'vue-popperjs/dist/vue-popper.css'
 import jsoneditor from '../components/jsoneditor'
+import Ajv from 'ajv'
 
 export default {
 	name: 'edit-listing-schema',
@@ -148,7 +150,6 @@ export default {
 		Object.keys( pno_schema_editor.listing_types ).forEach( function( key ) {
 			vm.availableListingTypes.push( { id: key, text: pno_schema_editor.listing_types[ key ] } )
 		});
-
 	},
 	data() {
 		return {
@@ -169,6 +170,23 @@ export default {
 				url: '',
 				json: '',
 			},
+
+			propertiesOptions: {
+				search: false,
+				colorPicker: false,
+				enableSort: false,
+				enableTransform: false,
+				ajv: Ajv({ allErrors: false, format: 'full', unknownFormats: 'ignore', verbose: true, logger: false })
+			},
+			structureOptions: {
+				search: false,
+				colorPicker: false,
+				enableSort: false,
+				enableTransform: false,
+				mode: 'code',
+				ajv: Ajv({ allErrors: false, format: 'full', unknownFormats: 'ignore', verbose: true, logger: false })
+			},
+
 			isError: false,
 			isSuccess: false,
 			statusMessage: '',
@@ -177,15 +195,11 @@ export default {
 			availableListingTypes: [],
 			canDelete: true,
 			deleting: false,
-
 			propertiesUpdated: false,
+
 		}
 	},
 	methods: {
-
-		onChange (newVal) {
-      console.log(newVal)
-    },
 
 		/**
 		 * Display an error message within the app.
@@ -251,9 +265,9 @@ export default {
 
 				this.schemaLoading = false
 
-				if ( error.response.data ) {
+				if ( typeof(error.response) !== 'undefined' && typeof(error.response.data) !== 'undefined' ) {
 					this.showError( error.response.data )
-				} else {
+				} else if ( typeof(error.message) !== 'undefined' ) {
 					this.showError( error.message )
 				}
 			})
@@ -390,7 +404,14 @@ export default {
 
 			this.propertiesUpdated = true
 
-		}
+		},
+
+		syncJsonChange (newVal) {
+
+			const editor = this.$refs.editor_json.editor
+			const json = editor.set(newVal)
+
+    	},
 
 	}
 }

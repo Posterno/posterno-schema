@@ -48,7 +48,7 @@ class ListingData {
 			}
 		} else {
 
-			$data = self::get_static_data( $listing_id, $meta_key );
+			$data = StaticData::get( $listing_id, $meta_key );
 
 		}
 
@@ -56,6 +56,13 @@ class ListingData {
 
 	}
 
+	/**
+	 * Get data belonging to a text field.
+	 *
+	 * @param string $listing_id id of the listing.
+	 * @param string $meta_key meta key.
+	 * @return mixed
+	 */
 	public static function get_text_data( $listing_id, $meta_key ) {
 
 		$data = false;
@@ -73,6 +80,13 @@ class ListingData {
 
 	}
 
+	/**
+	 * Get data belonging to a file field.
+	 *
+	 * @param string $listing_id id of the listing.
+	 * @param string $meta_key meta key.
+	 * @return mixed
+	 */
 	public static function get_file_data( $listing_id, $meta_key ) {
 
 		$data = false;
@@ -118,44 +132,6 @@ class ListingData {
 		switch ( $prop ) {
 			case 'location_street':
 				$data = isset( $address['address'] ) ? $address['address'] : false;
-				break;
-		}
-
-		return $data;
-
-	}
-
-	public static function get_static_data( $listing_id, $meta_key ) {
-
-		$data = false;
-
-		switch ( $meta_key ) {
-			case 'listing_url':
-				$data = get_permalink( $listing_id );
-				break;
-			case 'listing_author_name':
-				$listing_author = pno_get_listing_author( $listing_id );
-				$data           = pno_get_user_fullname( $listing_author );
-				break;
-			case 'listing_author_first_name':
-				$listing_author = pno_get_listing_author( $listing_id );
-				$data           = pno_get_user_first_name( $listing_author );
-				break;
-			case 'listing_author_last_name':
-				$listing_author = pno_get_listing_author( $listing_id );
-				$data           = pno_get_user_last_name( $listing_author );
-				break;
-			case 'listing_publish_date':
-				$data = pno_get_the_listing_publish_date( $listing_id );
-				break;
-			case 'listing_modified_date':
-				$data = pno_get_listing_last_modified_date( $listing_id );
-				break;
-			case 'site_title':
-				$data = get_bloginfo( 'name' );
-				break;
-			case 'site_url':
-				$data = home_url();
 				break;
 		}
 

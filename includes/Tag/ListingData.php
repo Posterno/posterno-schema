@@ -68,7 +68,16 @@ class ListingData {
 
 		}
 
-		return $data;
+		/**
+		 * Filter: allows customization of schema properties values.
+		 *
+		 * @param mixed              $data originally found listing property value.
+		 * @param string             $meta_key the key of the field being looked up.
+		 * @param \PNO\Field\Listing $query optional listing field object that may be found.
+		 * @param string             $listing_id the id of the listing currently being analyzed.
+		 * @return mixed
+		 */
+		return apply_filter( 'pno_listing_schema_property_data', $data, $meta_key, $query, $listing_id );
 
 	}
 
@@ -172,14 +181,6 @@ class ListingData {
 				$data = carbon_get_post_meta( $listing_id, $meta_key );
 				break;
 		}
-
-		return $data;
-
-	}
-
-	public static function get_location_data( $listing_id, $meta_key ) {
-
-		$data = 'heeee';
 
 		return $data;
 

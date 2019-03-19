@@ -55,6 +55,7 @@ class StaticData {
 				break;
 			case 'listing_lon':
 			case 'listing_lat':
+			case 'listing_street_address':
 				$data = self::get_listing_location_data( $object_id, $meta_key );
 				break;
 			case 'site_title':
@@ -88,6 +89,9 @@ class StaticData {
 				break;
 			case 'listing_lat':
 				$data = isset( $coordinates['lat'] ) ? floatval( $coordinates['lat'] ) : false;
+				break;
+			case 'listing_street_address':
+				$data = get_post_meta( $object_id, '_listing_location_address', true );
 				break;
 		}
 

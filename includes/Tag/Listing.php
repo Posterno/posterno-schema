@@ -84,7 +84,6 @@ class Listing {
 				if ( is_array( $properties ) && ! empty( $properties ) ) {
 					$schemas[] = [
 						'post_id'    => $post_id,
-						'schema_id'  => get_post_meta( $post_id, 'schema_name', true ),
 						'properties' => $properties,
 					];
 				}

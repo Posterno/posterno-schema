@@ -38,7 +38,7 @@
 				<tbody v-else>
 					<tr v-for="(schema, key) in schemas" :key="key">
 						<td class="column-primary" :data-colname="labels.table.name">
-							<router-link :to="{ name: 'edit', params: {id: schema.id } }">{{schema.name}}</router-link>
+							<router-link :to="{ name: 'edit', params: {id: schema.id } }">{{schema.title}}</router-link>
 							<button type="button" class="toggle-row"></button>
 						</td>
 						<td :data-colname="labels.table.mode">

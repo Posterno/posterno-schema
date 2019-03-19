@@ -21,14 +21,13 @@ class SettingsStorage {
 	 * Save schema to the database.
 	 *
 	 * @param string $schema_id the id of the post in the database.
-	 * @param string $name the main schema name.
 	 * @param string $mode the display mode of the schema.
 	 * @param string $title the title assigned to the schema.
 	 * @param array  $listing_types optional listing types selected if the mode allows for it.
 	 * @param array  $properties list of schema properties mapped to fields.
 	 * @return string
 	 */
-	public static function save( $schema_id, $name, $mode, $title, $listing_types, $properties ) {
+	public static function save( $schema_id, $mode, $title, $listing_types, $properties ) {
 
 		$post_id = false;
 
@@ -45,7 +44,6 @@ class SettingsStorage {
 		}
 
 		update_post_meta( $post_id, 'schema_mode', $mode );
-		update_post_meta( $post_id, 'schema_name', $name );
 
 		if ( $mode === 'type' ) {
 			update_post_meta( $post_id, 'schema_listing_types', $listing_types );

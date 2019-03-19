@@ -142,7 +142,7 @@ function pno_ajax_get_listings_schemas_list() {
 			}
 
 			$found_schemas[] = [
-				'name'          => get_the_title(),
+				'title'         => get_the_title(),
 				'mode'          => $mode_label,
 				'listing_types' => $found_types,
 				'id'            => get_the_id(),
@@ -201,15 +201,11 @@ function pno_ajax_get_listing_schema() {
 
 			$schema->the_post();
 
-			$name = get_post_meta( $schema_id, 'schema_name', true );
-
 			$details = [
-				'name'          => $name,
 				'mode'          => get_post_meta( $schema_id, 'schema_mode', true ),
 				'id'            => $schema_id,
 				'title'         => get_the_title(),
 				'listing_types' => get_post_meta( $schema_id, 'schema_listing_types', true ),
-				'schema_url'    => pno_get_schema_url( $name ),
 				'json'          => get_post_meta( $schema_id, 'schema_code', true ),
 				'fields'        => $fields,
 			];
@@ -270,7 +266,7 @@ function pno_ajax_save_listing_schema() {
 			}
 		);
 
-		$schema = SettingsStorage::save( $schema_id, $name, $mode, $title, $listing_types, $json );
+		$schema = SettingsStorage::save( $schema_id, $mode, $title, $listing_types, $json );
 
 		if ( is_wp_error( $schema ) ) {
 			wp_die( $schema->get_error_message(), 403 ); //phpcs:ignore

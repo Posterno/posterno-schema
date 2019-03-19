@@ -362,7 +362,7 @@ export default {
 <style lang="scss" scoped>
 #app {
 	.wrapper {
-		margin:10px 20px;
+		margin:10px 0px 10px 20px;
 	}
 
 	.vue-wp-notice {

@@ -77,4 +77,8 @@ export default {
 		border-bottom-color: #ddd !important;
 	}
 }
+
+div.jsoneditor-contextmenu ul li ul {
+	height: auto !important;
+}
 </style>

@@ -23,7 +23,7 @@ function pno_ajax_create_listing_schema() {
 	check_ajax_referer( 'pno_create_listing_schema', 'nonce' );
 
 	$schema_id       = false;
-	$general_message = esc_html__( 'Something went wrong: could not create new schema.' );
+	$general_message = esc_html__( 'Something went wrong: could not create new schema.', 'posterno' );
 
 	if ( ! current_user_can( 'manage_options' ) ) {
 		wp_die( $general_message, 403 ); //phpcs:ignore
@@ -51,7 +51,7 @@ function pno_ajax_create_listing_schema() {
 	} elseif ( ! $schema && $mode ) {
 
 		$args = array(
-			'post_title'  => esc_html__( 'Custom schema' ),
+			'post_title'  => esc_html__( 'Custom schema', 'posterno' ),
 			'post_status' => 'publish',
 			'post_type'   => 'pno_schema',
 		);
@@ -90,7 +90,7 @@ function pno_ajax_get_listings_schemas_list() {
 
 	check_ajax_referer( 'pno_get_listings_schemas', 'nonce' );
 
-	$general_message = esc_html__( 'Something went wrong: could not get schema list.' );
+	$general_message = esc_html__( 'Something went wrong: could not get schema list.', 'posterno' );
 
 	if ( ! current_user_can( 'manage_options' ) ) {
 		wp_die( $general_message, 403 ); //phpcs:ignore
@@ -118,7 +118,7 @@ function pno_ajax_get_listings_schemas_list() {
 
 			$id          = get_the_id();
 			$mode        = get_post_meta( $id, 'schema_mode', true );
-			$mode_label  = $mode === 'type' ? esc_html__( 'Specific listing type(s)' ) : esc_html__( 'All listings' );
+			$mode_label  = $mode === 'type' ? esc_html__( 'Specific listing type(s)', 'posterno' ) : esc_html__( 'All listings', 'posterno' );
 			$found_types = '—';
 
 			if ( $mode === 'type' ) {
@@ -167,7 +167,7 @@ function pno_ajax_get_listing_schema() {
 
 	check_ajax_referer( 'pno_get_listing_schema', 'nonce' );
 
-	$general_message = esc_html__( 'Something went wrong: could not get schema details.' );
+	$general_message = esc_html__( 'Something went wrong: could not get schema details.', 'posterno' );
 
 	if ( ! current_user_can( 'manage_options' ) ) {
 		wp_die( $general_message, 403 ); //phpcs:ignore
@@ -231,7 +231,7 @@ function pno_ajax_save_listing_schema() {
 
 	check_ajax_referer( 'pno_save_listing_schema', 'nonce' );
 
-	$general_message = esc_html__( 'Something went wrong: could not save listing schema.' );
+	$general_message = esc_html__( 'Something went wrong: could not save listing schema.', 'posterno' );
 
 	if ( ! current_user_can( 'manage_options' ) ) {
 		wp_die( $general_message, 403 ); //phpcs:ignore
@@ -250,11 +250,11 @@ function pno_ajax_save_listing_schema() {
 		$listing_types = isset( $schema_details['listing_types'] ) && is_array( $schema_details['listing_types'] ) && ! empty( $schema_details['listing_types'] ) ? array_map( 'absint', $schema_details['listing_types'] ) : false;
 
 		if ( empty( $title ) || ! $title ) {
-			wp_die( esc_html__( 'Something went wrong: the schema must have a title. Please enter a title.' ), 403 ); //phpcs:ignore
+			wp_die( esc_html__( 'Something went wrong: the schema must have a title. Please enter a title.', 'posterno' ), 403 ); //phpcs:ignore
 		}
 
 		if ( $mode === 'type' && empty( $listing_types ) ) {
-			wp_die( esc_html__( 'Something went wrong: select listing types or set this schema as global.' ), 403 ); //phpcs:ignore
+			wp_die( esc_html__( 'Something went wrong: select listing types or set this schema as global.', 'posterno' ), 403 ); //phpcs:ignore
 		}
 
 		$json = json_decode( stripslashes( $json ), true );
@@ -290,7 +290,7 @@ function pno_ajax_delete_schema() {
 
 	check_ajax_referer( 'pno_delete_schema', 'nonce' );
 
-	$general_message = esc_html__( 'Something went wrong: could not delete schema.' );
+	$general_message = esc_html__( 'Something went wrong: could not delete schema.', 'posterno' );
 
 	if ( ! current_user_can( 'manage_options' ) ) {
 		wp_die( $general_message, 403 ); //phpcs:ignore

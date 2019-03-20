@@ -159,74 +159,74 @@ function pno_get_schema_listings_fields() {
 	// Add static fields.
 	$fields['listing_url']               = [
 		'type' => 'url',
-		'name' => esc_html__( 'Listing URL' ),
+		'name' => esc_html__( 'Listing URL', 'posterno' ),
 		'meta' => 'listing_url',
 	];
 	$fields['listing_lat']               = [
 		'type' => 'location-data',
-		'name' => esc_html__( 'Listing latitude' ),
+		'name' => esc_html__( 'Listing latitude', 'posterno' ),
 		'meta' => 'listing_lat',
 	];
 	$fields['listing_lon']               = [
 		'type' => 'location-data',
-		'name' => esc_html__( 'Listing longitude' ),
+		'name' => esc_html__( 'Listing longitude', 'posterno' ),
 		'meta' => 'listing_lon',
 	];
 	$fields['listing_street_address']    = [
 		'type' => 'location-data',
-		'name' => esc_html__( 'Listing street address' ),
+		'name' => esc_html__( 'Listing street address', 'posterno' ),
 		'meta' => 'listing_street_address',
 	];
 	$fields['listing_geocoded_city']     = [
 		'type' => 'location-data',
-		'name' => esc_html__( 'Listing geocoded city' ),
+		'name' => esc_html__( 'Listing geocoded city', 'posterno' ),
 		'meta' => 'listing_geocoded_city',
 	];
 	$fields['listing_geocoded_region']   = [
 		'type' => 'location-data',
-		'name' => esc_html__( 'Listing geocoded region' ),
+		'name' => esc_html__( 'Listing geocoded region', 'posterno' ),
 		'meta' => 'listing_geocoded_region',
 	];
 	$fields['listing_geocoded_country']  = [
 		'type' => 'location-data',
-		'name' => esc_html__( 'Listing geocoded country' ),
+		'name' => esc_html__( 'Listing geocoded country', 'posterno' ),
 		'meta' => 'listing_geocoded_region',
 	];
 	$fields['listing_author_name']       = [
 		'type' => 'text',
-		'name' => esc_html__( 'Listing author name' ),
+		'name' => esc_html__( 'Listing author name', 'posterno' ),
 		'meta' => 'listing_author_name',
 	];
 	$fields['listing_author_first_name'] = [
 		'type' => 'text',
-		'name' => esc_html__( 'Listing author first name' ),
+		'name' => esc_html__( 'Listing author first name', 'posterno' ),
 		'meta' => 'listing_author_first_name',
 	];
 	$fields['listing_author_last_name']  = [
 		'type' => 'text',
-		'name' => esc_html__( 'Listing author last name' ),
+		'name' => esc_html__( 'Listing author last name', 'posterno' ),
 		'meta' => 'listing_author_last_name',
 	];
 	$fields['listing_publish_date']      = [
 		'type' => 'date',
-		'name' => esc_html__( 'Listing publish date' ),
+		'name' => esc_html__( 'Listing publish date', 'posterno' ),
 		'meta' => 'listing_publish_date',
 	];
 	$fields['listing_modified_date']     = [
 		'type' => 'date',
-		'name' => esc_html__( 'Listing last modified date' ),
+		'name' => esc_html__( 'Listing last modified date', 'posterno' ),
 		'meta' => 'listing_modified_date',
 	];
 
 	$fields['site_title'] = [
 		'type' => 'text',
-		'name' => esc_html__( 'Site title' ),
+		'name' => esc_html__( 'Site title', 'posterno' ),
 		'meta' => 'site_title',
 	];
 
 	$fields['site_url'] = [
 		'type' => 'url',
-		'name' => esc_html__( 'Site URL' ),
+		'name' => esc_html__( 'Site URL', 'posterno' ),
 		'meta' => 'site_url',
 	];
 

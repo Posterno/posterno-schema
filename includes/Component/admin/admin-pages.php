@@ -18,7 +18,7 @@ defined( 'ABSPATH' ) || exit;
  */
 function pno_schema_admin_pages() {
 
-	add_submenu_page( 'edit.php?post_type=listings', esc_html__( 'Listings Schema Settings' ), __( 'Schema' ), 'manage_options', 'posterno-listings-schema', 'pno_schema_admin_listings_schema_page' );
+	add_submenu_page( 'edit.php?post_type=listings', esc_html__( 'Listings Schema Settings', 'posterno' ), __( 'Schema', 'posterno' ), 'manage_options', 'posterno-listings-schema', 'pno_schema_admin_listings_schema_page' );
 
 }
 add_action( 'admin_menu', 'pno_schema_admin_pages', 10 );
@@ -54,72 +54,72 @@ function pno_get_schema_editor_js_vars() {
 		'listing_types'          => pno_get_listings_types_for_association(),
 		'labels'                 => [
 			'documentation'  => esc_html__( 'Documentation', 'posterno' ),
-			'add'            => esc_html__( 'Add new schema' ),
-			'back'           => esc_html__( 'Schema list' ),
-			'setup'          => esc_html__( 'Setup new schema' ),
-			'readmore'       => esc_html__( 'Read more' ),
-			'success_create' => esc_html__( 'New schema successfully created.' ),
+			'add'            => esc_html__( 'Add new schema', 'posterno' ),
+			'back'           => esc_html__( 'Schema list', 'posterno' ),
+			'setup'          => esc_html__( 'Setup new schema', 'posterno' ),
+			'readmore'       => esc_html__( 'Read more', 'posterno' ),
+			'success_create' => esc_html__( 'New schema successfully created.', 'posterno' ),
 			'listing'        => [
-				'title' => esc_html__( 'Posterno listings schema editor' ),
+				'title' => esc_html__( 'Posterno listings schema editor', 'posterno' ),
 			],
 			'structured'     => [
-				'step1_title'       => esc_html__( 'Create new schema' ),
-				'step1_description' => esc_html__( 'Structured data is code in a specific format, written in such a way that search engines use it to display search results in a specific and much richer way.' ),
+				'step1_title'       => esc_html__( 'Create new schema', 'posterno' ),
+				'step1_description' => esc_html__( 'Structured data is code in a specific format, written in such a way that search engines use it to display search results in a specific and much richer way.', 'posterno' ),
 				'step1_lists'       => [
 					[
-						'text' => esc_html__( 'If you’re just getting started, visit the article "Understand how structured data works." on Google.com' ),
+						'text' => esc_html__( 'If you’re just getting started, visit the article "Understand how structured data works." on Google.com', 'posterno' ),
 						'url'  => esc_url( 'https://developers.google.com/search/docs/guides/intro-structured-data' ),
 					],
 					[
-						'text' => esc_html__( 'Explore the search gallery on Google.com to see how Google uses structured data to display search results in a richer way.' ),
+						'text' => esc_html__( 'Explore the search gallery on Google.com to see how Google uses structured data to display search results in a richer way.', 'posterno' ),
 						'url'  => esc_url( 'https://developers.google.com/search/docs/guides/search-gallery' ),
 					],
 					[
-						'text' => esc_html__( 'For detailed information about each available schema type, please refer to the schema.org website.' ),
+						'text' => esc_html__( 'For detailed information about each available schema type, please refer to the schema.org website.', 'posterno' ),
 						'url'  => esc_url( 'https://schema.org/docs/full.html' ),
 					],
 				],
 			],
 			'settings'       => [
 				'where'         => [
-					'label'  => esc_html__( 'Where to apply the schema?' ),
-					'global' => esc_html__( 'Globally (all listings)' ),
-					'type'   => esc_html__( 'Specific listing type(s)' ),
+					'label'  => esc_html__( 'Where to apply the schema?', 'posterno' ),
+					'global' => esc_html__( 'Globally (all listings)', 'posterno' ),
+					'type'   => esc_html__( 'Specific listing type(s)', 'posterno' ),
 				],
 				'schemas'       => [
-					'label'       => esc_html__( 'Select schema' ),
-					'description' => esc_html__( 'Select an example schema from the list or leave blank to start with empty json.' ),
+					'label'       => esc_html__( 'Select schema', 'posterno' ),
+					'description' => esc_html__( 'Select an example schema from the list or leave blank to start with empty json.', 'posterno' ),
 				],
 				'listing_types' => [
-					'label'     => esc_html__( 'Select listing type(s)' ),
-					'not_found' => esc_html__( 'No listing types have been found. Add a listing type first and then create the schema.' ),
+					'label'     => esc_html__( 'Select listing type(s)', 'posterno' ),
+					'not_found' => esc_html__( 'No listing types have been found. Add a listing type first and then create the schema.', 'posterno' ),
 				],
 			],
 			'table'          => [
-				'name'          => esc_html__( 'Schema name' ),
-				'mode'          => esc_html__( 'Type' ),
-				'listing_types' => esc_html__( 'Listing types' ),
-				'actions'       => esc_html__( 'Actions' ),
-				'not_found'     => esc_html__( 'No schema yet, click the button above to add a schema.' ),
-				'edit'          => esc_html__( 'Edit' ),
-				'delete'        => esc_html__( 'Delete' ),
-				'save'          => esc_html__( 'Save schema' ),
+				'name'          => esc_html__( 'Schema name', 'posterno' ),
+				'mode'          => esc_html__( 'Type', 'posterno' ),
+				'listing_types' => esc_html__( 'Listing types', 'posterno' ),
+				'actions'       => esc_html__( 'Actions', 'posterno' ),
+				'not_found'     => esc_html__( 'No schema yet, click the button above to add a schema.', 'posterno' ),
+				'edit'          => esc_html__( 'Edit', 'posterno' ),
+				'delete'        => esc_html__( 'Delete', 'posterno' ),
+				'save'          => esc_html__( 'Save schema', 'posterno' ),
 			],
 			'schema_edit'    => [
-				'title'              => esc_html__( 'Schema properties' ),
-				'title_edit'         => esc_html__( 'Edit schema' ),
-				'schema_url'         => esc_html__( 'Read guidelines for this schema' ),
-				'saved'              => esc_html__( 'Schema successfully saved.' ),
-				'confirm_delete'     => esc_html__( 'Are you sure you want to delete this schema?' ),
-				'deleted_message'    => esc_html__( 'Schema successfully deleted.' ),
-				'props_tab'          => esc_html__( 'Customize properties' ),
-				'json_tab'           => esc_html__( 'Customize structure' ),
-				'structure'          => esc_html__( 'Schema structure' ),
-				'update'             => esc_html__( 'Update structure' ),
-				'import'             => esc_html__( 'Import properties' ),
-				'properties_updated' => esc_html__( 'Properties successfully updated. Click on the "Customize properties" tab to finish customizing the schema.' ),
-				'structure_updated'  => esc_html__( 'Structure properties successfully updated. You can now make further changes to the structure if needed.' ),
-				'fields'             => esc_html__( 'Available fields' ),
+				'title'              => esc_html__( 'Schema properties', 'posterno' ),
+				'title_edit'         => esc_html__( 'Edit schema', 'posterno' ),
+				'schema_url'         => esc_html__( 'Read guidelines for this schema', 'posterno' ),
+				'saved'              => esc_html__( 'Schema successfully saved.', 'posterno' ),
+				'confirm_delete'     => esc_html__( 'Are you sure you want to delete this schema?', 'posterno' ),
+				'deleted_message'    => esc_html__( 'Schema successfully deleted.', 'posterno' ),
+				'props_tab'          => esc_html__( 'Customize properties', 'posterno' ),
+				'json_tab'           => esc_html__( 'Customize structure', 'posterno' ),
+				'structure'          => esc_html__( 'Schema structure', 'posterno' ),
+				'update'             => esc_html__( 'Update structure', 'posterno' ),
+				'import'             => esc_html__( 'Import properties', 'posterno' ),
+				'properties_updated' => esc_html__( 'Properties successfully updated. Click on the "Customize properties" tab to finish customizing the schema.', 'posterno' ),
+				'structure_updated'  => esc_html__( 'Structure properties successfully updated. You can now make further changes to the structure if needed.', 'posterno' ),
+				'fields'             => esc_html__( 'Available fields', 'posterno' ),
 			],
 		],
 	];

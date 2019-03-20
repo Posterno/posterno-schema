@@ -211,7 +211,7 @@ class ListingData {
 				$data  = false;
 				$image = get_the_post_thumbnail_url( $listing_id, 'full' );
 				if ( $image ) {
-					$data = [ esc_url( $image ) ];
+					$data = esc_url( $image );
 				}
 				break;
 			case 'listing_gallery':
@@ -232,6 +232,21 @@ class ListingData {
 				break;
 			default:
 				$data = carbon_get_post_meta( $listing_id, $meta_key );
+				if ( is_array( $data ) ) {
+					$sources = [];
+					foreach ( $data as $attachment_id ) {
+						$attachment = wp_get_attachment_url( $attachment_id );
+						if ( $attachment ) {
+							$sources[] = esc_url( $attachment );
+						}
+					}
+					$data = $sources;
+				} else {
+					$attachment = wp_get_attachment_url( $data );
+					if ( $attachment ) {
+						$data = esc_url( $attachment );
+					}
+				}
 				break;
 		}
 

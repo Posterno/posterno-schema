@@ -38,16 +38,24 @@ class ListingData {
 			switch ( $query->get_type() ) {
 				case 'text':
 				case 'email':
-				case 'checkbox':
 				case 'password':
-				case 'select':
-				case 'radio':
 				case 'number':
 					$data = self::get_text_data( $listing_id, $meta_key );
 					break;
 				case 'textarea':
 				case 'editor':
 					$data = self::get_textarea_data( $listing_id, $meta_key );
+					break;
+				case 'checkbox':
+					$data = self::get_boolean_data( $listing_id, $meta_key );
+					break;
+				case 'select':
+				case 'radio':
+					$data = self::get_dropdown_value( $listing_id, $meta_key, $query );
+					break;
+				case 'multiselect':
+				case 'multicheckbox':
+					$data = self::get_multidropdown_value( $listing_id, $meta_key, $query );
 					break;
 				case 'url':
 					$data = self::get_url_data( $listing_id, $meta_key );
@@ -116,7 +124,52 @@ class ListingData {
 	 * @return string
 	 */
 	public static function get_textarea_data( $listing_id, $meta_key ) {
-		return strip_tags( carbon_get_post_meta( $listing_id, $meta_key ) );
+		return wp_strip_all_tags( carbon_get_post_meta( $listing_id, $meta_key ) );
+	}
+
+	/**
+	 * Get data belonging to a boolean field.
+	 *
+	 * @param string $listing_id id of the listing.
+	 * @param string $meta_key meta key.
+	 * @return string
+	 */
+	public static function get_boolean_data( $listing_id, $meta_key ) {
+		return (bool) carbon_get_post_meta( $listing_id, $meta_key );
+	}
+
+	/**
+	 * Get data belonging to a dropdown field.
+	 *
+	 * @param string             $listing_id id of the listing.
+	 * @param string             $meta_key meta key.
+	 * @param \PNO\Field\Listing $field field.
+	 * @return string
+	 */
+	public static function get_dropdown_value( $listing_id, $meta_key, $field ) {
+
+		$value = carbon_get_post_meta( $listing_id, $meta_key );
+		$data  = pno_display_field_select_value( $value, [ 'options' => $field->get_options() ] );
+
+		return $data;
+
+	}
+
+	/**
+	 * Get data belonging to a dropdown field.
+	 *
+	 * @param string             $listing_id id of the listing.
+	 * @param string             $meta_key meta key.
+	 * @param \PNO\Field\Listing $field field.
+	 * @return string
+	 */
+	public static function get_multidropdown_value( $listing_id, $meta_key, $field ) {
+
+		$value = carbon_get_post_meta( $listing_id, $meta_key );
+		$data  = pno_display_field_multicheckbox_value( $value, [ 'options' => $field->get_options() ] );
+
+		return $data;
+
 	}
 
 	/**

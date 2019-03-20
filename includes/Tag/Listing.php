@@ -111,9 +111,6 @@ class Listing {
 			}
 		);
 
-		print_r( $data );
-		exit;
-
 		return wp_json_encode( $data );
 
 	}
@@ -141,12 +138,22 @@ class Listing {
 
 		$global_schemas = $this->get_global_schemas();
 
-		print_r( $global_schemas );
+		foreach ( $global_schemas as $schema ) {
+			$code = isset( $schema['code'] ) ? $schema['code'] : false;
+			if ( $code ) {
+				echo $this->code( $code ); //phpcs:ignore
+			}
+		}
+	}
 
-		$parsed_schemas = [];
-
-		$listing_id = get_queried_object_id();
-
+	/**
+	 * Output the json-ld code.
+	 *
+	 * @param string $code the code to print.
+	 * @return string
+	 */
+	private function code( $code ) {
+		return '<script type="application/ld+json">' . wp_json_encode( json_decode( stripslashes( $code ), true ), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . '</script>';
 	}
 
 }

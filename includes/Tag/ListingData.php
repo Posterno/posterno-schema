@@ -76,7 +76,16 @@ class ListingData {
 
 		}
 
-		$data = wp_strip_all_tags( $data );
+		if ( is_array( $data ) ) {
+			array_walk_recursive(
+				$data,
+				function( &$value ) {
+					$value = wp_strip_all_tags( $value );
+				}
+			);
+		} else {
+			$data = wp_strip_all_tags( $data );
+		}
 
 		/**
 		 * Filter: allows customization of schema properties values.

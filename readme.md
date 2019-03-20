@@ -10,6 +10,10 @@ This is a development repository for the schema component and requires no instal
 
 For development purposes you can clone this repository within the same folder where the main "posterno" plugin folder is located so that composer can properly load it.
 
+## Building the component
+
+When building vue assets for production
+
 ## Documentation
 
 * [Posterno Documentation](https://docs.posterno.com)

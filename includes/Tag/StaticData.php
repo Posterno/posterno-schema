@@ -33,7 +33,7 @@ class StaticData {
 
 		switch ( $meta_key ) {
 			case 'listing_url':
-				$data = get_permalink( $object_id );
+				$data = esc_url( get_permalink( $object_id ) );
 				break;
 			case 'listing_author_name':
 				$listing_author = pno_get_listing_author( $object_id );
@@ -62,11 +62,11 @@ class StaticData {
 				$data = get_bloginfo( 'name' );
 				break;
 			case 'site_url':
-				$data = home_url();
+				$data = esc_url( home_url() );
 				break;
 		}
 
-		return $data;
+		return wp_strip_all_tags( $data );
 
 	}
 
@@ -91,7 +91,7 @@ class StaticData {
 				$data = isset( $coordinates['lat'] ) ? floatval( $coordinates['lat'] ) : false;
 				break;
 			case 'listing_street_address':
-				$data = get_post_meta( $object_id, '_listing_location_address', true );
+				$data = esc_html( get_post_meta( $object_id, '_listing_location_address', true ) );
 				break;
 		}
 

@@ -76,6 +76,8 @@ class ListingData {
 
 		}
 
+		$data = wp_strip_all_tags( $data );
+
 		/**
 		 * Filter: allows customization of schema properties values.
 		 *

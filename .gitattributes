@@ -18,6 +18,14 @@
 /.vscode export-ignore
 /generator export-ignore
 /generate.php export-ignore
+/public export-ignore
+/babel.config.js export-ignore
+/package.json export-ignore
+/readme.md export-ignore
+/vue.config.js export-ignore
+/yarn.lock export-ignore
+/src export-ignore
+/node_modules export-ignore
 
 
 * text eol=lf

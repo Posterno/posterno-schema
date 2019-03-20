@@ -144,7 +144,7 @@ function pno_get_schema_listings_fields() {
 			$custom_fields_ids[] = $field->get_post_id();
 		}
 		foreach ( $custom_fields_ids as $listing_field_id ) {
-			$custom_listing_field        = new \PNO\Field\Listing( $listing_field_id );
+			$custom_listing_field = new \PNO\Field\Listing( $listing_field_id );
 			if ( in_array( $custom_listing_field->get_type(), $excluded ) ) {
 				continue;
 			}
@@ -176,6 +176,21 @@ function pno_get_schema_listings_fields() {
 		'type' => 'location-data',
 		'name' => esc_html__( 'Listing street address' ),
 		'meta' => 'listing_street_address',
+	];
+	$fields['listing_geocoded_city']     = [
+		'type' => 'location-data',
+		'name' => esc_html__( 'Listing geocoded city' ),
+		'meta' => 'listing_geocoded_city',
+	];
+	$fields['listing_geocoded_region']   = [
+		'type' => 'location-data',
+		'name' => esc_html__( 'Listing geocoded region' ),
+		'meta' => 'listing_geocoded_region',
+	];
+	$fields['listing_geocoded_country']  = [
+		'type' => 'location-data',
+		'name' => esc_html__( 'Listing geocoded country' ),
+		'meta' => 'listing_geocoded_region',
 	];
 	$fields['listing_author_name']       = [
 		'type' => 'text',

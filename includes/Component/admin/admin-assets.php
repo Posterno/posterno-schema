@@ -29,11 +29,20 @@ function pno_schema_admin_assets() {
 
 	} else {
 
+		wp_register_script( 'pno-schema-js-vendors', PNO_SCHEMA_URL . '/dist/js/chunk-vendors.js', [], $version, true );
+		wp_register_script( 'pno-schema-js', PNO_SCHEMA_URL . '/dist/js/listings-schema-editor.js', [ 'pno-schema-js-vendors' ], $version, true );
+
 	}
 
 	if ( $screen->id === 'listings_page_posterno-listings-schema' ) {
 		wp_enqueue_style( 'pno-editors-styling' );
 		wp_enqueue_style( 'pno-jsoneditor', PNO_PLUGIN_URL . 'assets/css/third-party/jsoneditor/jsoneditor.css', false, $version );
+
+		if ( ! defined( 'PNO_VUE_DEV' ) ) {
+			wp_enqueue_style( 'pno-schema-editor-vendors', PNO_SCHEMA_URL . '/dist/css/chunk-vendors.css', false, $version );
+			wp_enqueue_style( 'pno-schema-editor', PNO_SCHEMA_URL . '/dist/css/listings-schema-editor.css', false, $version );
+		}
+
 		wp_enqueue_script( 'pno-schema-js' );
 		wp_localize_script( 'pno-schema-js', 'pno_schema_editor', pno_get_schema_editor_js_vars() );
 	}

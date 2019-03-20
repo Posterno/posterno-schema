@@ -26,6 +26,8 @@
 /yarn.lock export-ignore
 /src export-ignore
 /node_modules export-ignore
+/includes/dist/favicon.ico export-ignore
+/includes/dist/index.html export-ignore
 
 
 * text eol=lf

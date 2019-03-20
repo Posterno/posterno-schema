@@ -128,6 +128,16 @@ function pno_get_schema_listings_fields() {
 
 	$listing_fields = new \PNO\Database\Queries\Listing_Fields( [ 'number' => 999 ] );
 
+	$excluded = [
+		'social-profiles',
+		'listing-category',
+		'listing-tags',
+		'term-select',
+		'term-multiselect',
+		'term-checklist',
+		'term-chain-dropdown',
+	];
+
 	if ( ! empty( $listing_fields->items ) && is_array( $listing_fields->items ) ) {
 		$custom_fields_ids = [];
 		foreach ( $listing_fields->items as $field ) {
@@ -135,6 +145,9 @@ function pno_get_schema_listings_fields() {
 		}
 		foreach ( $custom_fields_ids as $listing_field_id ) {
 			$custom_listing_field        = new \PNO\Field\Listing( $listing_field_id );
+			if ( in_array( $custom_listing_field->get_type(), $excluded ) ) {
+				continue;
+			}
 			$fields[ $listing_field_id ] = [
 				'type' => $custom_listing_field->get_type(),
 				'name' => $custom_listing_field->get_name(),

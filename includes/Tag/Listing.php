@@ -92,6 +92,68 @@ class Listing {
 	}
 
 	/**
+	 * Get all the schemas specific to the type assigned to the listing.
+	 *
+	 * @return array
+	 */
+	private function get_type_specific_schemas() {
+
+		$schemas = [];
+
+		$type = pno_get_listing_type( get_queried_object_id() );
+
+		if ( ! isset( $type->term_id ) ) {
+			return;
+		}
+
+		$args = [
+			'post_type'              => 'pno_schema',
+			'posts_per_page'         => 100,
+			'nopaging'               => true,
+			'no_found_rows'          => true,
+			'update_post_term_cache' => false,
+			'post_status'            => 'publish',
+			'suppress_filters'       => true,
+			'fields'                 => 'ids',
+			'meta_query'             => array(
+				array(
+					'key'   => 'schema_mode',
+					'value' => 'type',
+				),
+				array(
+					'key'     => 'schema_listing_types',
+					'value'   => $type->term_id,
+					'compare' => 'LIKE',
+				),
+			),
+		];
+
+		$query = new WP_Query( $args );
+
+		if ( $query->have_posts() ) {
+
+			while ( $query->have_posts() ) {
+
+				$query->the_post();
+
+				$post_id = get_the_id();
+				$code    = get_post_meta( $post_id, 'schema_code', true );
+				$code    = $this->parse_json( $code );
+
+				if ( $post_id && $code ) {
+					$schemas[] = [
+						'schema_post_id' => $post_id,
+						'code'           => $code,
+					];
+				}
+			}
+		}
+
+		return $schemas;
+
+	}
+
+	/**
 	 * Parse retrieved json and retrieve listing data to attach.
 	 *
 	 * @param string $json json string stored into a schema.
@@ -99,8 +161,9 @@ class Listing {
 	 */
 	private function parse_json( $json ) {
 
+		$data = json_decode( stripslashes( $json ), true );
+
 		$listing_id = get_queried_object_id();
-		$data       = json_decode( stripslashes( $json ), true );
 
 		array_walk_recursive(
 			$data,
@@ -136,9 +199,11 @@ class Listing {
 			return;
 		}
 
-		$global_schemas = $this->get_global_schemas();
+		$global_schemas        = $this->get_global_schemas();
+		$type_specific_schemas = $this->get_type_specific_schemas();
+		$schemas               = array_merge( $global_schemas, $type_specific_schemas );
 
-		foreach ( $global_schemas as $schema ) {
+		foreach ( $schemas as $schema ) {
 			$code = isset( $schema['code'] ) ? $schema['code'] : false;
 			if ( $code ) {
 				echo $this->code( $code ); //phpcs:ignore

@@ -38,10 +38,11 @@
 						<wp-tab-item :label="labels.schema_edit.json_tab">
 
 							<wp-notice class="prop-message" type="success" v-if="propertiesUpdated" @on-close="propertiesUpdated = false" dismissible><span v-html="labels.schema_edit.properties_updated"></span></wp-notice>
+							<wp-notice class="prop-message" type="success" v-if="structureUpdated" @on-close="structureUpdated = false" dismissible><span v-html="labels.schema_edit.structure_updated"></span></wp-notice>
 
-							<wp-metabox :title="labels.schema_edit.structure">
-								<br/>
+							<wp-metabox :title="labels.schema_edit.structure" class="structure">
 								<wp-button @click="setPropertiesFromStructure()">{{labels.schema_edit.update}}</wp-button>
+								<wp-button class="import-btn" @click="importUpdatedProperties()">{{labels.schema_edit.import}}</wp-button>
 								<br/><br/>
 								<jsoneditor v-if="canPerformAction() || saving" ref="editor_json" :json="schema.json" :options="structureOptions" />
 							</wp-metabox>
@@ -209,6 +210,7 @@ export default {
 			canDelete: true,
 			deleting: false,
 			propertiesUpdated: false,
+			structureUpdated: false,
 
 		}
 	},
@@ -431,6 +433,22 @@ export default {
 		},
 
 		/**
+		 * Take the json structure from the properties editor and update the one into the structure editor.
+		*/
+		importUpdatedProperties() {
+
+			this.structureUpdated = false
+
+			const structureEditor = this.$refs.editor_json.editor
+			const propertiesEditor = this.$refs.editor.editor
+
+			structureEditor.set( propertiesEditor.get() )
+
+			this.structureUpdated = true
+
+		},
+
+		/**
 		 * Sync properties changed within the structure json editor.
 		*/
 		syncJsonChange (newVal) {
@@ -505,5 +523,15 @@ export default {
 	.prop-message {
 		margin-top: 20px;
 	}
+
+	.structure {
+		.button {
+			margin-top: 5px;
+		}
+		.import-btn {
+			float:right;
+		}
+	}
+
 }
 </style>

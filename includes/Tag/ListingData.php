@@ -77,7 +77,7 @@ class ListingData {
 		 * @param string             $listing_id the id of the listing currently being analyzed.
 		 * @return mixed
 		 */
-		return apply_filter( 'pno_listing_schema_property_data', $data, $meta_key, $query, $listing_id );
+		return apply_filters( 'pno_listing_schema_property_data', $data, $meta_key, $query, $listing_id );
 
 	}
 

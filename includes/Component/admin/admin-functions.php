@@ -80,7 +80,7 @@ function pno_get_schema_example_json( $schema ) {
 
 	$json = false;
 
-	$directory = trailingslashit( PNO_SCHEMA_URL ) . 'examples/';
+	$directory = trailingslashit( PNO_PLUGIN_URL . 'includes/components/posterno-schema/includes/examples/' );
 
 	$url = $directory;
 

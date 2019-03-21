@@ -1,5 +1,5 @@
 {
-	"name": "posterno/schema",
+	"name": "posterno/posterno-schema",
 	"description": "Pressmodo Scaffold",
 	"type": "wordpress-plugin",
 	"keywords": [

@@ -60,11 +60,7 @@ class SchemaComponent {
 	public function setup_constants() {
 
 		if ( ! defined( 'PNO_SCHEMA_DIR' ) ) {
-			define( 'PNO_SCHEMA_DIR', __DIR__ );
-		}
-
-		if ( ! defined( 'PNO_SCHEMA_URL' ) ) {
-			define( 'PNO_SCHEMA_URL', plugin_dir_url( __DIR__ ) );
+			define( 'PNO_SCHEMA_DIR', PNO_PLUGIN_DIR . 'includes/components/posterno-schema/includes/Component' );
 		}
 
 	}

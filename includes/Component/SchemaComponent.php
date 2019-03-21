@@ -67,6 +67,8 @@ class SchemaComponent {
 			define( 'PNO_SCHEMA_URL', plugin_dir_url( __DIR__ ) );
 		}
 
+		var_dump( PNO_SCHEMA_DIR );
+
 	}
 
 	/**

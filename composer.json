@@ -1,14 +1,14 @@
 {
 	"name": "posterno/posterno-schema",
-	"description": "Pressmodo Scaffold",
+	"description": "Posterno schema",
 	"type": "wordpress-plugin",
 	"keywords": [
 		"wordpress"
 	],
-	"homepage": "https://pressmodo.com",
+	"homepage": "https://posterno.com",
 	"authors": [{
-		"name": "Pressmodo",
-		"email": "hello@pressmodo.com"
+		"name": "Posterno",
+		"email": "hello@posterno.com"
 	}],
 	"require": {
 		"php": ">=5.6",

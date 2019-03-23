@@ -68,6 +68,7 @@ export default {
 <style lang="scss">
 .pno-jsoneditor {
 	margin: -6px -12px 0;
+    height: 600px;
 }
 .jsoneditor {
 	border:none !important;

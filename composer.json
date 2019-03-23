@@ -1,6 +1,6 @@
 {
 	"name": "posterno/posterno-schema",
-	"description": "Posterno schema",
+	"description": "Posterno component that provides integration for rich snippets ( structured data ) via json-ld.",
 	"type": "wordpress-plugin",
 	"keywords": [
 		"wordpress"

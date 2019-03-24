@@ -56,6 +56,9 @@ class StaticData {
 			case 'listing_lon':
 			case 'listing_lat':
 			case 'listing_street_address':
+			case 'listing_geocoded_country':
+			case 'listing_geocoded_city':
+			case 'listing_geocoded_region':
 				$data = self::get_listing_location_data( $object_id, $meta_key );
 				break;
 			case 'site_title':
@@ -81,6 +84,8 @@ class StaticData {
 
 		$coordinates = pno_get_listing_coordinates( $object_id );
 
+		$geocoded_data = get_post_meta( $object_id, 'geocoded_data', true );
+
 		$data = false;
 
 		switch ( $meta_key ) {
@@ -92,6 +97,15 @@ class StaticData {
 				break;
 			case 'listing_street_address':
 				$data = esc_html( get_post_meta( $object_id, '_listing_location_address', true ) );
+				break;
+			case 'listing_geocoded_city':
+				$data = ! empty( $geocoded_data ) && is_array( $geocoded_data ) && isset( $geocoded_data['city'] ) ? esc_html( $geocoded_data['city'] ) : false;
+				break;
+			case 'listing_geocoded_region':
+				$data = ! empty( $geocoded_data ) && is_array( $geocoded_data ) && isset( $geocoded_data['state_long'] ) ? esc_html( $geocoded_data['state_long'] ) : false;
+				break;
+			case 'listing_geocoded_country':
+				$data = ! empty( $geocoded_data ) && is_array( $geocoded_data ) && isset( $geocoded_data['country_long'] ) ? esc_html( $geocoded_data['country_long'] ) : false;
 				break;
 		}
 

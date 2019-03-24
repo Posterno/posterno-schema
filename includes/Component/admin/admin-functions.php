@@ -190,7 +190,7 @@ function pno_get_schema_listings_fields() {
 	$fields['listing_geocoded_country']  = [
 		'type' => 'location-data',
 		'name' => esc_html__( 'Listing geocoded country', 'posterno' ),
-		'meta' => 'listing_geocoded_region',
+		'meta' => 'listing_geocoded_country',
 	];
 	$fields['listing_author_name']       = [
 		'type' => 'text',

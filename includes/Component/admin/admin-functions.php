@@ -140,18 +140,14 @@ function pno_get_schema_listings_fields() {
 
 	if ( ! empty( $listing_fields->items ) && is_array( $listing_fields->items ) ) {
 		$custom_fields_ids = [];
-		foreach ( $listing_fields->items as $field ) {
-			$custom_fields_ids[] = $field->get_post_id();
-		}
-		foreach ( $custom_fields_ids as $listing_field_id ) {
-			$custom_listing_field = new \PNO\Field\Listing( $listing_field_id );
-			if ( in_array( $custom_listing_field->get_type(), $excluded ) ) {
+		foreach ( $custom_fields_ids as $listing_field ) {
+			if ( in_array( $listing_field->getType(), $excluded ) ) {
 				continue;
 			}
-			$fields[ $listing_field_id ] = [
-				'type' => $custom_listing_field->get_type(),
-				'name' => $custom_listing_field->get_name(),
-				'meta' => $custom_listing_field->get_object_meta_key(),
+			$fields[ $listing_field ] = [
+				'type' => $listing_field->getType(),
+				'name' => $listing_field->getTitle(),
+				'meta' => $listing_field->getObjectMetaKey(),
 			];
 		}
 	}

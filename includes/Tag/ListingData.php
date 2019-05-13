@@ -33,9 +33,9 @@ class ListingData {
 		$field    = new \PNO\Database\Queries\Listing_Fields();
 		$query    = $field->get_item_by( 'listing_meta_key', $meta_key );
 
-		if ( $query instanceof \PNO\Field\Listing ) {
+		if ( $query instanceof \PNO\Entities\Field\Listing ) {
 
-			switch ( $query->get_type() ) {
+			switch ( $query->getType() ) {
 				case 'text':
 				case 'email':
 				case 'password':
@@ -92,7 +92,7 @@ class ListingData {
 		 *
 		 * @param mixed              $data originally found listing property value.
 		 * @param string             $meta_key the key of the field being looked up.
-		 * @param \PNO\Field\Listing $query optional listing field object that may be found.
+		 * @param \PNO\Entities\Field\Listing $query optional listing field object that may be found.
 		 * @param string             $listing_id the id of the listing currently being analyzed.
 		 * @return mixed
 		 */
@@ -160,7 +160,7 @@ class ListingData {
 	public static function get_dropdown_value( $listing_id, $meta_key, $field ) {
 
 		$value = carbon_get_post_meta( $listing_id, $meta_key );
-		$data  = pno_display_field_select_value( $value, [ 'options' => $field->get_options() ] );
+		$data  = pno_display_field_select_value( $value, [ 'options' => $field->getOptions() ] );
 
 		return $data;
 
@@ -177,7 +177,7 @@ class ListingData {
 	public static function get_multidropdown_value( $listing_id, $meta_key, $field ) {
 
 		$value = carbon_get_post_meta( $listing_id, $meta_key );
-		$data  = pno_display_field_multicheckbox_value( $value, [ 'options' => $field->get_options() ] );
+		$data  = pno_display_field_multicheckbox_value( $value, [ 'options' => $field->getOptions() ] );
 
 		return $data;
 

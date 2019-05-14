@@ -220,7 +220,7 @@ class Listing {
 	 * @return string
 	 */
 	private function code( $code ) {
-		return '<script type="application/ld+json">' . wp_json_encode( json_decode( stripslashes( $code ), true ), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . '</script>';
+		return '<script type="application/ld+json">' . wp_strip_all_tags( wp_json_encode( json_decode( stripslashes( $code ), true ), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) ) . '</script>';
 	}
 
 }

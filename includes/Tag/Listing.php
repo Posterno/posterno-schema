@@ -199,14 +199,16 @@ class Listing {
 			return;
 		}
 
-		$global_schemas        = $this->get_global_schemas();
-		$type_specific_schemas = $this->get_type_specific_schemas();
+		$global_schemas        = $this->get_global_schemas() ? $this->get_global_schemas() : [];
+		$type_specific_schemas = $this->get_type_specific_schemas() ? $this->get_type_specific_schemas() : [];
 		$schemas               = array_merge( $global_schemas, $type_specific_schemas );
 
-		foreach ( $schemas as $schema ) {
-			$code = isset( $schema['code'] ) ? $schema['code'] : false;
-			if ( $code ) {
-				echo $this->code( $code ); //phpcs:ignore
+		if ( ! empty( $schemas ) ) {
+			foreach ( $schemas as $schema ) {
+				$code = isset( $schema['code'] ) ? $schema['code'] : false;
+				if ( $code ) {
+					echo $this->code( $code ); //phpcs:ignore
+				}
 			}
 		}
 	}

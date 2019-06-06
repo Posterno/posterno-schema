@@ -57,25 +57,34 @@
 
 						<form action="#">
 
-							<fieldset class="container-holder carbon-grid carbon-fields-collection">
-								<div class="carbon-container carbon-container-post_meta">
+							<fieldset class="cf-container">
+								<div class="cf-container__fields">
 
-									<div class="carbon-field carbon-radio first-row">
-										<label>{{labels.settings.where.label}}</label>
-										<div class="field-holder">
-											<div class="carbon-field-group-holder">
-												<label><input name="schema_position" v-model="schema.mode" type="radio" value="global" :disabled="! canPerformAction()" >{{labels.settings.where.global}}</label>
-												<label><input name="schema_position" v-model="schema.mode" type="radio" value="type" :disabled="! canPerformAction()" >{{labels.settings.where.type}}</label>
-											</div>
+									<div class="cf-field cf-radio">
+										<div class="cf-field__head">
+											<label class="cf-field__label">{{labels.settings.where.label}}</label>
+										</div>
+
+										<div class="cf-field__body">
+											<ul class="cf-radio__list">
+												<li class="cf-radio__list-item">
+													<input name="schema_position" id="global" v-model="schema.mode" type="radio" value="global" class="cf-radio__input" :disabled="! canPerformAction()" >
+													<label class="cf-radio__label" for="global">{{labels.settings.where.global}}</label>
+												</li>
+												<li class="cf-radio__list-item">
+													<input name="schema_position" id="type" v-model="schema.mode" type="radio" value="type" class="cf-radio__input" :disabled="! canPerformAction()" >
+													<label class="cf-radio__label" for="type">{{labels.settings.where.type}}</label>
+												</li>
+											</ul>
 										</div>
 									</div>
 
-									<div class="carbon-field carbon-select" v-if="isListingTypeRequired()">
-										<label>{{labels.settings.listing_types.label}}</label>
-										<div class="field-holder">
-											<div class="carbon-field-group-holder">
-												<Select2 v-model="schema.listing_types" :options="availableListingTypes" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.settings.listing_types.label, multiple: true }"/>
-											</div>
+									<div class="cf-field cf-select" v-if="isListingTypeRequired()">
+										<div class="cf-field__head">
+											<label class="cf-field__label">{{labels.settings.listing_types.label}}</label>
+										</div>
+										<div class="cf-field__body">
+											<Select2 class="cf-select__input" v-model="schema.listing_types" :options="availableListingTypes" :disabled="! canPerformAction()" :settings="{ width: '100%', placeholder: labels.settings.listing_types.label, multiple: true }"/>
 										</div>
 									</div>
 
@@ -469,4 +478,14 @@ export default {
 	}
 
 }
+
+.cf-container .cf-field {
+	border:0;
+	&.cf-radio,
+	&.cf-select {
+		border: 0;
+		padding: 10px 0 20px;
+	}
+}
+
 </style>

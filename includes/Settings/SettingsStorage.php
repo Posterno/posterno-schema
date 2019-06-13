@@ -25,9 +25,10 @@ class SettingsStorage {
 	 * @param string $title the title assigned to the schema.
 	 * @param array  $listing_types optional listing types selected if the mode allows for it.
 	 * @param array  $properties list of schema properties mapped to fields.
+	 * @param string $status set a status to the post object.
 	 * @return string
 	 */
-	public static function save( $schema_id, $mode, $title, $listing_types, $properties ) {
+	public static function save( $schema_id, $mode, $title, $listing_types, $properties, $status = false ) {
 
 		$post_id = false;
 
@@ -36,6 +37,10 @@ class SettingsStorage {
 			'post_title' => $title,
 			'post_type'  => 'pno_schema',
 		);
+
+		if ( $status ) {
+			$schema_to_update['post_status'] = $status;
+		}
 
 		$post_id = wp_update_post( $schema_to_update );
 

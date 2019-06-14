@@ -52,7 +52,11 @@ function pno_get_schema_editor_js_vars() {
 		'saveListingSchemaNonce' => wp_create_nonce( 'pno_save_listing_schema' ),
 		'deleteSchemaNonce'      => wp_create_nonce( 'pno_delete_schema' ),
 		'listing_types'          => pno_get_listings_types_for_association(),
+		'import_url'             => admin_url( 'edit.php?post_type=listings&page=schema_importer' ),
+		'export_url'             => admin_url( 'edit.php?post_type=listings&page=schemas_exporter' ),
 		'labels'                 => [
+			'import'         => esc_html__( 'Import' ),
+			'export'         => esc_html__( 'Export' ),
 			'documentation'  => esc_html__( 'Documentation', 'posterno' ),
 			'add'            => esc_html__( 'Add new schema', 'posterno' ),
 			'back'           => esc_html__( 'Schema list', 'posterno' ),

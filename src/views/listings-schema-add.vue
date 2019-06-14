@@ -119,6 +119,14 @@ export default {
 			labels: pno_schema_editor.labels,
 			adminLinks: [
 				{
+					title: pno_schema_editor.labels.import,
+					url: pno_schema_editor.import_url
+				},
+				{
+					title: pno_schema_editor.labels.export,
+					url: pno_schema_editor.export_url
+				},
+				{
 					title: pno_schema_editor.labels.documentation,
 					url: 'https://docs.posterno.com/'
 				}

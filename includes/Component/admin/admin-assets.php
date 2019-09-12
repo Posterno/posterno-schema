@@ -29,8 +29,8 @@ function pno_schema_admin_assets() {
 
 	} else {
 
-		wp_register_script( 'pno-schema-js-vendors', PNO_PLUGIN_URL . 'includes/components/posterno-schema/includes/dist/js/chunk-vendors.js', [], $version, true );
-		wp_register_script( 'pno-schema-js', PNO_PLUGIN_URL . 'includes/components/posterno-schema/includes/dist/js/listings-schema-editor.js', [ 'pno-schema-js-vendors' ], $version, true );
+		wp_register_script( 'pno-schema-js-vendors', PNO_PLUGIN_URL . 'vendor/posterno/posterno-schema/includes/dist/js/chunk-vendors.js', [], $version, true );
+		wp_register_script( 'pno-schema-js', PNO_PLUGIN_URL . 'vendor/posterno/posterno-schema/includes/dist/js/listings-schema-editor.js', [ 'pno-schema-js-vendors' ], $version, true );
 
 	}
 
@@ -39,8 +39,8 @@ function pno_schema_admin_assets() {
 		wp_enqueue_style( 'pno-jsoneditor', PNO_PLUGIN_URL . 'assets/css/third-party/jsoneditor/jsoneditor.css', false, $version );
 
 		if ( ! defined( 'PNO_VUE_DEV' ) ) {
-			wp_enqueue_style( 'pno-schema-editor-vendors', PNO_PLUGIN_URL . 'includes/components/posterno-schema/includes/dist/css/chunk-vendors.css', false, $version );
-			wp_enqueue_style( 'pno-schema-editor', PNO_PLUGIN_URL . 'includes/components/posterno-schema/includes/dist/css/listings-schema-editor.css', false, $version );
+			wp_enqueue_style( 'pno-schema-editor-vendors', PNO_PLUGIN_URL . 'vendor/posterno/posterno-schema/includes/dist/css/chunk-vendors.css', false, $version );
+			wp_enqueue_style( 'pno-schema-editor', PNO_PLUGIN_URL . 'vendor/posterno/posterno-schema/includes/dist/css/listings-schema-editor.css', false, $version );
 		}
 
 		wp_enqueue_script( 'pno-schema-js' );

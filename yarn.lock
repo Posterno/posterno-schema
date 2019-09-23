@@ -1224,17 +1224,7 @@ ajv-keywords@^3.1.0, ajv-keywords@^3.4.1:
   resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-3.4.1.tgz#ef916e271c64ac12171fd8384eaae6b2345854da"
   integrity sha512-RO1ibKvd27e6FEShVFfPALuHI3WjSVNeK5FIsmme/LYRNxjKuNj+Dt7bucLa6NdSv3JcVTyMlm9kGR84z1XpaQ==
 
-ajv@5.5.2, ajv@^5.2.3, ajv@^5.3.0:
-  version "5.5.2"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-5.5.2.tgz#73b5eeca3fab653e3d3f9422b341ad42205dc965"
-  integrity sha1-c7Xuyj+rZT49P5Qis0GtQiBdyWU=
-  dependencies:
-    co "^4.6.0"
-    fast-deep-equal "^1.0.0"
-    fast-json-stable-stringify "^2.0.0"
-    json-schema-traverse "^0.3.0"
-
-ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.5.5:
+ajv@6.10.2, ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.5.5:
   version "6.10.2"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.10.2.tgz#d3cea04d6b017b2894ad69040fec8b623eb4bd52"
   integrity sha512-TXtUUEYHuaTEbLZWIKUr5pmBuhDLy+8KYtPYdcV8qC+pOZL+NKqYwvWSRrVXHn+ZmRRAu8vJTAznH7Oag6RVRw==
@@ -1243,6 +1233,16 @@ ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.5.5:
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
+
+ajv@^5.2.3, ajv@^5.3.0:
+  version "5.5.2"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-5.5.2.tgz#73b5eeca3fab653e3d3f9422b341ad42205dc965"
+  integrity sha1-c7Xuyj+rZT49P5Qis0GtQiBdyWU=
+  dependencies:
+    co "^4.6.0"
+    fast-deep-equal "^1.0.0"
+    fast-json-stable-stringify "^2.0.0"
+    json-schema-traverse "^0.3.0"
 
 ajv@^6.9.1:
   version "6.10.0"
@@ -2940,11 +2940,6 @@ dotenv@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-7.0.0.tgz#a2be3cd52736673206e8a85fb5210eea29628e7c"
   integrity sha512-M3NhsLbV1i6HuGzBUH8vXrtxOk+tWmzWKDMbAVSUp3Zsjm7ywFeuwrUXhmhQyRK1q5B5GGy7hcXPbj3bnfZg2g==
-
-drag-tracker@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/drag-tracker/-/drag-tracker-1.0.0.tgz#9bd33d380bc3056db69bd5b3cf6e062fec58bd64"
-  integrity sha1-m9M9OAvDBW22m9Wzz24GL+xYvWQ=
 
 duplexer@^0.1.1:
   version "0.1.1"
@@ -4874,10 +4869,10 @@ json-schema@0.2.3:
   resolved "https://registry.yarnpkg.com/json-schema/-/json-schema-0.2.3.tgz#b480c892e59a2f05954ce727bd3f2a4e882f9e13"
   integrity sha1-tIDIkuWaLwWVTOcnvT8qTogvnhM=
 
-json-source-map@0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/json-source-map/-/json-source-map-0.4.0.tgz#eea837fe3ce2f2bfd5b13687779406354423c355"
-  integrity sha1-7qg3/jzi8r/VsTaHd5QGNUQjw1U=
+json-source-map@0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/json-source-map/-/json-source-map-0.6.1.tgz#e0b1f6f4ce13a9ad57e2ae165a24d06e62c79a0f"
+  integrity sha512-1QoztHPsMQqhDq0hlXY5ZqcEdUzxQEIxgFkKl4WUp2pgShObl+9ovi4kRh2TfvAfxAoHOJ9vIMEqk3k4iex7tg==
 
 json-stable-stringify-without-jsonify@^1.0.1:
   version "1.0.1"
@@ -4913,19 +4908,19 @@ json5@^2.1.0:
   dependencies:
     minimist "^1.2.0"
 
-jsoneditor@^5.31.1:
-  version "5.34.0"
-  resolved "https://registry.yarnpkg.com/jsoneditor/-/jsoneditor-5.34.0.tgz#f496c6b4adc26fc4bd67665b355b2981539dc3ed"
-  integrity sha512-/F7L6oXuRkv2/FKFIL4NMWF0P+oVvSWLJPVEVP/7KGehBj6dtOp5FKdfLcNkIgbqzklXx/NDzHSXYlf64wqmuQ==
+jsoneditor@^7.0.4:
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/jsoneditor/-/jsoneditor-7.0.4.tgz#9155e0239c8122d1532f55b5abf6c7632065a161"
+  integrity sha512-yh/LIJu4j+71SAzE+lVsUhL+KS9o8TwomAWQfUPclJESBMp1Aoks9KQBcuOX6bQ6n2Nr3rEsazMnCrmZhMgBeQ==
   dependencies:
-    ajv "5.5.2"
+    ajv "6.10.2"
     brace "0.11.1"
     javascript-natural-sort "0.7.1"
     jmespath "0.15.0"
-    json-source-map "0.4.0"
-    mobius1-selectr "2.4.10"
+    json-source-map "0.6.1"
+    mobius1-selectr "2.4.13"
     picomodal "3.0.0"
-    vanilla-picker "2.8.0"
+    vanilla-picker "2.9.2"
 
 jsonfile@^4.0.0:
   version "4.0.0"
@@ -5452,10 +5447,10 @@ mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdi
   dependencies:
     minimist "0.0.8"
 
-mobius1-selectr@2.4.10:
-  version "2.4.10"
-  resolved "https://registry.yarnpkg.com/mobius1-selectr/-/mobius1-selectr-2.4.10.tgz#98f29116e9461b7be19b8f380dabd7dc1253a861"
-  integrity sha512-U/pQ8jZwO7z3Mf9OYzJR6AKfleF5jSBIueKKxGMr/tgyLuTWgchgFyeaXpAIz3Cbp+7eIN1hw5D2gxc4cNnOkQ==
+mobius1-selectr@2.4.13:
+  version "2.4.13"
+  resolved "https://registry.yarnpkg.com/mobius1-selectr/-/mobius1-selectr-2.4.13.tgz#0019dfd9f984840d6e40f70683ab3ec78ce3b5df"
+  integrity sha512-Mk9qDrvU44UUL0EBhbAA1phfQZ7aMZPjwtL7wkpiBzGh8dETGqfsh50mWoX9EkjDlkONlErWXArHCKfoxVg0Bw==
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -8433,13 +8428,12 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-vanilla-picker@2.8.0:
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/vanilla-picker/-/vanilla-picker-2.8.0.tgz#e01121c38e2af6827224311f70cf5a023235d0e9"
-  integrity sha512-NPBxrtLi2LA2mEyRLW+Lyt7Eqtm0t0SmKqscE5RaugXLtJXXjPzy6r65fqLiQkhRc2WoLnmj2m/EnTWKN4hL+g==
+vanilla-picker@2.9.2:
+  version "2.9.2"
+  resolved "https://registry.yarnpkg.com/vanilla-picker/-/vanilla-picker-2.9.2.tgz#d9a7213d2a5c6f6136374dceb9d3e27086854e0e"
+  integrity sha512-/VvbdCFno9jhOsqK8IVj7Jg6Cst5jeRdP9OWJo5H8R6s34mx/rTZFViucvUWyunbSML97C9SuIGZkRWEWjm3zg==
   dependencies:
     "@sphinxxxx/color-conversion" "^2.2.1"
-    drag-tracker "^1.0.0"
 
 vary@~1.1.2:
   version "1.1.2"

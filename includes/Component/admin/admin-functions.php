@@ -141,7 +141,7 @@ function pno_get_schema_listings_fields() {
 	if ( ! empty( $listing_fields->items ) && is_array( $listing_fields->items ) ) {
 		$custom_fields_ids = [];
 		foreach ( $custom_fields_ids as $listing_field ) {
-			if ( in_array( $listing_field->getType(), $excluded ) ) {
+			if ( in_array( $listing_field->getType(), $excluded, true ) ) {
 				continue;
 			}
 			$fields[ $listing_field ] = [
@@ -226,6 +226,12 @@ function pno_get_schema_listings_fields() {
 		'meta' => 'site_url',
 	];
 
-	return $fields;
+	/**
+	 * Filter: allow developers to register additional schema fields.
+	 *
+	 * @param array $fields the list of schema fields registered.
+	 * @return array
+	 */
+	return apply_filters( 'pno_schema_fields', $fields );
 
 }

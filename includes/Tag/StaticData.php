@@ -69,6 +69,17 @@ class StaticData {
 				break;
 		}
 
+		/**
+		 * Filter: allow developers to modify the data retrieved for a schema field value.
+		 *
+		 * @param string $data the data previously retrieved if any.
+		 * @param string $meta_key the key of the field.
+		 * @param string $object_id the id of the listing being loaded.
+		 *
+		 * @return string
+		 */
+		$data = apply_filters( 'pno_schema_field_get_data', $data, $meta_key, $object_id );
+
 		return wp_strip_all_tags( $data );
 
 	}

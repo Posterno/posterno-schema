@@ -10,7 +10,7 @@
   "dependencies": {
     "@alessandrotesoro/vuewp": "^1.0.2",
     "ajv": "^6.10.0",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "jsoneditor": "^7.0.4",
     "lodash": "^4.17.11",
     "qs": "^6.6.0",
